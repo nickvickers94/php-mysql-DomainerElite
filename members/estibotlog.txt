@@ -1,0 +1,519 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
+<head>
+	<title>EstiBot.com - howtodome.com</title>
+	
+    <meta name="description" content="Domain name appraisal for howtodome.com">
+    <meta name="keywords" content="domain appraisal howtodome.com, howto dome traffic rank, howto dome search popularity, howto dome search volume, howto dome cpc, howtodome.com alexa,howtodome.com overture, howtodome.com word tracker, howtodome.com availability, howtodome.com value">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	
+    <link rel="stylesheet" type="text/css" href="css/global-style.css?v=2" />  
+    <link rel="stylesheet" type="text/css" href="css/tabcontent.css" />  
+    <link rel="stylesheet" type="text/css" href="css/jqeasypanel.css" />          
+	
+	<script type="text/javascript" src="js/tabcontent.js"></script>
+	<script type="text/javascript" src="js/functions.js"></script>
+	<script type="text/javascript" src="js/cookies.js"></script>
+	<script type="text/javascript" src="js/dynamic.js"></script>
+	
+	<script type="text/javascript" src="js/crumbcake/crumbcake.js"></script>
+    
+	<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>    
+	<script type="text/javascript" src="js/jquery.jqEasyPanel.js"></script>         
+
+
+
+<style>
+.clearfix:after {
+   content: " "; /* Older browser do not support empty content */
+   visibility: hidden;
+   display: block;
+   height: 0;
+   clear: both;
+}
+</style>
+
+</head>
+<body >
+
+	<script type="text/javascript" src="js/wz_tooltip.js"></script>	
+	<script type="text/javascript" src="js/tip_balloon.js"></script>	
+    
+    
+	
+<div class="top_line">&nbsp;<hr class="top"></div>
+<div class="top_caption_login"><script language="javascript">generate_welcome_register();</script></div>
+<div class="top_caption_toolbox" id="top_caption_toolbox"><script language="javascript">generate_toolbar('howtodome.com');</script></div>
+
+<script language="javascript">
+
+</script>
+
+<div>
+<table class="width-800" align="center"><tr><td><div class="logo"><a href="http://www.estibot.com"><img src="img/logo/beta.gif" border="0" alt="EstiBot.com - Domain Name Appraisal"></a></div>
+<h4>Domain  Appraisal  - howtodome.com</h4>
+<div class="div-device-alerts" style="display: none"></div>
+<p>Your domain appraisal results are displayed below. You can instantly order a professional appraisal for this domain, check its availability and export this report to PDF by clicking on the appropriate button below. </p>
+
+
+<hr width="80%" align="left">
+
+<div class="appraise-btns">
+	<input type="button" name="btn_batch" value="Appraise Another" onClick="window.location='appraise.php'" style="height: 25px">
+	<input type="button" name="btn_availability" value="Check Live Availability" onClick="window.location='dns.php?a=available_check&type=registry&data=howtodome.com'"  style="height: 25px">
+	<input type="button" name="btn_whois" value="Check Whois" onClick="document.getElementById('format').value='html';document.getElementById('a').value='whois';document.getElementById('form_generic').action='whois.php';document.getElementById('form_generic').submit();"  style="height: 25px">
+	<input type="button" name="btn_escv" value="Generate Appraisal Certificate" onClick="window.location = 'https://www.estibot.com/certificate.php?domain=howtodome.com'" style="font-weight: bold; height: 25px;">
+	<input type="button" name="btn_refresh" id="btn_refresh" value="Refresh Appraisal" onClick="window.location = 'https://www.estibot.com/appraise.php?a=appraise&data=howtodome.com&nocache=1'" style="height: 25px; display: none">
+</div>
+
+<hr width="80%" align="left">
+
+<form action="" method="post" name="form_generic" id="form_generic">
+
+<table width="90%"  border="0" class="standard_table">
+  <tr>
+      <td colspan="3"><strong>Domain Details: </strong></td>
+    </tr>
+    <tr>
+      <td width="28%">&nbsp; Domain:</td>
+      <td width="72" colspan="2"><a href="http://www.howtodome.com" target="_blank">howtodome.com</a> </td>
+    </tr>
+    <tr>
+      <td>&nbsp; SLD:</td>
+      <td colspan="2">howtodome</td>
+    </tr>
+    <tr>
+      <td>&nbsp; Keywords:</td>
+      <td><div name="words" id="words">howto dome</div></td>
+      <td>&nbsp; &nbsp; [ <a href="#" class="change-words" rel="static">change</a> ] </td>
+    </tr>
+   
+<tr><td>&nbsp; Language:</td><td><div name="language" id="language">English</div></td><td>&nbsp;</td></tr>
+ <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp; Category: </td>
+      <td>Other -- Dictionary Word</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td colspan="3"><strong>Appraisal Overview:</strong></td>
+    </tr>
+    <tr>
+      <td valign="top">&nbsp; EstiBot Value: </td>
+      <td id="td_value"><strong>$ 0 USD </strong><font color="#999999"></font></td>
+	  <td id="td_currency_change">&nbsp; &nbsp; [ <a href="account.php?a=settings">currency</a> ]   </td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td colspan="2">&raquo; <a href="http://www.afternic.com/plander.php?rid=207302&name=howtodome.com" target="_blank">Help me BUY this domain </a></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td colspan="2">&raquo; <a href="leads.php?data=howtodome.com">Help me SELL this domain </a></td>
+    </tr>
+    <tr style="display: n3one">
+      <td>&nbsp;</td>
+      <td colspan="2"> &raquo; <a href="http://lend.me" target="_blank">Help me LOAN against this domain </a></td>
+    </tr>
+
+    
+	
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp; Link to this Appraisal: </td>
+      <td colspan="2"><input name="text_link" type="text" id="text_link" value="http://www.estibot.com/appraise.php?a=appraisal&k=e37663f67dde2a0f473f17086367eea2&domain=howtodome.com" size="50" onClick="this.focus();this.select();"></td>
+    </tr>
+	    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+</table>
+
+  <table width="90%"  border="0" class="standard_table">
+	<tr>
+      <td><strong> Other Extensions: </strong></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td colspan="2">
+	  &nbsp; 	<table width="500"  border="0">
+        <tr>
+          <td><div align="left"></div></td>
+          <td><div align="left"><strong>com</strong></div></td>
+          <td><div align="left"><strong>net</strong></div></td>
+          <td><div align="left"><strong>org</strong></div></td>
+          <td><div align="left"><strong>info</strong></div></td>
+          <td><div align="left"><strong>biz</strong></div></td>
+          <td><div align="left"><strong>us</strong></div></td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td><a href="http://ap.uniregistry.com/click?aid=966666YS&s=howtodome.com" target="_blank" style="color: green" title="Click here to register this domain at Uniregistry">available</a></td>
+          <td><a href="http://ap.uniregistry.com/click?aid=966666YS&s=howtodome.net" target="_blank" style="color: green" title="Click here to register this domain at Uniregistry">available</a></td>
+          <td><a href="http://ap.uniregistry.com/click?aid=966666YS&s=howtodome.org" target="_blank" style="color: green" title="Click here to register this domain at Uniregistry">available</a></td>
+          <td><a href="http://ap.uniregistry.com/click?aid=966666YS&s=howtodome.info" target="_blank" style="color: green" title="Click here to register this domain at Uniregistry">available</a></td>
+          <td><a href="http://ap.uniregistry.com/click?aid=966666YS&s=howtodome.biz" target="_blank" style="color: green" title="Click here to register this domain at Uniregistry">available</a></td>
+          <td><a href="http://ap.uniregistry.com/click?aid=966666YS&s=howtodome.us" target="_blank" style="color: green" title="Click here to register this domain at Uniregistry">available</a></td>
+        </tr>
+      </table>
+</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+      <tr><td><strong> Related Domains For Sale: </strong></td><td width="50">[<span style="color: #0066CC; text-decoration: underline; cursor: pointer" onMouseMove="explain_related_search()">?</span>] [<span style="color: #0066CC; text-decoration: underline; cursor: pointer" onClick="disable_related_search()">x</span>]</td></tr><tr><td><table width="100%" style="padding-left: 20px; padding-bottom: 10px; padding-top: 5px">
+							<tr><td><a href="http://www.afternic.com/AddToCart.do?selectedDomains=domesticbeverage.com&referrer_id=4662&traffic_id=4662" target="_blank">domesticbeverage.com</a><br>($2,420)</td> <td><a href="http://www.afternic.com/AddToCart.do?selectedDomains=domestictextiles.com&referrer_id=4662&traffic_id=4662" target="_blank">domestictextiles.com</a><br>($9,888)</td> <td><a href="http://www.afternic.com/AddToCart.do?selectedDomains=domesticbusiness.com&referrer_id=4662&traffic_id=4662" target="_blank">domesticbusiness.com</a><br>($688)</td> <td><a href="http://www.afternic.com/AddToCart.do?selectedDomains=domenu.net&referrer_id=4662&traffic_id=4662" target="_blank">domenu.net</a><br>($400)</td></tr></table></td></tr>   
+    </table>
+<table width="90%"  border="0" class="standard_table">
+	<tr>
+      <td><strong> Related Sales: </strong></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td colspan="2">&nbsp; 
+	  <table width="90%"  border="0" class="standard_table">
+        <tr>
+          <td width="24%"><strong>Domain</strong></td>
+          <td width="34%"><div align="right"><strong>Source</strong></div></td>
+          <td width="21%"><div align="right"><strong>Price</strong></div></td>
+          <td width="21%"><div align="right"><strong>Date</strong></div></td>
+        </tr>
+        <tr bgcolor="#F8F8F8"><td><a href="?a=appraise&data=blockwell.com" onMouseOver="get_whois('blockwell.com')" onMouseOut="clear_timer()">blockwell.com</a></td><td><div align="right">GoDaddy</div></td><td><div align="right">$193 USD</div></td><td><div align="right">2017-01-28</div></td></tr><tr bgcolor="#FFFFFF"><td><a href="?a=appraise&data=chinarack.com" onMouseOver="get_whois('chinarack.com')" onMouseOut="clear_timer()">chinarack.com</a></td><td><div align="right">DropCatch</div></td><td><div align="right">$149 USD</div></td><td><div align="right">2017-01-28</div></td></tr><tr bgcolor="#F8F8F8"><td><a href="?a=appraise&data=focaldata.com" onMouseOver="get_whois('focaldata.com')" onMouseOut="clear_timer()">focaldata.com</a></td><td><div align="right">GoDaddy</div></td><td><div align="right">$110 USD</div></td><td><div align="right">2017-01-28</div></td></tr><tr bgcolor="#FFFFFF"><td><a href="?a=appraise&data=wholekids.com" onMouseOver="get_whois('wholekids.com')" onMouseOut="clear_timer()">wholekids.com</a></td><td><div align="right">GoDaddy</div></td><td><div align="right">$187 USD</div></td><td><div align="right">2017-01-27</div></td></tr><tr bgcolor="#F8F8F8"><td><a href="?a=appraise&data=omegablue.com" onMouseOver="get_whois('omegablue.com')" onMouseOut="clear_timer()">omegablue.com</a></td><td><div align="right">NameJet</div></td><td><div align="right">$160 USD</div></td><td><div align="right">2017-01-27</div></td></tr><tr><td colspan="4"><div align="right" class="tiny">view <a href="sales.php?a=search&data=howtodome&type=flexible+domains" class="tiny">more</a> related sales</td></tr>
+      </table></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+</table>
+<table width="90%"  border="0" class="standard_table">
+    <tr>
+      <td colspan="2"><strong>Search Overview:</strong></td>
+    </tr>
+    <tr>
+      <td>&nbsp; Avg Search Results (keyword):</td>
+      <!-- <td><a href="http://www.google.com/search?hl=en&client=firefox-a&rls=org.mozilla%3Aen-US%3Aofficial&hs=Vj8&num=10&q=%22howto dome%22&aq=f&oq=&aqi=g10&adtest=on&gl=US" onMouseOver="get_serp('%22howto dome%22','search')" onMouseOut="clear_timer()" target="_blank">0</a></td> -->
+	  <td><a href="http://www.google.com/search?hl=en&client=firefox-a&rls=org.mozilla%3Aen-US%3Aofficial&hs=Vj8&num=10&q=%22howto dome%22&aq=f&oq=&aqi=g10&num=100" onMouseOver="get_serp('%22howto dome%22','search')" onMouseOut="clear_timer()" target="_blank">0</a></td>
+    </tr>
+    <tr>
+      <td>&nbsp; Avg Search Results (sld):</td>
+      <td><a href="http://www.google.com/search?hl=en&Aen-US%3Aofficial&hs=Vj8&num=10&q=%22howtodome%22&aq=f&oq=&aqi=g10&num=100" onMouseOver="get_serp('%22howtodome%22','search')" onMouseOut="clear_timer()" target="_blank">308</a></td>
+    </tr>
+    <tr>
+      <td>&nbsp; Avg Ad Count (keyword):</td>
+      <td><a href="http://www.google.com/search?hl=en&client=firefox-a&rls=org.mozilla%3Aen-US%3Aofficial&hs=Vj8&num=10&q=%22howto dome%22&aq=f&oq=&aqi=g10&num=100" onMouseOver="get_serp('%22howto dome%22','ads')" onMouseOut="clear_timer()"  target="_blank">0</a></td>
+    </tr>
+    <tr>
+      <td>&nbsp; Avg Ad Count (sld):</td>
+      <td><a href="http://www.google.com/search?hl=en&Aen-US%3Aofficial&hs=Vj8&num=10&q=%22howtodome%22&aq=f&oq=&aqi=g10&num=100" onMouseOver="get_serp('%22howtodome%22','ads')" onMouseOut="clear_timer()"  target="_blank">0</a></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td colspan="2"><strong>Traffic Rank: </strong></td>
+    </tr>
+    <tr>
+      <td>&nbsp; Alexa Traffic Rank: </td>
+      <td><a href="http://www.alexa.com/siteinfo/howtodome.com" onMouseOver="get_alexa('howtodome.com')" onMouseOut="clear_timer()" target="_blank">0</a></td>
+    </tr>
+    <tr>
+      <td>&nbsp; Google Page Rank: </td>
+      <td><div name="pagerank_div" id="pagerank_div"><a href="http://www.google.com/search?hl=en&client=firefox-a&rls=org.mozilla%3Aen-US%3Aofficial&hs=ubD&num=10&q=info%3Ahowtodome.com&aq=f&oq=&aqi=" target="_blank">-</a></div></td>
+    </tr>
+	 
+	    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td colspan="2"><strong>Type-in Score: </strong></td>
+    </tr>
+    <tr>
+      <td>&nbsp; Overture (domain):</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>&nbsp; Overture (sld):</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>&nbsp; Overture (keyword):</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+	    <tr>
+      <td width="29%">&nbsp; Word Tracker  (keyword):</td>
+      <td width="71%">-</td>
+	    </tr>
+		
+	    <tr>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+	      </tr>
+	    
+  </table>
+  <input name="a" type="hidden" id="a" value="download_serialized">
+  <input name="format" id="format" type="hidden" value="pdf">
+  <input name="data" id="data" type="hidden" value="howtodome.com">
+  <input name="active_session" id="active_session" type="hidden" value="">
+  <a name="keywords"></a>
+    
+  <div style="text-align: right; width: 95%; font-size: 11px; margin-bottom: 10px" class="div_show_keyword_type">Show 
+	
+	<select style="margin-right: 20px" id="select_keywords_type">
+		<option value="cached">Cached Data</option>
+		<option value="recent" selected>Recent Data</option>
+		<option value="both">Cached and Recent Data</option>
+	</select>
+	
+  </div>
+	
+  <table width="100%"  border="0" class="standard_table" id="table_keyword_results" style="display: none">
+    
+  </table>
+  
+  <table width="100%"  border="0" class="standard_table" id="table_keyword_results_ng">
+     
+  </table>
+  
+  <table width="100%"  border="0" class="standard_table" id="table_keyword_results_root_ng">
+     
+  </table>
+  
+  <div class="div_show_keyword_type" style="line-height: 20px; font-size: 10px; color: #525252; border: 1px solid #c0c0c0; border-radius: 5px; background-color: #fbfbfb; padding: 10px; margin-bottom: 25px;"><strong>What's the difference? </strong> &nbsp; The search in [brackets], known as exact search, indicates the number of searches per month for the exact term <i>'howto dome'</i>. The broad match indicates the number of monthly searches for any term containing <i>'howto dome'</i>, for example <i>'cheap howto dome'</i> or <i>'get howto dome now'</i>. We recommend using the exact search number as an indicator of search volume.</div>
+    
+<div name="site_details" id="site_details"><p>Site details loading...</p></div>
+
+<script language="javascript">
+
+function explain_related_search(){
+	Tip('<div><b>Your privacy is important to us, and that\s why...</b><br><br>1. All appraisal queries made on EstiBot are <b>100% private</b> and <b>never</b> made to any external sources (such as registry, registrar, marketplace, etc).<br><br>2. We generate and retain <b>local</b> databases of all data displayed on this page to ensure that your queries are not exposed to anyone (either directly or indirectly).<br><br>3. We <b>never share your information</b> with any third party and we take extreme steps to ensure that your information is safe and confidential.<br><br></div>', BALLOON, false, LEFT, false);
+
+}
+
+function disable_related_search(){
+
+	if(confirm("Are you sure you wish to permanently disable the 'Related Domains for Sale' feature?")){
+		query_url('account.php?a=disable_marketplace');
+	}
+
+}
+
+</script>
+
+<script language="javascript">
+
+get_site('howtodome.com', 'site_details');
+
+function change_words(sld, data){
+
+	var session = get_cookie("session");
+	var name = get_cookie("name");
+
+	if(session==null || session=='null' || session=='' || name==null || name=='' || name=='Guest'){
+	
+		alert("Please login before trying to change the parsed words");
+		return;
+		
+	}else{
+	
+		if(sld.indexOf('-') > -1){
+			alert("Domains with dashes cannot be manually parsed. The parsing is always based on the dash.");
+			return 0;
+		}else{	
+		
+	
+			var new_words = prompt('Please enter the correct parsed words for ' + sld);
+			
+			if(new_words != null && new_words.length > 0){
+			
+				var last_letter = 0;
+				var valid = true;
+				var i = 0;
+				
+				sld = sld.toLowerCase();
+				new_words = new_words.toLowerCase();
+				var unfixed = new_words.replace(/ /gi, '')
+								
+				if(unfixed != sld){
+					alert("The text you've entered does not match the letters in the keyword.\n\nCompare SLDs:\n\n" + unfixed + " (entered)\n" + sld + " (actual)");
+					return 0;
+				}else{				
+					document.getElementById('words').innerHTML = new_words;
+		
+					get_dynamic('dynamic.php?a=dynamic_change_keyword&sld=howtodome&data=' + new_words + '&original=' + data, null);
+					
+					alert("Change accepted.\n\nThis page will now be reloaded to reflect the latest changes.");
+					window.location = 'https://www.estibot.com/appraise.php?a=appraise&data=howtodome.com';			
+				}
+			}else{
+				return 0;
+			}
+			
+		}
+		
+	}
+	
+}
+
+$(function(){
+	
+	if('0' != '0' && '0' != '' && '0' != ''){
+		
+		//$('#td_value').html('<div style="width: 330px"><div style="margin-bottom: 10px"><strong>N/A - <span style="color: #ff0000; font-size: 12px; text-decoration: none; border-bottom: 1px dotted #ff0000; font-weight: normal">High Risk Trademark Domain</span></strong></div><div style="margin-bottom: 10px">Domain names which infringe on high risk trademarks are not appraised by EstiBot. </div></div>');
+		//$('#td_currency_change').html('');
+		
+	}
+			
+	$('#select_keywords_type').change(function(e, _ajax_save){
+		
+		if($(this).val() == 'cached'){
+			$('#table_keyword_results_ng').fadeOut('fast', function(){
+				$('#table_keyword_results').fadeIn();
+			});
+		}else if($(this).val() == 'recent'){
+			$('#table_keyword_results').fadeOut('fast', function(){
+				$('#table_keyword_results_ng').fadeIn();
+			});
+		}else{
+			$('#table_keyword_results').fadeIn();
+			$('#table_keyword_results_ng').fadeIn();
+		}
+		
+		if(_ajax_save == null || _ajax_save == true){
+			var stat = $(this).val();
+			
+			$.ajax({		
+				url: 'appraise.php?a=save_keyword_preference&preference=' + encodeURIComponent(stat),
+				cache: false,
+				success: function(_data){								
+				}			
+			})
+		}
+		
+	});
+		
+	if('recent' != ''){
+	
+		$('#select_keywords_type').val('recent');
+		$('#select_keywords_type').trigger('change', false);
+	}
+	
+	if($('#table_keyword_results').html().length < 10 && $('#table_keyword_results_ng').html().length < 10){
+		$('.div_show_keyword_type').hide();
+	}
+		
+});
+
+</script>
+
+<script>
+	$(function(){
+	
+		var type = 'iphone'
+	
+		$.ajax({		
+			url: 'phone-question.php?a=get_alert&type=' + encodeURIComponent(type),
+			cache: false,
+			success: function(_data){
+				if(_data.length > 0){
+					$('.div-device-alerts').html(_data);
+					$('.div-device-alerts').show();
+				}
+			}			
+		})
+		
+		if('0' == '1') $('#btn_refresh').show();
+		
+		$('.device-question').die('click').live('click', function(){
+		
+			$(this).parents('.device-alert:eq(0)').fadeOut('fast');
+			
+			var type = $(this).attr('device-type');
+			
+			$.ajax({		
+				url: 'phone-question.php?a=hide&type=' + encodeURIComponent(type),
+				cache: false,
+				success: function(_data){	
+					
+				}			
+			})
+			
+		});
+		
+		$('.change-words').click(function(e){
+			e.preventDefault();
+			change_words('howtodome', 'howtodome.com');
+		});
+		
+		 //automatically remove spaces from copy-pasted content and replace with nothing + add com
+		 $("#text_toolbar_domain").bind('paste', function(e) {
+            
+			var me = $(this);            
+			setTimeout(function(){ 
+				var content = me.val();             
+				
+				if(content.length > 0 && content.indexOf('.') == -1){
+				
+					if(content.indexOf(' ') > -1){
+						content = content.replace(/ /g, "");
+					}
+					content = content + '.com';
+					me.val(content);
+				}
+				
+			},100);
+
+        });
+
+		 $('.admin-explain-link').click(function(e){
+		 	$('.admin-explain-tr').toggle();
+		 });
+		
+	});
+</script>
+
+</form>
+<hr>
+<p class="tiny">
+  <font color="#999999"> The purpose of EstiBot is to provide keyword data and information about a domain. The dollar valuation is not to be taken literally - it may change, and it is only an aggregate of the various metrics.
+Do not make a purchase or sale decisions based on this appraisal. <br>
+<br>
+Currency conversion is performed based on daily updated currency values. May not reflect latest currency trends (if other than USD).<br><br>
+We are not associated with Google&#8482;, Yahoo&#8482;, MSN&#8482;, Altavista&#8482;, Overture&#8482;, Archive.org&#8482;, Word Tracker&#8482; or any other registrar, parking company or third party mentioned on this site. Data provided AS IS. Please use at your own risk. </font>
+
+<br>
+<div class="tiny" style="margin-bottom: 15px; color: #999999">Appraiser version 2.6.9 (latest) was used to generate this appraisal.</div>
+</p>
+</td>
+</tr>
+</table>
+</div>
+
+
+<hr width="40%" align="center" class="padded_top">
+<div align="center" class="plus_padded footer"><a href="account.php">my account</a> | <a href="tools.html">tools</a> | <a href="faq.html">faq</a> | <a href="contact.html">contact</a> | <a href="sitemap.html">site map</a></div>
+<div align="center" class="padded footer">Copyright &copy; 2007-2016 EstiBot.com</div>
+</body>
+</html>

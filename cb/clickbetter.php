@@ -1,0 +1,3 @@
+<p style="text-align: center">
+This site and the products and services offered on this site are not associated, affiliated, endorsed, or sponsored by Google, ClickBetter, eBay, Amazon, Yahoo or Bing nor have they been reviewed tested or certified by Google, ClickBetter, Yahoo, eBay, Amazon, or Bing. The typical purchaser does not make any money using this system. Domainer Elite does not guarantee income or success, and examples shown in this presentation do not represent an indication of future success or earnings. The company declares the information shared is true and accurate.
+</p>

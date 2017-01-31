@@ -1,0 +1,1 @@
+https://api.ote-godaddy.com/api/v1/domains/available?domain=meplan.com

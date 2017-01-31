@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+ 
+<html>
+<head>
+<title>Domainer Elite JVs</title><meta class="metaTagTop" name="description" content=""><meta class="metaTagTop" name="keywords" content=""><meta class="metaTagTop" name="author" content=""><meta class="metaTagTop" property="og:image" content="https://images.clickfunnels.com/7f/31f520a44411e58cee3752a2db865b/logo2.png" id="social-image">
+<script>
+
+    function getParameterByName(name) {
+        name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+        var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+            results = regex.exec(location.search);
+        return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+    }
+    $preview = getParameterByName("preview");
+
+
+    if( $preview == "" ){
+      // do nothing
+    } else if( $preview == "control" ){
+      document.cookie = "lander-ab-tests-8296230=lander_control";
+    } else{
+      document.cookie = "lander-ab-tests-8296230=lander_" + $preview;
+    }
+
+  </script>
+<link rel="stylesheet" media="screen" href="https://assets3.clickfunnels.com/assets/lander.css"/>
+<script type="text/javascript" src="https://static.clickfunnels.com/clickfunnels/landers/tmp/3ymjq2cwg032wcej.js" charset="UTF-8"></script>
+<style>#IntercomDefaultWidget{display:none;}#Intercom{display:none;}</style>
+<meta name="nodo-proxy" content="html"/>
+</head>
+<body>
+</body>
+</html> 

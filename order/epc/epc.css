@@ -1,0 +1,48 @@
+#epc_lightbox, #epc_lightbox * {
+	font-size: 16px;
+	line-height: 22px;
+	padding: 0;
+	margin: 0;
+}
+#epc_lightbox div {
+	width: 600px;
+}
+#epc_lightbox {
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+#epc_lightbox > div	{
+	margin: 0 auto;
+	position: relative;
+}
+#epc_top	{
+	height: 68px;
+}
+#epc_exit_btn	{
+	position: absolute;
+	top: 21px;
+	right: 28px;
+	width: 30px !important;
+	height: 30px;
+}
+#epc_mid	{
+}
+#epc_message {
+	font-size: 17px;
+	width: 500px !important;
+	padding: 25px 50px;
+	text-align: center;
+	font-family: Arial;
+	font-weight: normal;
+	color: #000;
+}
+#epc_bot	{
+	height: 73px;
+}
+#epc_continue {
+	margin: 0 auto;
+}
