@@ -119,10 +119,17 @@ $not_available = 0;
 if($option==1 || $option==2 || $option==3){
 	//to get selected extentions ie.Defualt is .com*/
 	$domain = $keyword.".".$extention;
+	$domain = str_replace(' ', '', $domain);
 	//$data = getHTML("https://api.ote-godaddy.com/api/v1/domains/available?domain=".$keyword.".".$extention."&key=dpp_search&pc=&ptl=",600000);
-	$data = getHTML("https://api.ote-godaddy.com/api/v1/domains/available?domain=".$keyword.".".$extention,600000);
-	file_put_contents("urllog.txt","https://api.ote-godaddy.com/api/v1/domains/available?domain=".$keyword.".".$extention);
-	file_put_contents('searchlog.txt',$data);
+	$data = getHTML("https://api.ote-godaddy.com/api/v1/domains/available?domain=".$domain,600000);
+	// echo($domain);
+	// echo("<br>");
+	// echo("https://api.ote-godaddy.com/api/v1/domains/available?domain=".$domain);
+	// echo("<br>");
+	// echo($data);
+	// echo("<br>");
+	// exit(1);
+
 	$data_decoded = json_decode($data, true);
 	
 	if($data_decoded=="" || $data_decoded===NULL){
@@ -146,6 +153,7 @@ if($option==1 || $option==2 || $option==3){
 }else if($option==6 || $option==5 || $option==4){
 	//to get selected extentions ie.Defualt is .com*/
 	$domain = trim($keyword);
+	$domain = str_replace(' ', '', $domain);
 	
 	$data = getHTML("https://api.ote-godaddy.com/api/v1/domains/available?query".$domain."&key=dpp_search&pc=&ptl=",600000);
 	
