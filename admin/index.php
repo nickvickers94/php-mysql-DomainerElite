@@ -21,12 +21,15 @@ if(isset($_POST["pressed"])){
 	$start_keys = $_POST["start_keys"];
 	$end_keys = $_POST["end_keys"];
 	$extentions = $_POST["extentions"];
+    $nouns = $_POST["nouns"];
+    $verbs = $_POST["verbs"];
+    $places = $_POST["places"];
 	
 	$result = $conn->query("SELECT * FROM domains LIMIT 1");
 	if($result->num_rows>0){
 		$row = $result->fetch_array(MYSQLI_BOTH);
 		$id = $row["id"];
-		$conn->query("UPDATE `domainer_elite`.`domains` SET `expired_domains`='$expired_domains', `jamies_domains`='$jamies_domains', `dictionary_domains`='$dictionary_domains', `domains_keywords` = '$domains_keys', `start_keywords` = '$start_keys', `end_keywords` = '$end_keys', `extentions` = '$extentions', `date` = NOW() WHERE `domains`.`id` = $id");
+		$conn->query("UPDATE `domainer_elite`.`domains` SET `expired_domains`='$expired_domains', `jamies_domains`='$jamies_domains', `dictionary_domains`='$dictionary_domains', `domains_keywords` = '$domains_keys', `start_keywords` = '$start_keys', `end_keywords` = '$end_keys', `extentions` = '$extentions', `nouns` = '$nouns', `verbs` = '$verbs', `places` = '$places', `date` = NOW() WHERE `domains`.`id` = $id");
 		$result = $conn->query("SELECT domain FROM expired_domains");
 		while (list($domain) = mysqli_fetch_array($result)) {
 			if (!in_array($domain, $expired_domains_array)) {
@@ -63,7 +66,7 @@ if(isset($_POST["pressed"])){
 	
 	
 	}else{
-		$conn->query("INSERT INTO `domains` (`id`, `expired_domains`,`domains_keywords`,`jamies_domains`='$jamies_domains', `domainer_elite`.`dictionary_domains`='$dictionary_domains',`start_keywords`, `end_keywords`, `extentions`, `date`) VALUES (NULL, '$expired_domains', '$domains_keys', '$start_keys', '$end_keys', '$extentions', NOW())");
+		$conn->query("INSERT INTO `domains` (`id`, `expired_domains`,`domains_keywords`,`jamies_domains`='$jamies_domains', `domainer_elite`.`dictionary_domains`='$dictionary_domains',`start_keywords`, `end_keywords`, `extentions`, `nouns`, `verbs`, `places`, `date`) VALUES (NULL, '$expired_domains', '$domains_keys', '$start_keys', '$end_keys', '$extentions', '$nouns', '$verbs', '$places', NOW())");
 	}
 	
 	/*if(!empty($_FILES["file"]["tmp_name"])){
@@ -315,7 +318,7 @@ if(isset($_POST["pressed"])){
                         <form role="form">
 							<p><strong>Note:</strong> <span style="color:red;">Press Enter Key to insert a Keyword.</span></p><br>
                             
-                                <div class="form-group">
+                            <div class="form-group">
                                 <label>Enter Expired Domains</label>
                                 <textarea id="expired_domains" class="form-control" rows="10"><?php if(is_array($row)): ?><?=str_replace(',',"",str_replace(' ',"",$row['expired_domains']));?><?php endif ?></textarea>
                                 <p class="help-block">i.e domainerelite.com</p>
@@ -349,7 +352,25 @@ if(isset($_POST["pressed"])){
                                 <input class="form-control" data-role="tagsinput" id="end_keys" <?php if(is_array($row)){ ?> value="<?=$row['end_keywords']?>" <?php } ?>>
                                 <p class="help-block">i.e video,rentals</p>
                             </div>
+
+                            <div class="form-group">
+                                <label>Enter Nouns</label>
+                                <input class="form-control" data-role="tagsinput" id="nouns" <?php if(is_array($row)){ ?> value="<?=$row['nouns']?>" <?php } ?>>
+                                <p class="help-block">i.e video, bus</p>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Enter Verbs</label>
+                                <input class="form-control" data-role="tagsinput" id="verbs" <?php if(is_array($row)){ ?> value="<?=$row['verbs']?>" <?php } ?>>
+                                <p class="help-block">i.e walk, speak</p>
+                            </div>
                             
+                            <div class="form-group">
+                                <label>Enter Places</label>
+                                <input class="form-control" data-role="tagsinput" id="places" <?php if(is_array($row)){ ?> value="<?=$row['places']?>" <?php } ?>>
+                                <p class="help-block">i.e Europe, Asia</p>
+                            </div>
+
                             <div class="form-group">
                                 <label>Enter Available Extentions</label>
                                 <input class="form-control" data-role="tagsinput" id="extentions" <?php if(is_array($row)){ ?> value="<?=$row['extentions']?>" <?php } ?>>
@@ -416,6 +437,9 @@ if(isset($_POST["pressed"])){
 					 data.append('start_keys', $("#start_keys").val());
 					 data.append('end_keys', $("#end_keys").val());
 					 data.append('extentions', $("#extentions").val());
+                     data.append('nouns', $("#nouns").val());
+                     data.append('verbs', $("#verbs").val());
+                     data.append('places', $("#places").val());
 					 data.append('pressed', "1");
 					 
 					 $.ajax({
