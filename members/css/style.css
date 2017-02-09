@@ -8,40 +8,24 @@
 	 box-sizing: border-box;
 	 font-family: Arial, Helvetica, sans-serif;
  }
- 
-.content {
+
+div#content {
 	 position:relative;
 	 margin-left:auto;
 	 margin-right:auto;
-	 width:60%;
-	 height:950px;
-	 overflow: hidden;
- }
+	 width:70%;
+	 height:1000px;
+}
+
+div.container {
+	margin: 10px;
+}
  
-.body {
-	overflow: hidden;
+div {
+	overflow : hidden;
 }
 
-.overscroll {
-	overflow: scroll;
-}
-
-div.group {
-	margin-right : 20px;
-	border: 3px solid #73AD21;
-}
-
-div.divgroup {
-	margin-top : 15px;
-}
-
-p.group-name {
-	font-size: 15px;
-	font-family: bold;
-	margin-left: 10px;
-}
-
-.aside {
+div#aside {
     background-color: #33b5e5;
     color: #ffffff;
     text-align: center;
@@ -50,9 +34,19 @@ p.group-name {
 	height: 100%;
 }
 
-iframe {
+iframe#video {
     width: 100%;
     height: 100%;
+}
+
+
+div.group {
+	border: 3px solid #73AD21;
+}
+
+p.group-name {
+	font-size: 15px;
+	font-family: bold;
 }
 
 .menu ul {
@@ -95,18 +89,16 @@ iframe {
 .col-11 {width: 91.66%;}
 .col-12 {width: 100%;}
 
-.row-1 {height: 8.33%;}
-.row-2 {height: 16.66%;}
-.row-3 {height: 25%;}
-.row-4 {height: 33.33%;}
-.row-5 {height: 41.66%;}
-.row-6 {height: 50%;}
-.row-7 {height: 58.33%;}
-.row-8 {height: 66.66%;}
-.row-9 {height: 75%;}
-.row-10 {height: 83.33%;}
-.row-11 {height: 91.66%;}
-.row-12 {height: 100%;}
+.row-1 {height: 10%;}
+.row-2 {height: 20%;}
+.row-3 {height: 30%;}
+.row-4 {height: 40%;}
+.row-5 {height: 50%;}
+.row-6 {height: 60%;}
+.row-7 {height: 70%;}
+.row-8 {height: 80%;}
+.row-9 {height: 90%;}
+.row-10 {height: 100%;}
 
 a.linkbutton {
     position: relative;
@@ -134,54 +126,6 @@ a.linkbutton:active {
     position: relative;
     top: 5px;
 }
-
-
-.radiocontainer {
-	width: 70%;
-	margin-left: auto;
-	margin-right: auto;
-	position: relative;
-	margin-top: 10px;
-}
-.radiocontainer label {
-	position: relative;
-}
-
-/* Base styles for spans */
-.radiocontainer span::before,
-.radiocontainer span::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  margin: auto;
-}
-
-/* Radio buttons */
-.radiocontainer span.radio:hover {
-  cursor: pointer;
-}
-.radiocontainer span.radio::before {
-  left: -52px;
-  width: 45px;
-  height: 25px;
-  background-color: #A8AAC1;
-  border-radius: 50px;
-}
-.radiocontainer span.radio::after {
-  left: -49px;
-  width: 17px;
-  height: 17px;
-  border-radius: 10px;
-  background-color: #6C788A;
-  transition: left .25s, background-color .25s;
-}
-input[type="radio"]:checked + label span.radio::after {
-  left: -27px;
-  background-color: #EBFF43;
-}
-
-
 
 select#soflow, select#soflow-color {
    -webkit-appearance: button;
@@ -261,6 +205,7 @@ select#soflow-color {
 	text-decoration:none;
 	text-shadow:0px 1px 0px #528009;
 }
+
 .myButton:hover {
 	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #77a809), color-stop(1, #89c403));
 	background:-moz-linear-gradient(top, #77a809 5%, #89c403 100%);
@@ -271,6 +216,7 @@ select#soflow-color {
 	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#77a809', endColorstr='#89c403',GradientType=0);
 	background-color:#77a809;
 }
+
 .myButton:active {
 	position:relative;
 	top:1px;
