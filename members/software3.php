@@ -94,8 +94,7 @@ $(document).ready(function(){
                       <div class="group" style="width: 50%; height: 300px;">
 
 						  <div class="dropdown">
-						    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Select
-						    <span class="caret"></span></button>
+						    <button id = "soflow-color" class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Select</button>
 						    <ul class="dropdown-menu">
 						      <li><a tabindex="-1" href="#">Nouns</a></li>
 						      <li><a tabindex="-1" href="#">Verbs</a></li>
@@ -118,8 +117,7 @@ $(document).ready(function(){
 
 
 						  <div class="dropdown">
-						    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Select
-						    <span class="caret"></span></button>
+						    <button id = "soflow-color" class="dropdown-toggle" type="button" data-toggle="dropdown">Select</button>
 						    <ul class="dropdown-menu">
 						      <li><a tabindex="-1" href="#">Nouns</a></li>
 						      <li><a tabindex="-1" href="#">Verbs</a></li>
@@ -137,6 +135,14 @@ $(document).ready(function(){
 						          <li><a tabindex="-1" href="#">word2</a></li>
 						        </ul>
 						      </li>
+						    </ul>
+						  </div>
+
+						  <div class="dropdown">
+						    <button id = "soflow-color" class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Extension</button>
+						    <ul class="dropdown-menu">
+						      <li><a tabindex="-1" href="#">.com</a></li>
+						      <li><a tabindex="-1" href="#">.io</a></li>
 						    </ul>
 						  </div>
 
