@@ -9,6 +9,18 @@
 <!-- End of Data -->
 
 <link rel="stylesheet" href="css/style.css" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<script>
+$(document).ready(function(){
+  $('.dropdown-submenu a.test').on("click", function(e){
+    $(this).next('ul').toggle();
+    e.stopPropagation();
+    e.preventDefault();
+  });
+});
+</script>
 
 <?php require_once('templates/headers/'.$header.'.tpl.php'); ?>
 
@@ -80,34 +92,54 @@
                         <button class="button">Submit</button>
                       </div>
                       <div class="group" style="width: 50%; height: 300px;">
-                        <select id="soflow-color">
-                          <option>Select a Keyword</option>
-                          <option>Keyword 1</option>
-                          <option>Keyword 2</option>
-                        </select>
 
-                        <select id="soflow-color">
-                          <!-- This method is nice because it doesn't require extra div tags, but it also doesn't retain the style across all browsers. -->
-                          <option>Select a Starting Word</option>
-                          <option>Word 1</option>
-                          <option>Word 2</option>
-                        </select>
+						  <div class="dropdown">
+						    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Select
+						    <span class="caret"></span></button>
+						    <ul class="dropdown-menu">
+						      <li><a tabindex="-1" href="#">Nouns</a></li>
+						      <li><a tabindex="-1" href="#">Verbs</a></li>
+						      <li class="dropdown-submenu">
+						        <a class="test" tabindex="-1" href="#">Keywords <span class="caret"></span></a>
+						        <ul class="dropdown-menu">
+						          <li><a tabindex="-1" href="#">keyword1</a></li>
+						          <li><a tabindex="-1" href="#">keyword2</a></li>
+						        </ul>
+						      </li>
+						      <li class="dropdown-submenu">
+						        <a class="test" tabindex="-1" href="#">Starting with <span class="caret"></span></a>
+						        <ul class="dropdown-menu">
+						          <li><a tabindex="-1" href="#">word1</a></li>
+						          <li><a tabindex="-1" href="#">word2</a></li>
+						        </ul>
+						      </li>
+						    </ul>
+						  </div>
 
-                        <select id="soflow-color">
-                          <!-- This method is nice because it doesn't require extra div tags, but it also doesn't retain the style across all browsers. -->
-                          <option>Select an Ending Word</option>
-                          <option>Word 1</option>
-                          <option>Word 2</option>
-                        </select>
 
-                        <select id="soflow-color">
-                          <!-- This method is nice because it doesn't require extra div tags, but it also doesn't retain the style across all browsers. -->
-                          <option>Select an Extension</option>
-                          <option>.com</option>
-                          <option>.info</option>
-                        </select>
+						  <div class="dropdown">
+						    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Select
+						    <span class="caret"></span></button>
+						    <ul class="dropdown-menu">
+						      <li><a tabindex="-1" href="#">Nouns</a></li>
+						      <li><a tabindex="-1" href="#">Verbs</a></li>
+						      <li class="dropdown-submenu">
+						        <a class="test" tabindex="-1" href="#">Keywords <span class="caret"></span></a>
+						        <ul class="dropdown-menu">
+						          <li><a tabindex="-1" href="#">keyword1</a></li>
+						          <li><a tabindex="-1" href="#">keyword2</a></li>
+						        </ul>
+						      </li>
+						      <li class="dropdown-submenu">
+						        <a class="test" tabindex="-1" href="#">Ending with <span class="caret"></span></a>
+						        <ul class="dropdown-menu">
+						          <li><a tabindex="-1" href="#">word1</a></li>
+						          <li><a tabindex="-1" href="#">word2</a></li>
+						        </ul>
+						      </li>
+						    </ul>
+						  </div>
 
-                        <button class="button">Add Keyword</button>
 
                         <button class="button">Submit</button>
                       </div>
