@@ -1,5 +1,23 @@
 <?php 
 require_once("includes/conn.php");
+
+/* Get Field names of domain table */
+
+$sql = "DESCRIBE domains";
+$result = $conn->query($sql);
+
+$fields = array();
+
+if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+        array_push($fields, $row["Field"]);
+    }
+} else {
+    echo "0 results";
+}
+
+
 $row = "";
 if(isset($_POST["pressed"])){
 	$expired_domains = str_replace("\n",",",$_POST["expired_domains"]);
@@ -115,7 +133,7 @@ if(isset($_POST["pressed"])){
 }else{
 	$result = $conn->query("SELECT * FROM domains LIMIT 1");
 	if($result->num_rows>0){
-		$row = $result->fetch_array(MYSQLI_BOTH);		
+		$row = $result->fetch_array(MYSQLI_BOTH);
 	}
 
 ?>
@@ -317,75 +335,24 @@ if(isset($_POST["pressed"])){
 
                         <form role="form">
 							<p><strong>Note:</strong> <span style="color:red;">Press Enter Key to insert a Keyword.</span></p><br>
-                            
-                            <div class="form-group">
-                                <label>Enter Expired Domains</label>
-                                <textarea id="expired_domains" class="form-control" rows="10"><?php if(is_array($row)): ?><?=str_replace(',',"",str_replace(' ',"",$row['expired_domains']));?><?php endif ?></textarea>
-                                <p class="help-block">i.e domainerelite.com</p>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label>Enter Jamie's Domains</label>
-                                <textarea id="jamies_domains" class="form-control" rows="10"><?php if(is_array($row)): ?><?=str_replace(',',"",str_replace(' ',"",$row['jamies_domains']));?><?php endif ?></textarea>
-                                <p class="help-block">i.e domainerelite.com</p>
-                            </div>
-                            <div class="form-group">
-                                <label>Enter Dictionary Domains</label>
-                                <textarea id="dictionary_domains" class="form-control" rows="10"><?php if(is_array($row)): ?><?=str_replace(',',"",str_replace(' ',"",$row['dictionary_domains']));?><?php endif ?></textarea>
-                                <p class="help-block">i.e domainerelite.com</p>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label>Enter Domain Keywords</label>
-                                <input class="form-control" data-role="tagsinput" id="domain_keys" <?php if(is_array($row)){ ?> value="<?=$row['domains_keywords']?>" <?php } ?> >
-                                <p class="help-block">i.e movies,cats4u</p>
-                            </div>
 
-                            <div class="form-group">
-                                <label>Enter Starting Keywords</label>
-                                <input class="form-control" data-role="tagsinput" id="start_keys" <?php if(is_array($row)){ ?> value="<?=$row['start_keywords']?>" <?php } ?>>
-                                <p class="help-block">i.e download,buy</p>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label>Enter Ending Keywords</label>
-                                <input class="form-control" data-role="tagsinput" id="end_keys" <?php if(is_array($row)){ ?> value="<?=$row['end_keywords']?>" <?php } ?>>
-                                <p class="help-block">i.e video,rentals</p>
-                            </div>
-
-                            <div class="form-group">
-                                <label>Enter Nouns</label>
-                                <input class="form-control" data-role="tagsinput" id="nouns" <?php if(is_array($row)){ ?> value="<?=$row['nouns']?>" <?php } ?>>
-                                <p class="help-block">i.e video, bus</p>
-                            </div>
-
-                            <div class="form-group">
-                                <label>Enter Verbs</label>
-                                <input class="form-control" data-role="tagsinput" id="verbs" <?php if(is_array($row)){ ?> value="<?=$row['verbs']?>" <?php } ?>>
-                                <p class="help-block">i.e walk, speak</p>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label>Enter Places</label>
-                                <input class="form-control" data-role="tagsinput" id="places" <?php if(is_array($row)){ ?> value="<?=$row['places']?>" <?php } ?>>
-                                <p class="help-block">i.e Europe, Asia</p>
-                            </div>
-
-                            <div class="form-group">
-                                <label>Enter Available Extentions</label>
-                                <input class="form-control" data-role="tagsinput" id="extentions" <?php if(is_array($row)){ ?> value="<?=$row['extentions']?>" <?php } ?>>
-                                <p class="help-block">i.e com,net</p>
-                            </div>
-
-                           
-                            <!--<div class="form-group">
-                                <label>Import Excelsheet</label>
-                                <input type="file" name="excel_file" id="excel_file">
-                            </div>-->
-                            
-                            
-
-                           
+							<?php
+							foreach ($fields as $field) {
+								if ($field != "id" && $field != "date") {
+									?>
+									<div class="form-group">
+										<label>Enter <? echo($field) ?></label>
+										<? if ($field == "expired_domains" || $field == "jamies_domains" || $field == "dictionary_domains" ) { ?>
+										<textarea id="<? echo($field) ?>" class="form-control"  rows="10"><?php if(is_array($row)): ?><?=str_replace(',',"",str_replace(' ',"",$row[$field]));?><?php endif ?></textarea>
+										<? } else { ?>
+										<input class="form-control" data-role="tagsinput" id="<? echo($field) ?>" <?php if(is_array($row)){ ?> value="<?=$row[$field]?>" <?php } ?> >
+										<? } ?>
+										<p class="help-block">i.e domainerelite.com</p>
+									</div>
+									<?
+								}
+							}
+							?>
 
                             <button type="submit" id="submit" class="btn btn-success">Save Changes</button> <span class="text-success" id="sucess_msg"></span>
                             
