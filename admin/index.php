@@ -19,35 +19,55 @@ if ($result->num_rows > 0) {
 
 
 $row = "";
+
 if(isset($_POST["pressed"])){
-	$expired_domains = str_replace("\n",",",$_POST["expired_domains"]);
-	$expired_domains_array1 = explode(",",$expired_domains);
-	foreach ($expired_domains_array1 as $domain) {
-		$expired_domains_array[] = trim($domain);
-	}
-	$jamies_domains = str_replace("\n",",",$_POST["jamies_domains"]);
-	$jamies_domains_array1 = explode(",",$jamies_domains);
-	foreach ($jamies_domains_array1 as $domain) {
-		$jamies_domains_array[] = trim($domain);
-	}
-	$dictionary_domains = str_replace("\n",",",$_POST["dictionary_domains"]);
-	$dictionary_domains_array1 = explode(",",$dictionary_domains);
-	foreach ($dictionary_domains_array1 as $domain) {
-		$dictionary_domains_array[] = trim($domain);
-	}
-	$domains_keys = $_POST["domain_keys"];
-	$start_keys = $_POST["start_keys"];
-	$end_keys = $_POST["end_keys"];
-	$extentions = $_POST["extentions"];
-    $nouns = $_POST["nouns"];
-    $verbs = $_POST["verbs"];
-    $places = $_POST["places"];
-	
+
+    $keys = array_keys($_POST);
+
+    $values = array();
+
+    foreach ($keys as $key) {
+        if ($key != "pressed") {
+            if ($key == "expired_domains") {
+                $expired_domains = str_replace("\n",",",$_POST["expired_domains"]);
+                $expired_domains_array1 = explode(",",$expired_domains);
+                foreach ($expired_domains_array1 as $domain) {
+                    $expired_domains_array[] = trim($domain);
+                }
+                file_put_contents('data.txt',$expired_domains);
+            }
+            elseif ($key == "jamies_domains") {
+                $jamies_domains = str_replace("\n",",",$_POST["jamies_domains"]);
+                $jamies_domains_array1 = explode(",",$jamies_domains);
+                foreach ($jamies_domains_array1 as $domain) {
+                    $jamies_domains_array[] = trim($domain);
+                }
+            }
+            elseif ($key == "dictionary_domains") {
+                $dictionary_domains = str_replace("\n",",",$_POST["dictionary_domains"]);
+                $dictionary_domains_array1 = explode(",",$dictionary_domains);
+                foreach ($dictionary_domains_array1 as $domain) {
+                    $dictionary_domains_array[] = trim($domain);
+                }
+            }
+            else {
+                $values[$key] = $_POST[$key];
+            }
+        }
+    }
+
 	$result = $conn->query("SELECT * FROM domains LIMIT 1");
 	if($result->num_rows>0){
 		$row = $result->fetch_array(MYSQLI_BOTH);
 		$id = $row["id"];
-		$conn->query("UPDATE `domainer_elite`.`domains` SET `expired_domains`='$expired_domains', `jamies_domains`='$jamies_domains', `dictionary_domains`='$dictionary_domains', `domains_keywords` = '$domains_keys', `start_keywords` = '$start_keys', `end_keywords` = '$end_keys', `extentions` = '$extentions', `nouns` = '$nouns', `verbs` = '$verbs', `places` = '$places', `date` = NOW() WHERE `domains`.`id` = $id");
+        
+        $query = "UPDATE `domainer_elite`.`domains` SET `expired_domains`='$expired_domains', `jamies_domains`='$jamies_domains', `dictionary_domains`='$dictionary_domains'";
+        
+        foreach ($values as $key => $value) {
+            $query .= ', `' .$key. "` = '" .$value. "'";
+        }
+        $query .= ", `date` = NOW() WHERE `domains`.`id` = $id";
+		$conn->query($query);
 		$result = $conn->query("SELECT domain FROM expired_domains");
 		while (list($domain) = mysqli_fetch_array($result)) {
 			if (!in_array($domain, $expired_domains_array)) {
@@ -78,11 +98,6 @@ if(isset($_POST["pressed"])){
 			$conn->query("INSERT INTO dictionary_domains SET domain='$domain'");
 		}
 		
-	
-	
-	
-	
-	
 	}else{
 		$conn->query("INSERT INTO `domains` (`id`, `expired_domains`,`domains_keywords`,`jamies_domains`='$jamies_domains', `domainer_elite`.`dictionary_domains`='$dictionary_domains',`start_keywords`, `end_keywords`, `extentions`, `nouns`, `verbs`, `places`, `date`) VALUES (NULL, '$expired_domains', '$domains_keys', '$start_keys', '$end_keys', '$extentions', '$nouns', '$verbs', '$places', NOW())");
 	}
@@ -176,7 +191,6 @@ if(isset($_POST["pressed"])){
 </head>
 
 <body>
-
     <div id="wrapper">
 
         <!-- Navigation -->
