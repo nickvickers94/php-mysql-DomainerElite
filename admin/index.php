@@ -397,16 +397,14 @@ if(isset($_POST["pressed"])){
 				 $('#sucess_msg').html('<font  style="color:#FF0000; font-weight:bold;">Please Wait...</font>');
 					 var data=new FormData();
 					 //data.append('file',$("#excel_file")[0].files[0]);
-					 data.append('expired_domains', $("#expired_domains").val());
-					 data.append('jamies_domains', $("#jamies_domains").val());
-					 data.append('dictionary_domains', $("#dictionary_domains").val());
-					 data.append('domain_keys', $("#domain_keys").val());
-					 data.append('start_keys', $("#start_keys").val());
-					 data.append('end_keys', $("#end_keys").val());
-					 data.append('extentions', $("#extentions").val());
-                     data.append('nouns', $("#nouns").val());
-                     data.append('verbs', $("#verbs").val());
-                     data.append('places', $("#places").val());
+					 <?php
+                     foreach ($fields as $index => $field) { 
+                        if ($field != "id" && $field != "date") {?>
+                        data.append('<? echo($field)?>', $("#<? echo($field)?>").val());
+                     <?
+                     }
+                    }
+                     ?>
 					 data.append('pressed', "1");
 					 
 					 $.ajax({
