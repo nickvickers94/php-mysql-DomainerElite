@@ -523,6 +523,10 @@ elseif ($_POST["pressed"]=="1") {
         {
             $("#lists").append('<div class="form-group"><label>Enter ' + listname + '</label><input class="form-control" data-role="tagsinput" id="' + listname + '"><p class="help-block">i.e domainerelite.com</p></div>');
 
+            $(function() {
+                $("input[data-role=tagsinput], select[multiple][data-role=tagsinput]").tagsinput();
+              });
+
 
             var data=new FormData();
             data.append('fieldname', listname);
