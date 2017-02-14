@@ -437,7 +437,7 @@ elseif ($_POST["pressed"]=="1") {
                   <div class="modal-content">
                     <span class="close">&times;</span>
                     List name: <input type="text" id="listname" placeholder="for example : nouns"><br>
-                    <a id="addsubmit" class="btn btn-success">Add</a>
+                    <a href = "index.php" id="addsubmit" class="btn btn-success">Add</a>
                   </div>
 
                 </div>
