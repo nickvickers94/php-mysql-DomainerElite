@@ -399,11 +399,11 @@ elseif ($_POST["pressed"]=="1") {
 								if ($field != "id" && $field != "date") {
 									?>
 									<div class="form-group">
-										<label>Enter <? echo($field) ?></label>
+										<label>Enter <? echo(str_replace("_", " ", $field)); ?></label>
 										<? if ($field == "expired_domains" || $field == "jamies_domains" || $field == "dictionary_domains" ) { ?>
 										<textarea id="<? echo($field) ?>" class="form-control"  rows="10"><?php if(is_array($row)): ?><?=str_replace(',',"",str_replace(' ',"",$row[$field]));?><?php endif ?></textarea>
 										<? } else { ?>
-										<input class="form-control" data-role="tagsinput" id="<? echo(str_replace(' ', '', $field)); ?>" <?php if(is_array($row)){ ?> value="<?=$row[$field];?>" <?php } ?> >
+										<input class="form-control" data-role="tagsinput" id="<? echo($field); ?>" <?php if(is_array($row)){ ?> value="<?=$row[$field];?>" <?php } ?> >
 										<? } ?>
 										<p class="help-block">i.e domainerelite.com</p>
 									</div>
@@ -470,7 +470,7 @@ elseif ($_POST["pressed"]=="1") {
 					 <?php
                      foreach ($fields as $index => $field) { 
                         if ($field != "id" && $field != "date") {?>
-                        data.append('<? echo($field)?>', $("#<? echo(str_replace(' ', '', $field));?>").val());
+                        data.append('<? echo($field)?>', $("#<? echo($field);?>").val());
                      <?
                      }
                     }
@@ -529,7 +529,8 @@ elseif ($_POST["pressed"]=="1") {
 
 
             var data=new FormData();
-            data.append('fieldname', listname);
+            data.append('fieldname', listname.replace(/ /g,'_'));
+            console.log(listname.replace(/ /g,'_'));
             data.append('pressed', "2");
                      
                      $.ajax({
