@@ -20,7 +20,13 @@ if ($result->num_rows > 0) {
 
 $row = "";
 
-if(isset($_POST["pressed"])){
+if ($_POST["pressed"]=="2") {
+    $field = $_POST["fieldname"];
+    array_push($fields, $field);
+    $query = "ALTER TABLE `domainer_elite`.`domains` ADD COLUMN `$field` TEXT NOT NULL";
+    $conn->query($query);
+}
+elseif ($_POST["pressed"]=="1") {
 
     $keys = array_keys($_POST);
 
@@ -34,7 +40,6 @@ if(isset($_POST["pressed"])){
                 foreach ($expired_domains_array1 as $domain) {
                     $expired_domains_array[] = trim($domain);
                 }
-                file_put_contents('data.txt',$expired_domains);
             }
             elseif ($key == "jamies_domains") {
                 $jamies_domains = str_replace("\n",",",$_POST["jamies_domains"]);
@@ -178,7 +183,46 @@ if(isset($_POST["pressed"])){
     <link href="bootstrap-tagsinput/bootstrap-tagsinput.css" rel="stylesheet" type="text/css">
     
     
-    
+    <style>
+/* The Modal (background) */
+    .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        padding-top: 100px; /* Location of the box */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    }
+
+    /* Modal Content */
+    .modal-content {
+        background-color: #fefefe;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 30%;
+    }
+
+    /* The Close Button */
+    .close {
+        color: #aaaaaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    </style>
 
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -347,7 +391,7 @@ if(isset($_POST["pressed"])){
                 <div class="row">
                     <div class="col-lg-12">
 
-                        <form role="form">
+                        <form id = "lists" role="form">
 							<p><strong>Note:</strong> <span style="color:red;">Press Enter Key to insert a Keyword.</span></p><br>
 
 							<?php
@@ -359,7 +403,7 @@ if(isset($_POST["pressed"])){
 										<? if ($field == "expired_domains" || $field == "jamies_domains" || $field == "dictionary_domains" ) { ?>
 										<textarea id="<? echo($field) ?>" class="form-control"  rows="10"><?php if(is_array($row)): ?><?=str_replace(',',"",str_replace(' ',"",$row[$field]));?><?php endif ?></textarea>
 										<? } else { ?>
-										<input class="form-control" data-role="tagsinput" id="<? echo($field) ?>" <?php if(is_array($row)){ ?> value="<?=$row[$field]?>" <?php } ?> >
+										<input class="form-control" data-role="tagsinput" id="<? echo($field) ?>" <?php if(is_array($row)){ ?> value="<?=$row[$field];?>" <?php } ?> >
 										<? } ?>
 										<p class="help-block">i.e domainerelite.com</p>
 									</div>
@@ -368,10 +412,10 @@ if(isset($_POST["pressed"])){
 							}
 							?>
 
-                            <button type="submit" id="submit" class="btn btn-success">Save Changes</button> <span class="text-success" id="sucess_msg"></span>
-                            
-
                         </form>
+                        <button type="submit" id="submit" class="btn btn-success">Save Changes</button> <span class="text-success" id="sucess_msg"></span>
+
+                        <a id="addlist" class="btn btn-success">Add list</a>
 
                     </div>
                     
@@ -386,6 +430,18 @@ if(isset($_POST["pressed"])){
 
     </div>
     <!-- /#wrapper -->
+
+                <div id="myModal" class="modal">
+
+                  <!-- Modal content -->
+                  <div class="modal-content">
+                    <span class="close">&times;</span>
+                    List name: <input type="text" id="listname" placeholder="for example : nouns"><br>
+                    <a id="addsubmit" class="btn btn-success">Add</a>
+                  </div>
+
+                </div>
+                
 
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
@@ -436,6 +492,64 @@ if(isset($_POST["pressed"])){
 				});
          	});
     
+    </script>
+
+    <script>
+    // Get the modal
+    var modal = document.getElementById('myModal');
+
+    // Get the button that opens the modal
+    var btn = document.getElementById("addlist");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    var addsubmit = document.getElementById("addsubmit");
+
+    // When the user clicks the button, open the modal 
+    btn.onclick = function() {
+        modal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    addsubmit.onclick = function() {
+        modal.style.display = "none";
+        var listname = $("#listname").val();
+        if (listname != "")
+        {
+            $("#lists").append('<div class="form-group"><label>Enter ' + listname + '</label><input class="form-control" data-role="tagsinput" id="' + listname + '"><p class="help-block">i.e domainerelite.com</p></div>');
+
+
+            var data=new FormData();
+            data.append('fieldname', listname);
+            data.append('pressed', "2");
+                     
+                     $.ajax({
+                         url:'index.php',
+                         type:'POST',
+                         processData: false,
+                         contentType: false,
+                         data:data,
+                         success:function(resp){
+                         }
+                     });
+        }
+        else {
+            window.alert("This field must be not empty. Try again.");
+        }
+
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
     </script>
 
 </body>
