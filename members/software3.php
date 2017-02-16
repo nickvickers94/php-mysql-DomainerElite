@@ -41,10 +41,10 @@
    // file_put_contents("listnames.txt", $listnames);
    // file_put_contents("lists.txt", $lists);
 
-   $domain_keywords = explode(",",$row["domains_keywords"]);
-   $start_keywords = explode(",",$row["start_keywords"]);
-   $end_keywords = explode(",",$row["end_keywords"]);
-   $extentions = explode(",",$row["extentions"]);
+   $domain_keywords = explode(",", str_replace(" ", "", $row["domains_keywords"]));
+   $start_keywords = explode(",", str_replace(" ", "", $row["start_keywords"]));
+   $end_keywords = explode(",", str_replace(" ", "", $row["end_keywords"]));
+   $extentions = explode(",", str_replace(" ", "", $row["extentions"]));
    
    ?>
 <?php require_once('templates/headers/opening.tpl.php'); ?>
@@ -137,55 +137,94 @@
                                        <ul class="dropdown-menu">
                                        		<?php
                                        			foreach ($lists as $listname => $keywords) {
-                                       				if ($listname != "end_keywords") {
-                                       				?><li><a tabindex="-1" href="#"><?php echo(str_replace("_", " ", $listname));?></a></li><?php
-                                       			}
+                                       				if ($listname == "domains_keywords") { ?>
+                                       					<li class="dropdown-submenu">
+			                                            	<a class="test" tabindex="-1" href="#">Domain Keywords<span class="caret"></span></a>
+			                                            	<ul class="dropdown-menu">
+				                                            <?php
+	                                       					foreach ($domain_keywords as $keyword) {?>
+	                                       						<li><a tabindex="-1" href="#"><?php echo($keyword); ?></a></li>
+	                                       					<?php
+	                                       					}
+	                                       					?>
+	                                       					</ul>
+	                                    				</li>
+	                                    			<?php
+	                                       			}
+	                                       			else if ($listname == "start_keywords") { ?>
+	                                       				<li class="dropdown-submenu">
+				                                            <a class="test" tabindex="-1" href="#">Start with<span class="caret"></span></a>
+					                                        <ul class="dropdown-menu">
+					                                        <?php
+		                                       				foreach ($start_keywords as $keyword) {?>
+		                                       					<li><a tabindex="-1" href="#"><?php echo($keyword); ?></a></li>
+		                                       				<?php
+	                                       					}
+	                                       					?>
+	                                       					</ul>
+	                                    				</li>
+                                       				<?php
+                                       				}
+                                       				else if ($listname != "end_keywords") {?>
+                                       				<li><a tabindex="-1" href="#"><?php echo(str_replace("_", " ", $listname));?></a></li>
+                                       				<?php
+                                       				}
                                        			}
                                        		?>
-                                          <li><a tabindex="-1" href="#">Nouns</a></li>
-                                          <li><a tabindex="-1" href="#">Verbs</a></li>
-                                          <li class="dropdown-submenu">
-                                             <a class="test" tabindex="-1" href="#">Keywords <span class="caret"></span></a>
-                                             <ul class="dropdown-menu">
-                                                <li><a tabindex="-1" href="#">keyword1</a></li>
-                                                <li><a tabindex="-1" href="#">keyword2</a></li>
-                                             </ul>
-                                          </li>
-                                          <li class="dropdown-submenu">
-                                             <a class="test" tabindex="-1" href="#">Starting with <span class="caret"></span></a>
-                                             <ul class="dropdown-menu">
-                                                <li><a tabindex="-1" href="#">word1</a></li>
-                                                <li><a tabindex="-1" href="#">word2</a></li>
-                                             </ul>
-                                          </li>
                                        </ul>
                                     </div>
+
                                     <div class="dropdown">
                                        <button id = "soflow-color" class="dropdown-toggle" type="button" data-toggle="dropdown">Select</button>
                                        <ul class="dropdown-menu">
-                                          <li><a tabindex="-1" href="#">Nouns</a></li>
-                                          <li><a tabindex="-1" href="#">Verbs</a></li>
-                                          <li class="dropdown-submenu">
-                                             <a class="test" tabindex="-1" href="#">Keywords <span class="caret"></span></a>
-                                             <ul class="dropdown-menu">
-                                                <li><a tabindex="-1" href="#">keyword1</a></li>
-                                                <li><a tabindex="-1" href="#">keyword2</a></li>
-                                             </ul>
-                                          </li>
-                                          <li class="dropdown-submenu">
-                                             <a class="test" tabindex="-1" href="#">Ending with <span class="caret"></span></a>
-                                             <ul class="dropdown-menu">
-                                                <li><a tabindex="-1" href="#">word1</a></li>
-                                                <li><a tabindex="-1" href="#">word2</a></li>
-                                             </ul>
-                                          </li>
+                                       		<?php
+                                       			foreach ($lists as $listname => $keywords) {
+                                       				if ($listname == "domains_keywords") { ?>
+                                       					<li class="dropdown-submenu">
+			                                            	<a class="test" tabindex="-1" href="#">Domain Keywords<span class="caret"></span></a>
+			                                            	<ul class="dropdown-menu">
+				                                            <?php
+	                                       					foreach ($domain_keywords as $keyword) {?>
+	                                       						<li><a tabindex="-1" href="#"><?php echo($keyword); ?></a></li>
+	                                       					<?php
+	                                       					}
+	                                       					?>
+	                                       					</ul>
+	                                    				</li>
+	                                    			<?php
+	                                       			}
+	                                       			else if ($listname == "end_keywords") { ?>
+	                                       				<li class="dropdown-submenu">
+				                                            <a class="test" tabindex="-1" href="#">End with<span class="caret"></span></a>
+					                                        <ul class="dropdown-menu">
+					                                        <?php
+		                                       				foreach ($end_keywords as $keyword) {?>
+		                                       					<li><a tabindex="-1" href="#"><?php echo($keyword); ?></a></li>
+		                                       				<?php
+	                                       					}
+	                                       					?>
+	                                       					</ul>
+	                                    				</li>
+                                       				<?php
+                                       				}
+                                       				else if ($listname != "start_keywords") {?>
+                                       				<li><a tabindex="-1" href="#"><?php echo(str_replace("_", " ", $listname));?></a></li>
+                                       				<?php
+                                       				}
+                                       			}
+                                       		?>
                                        </ul>
                                     </div>
+
                                     <div class="dropdown">
-                                       <button id = "soflow-color" class="dropdown-toggle" type="button" data-toggle="dropdown">Extension</button>
+                                       <button id = "soflow-color" class="dropdown-toggle" type="button" data-toggle="dropdown">Select Extension</button>
                                        <ul class="dropdown-menu">
-                                          <li><a tabindex="-1" href="#">.com</a></li>
-                                          <li><a tabindex="-1" href="#">.io</a></li>
+                                       <?php
+                                       	foreach ($extentions as $extention) { ?>
+                                       		<li><a tabindex="-1" href="#">.<?php echo($extention); ?></a></li>
+                                       <?php
+                                       	}
+                                       ?>
                                        </ul>
                                     </div>
                                     <button class="button">Submit</button>
