@@ -16,7 +16,7 @@
 	if ($result->num_rows > 0) {
 	    // output data of each row
 	    while($row = $result->fetch_assoc()) {
-	    	if ($row["Field"] != "id" && $row["Field"] != "date") {
+	    	if ($row["Field"] != "id" && $row["Field"] != "date" && $row["Field"] != "expired_domains" && $row["Field"] != "jamies_domains" && $row["Field"] != "dictionary_domains" && $row["Field"] != "extentions") {
 	    		array_push($listnames, $row["Field"]);
 	    	}
 	    }
@@ -25,7 +25,7 @@
 	}
 ?>
 
-<?php 
+<?php
    $row = "";
    $result = $conn->query("SELECT * FROM domains LIMIT 1");
    if($result->num_rows>0){
@@ -41,10 +41,10 @@
    // file_put_contents("listnames.txt", $listnames);
    // file_put_contents("lists.txt", $lists);
 
-   // $domain_keywords = explode(",",$row["domains_keywords"]);
-   // $start_keywords = explode(",",$row["start_keywords"]);
-   // $end_keywords = explode(",",$row["end_keywords"]);
-   // $extentions = explode(",",$row["extentions"]);
+   $domain_keywords = explode(",",$row["domains_keywords"]);
+   $start_keywords = explode(",",$row["start_keywords"]);
+   $end_keywords = explode(",",$row["end_keywords"]);
+   $extentions = explode(",",$row["extentions"]);
    
    ?>
 <?php require_once('templates/headers/opening.tpl.php'); ?>
@@ -133,8 +133,15 @@
                                  </div>
                                  <div class="group" style="width: 50%; height: 300px;">
                                     <div class="dropdown">
-                                       <button id = "soflow-color" class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Select</button>
+                                       <button id = "soflow-color" class="dropdown-toggle" type="button" data-toggle="dropdown">Select</button>
                                        <ul class="dropdown-menu">
+                                       		<?php
+                                       			foreach ($lists as $listname => $keywords) {
+                                       				if ($listname != "end_keywords") {
+                                       				?><li><a tabindex="-1" href="#"><?php echo(str_replace("_", " ", $listname));?></a></li><?php
+                                       			}
+                                       			}
+                                       		?>
                                           <li><a tabindex="-1" href="#">Nouns</a></li>
                                           <li><a tabindex="-1" href="#">Verbs</a></li>
                                           <li class="dropdown-submenu">
@@ -175,7 +182,7 @@
                                        </ul>
                                     </div>
                                     <div class="dropdown">
-                                       <button id = "soflow-color" class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Extension</button>
+                                       <button id = "soflow-color" class="dropdown-toggle" type="button" data-toggle="dropdown">Extension</button>
                                        <ul class="dropdown-menu">
                                           <li><a tabindex="-1" href="#">.com</a></li>
                                           <li><a tabindex="-1" href="#">.io</a></li>
