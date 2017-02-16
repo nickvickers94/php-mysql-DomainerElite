@@ -1,4 +1,52 @@
 <?php include 'membercontrol/auth.php'; ?>
+<?php 
+   if ($_SESSION['software'] == 'N') {
+   	header("Location: http://www.domainerelite.com/us1.php"); 
+   	exit;
+   }
+   ?>
+
+<?php
+   require_once("includes/conn.php");
+	$sql = "DESCRIBE domains";
+	$result = $conn->query($sql);
+
+	$listnames = array();
+
+	if ($result->num_rows > 0) {
+	    // output data of each row
+	    while($row = $result->fetch_assoc()) {
+	    	if ($row["Field"] != "id" && $row["Field"] != "date") {
+	    		array_push($listnames, $row["Field"]);
+	    	}
+	    }
+	} else {
+	    echo "0 results";
+	}
+?>
+
+<?php 
+   $row = "";
+   $result = $conn->query("SELECT * FROM domains LIMIT 1");
+   if($result->num_rows>0){
+   	$row = $result->fetch_array(MYSQLI_BOTH);		
+   }
+
+   $lists = array();
+
+   foreach ($listnames as $listname) {
+   		$lists[$listname] = $row[$listname];
+   }
+
+   // file_put_contents("listnames.txt", $listnames);
+   // file_put_contents("lists.txt", $lists);
+
+   // $domain_keywords = explode(",",$row["domains_keywords"]);
+   // $start_keywords = explode(",",$row["start_keywords"]);
+   // $end_keywords = explode(",",$row["end_keywords"]);
+   // $extentions = explode(",",$row["extentions"]);
+   
+   ?>
 <?php require_once('templates/headers/opening.tpl.php'); ?>
 <script type="text/javascript" src="swfobject.js"></script>
 <!-- Specific Page Data -->
