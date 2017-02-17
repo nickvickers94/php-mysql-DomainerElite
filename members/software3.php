@@ -75,15 +75,95 @@
 	    var tabindex = html.substr(html.search("tabindex") + 10, 1);
 	    if (tabindex == "1") {
 	    	list = $(this).has('a').text();
+	    	$(this).parents('div').first().children('button').first().text(list);
+	    	list = list.replace(/ /g,'_');
 	    }
 	    else if (tabindex == "2") {
 	    	keyword = $(this).has('a').text();
-	    	list = $(this).parent('ul').prev('a').text();
+	    	listname = $(this).parent('ul').prev('a').text();
+	    	if (listname == "Keywords") {
+	    		list = "domains_keywords";
+	    	}
+	    	else if (listname == "Start with") {
+	    		list = "start_keywords";
+	    	}
+	    	else if (listname == "End with") {
+	    		list = "end_keywords";
+	    	}
+	    	$(this).parents('div').first().children('button').first().text(keyword);
 	    }
-	    alert(list);
-	    alert(keyword);
+	    $(this).parents('div').first().children('button').attr("list", list);
 	  });
 	});
+
+   $(document).ready(function(){
+     $('#search').on("click", function(e){
+     	var val = 1;
+       var first_list = $('#firstlist').attr("list");
+       var second_list = $('#secondlist').attr("list");
+       var extention = $('#extention').attr("list");
+       if (extention != null && extention != "") {
+       		extention = extention.substr(1);
+       }
+       
+       if (first_list == "domains_keywords" || first_list == "start_keywords") {
+       		var first_keyword = $('#firstlist').text();
+       }
+
+       if (second_list == "domains_keywords" || second_list == "end_keywords") {
+       		var second_keyword = $('#secondlist').text();
+       }
+
+      if ((first_list == "domains_keywords" || first_list == "start_keywords") && (second_list == "domains_keywords" || second_list == "end_keywords") && (extention != null && extention != "")) {
+      	alert(first_keyword + second_keyword + "."+extention);
+      	$.ajax({
+		     url: "process1.php",
+		     type: "POST",
+		     data: {
+		     "domain": first_keyword + second_keyword,
+		     "extention": extention,
+		     "option": val,
+		     }
+	     }).done(function(msg) {
+	     	alert(msg);
+	     	if (msg != null && msg != "") {
+	     		$("#result").append(msg);
+	     	}
+	     });
+      }
+		// <?php foreach($start_keywords as $sk){ ?>
+  //        $.ajax({
+  //        url: "process.php",
+  //        type: "POST",
+         
+  //        data: {
+  //        "domain": '<?=$sk?>'+domain,
+  //        "extention": jQuery("#domain_extention").val(),
+  //        "option": val,
+  //        }
+  //        }).done(function(msg) {
+  //        //console.log(msg.indexOf("<span style='color:red;'>All other domains are not available</span>"));	
+  //        if(msg.indexOf("<span style='color:red;'>All other domains are not available</span>")>-1){
+  //        jQuery(".available_msg").html(msg);
+         
+  //        }
+  //        if(msg.indexOf("Please try again...")>-1){
+  //        //jQuery(".try_msg").html(msg);
+  //        }
+  //        if(msg.indexOf("<span style='color:red;'>All other domains are not available</span>")==-1 && msg.indexOf("Please try again...")==-1){
+  //        if(count==0){
+  //        jQuery("#results").html(msg);
+  //        count = 1;
+  //        }else{
+  //        jQuery("#results").append(msg);
+  //        }
+  //        }
+  //        });
+         
+  //        <?php } ?>
+
+     });
+   });
 </script>
 
 <?php require_once('templates/headers/'.$header.'.tpl.php'); ?>
@@ -152,13 +232,13 @@
                                  </div>
                                  <div class="group" style="width: 50%; height: 300px;">
                                     <div class="dropdown">
-                                       <button id = "soflow-color" class="dropdown-toggle" type="button" data-toggle="dropdown">Select</button>
+                                       <button id = "firstlist" class="soflow-color dropdown-toggle" type="button" data-toggle="dropdown">Select</button>
                                        <ul class="dropdown-menu">
                                        		<?php
                                        			foreach ($lists as $listname => $keywords) {
                                        				if ($listname == "domains_keywords") { ?>
                                        					<li class="dropdown-submenu">
-			                                            	<a class="test" tabindex="1">Domain Keywords<span class="caret"></span></a>
+			                                            	<a class="test" tabindex="1">Keywords<span class="caret"></span></a>
 			                                            	<ul class="dropdown-menu">
 				                                            <?php
 	                                       					foreach ($domain_keywords as $keyword) {?>
@@ -194,17 +274,17 @@
                                     </div>
 
                                     <div class="dropdown">
-                                       <button id = "soflow-color" class="dropdown-toggle" type="button" data-toggle="dropdown">Select</button>
+                                       <button id="secondlist" class="soflow-color dropdown-toggle" type="button" data-toggle="dropdown">Select</button>
                                        <ul class="dropdown-menu">
                                        		<?php
                                        			foreach ($lists as $listname => $keywords) {
                                        				if ($listname == "domains_keywords") { ?>
                                        					<li class="dropdown-submenu">
-			                                            	<a class="test" tabindex="1">Domain Keywords<span class="caret"></span></a>
+			                                            	<a class="test" tabindex="1">Keywords<span class="caret"></span></a>
 			                                            	<ul class="dropdown-menu">
 				                                            <?php
 	                                       					foreach ($domain_keywords as $keyword) {?>
-	                                       						<li class="dropdown-item"><a tabindex="2" href="#"><?php echo($keyword); ?></a></li>
+	                                       						<li class="dropdown-item"><a tabindex="2"><?php echo($keyword); ?></a></li>
 	                                       					<?php
 	                                       					}
 	                                       					?>
@@ -236,7 +316,7 @@
                                     </div>
 
                                     <div class="dropdown">
-                                       <button id = "soflow-color" class="dropdown-toggle" type="button" data-toggle="dropdown">Select Extension</button>
+                                       <button id="extention" class="soflow-color dropdown-toggle" type="button" data-toggle="dropdown">Select Extension</button>
                                        <ul class="dropdown-menu">
                                        <?php
                                        	foreach ($extentions as $extention) { ?>
@@ -246,23 +326,21 @@
                                        ?>
                                        </ul>
                                     </div>
-                                    <button class="button">Submit</button>
+                                    <button id="search" class="button">Submit</button>
                                  </div>
                               </div>
                            </div>
                         </div>
                         <!-- Panel Widget --> 
                      </div>
+
                      <div class="col-md-12">
                         <div class="panel widget light-widget panel-bd-top">
                            <div class="panel-heading no-title"> </div>
                            <div class="panel-body">
                               <div class="menu">
-                                 <ul>
-                                    <li>intensecars.com<button class="myButton">Register</button><button class="myButton">Appraise</button><button class="myButton">Save</button><button class="myButton">Sell</button></li>
-                                    <li>passivecars.com<button class="myButton">Register</button><button class="myButton">Appraise</button><button class="myButton">Save</button><button class="myButton">Sell</button></li>
-                                    <li>howtodocars.com<button class="myButton">Register</button><button class="myButton">Appraise</button><button class="myButton">Save</button><button class="myButton">Sell</button></li>
-                                    <li>howtolearncars.com<button class="myButton">Register</button><button class="myButton">Appraise</button><button class="myButton">Save</button><button class="myButton">Sell</button></li>
+                                 <ul id = "result">
+
                                  </ul>
                               </div>
                            </div>
