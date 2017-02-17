@@ -41,10 +41,10 @@
    // file_put_contents("listnames.txt", $listnames);
    // file_put_contents("lists.txt", $lists);
 
-   $domain_keywords = explode(",", str_replace(" ", "", $row["domains_keywords"]));
-   $start_keywords = explode(",", str_replace(" ", "", $row["start_keywords"]));
-   $end_keywords = explode(",", str_replace(" ", "", $row["end_keywords"]));
-   $extentions = explode(",", str_replace(" ", "", $row["extentions"]));
+	$domain_keywords = explode(",", str_replace(" ", "", $row["domains_keywords"]));
+	$start_keywords = explode(",", str_replace(" ", "", $row["start_keywords"]));
+	$end_keywords = explode(",", str_replace(" ", "", $row["end_keywords"]));
+	$extentions = explode(",", str_replace(" ", "", $row["extentions"]));
    
    ?>
 <?php require_once('templates/headers/opening.tpl.php'); ?>
@@ -98,29 +98,29 @@
 
    $(document).ready(function(){
      $('#search').on("click", function(e){
-     	var val = 1;
+    	var val = 2;
        var first_list = $('#firstlist').attr("list");
        var second_list = $('#secondlist').attr("list");
        var extention = $('#extention').attr("list");
-       if (extention != null && extention != "") {
-       		extention = extention.substr(1);
-       }
+       var first_keyword = "";
+       var second_keyword = "";
        
        if (first_list == "domains_keywords" || first_list == "start_keywords") {
-       		var first_keyword = $('#firstlist').text();
+       		first_keyword = $('#firstlist').text();
        }
 
        if (second_list == "domains_keywords" || second_list == "end_keywords") {
-       		var second_keyword = $('#secondlist').text();
+       		second_keyword = $('#secondlist').text();
        }
 
-      if ((first_list == "domains_keywords" || first_list == "start_keywords") && (second_list == "domains_keywords" || second_list == "end_keywords") && (extention != null && extention != "")) {
-      	alert(first_keyword + second_keyword + "."+extention);
       	$.ajax({
 		     url: "process1.php",
 		     type: "POST",
 		     data: {
-		     "domain": first_keyword + second_keyword,
+		     "first_list": first_list,
+		     "second_list": second_list,
+		     "first_keyword": first_keyword,
+		     "second_keyword": second_keyword,
 		     "extention": extention,
 		     "option": val,
 		     }
@@ -130,38 +130,6 @@
 	     		$("#result").append(msg);
 	     	}
 	     });
-      }
-		// <?php foreach($start_keywords as $sk){ ?>
-  //        $.ajax({
-  //        url: "process.php",
-  //        type: "POST",
-         
-  //        data: {
-  //        "domain": '<?=$sk?>'+domain,
-  //        "extention": jQuery("#domain_extention").val(),
-  //        "option": val,
-  //        }
-  //        }).done(function(msg) {
-  //        //console.log(msg.indexOf("<span style='color:red;'>All other domains are not available</span>"));	
-  //        if(msg.indexOf("<span style='color:red;'>All other domains are not available</span>")>-1){
-  //        jQuery(".available_msg").html(msg);
-         
-  //        }
-  //        if(msg.indexOf("Please try again...")>-1){
-  //        //jQuery(".try_msg").html(msg);
-  //        }
-  //        if(msg.indexOf("<span style='color:red;'>All other domains are not available</span>")==-1 && msg.indexOf("Please try again...")==-1){
-  //        if(count==0){
-  //        jQuery("#results").html(msg);
-  //        count = 1;
-  //        }else{
-  //        jQuery("#results").append(msg);
-  //        }
-  //        }
-  //        });
-         
-  //        <?php } ?>
-
      });
    });
 </script>
