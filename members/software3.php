@@ -156,66 +156,68 @@ $(document).ready(function(){
 					});
 				}
 			}
-			// else if (first_list != "") {
-			// 	$.ajax({
-			// 			url: "get_keywords.php",
-			// 			type: "POST",
-			// 			data: {
-			// 				"list_name": first_list
-			// 			}
-			// 	}).done(function(msg) {
-			// 		var first_keywords = JSON.parse(msg);
-			// 		for (var i = first_keywords.length - 1; i >= 0; i--) {
-			// 			first_keyword = first_keywords[i];
-			// 			if (second_list == "domains_keywords" || second_list == "end_keywords") {
-			// 				second_keyword = $('#secondlist').text();
-			// 				domain = first_keyword + second_keyword;
-			// 				$.ajax({
-			// 					url: "process1.php",
-			// 					type: "POST",
-			// 					data: {
-			// 						"domain": domain,
-			// 						"extention": extention,
-			// 						"option": val
-			// 					}
-			// 				}).done(function(msg) {
-			// 					if (msg != null && msg != "") {
-			// 						$("#result").append(msg);
-			// 					}
-			// 				});
-			// 			}
-			// 			else if (second_list != "") {
-			// 				$.ajax({
-			// 					url: "get_keywords.php",
-			// 					type: "POST",
-			// 					data: {
-			// 					 "list_name": second_list
-			// 					}
-			// 				}).done(function(msg) {
-			// 					var second_keywords = JSON.parse(msg);
-			// 					for (var i = second_keywords.length - 1; i >= 0; i--) {
-			// 						second_keyword = second_keywords[i];
-			// 						domain = first_keyword + second_keyword;
-			// 						$.ajax({
-			// 							url: "process1.php",
-			// 							type: "POST",
-			// 							data: {
-			// 								"domain": domain,
-			// 								"extention": extention,
-			// 								"option": val
-			// 							}
-			// 						}).done(function(msg) {
-			// 							alert(msg);
-			// 							if (msg != null && msg != "") {
-			// 								$("#result").append(msg);
-			// 							}
-			// 						});
-			// 					}
-			// 				});
-			// 			}
-			// 		}
-			// 	});
-			// }
+			else if (first_list != "") {
+				$.ajax({
+						url: "get_keywords.php",
+						type: "POST",
+						data: {
+							"list_name": first_list
+						}
+				}).done(function(msg) {
+					var first_keywords = JSON.parse(msg);
+					if (second_list == "domains_keywords" || second_list == "end_keywords") {
+						second_keyword = $('#secondlist').text();
+						for (var i = first_keywords.length - 1; i >= 0; i--) {
+							first_keyword = first_keywords[i];
+							domain = first_keyword + second_keyword;
+							$.ajax({
+								url: "process1.php",
+								type: "POST",
+								data: {
+									"domain": domain,
+									"extention": extention,
+									"option": val
+								}
+							}).done(function(msg) {
+								if (msg != null && msg != "") {
+									$("#result").append(msg);
+								}
+							});
+						}
+					}
+					else if (second_list != "") {
+						$.ajax({
+							url: "get_keywords.php",
+							type: "POST",
+							data: {
+							 "list_name": second_list
+							}
+						}).done(function(msg) {
+							var second_keywords = JSON.parse(msg);
+							for (var i = first_keywords.length - 1; i >= 0; i--) {
+								first_keyword = first_keywords[i];
+								for (var j = second_keywords.length - 1; j >= 0; j--) {
+									second_keyword = second_keywords[j];
+									domain = first_keyword + second_keyword;
+									$.ajax({
+										url: "process1.php",
+										type: "POST",
+										data: {
+											"domain": domain,
+											"extention": extention,
+											"option": val
+										}
+									}).done(function(msg) {
+										if (msg != null && msg != "") {
+											$("#result").append(msg);
+										}
+									});
+								}
+							}
+						});
+					}
+				});
+			}
 		});
 	});
 </script>
