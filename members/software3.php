@@ -66,7 +66,26 @@
        e.preventDefault();
      });
    });
+
+   $(document).ready(function(){
+	  $('.dropdown-menu li.dropdown-item').on("click", function(e){
+	    var keyword = "";
+	    var list = "";
+	   	var html = $(this).has('a').html();
+	    var tabindex = html.substr(html.search("tabindex") + 10, 1);
+	    if (tabindex == "1") {
+	    	list = $(this).has('a').text();
+	    }
+	    else if (tabindex == "2") {
+	    	keyword = $(this).has('a').text();
+	    	list = $(this).parent('ul').prev('a').text();
+	    }
+	    alert(list);
+	    alert(keyword);
+	  });
+	});
 </script>
+
 <?php require_once('templates/headers/'.$header.'.tpl.php'); ?>
 <div class="content">
    <div class="container">
@@ -139,11 +158,11 @@
                                        			foreach ($lists as $listname => $keywords) {
                                        				if ($listname == "domains_keywords") { ?>
                                        					<li class="dropdown-submenu">
-			                                            	<a class="test" tabindex="-1" href="#">Domain Keywords<span class="caret"></span></a>
+			                                            	<a class="test" tabindex="1">Domain Keywords<span class="caret"></span></a>
 			                                            	<ul class="dropdown-menu">
 				                                            <?php
 	                                       					foreach ($domain_keywords as $keyword) {?>
-	                                       						<li><a tabindex="-1" href="#"><?php echo($keyword); ?></a></li>
+	                                       						<li class="dropdown-item"><a tabindex="2"><?php echo($keyword); ?></a></li>
 	                                       					<?php
 	                                       					}
 	                                       					?>
@@ -153,11 +172,11 @@
 	                                       			}
 	                                       			else if ($listname == "start_keywords") { ?>
 	                                       				<li class="dropdown-submenu">
-				                                            <a class="test" tabindex="-1" href="#">Start with<span class="caret"></span></a>
+				                                            <a class="test" tabindex="1">Start with<span class="caret"></span></a>
 					                                        <ul class="dropdown-menu">
 					                                        <?php
 		                                       				foreach ($start_keywords as $keyword) {?>
-		                                       					<li><a tabindex="-1" href="#"><?php echo($keyword); ?></a></li>
+		                                       					<li class="dropdown-item"><a tabindex="2"><?php echo($keyword); ?></a></li>
 		                                       				<?php
 	                                       					}
 	                                       					?>
@@ -166,7 +185,7 @@
                                        				<?php
                                        				}
                                        				else if ($listname != "end_keywords") {?>
-                                       				<li><a tabindex="-1" href="#"><?php echo(str_replace("_", " ", $listname));?></a></li>
+                                       				<li class="dropdown-item"><a tabindex="1"><?php echo(str_replace("_", " ", $listname));?></a></li>
                                        				<?php
                                        				}
                                        			}
@@ -181,11 +200,11 @@
                                        			foreach ($lists as $listname => $keywords) {
                                        				if ($listname == "domains_keywords") { ?>
                                        					<li class="dropdown-submenu">
-			                                            	<a class="test" tabindex="-1" href="#">Domain Keywords<span class="caret"></span></a>
+			                                            	<a class="test" tabindex="1">Domain Keywords<span class="caret"></span></a>
 			                                            	<ul class="dropdown-menu">
 				                                            <?php
 	                                       					foreach ($domain_keywords as $keyword) {?>
-	                                       						<li><a tabindex="-1" href="#"><?php echo($keyword); ?></a></li>
+	                                       						<li class="dropdown-item"><a tabindex="2" href="#"><?php echo($keyword); ?></a></li>
 	                                       					<?php
 	                                       					}
 	                                       					?>
@@ -195,11 +214,11 @@
 	                                       			}
 	                                       			else if ($listname == "end_keywords") { ?>
 	                                       				<li class="dropdown-submenu">
-				                                            <a class="test" tabindex="-1" href="#">End with<span class="caret"></span></a>
+				                                            <a class="test" tabindex="1">End with<span class="caret"></span></a>
 					                                        <ul class="dropdown-menu">
 					                                        <?php
 		                                       				foreach ($end_keywords as $keyword) {?>
-		                                       					<li><a tabindex="-1" href="#"><?php echo($keyword); ?></a></li>
+		                                       					<li class="dropdown-item"><a tabindex="2"><?php echo($keyword); ?></a></li>
 		                                       				<?php
 	                                       					}
 	                                       					?>
@@ -208,7 +227,7 @@
                                        				<?php
                                        				}
                                        				else if ($listname != "start_keywords") {?>
-                                       				<li><a tabindex="-1" href="#"><?php echo(str_replace("_", " ", $listname));?></a></li>
+                                       				<li class="dropdown-item"><a tabindex="1"><?php echo(str_replace("_", " ", $listname));?></a></li>
                                        				<?php
                                        				}
                                        			}
@@ -221,7 +240,7 @@
                                        <ul class="dropdown-menu">
                                        <?php
                                        	foreach ($extentions as $extention) { ?>
-                                       		<li><a tabindex="-1" href="#">.<?php echo($extention); ?></a></li>
+                                       		<li class="dropdown-item"><a tabindex="1">.<?php echo($extention); ?></a></li>
                                        <?php
                                        	}
                                        ?>
