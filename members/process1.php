@@ -8,11 +8,6 @@ if($result->num_rows>0){
 	$row = $result->fetch_array(MYSQLI_BOTH);		
 }
 
-$domain_keywords = explode(",", str_replace(" ", "", $row["domains_keywords"]));
-$start_keywords = explode(",", str_replace(" ", "", $row["start_keywords"]));
-$end_keywords = explode(",", str_replace(" ", "", $row["end_keywords"]));
-$extentions = explode(",", str_replace(" ", "", $row["extentions"]));
-
 /*$start_keywords = explode(",",$row["start_keywords"]);
 $end_keywords = explode(",",$row["end_keywords"]);
 $domain_keywords = explode(",",$row["domains_keywords"]);*/
@@ -34,22 +29,6 @@ function getHTML($url,$timeout)
        $data1 = curl_exec($ch);
 	   
 	   return $data1; 
-}
-
-function available($domain){
-	$domain = str_replace(' ', '', $domain);
-	$data = getHTML("https://api.ote-godaddy.com/api/v1/domains/available?domain=".$domain,600000);
-
-	$data_decoded = json_decode($data, true);
-	if($data_decoded != "" && $data_decoded != NULL){
-		$available = $data_decoded["available"];
-
-		if($available==true){
-			return '<li>'.$domain.'<button class="myButton">Register</button><button class="myButton">Appraise</button><button class="myButton">Save</button><button class="myButton">Sell</button></li>';
-		}else{
-			return "<li>All other domains are not available</li>";	
-		}
-	}
 }
 
 function appraise($domain){
@@ -129,34 +108,49 @@ if(isset($_POST["appraise"])){
 	appraise($_POST["domain"]);	
 }
 
-$first_list = $_POST["first_list"];
-$second_list = $_POST["second_list"];
-$first_keyword = $_POST["first_keyword"];
-$second_keyword = $_POST["second_keyword"];
+$extention = "";
+
+$keyword = $_POST["domain"];
 $extention = $_POST["extention"];
 $option = $_POST["option"];
+$new_domains=$_POST['new_domains'];
+$not_available = 0;
 
-if ($option == 2) {
-	if ($first_list == "domains_keywords" || $first_list == "start_keywords") {
-		$result = "";
-		if ($second_list == "domains_keywords" || $second_list == "end_keywords") {
-			if ($extention != "") {
-				$domain = $first_keyword.$second_keyword.$extention;
-				$result = available($domain);
-				file_put_contents("data/domain.txt", $result);
-				echo($result);
-			}
-			else {
-				foreach ($extentions as $extention) {
-					$domain = $first_keyword.$second_keyword.".".$extention;
-					$result = $result.available($domain);
-				}
-				echo($result);
-			}
+if($option==1 || $option==2 || $option==3){
+	//to get selected extentions ie.Defualt is .com*/
+	$domain = $keyword.".".$extention;
+	$domain = str_replace(' ', '', $domain);
+	//$data = getHTML("https://api.ote-godaddy.com/api/v1/domains/available?domain=".$keyword.".".$extention."&key=dpp_search&pc=&ptl=",600000);
+	$data = getHTML("https://api.ote-godaddy.com/api/v1/domains/available?domain=".$domain,600000);
+	// echo($domain);
+	// echo("<br>");
+	// echo("https://api.ote-godaddy.com/api/v1/domains/available?domain=".$domain);
+	// echo("<br>");
+	// echo($data);
+	// echo("<br>");
+	// exit(1);
+
+	$data_decoded = json_decode($data, true);
+	
+	if($data_decoded=="" || $data_decoded===NULL){
+		echo $data;
+		echo "Please try again...";	
+	}else{
+		
+		//$domain_found = $data_decoded["ExactMatchDomain"];
+		//$available = $domain_found["AvailabilityStatus"];
+		//$value = $domain_found["Appraisals"];
+		//$available = $domain_found["AvailabilityStatus"];
+		$available = $data_decoded["available"];
+		if($available==true){
+			echo '<li>'.$domain.'<button class="myButton">Register</button><button class="myButton">Appraise</button><button class="myButton">Save</button><button class="myButton">Sell</button></li>';
+		}else{
+			echo '<li>'.$domain.' is not available</li>';	
 		}
+		
 	}
-}
-else if ($option == 1) {
+	
+}else if($option==6 || $option==5 || $option==4){
 	//to get selected extentions ie.Defualt is .com*/
 	$domain = trim($keyword);
 	$domain = str_replace(' ', '', $domain);

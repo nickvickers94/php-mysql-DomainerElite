@@ -59,79 +59,165 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script>
-   $(document).ready(function(){
-     $('.dropdown-submenu a.test').on("click", function(e){
-       $(this).next('ul').toggle();
-       e.stopPropagation();
-       e.preventDefault();
-     });
-   });
-
-   $(document).ready(function(){
-	  $('.dropdown-menu li.dropdown-item').on("click", function(e){
-	    var keyword = "";
-	    var list = "";
-	   	var html = $(this).has('a').html();
-	    var tabindex = html.substr(html.search("tabindex") + 10, 1);
-	    if (tabindex == "1") {
-	    	list = $(this).has('a').text();
-	    	$(this).parents('div').first().children('button').first().text(list);
-	    	list = list.replace(/ /g,'_');
-	    }
-	    else if (tabindex == "2") {
-	    	keyword = $(this).has('a').text();
-	    	listname = $(this).parent('ul').prev('a').text();
-	    	if (listname == "Keywords") {
-	    		list = "domains_keywords";
-	    	}
-	    	else if (listname == "Start with") {
-	    		list = "start_keywords";
-	    	}
-	    	else if (listname == "End with") {
-	    		list = "end_keywords";
-	    	}
-	    	$(this).parents('div').first().children('button').first().text(keyword);
-	    }
-	    $(this).parents('div').first().children('button').attr("list", list);
-	  });
+$(document).ready(function(){
+	$('.dropdown-submenu a.test').on("click", function(e){
+			$(this).next('ul').toggle();
+			e.stopPropagation();
+			e.preventDefault();
+		});
 	});
 
-   $(document).ready(function(){
-     $('#search').on("click", function(e){
-    	var val = 2;
-       var first_list = $('#firstlist').attr("list");
-       var second_list = $('#secondlist').attr("list");
-       var extention = $('#extention').attr("list");
-       var first_keyword = "";
-       var second_keyword = "";
-       
-       if (first_list == "domains_keywords" || first_list == "start_keywords") {
-       		first_keyword = $('#firstlist').text();
-       }
+	$(document).ready(function(){
+		$('.dropdown-menu li.dropdown-item').on("click", function(e){
+			var keyword = "";
+			var list = "";
+			var html = $(this).has('a').html();
+			var tabindex = html.substr(html.search("tabindex") + 10, 1);
+			if (tabindex == "1") {
+				list = $(this).has('a').text();
+				$(this).parents('div').first().children('button').first().text(list);
+				list = list.replace(/ /g,'_');
+			}
+			else if (tabindex == "2") {
+				keyword = $(this).has('a').text();
+				listname = $(this).parent('ul').prev('a').text();
+				if (listname == "Keywords") {
+					list = "domains_keywords";
+				}
+				else if (listname == "Start with") {
+					list = "start_keywords";
+				}
+				else if (listname == "End with") {
+					list = "end_keywords";
+				}
+				$(this).parents('div').first().children('button').first().text(keyword);
+			}
+			$(this).parents('div').first().children('button').attr("list", list);
+		});
+	});
 
-       if (second_list == "domains_keywords" || second_list == "end_keywords") {
-       		second_keyword = $('#secondlist').text();
-       }
+	$(document).ready(function(){
+		$('#search').on("click", function(e){
+			$('#result').html("");
+			var val = 2;
+			var first_list = $('#firstlist').attr("list");
+			var second_list = $('#secondlist').attr("list");
+			var extention = $('#extention').attr("list");
+			extention = extention.substr(1);
+			var first_keyword = "";
+			var second_keyword = "";
+			var domain = "";
 
-      	$.ajax({
-		     url: "process1.php",
-		     type: "POST",
-		     data: {
-		     "first_list": first_list,
-		     "second_list": second_list,
-		     "first_keyword": first_keyword,
-		     "second_keyword": second_keyword,
-		     "extention": extention,
-		     "option": val,
-		     }
-	     }).done(function(msg) {
-	     	alert(msg);
-	     	if (msg != null && msg != "") {
-	     		$("#result").append(msg);
-	     	}
-	     });
-     });
-   });
+			if (first_list == "domains_keywords" || first_list == "start_keywords") {
+				first_keyword = $('#firstlist').text();
+				if (second_list == "domains_keywords" || second_list == "end_keywords") {
+					second_keyword = $('#secondlist').text();
+					domain = first_keyword + second_keyword;
+					$.ajax({
+						url: "process1.php",
+						type: "POST",
+						data: {
+							"domain": domain,
+							"extention": extention,
+							"option": val
+						}
+					}).done(function(msg) {
+						if (msg != null && msg != "") {
+							$("#result").append(msg);
+						}
+					});
+				}
+				else if (second_list != "") {
+					$.ajax({
+						url: "get_keywords.php",
+						type: "POST",
+						data: {
+							"list_name": second_list
+						}
+					}).done(function(msg) {
+						var second_keywords = JSON.parse(msg);
+						for (var i = second_keywords.length - 1; i >= 0; i--) {
+							second_keyword = second_keywords[i];
+							domain = first_keyword + second_keyword;
+							$.ajax({
+								url: "process1.php",
+								type: "POST",
+								data: {
+									"domain": domain,
+									"extention": extention,
+									"option": val
+								}
+							}).done(function(msg) {
+								if (msg != null && msg != "") {
+									$("#result").append(msg);
+								}
+							});
+						}
+					});
+				}
+			}
+			// else if (first_list != "") {
+			// 	$.ajax({
+			// 			url: "get_keywords.php",
+			// 			type: "POST",
+			// 			data: {
+			// 				"list_name": first_list
+			// 			}
+			// 	}).done(function(msg) {
+			// 		var first_keywords = JSON.parse(msg);
+			// 		for (var i = first_keywords.length - 1; i >= 0; i--) {
+			// 			first_keyword = first_keywords[i];
+			// 			if (second_list == "domains_keywords" || second_list == "end_keywords") {
+			// 				second_keyword = $('#secondlist').text();
+			// 				domain = first_keyword + second_keyword;
+			// 				$.ajax({
+			// 					url: "process1.php",
+			// 					type: "POST",
+			// 					data: {
+			// 						"domain": domain,
+			// 						"extention": extention,
+			// 						"option": val
+			// 					}
+			// 				}).done(function(msg) {
+			// 					if (msg != null && msg != "") {
+			// 						$("#result").append(msg);
+			// 					}
+			// 				});
+			// 			}
+			// 			else if (second_list != "") {
+			// 				$.ajax({
+			// 					url: "get_keywords.php",
+			// 					type: "POST",
+			// 					data: {
+			// 					 "list_name": second_list
+			// 					}
+			// 				}).done(function(msg) {
+			// 					var second_keywords = JSON.parse(msg);
+			// 					for (var i = second_keywords.length - 1; i >= 0; i--) {
+			// 						second_keyword = second_keywords[i];
+			// 						domain = first_keyword + second_keyword;
+			// 						$.ajax({
+			// 							url: "process1.php",
+			// 							type: "POST",
+			// 							data: {
+			// 								"domain": domain,
+			// 								"extention": extention,
+			// 								"option": val
+			// 							}
+			// 						}).done(function(msg) {
+			// 							alert(msg);
+			// 							if (msg != null && msg != "") {
+			// 								$("#result").append(msg);
+			// 							}
+			// 						});
+			// 					}
+			// 				});
+			// 			}
+			// 		}
+			// 	});
+			// }
+		});
+	});
 </script>
 
 <?php require_once('templates/headers/'.$header.'.tpl.php'); ?>
@@ -284,7 +370,7 @@
                                     </div>
 
                                     <div class="dropdown">
-                                       <button id="extention" class="soflow-color dropdown-toggle" type="button" data-toggle="dropdown">Select Extension</button>
+                                       <button id="extention" class="soflow-color dropdown-toggle" type="button" data-toggle="dropdown" list = ".com">.com</button>
                                        <ul class="dropdown-menu">
                                        <?php
                                        	foreach ($extentions as $extention) { ?>
