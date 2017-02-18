@@ -77,6 +77,20 @@ $(document).ready(function(){
 				list = $(this).has('a').text();
 				$(this).parents('div').first().children('button').first().text(list);
 				list = list.replace(/ /g,'_');
+				$.ajax({
+					url: "get_keywords.php",
+					type: "POST",
+					data: {
+						"list_name": list
+					}
+				}).done(function(msg) {
+					var keywords = JSON.parse(msg);
+					var str_keywords = "";
+					for (var i = keywords.length - 1; i >= 0; i--) {
+						str_keywords += keywords[i] + "\n";
+					}
+					alert(str_keywords);
+				});
 			}
 			else if (tabindex == "2") {
 				keyword = $(this).has('a').text();
