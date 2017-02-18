@@ -260,6 +260,21 @@ $(document).ready(function(){
 			thiss.text(msg);
 		});
 	});
+
+	$(document).on("click",".save",function(e){
+		e.preventDefault();
+		var thiss = $(this);
+		$.ajax({
+			url:"save.php",
+			type:"POST",
+			data: {
+				"member_id" : <?php echo($_SESSION['id']); ?>,
+				"domain": $(this).attr("href")
+			}
+		}).done(function(msg){
+			thiss.text(msg);
+		});
+	});
 </script>
 
 <?php require_once('templates/headers/'.$header.'.tpl.php'); ?>
