@@ -77,20 +77,23 @@ $(document).ready(function(){
 				list = $(this).has('a').text();
 				$(this).parents('div').first().children('button').first().text(list);
 				list = list.replace(/ /g,'_');
-				$.ajax({
-					url: "get_keywords.php",
-					type: "POST",
-					data: {
-						"list_name": list
-					}
-				}).done(function(msg) {
-					var keywords = JSON.parse(msg);
-					var str_keywords = "";
-					for (var i = keywords.length - 1; i >= 0; i--) {
-						str_keywords += keywords[i] + "\n";
-					}
-					alert(str_keywords);
-				});
+				var id = $(this).parents('div').first().children('button').first().attr("id");
+				if (id != "extention") {
+					$.ajax({
+						url: "get_keywords.php",
+						type: "POST",
+						data: {
+							"list_name": list
+						}
+					}).done(function(msg) {
+						var keywords = JSON.parse(msg);
+						var str_keywords = "";
+						for (var i = keywords.length - 1; i >= 0; i--) {
+							str_keywords += keywords[i] + "\n";
+						}
+						alert(str_keywords);
+					});
+				}
 			}
 			else if (tabindex == "2") {
 				keyword = $(this).has('a').text();
@@ -111,7 +114,7 @@ $(document).ready(function(){
 	});
 
 	$(document).ready(function(){
-		$('#search').on("click", function(e){
+		$('#search2').on("click", function(e){
 			$('#result').html("");
 			var val = 2;
 			var first_list = $('#firstlist').attr("list");
@@ -235,6 +238,13 @@ $(document).ready(function(){
 		});
 	});
 
+	$(document).ready(function(){
+		$('#search1').on("click", function(e){
+			alert($('input[name=group1]:checked').next('label').text());
+			$('#result').html("");
+		});
+	});
+
 	$(document).on("click",".appraise",function(e){
 		e.preventDefault();
 		var thiss = $(this);
@@ -308,7 +318,7 @@ $(document).ready(function(){
 											<label for="radio-3"><span class="radio">Your Domains</span></label>
 										</div>
 									</section>
-                                    <button class="button">Submit</button>
+                                    <button id = "search1" class="button">Submit</button>
                                  </div>
 
                                  <div class="group" style="width: 50%;">
@@ -408,7 +418,7 @@ $(document).ready(function(){
                                        ?>
                                        </ul>
                                     </div>
-                                    <button id="search" class="button">Submit</button>
+                                    <button id="search2" class="button">Submit</button>
                                  </div>
                               </div>
                            </div>
