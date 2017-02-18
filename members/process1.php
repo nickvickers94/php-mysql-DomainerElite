@@ -132,11 +132,7 @@ if($option==1 || $option==2 || $option==3){
 
 	$data_decoded = json_decode($data, true);
 	
-	if($data_decoded=="" || $data_decoded===NULL){
-		echo $data;
-		echo "Please try again...";	
-	}else{
-		
+	if($data_decoded !="" && $data_decoded != NULL) {
 		//$domain_found = $data_decoded["ExactMatchDomain"];
 		//$available = $domain_found["AvailabilityStatus"];
 		//$value = $domain_found["Appraisals"];
@@ -144,10 +140,7 @@ if($option==1 || $option==2 || $option==3){
 		$available = $data_decoded["available"];
 		if($available==true){
 			echo '<li>'.$domain.'<button class="myButton">Register</button><button class="myButton">Appraise</button><button class="myButton">Save</button><button class="myButton">Sell</button></li>';
-		}else{
-			echo '<li>'.$domain.' is not available</li>';	
 		}
-		
 	}
 	
 }else if($option==6 || $option==5 || $option==4){
