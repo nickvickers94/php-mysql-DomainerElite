@@ -5,9 +5,9 @@ $service = new AvailabilityService(true);
 $result = $conn->query("SELECT expired_domains FROM domains LIMIT 1");
 if($result->num_rows>0){
 	$row = $result->fetch_array(MYSQLI_BOTH);
-	$expired_domains = explode(",",$row['expired_domains']);
-	$jamies_domains = explode(",",$row['jamies_domains']);
-	$dictionary_domains = explode(",",$row['dictionary_domains']);
+	$expired_domains = explode(",",file_get_contents("expired_domains.txt"));
+	$jamies_domains = explode(",",file_get_contents("jamies_domains.txt"));
+	$dictionary_domains = explode(",",file_get_contents("dictionary_domains.txt"));
 	foreach ($expired_domains as $ed) {
 		$ed = trim($ed);
 		if(checkavailability($ed)) {
