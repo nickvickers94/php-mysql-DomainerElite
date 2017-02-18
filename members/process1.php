@@ -108,15 +108,15 @@ if(isset($_POST["appraise"])){
 	appraise($_POST["domain"]);	
 }
 
-$extention = "";
 
-$keyword = $_POST["domain"];
-$extention = $_POST["extention"];
 $option = $_POST["option"];
-$new_domains=$_POST['new_domains'];
-$not_available = 0;
+
 
 if($option==1 || $option==2 || $option==3){
+
+	$keyword = $_POST["domain"];
+	$extention = $_POST["extention"];
+	
 	//to get selected extentions ie.Defualt is .com*/
 	$domain = $keyword.".".$extention;
 	$domain = str_replace(' ', '', $domain);
@@ -143,7 +143,7 @@ if($option==1 || $option==2 || $option==3){
 		}
 	}
 	
-}else if($option==6 || $option==5 || $option==4){
+}elseif($option==5 || $option==4){
 	//to get selected extentions ie.Defualt is .com*/
 	$domain = trim($keyword);
 	$domain = str_replace(' ', '', $domain);
@@ -170,8 +170,22 @@ if($option==1 || $option==2 || $option==3){
 	}
 	
 }
+elseif ($option == 6) {
 
+	$member_id = $_POST['member_id'];
 
+	$query = "SELECT domain FROM member_domains WHERE member_id ='".$member_id."'";
 
+	$result = $conn->query($query);
+
+	if ($result->num_rows > 0) {
+	    // output data of each row
+	    while($row = $result->fetch_assoc()) {
+	        echo("<li>".$row["domain"]."</li>");
+	    }
+	} else {
+	    echo "0 results";
+	}
+}
 
 ?>

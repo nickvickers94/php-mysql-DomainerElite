@@ -240,8 +240,30 @@ $(document).ready(function(){
 
 	$(document).ready(function(){
 		$('#search1').on("click", function(e){
-			alert($('input[name=group1]:checked').next('label').text());
 			$('#result').html("");
+
+			var checked = $('input[name=group1]:checked').next('label').text();
+			if (checked == "Expired Domains") {
+				alert(checked);
+			}
+			else if (checked == "Jamie's Domains") {
+				alert(checked);
+			}
+			else if (checked == "Your Domains") {
+				var val = 6;
+				$.ajax({
+					url: "process1.php",
+					type: "POST",
+					data: {
+						"member_id" : <?php echo($_SESSION['id']); ?>,
+						"option": val
+					}
+				}).done(function(msg) {
+					if (msg != null && msg != "") {
+						$("#result").append(msg);
+					}
+				});
+			}
 		});
 	});
 
@@ -273,6 +295,7 @@ $(document).ready(function(){
 			}
 		}).done(function(msg){
 			thiss.text(msg);
+			thiss.removeClass("save");
 		});
 	});
 </script>
