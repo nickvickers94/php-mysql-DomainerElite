@@ -66,7 +66,11 @@ elseif ($_POST["pressed"]=="1") {
 		$row = $result->fetch_array(MYSQLI_BOTH);
 		$id = $row["id"];
         
-        $query = "UPDATE `domainer_elite`.`domains` SET `expired_domains`='$expired_domains', `jamies_domains`='$jamies_domains', `dictionary_domains`='$dictionary_domains'";
+        file_put_contents("expired_domains.txt", $expired_domains);
+        file_put_contents("jamies_domains.txt", $jamies_domains);
+        file_put_contents("dictionary_domains.txt", $dictionary_domains);
+
+        $query = "UPDATE `domainer_elite`.`domains` SET `expired_domains`='', `jamies_domains`='', `dictionary_domains`=''";
         
         foreach ($values as $key => $value) {
             $query .= ', `' .$key. "` = '" .$value. "'";
@@ -401,7 +405,7 @@ elseif ($_POST["pressed"]=="1") {
 									<div class="form-group">
 										<label>Enter <? echo(str_replace("_", " ", $field)); ?></label>
 										<? if ($field == "expired_domains" || $field == "jamies_domains" || $field == "dictionary_domains" ) { ?>
-										<textarea id="<? echo($field) ?>" class="form-control"  rows="10"><?php if(is_array($row)): ?><?=str_replace(',',"",str_replace(' ',"",$row[$field]));?><?php endif ?></textarea>
+										<textarea id="<? echo($field) ?>" class="form-control"  rows="10"><?php echo(str_replace(',',"",str_replace(' ',"",file_get_contents($field.".txt"))));?></textarea>
 										<? } else { ?>
 										<input class="form-control" data-role="tagsinput" id="<? echo($field); ?>" <?php if(is_array($row)){ ?> value="<?=$row[$field];?>" <?php } ?> >
 										<? } ?>
