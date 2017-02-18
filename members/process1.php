@@ -139,7 +139,7 @@ if($option==1 || $option==2 || $option==3){
 		//$available = $domain_found["AvailabilityStatus"];
 		$available = $data_decoded["available"];
 		if($available==true){
-			echo '<li>'.$domain.'<button class="myButton">Register</button><button class="myButton">Appraise</button><button class="myButton">Save</button><button class="myButton">Sell</button></li>';
+			echo '<li>'.$domain.'<a class="myButton" href="https://godaddy.com/domains/searchresults.aspx?ci=83269&checkAvail=1&domainToCheck='.$domain.'" target="_blank">Register</a><a href = "'.$domain.'" class="myButton appraise">Appraise</a><button class="myButton">Save</button><a href = "http://domainerelite.com/members/marketplace.php" target="_blank" class="myButton">Sell</button></li>';
 		}
 	}
 	

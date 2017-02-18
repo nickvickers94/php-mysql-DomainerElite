@@ -220,6 +220,22 @@ $(document).ready(function(){
 			}
 		});
 	});
+
+	$(document).on("click",".appraise",function(e){
+		e.preventDefault();
+		var thiss = $(this);
+		thiss.text("Loading...");
+		$.ajax({
+			url:"process1.php",
+			type:"POST",
+			data: {
+				"appraise" : 1,
+				"domain":$(this).attr("href")
+			}	
+		}).done(function(msg){
+			thiss.text(msg);
+		});
+	});
 </script>
 
 <?php require_once('templates/headers/'.$header.'.tpl.php'); ?>
