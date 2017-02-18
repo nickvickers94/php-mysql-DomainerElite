@@ -1,9 +1,77 @@
 @charset "utf-8";
 /* CSS Document */
 
+h1.group-name {
+	color: #7c795d;
+	font-family: 'Trocchi', serif;
+	font-size: 45px;
+	font-weight: normal;
+	line-height: 48px;
+	margin: 0;
+}
+
 div.group {
 	padding: 10px 24px;
 	float: left;
+}
+
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'PT Sans', sans-serif;
+  font-size: 1.3em;
+  font-weight: bold;
+  color: #fff;
+}
+
+.section {
+  padding-left: 50px;
+}
+.section input[type="radio"] {
+  display: none;
+}
+
+.radiocontainer {
+	margin-top : 11px;
+}
+
+.radiocontainer label {
+	position: relative;
+}
+
+/* Base styles for spans */
+.radiocontainer span::before,
+.radiocontainer span::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+}
+
+/* Radio buttons */
+.radiocontainer span.radio:hover {
+	cursor: pointer;
+}
+.radiocontainer span.radio::before {
+	left: -52px;
+	width: 45px;
+	height: 25px;
+	background-color: #A8AAC1;
+	border-radius: 50px;
+}
+.radiocontainer span.radio::after {
+	left: -49px;
+	width: 17px;
+	height: 17px;
+	border-radius: 10px;
+	background-color: #6C788A;
+	transition: left .25s, background-color .25s;
+}
+input[type="radio"]:checked + label span.radio::after {
+	left: -27px;
+	background-color: #EBFF43;
 }
 
 .menu ul {
@@ -19,6 +87,7 @@ div.group {
     color: #ffffff;
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
+
 .menu li:hover {
     background-color: #0099cc;
 }
@@ -32,88 +101,6 @@ div.group {
     left: 100%;
     margin-top: -1px;
 }
-
-.radiogroup ul{
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-
-.radiogroup ul li{
-  color: #AAAAAA;
-  display: block;
-  position: relative;
-  float: left;
-  width: 100%;
-}
-
-.radiogroup ul li input[type=radio]{
-  position: absolute;
-  visibility: hidden;
-}
-
-.radiogroup ul li label{
-  display: block;
-  position: relative;
-  font-weight: 300;
-  font-size: 1.35em;
-  padding: 25px 25px 25px 80px;
-  margin: 10px auto;
-  height: 30px;
-  z-index: 9;
-  cursor: pointer;
-  -webkit-transition: all 0.25s linear;
-}
-
-.radiogroup ul li:hover label{
-	color: #000000;
-}
-
-.radiogroup ul li .check{
-  display: block;
-  position: absolute;
-  border: 5px solid #AAAAAA;
-  border-radius: 100%;
-  height: 25px;
-  width: 25px;
-  top: 30px;
-  left: 20px;
-	z-index: 5;
-	transition: border .25s linear;
-	-webkit-transition: border .25s linear;
-}
-
-.radiogroup ul li:hover .check {
-  border: 5px solid #FFFFFF;
-}
-
-.radiogroup ul li .check::before {
-  display: block;
-  position: absolute;
-	content: '';
-  border-radius: 100%;
-  height: 15px;
-  width: 15px;
-  top: 5px;
-	left: 5px;
-  margin: auto;
-	transition: background 0.25s linear;
-	-webkit-transition: background 0.25s linear;
-}
-
-input[type=radio]:checked ~ .check {
-  border: 5px solid #0DFF92;
-}
-
-input[type=radio]:checked ~ .check::before{
-  background: #0DFF92;
-}
-
-input[type=radio]:checked ~ label{
-  color: #0DFF92;
-}
-
 
 a.linkbutton {
     position: relative;
@@ -155,7 +142,7 @@ button.soflow-color {
    border: 1px solid #AAA;
    color: #555;
    font-size: inherit;
-   margin: 10px 15px;
+   margin: 30px 0px 0px 0px;
    overflow: hidden;
    padding: 5px 10px;
    text-overflow: ellipsis;
@@ -172,6 +159,8 @@ button.soflow-color {
 
 .button {
 	position: relative;
+	margin-left : auto;
+	margin-right : auto;
     background-color: #4CAF50; /* Green */
     border: none;
     color: white;
@@ -179,10 +168,10 @@ button.soflow-color {
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-	margin: 10px 15px;
+	margin: 30px 0px 0px 0px;
 	padding: 5px 10px;
     cursor: pointer;
-	width: 40%;
+	width: 70%;
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;
 	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);

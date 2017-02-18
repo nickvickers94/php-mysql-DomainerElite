@@ -292,33 +292,29 @@ $(document).ready(function(){
                            <div class="panel-heading no-title"> </div>
                            <div class="panel-body">
                               <div class="row">
-                                 <div class="group radiogroup" style="width: 50%; height: 300px;">
-                                    <ul>
-                                       <li>
-                                          <input type="radio" id="f-option" name="selector">
-                                          <label for="f-option">Expired Domains</label>
-                                          <div class="check"></div>
-                                       </li>
-                                       <li>
-                                          <input type="radio" id="s-option" name="selector">
-                                          <label for="s-option">Jamie's Domains</label>
-                                          <div class="check">
-                                             <div class="inside"></div>
-                                          </div>
-                                       </li>
-                                       <li>
-                                          <input type="radio" id="t-option" name="selector">
-                                          <label for="t-option">Your Domains</label>
-                                          <div class="check">
-                                             <div class="inside"></div>
-                                          </div>
-                                       </li>
-                                    </ul>
+                                 <div class="group radiogroup" style="width: 50%;">
+									<h1 class="group-name">Search Term 1</h1>
+									<section class="section">
+										<div class="radiocontainer" style="margin-top: 20px;">
+											<input type="radio" name="group1" id="radio-1" checked="1">
+											<label for="radio-1"><span class="radio">Expired Domains</span></label>
+										</div>
+										<div class="radiocontainer">
+											<input type="radio" name="group1" id="radio-2">
+											<label for="radio-2"><span class="radio">Jamie's Domains</span></label>
+										</div>
+										<div class="radiocontainer">
+											<input type="radio" name="group1" id="radio-3">
+											<label for="radio-3"><span class="radio">Your Domains</span></label>
+										</div>
+									</section>
                                     <button class="button">Submit</button>
                                  </div>
-                                 <div class="group" style="width: 50%; height: 300px;">
+
+                                 <div class="group" style="width: 50%;">
+                                 	<h1 class="group-name">Search Term 2</h1>
                                     <div class="dropdown">
-                                       <button id = "firstlist" class="soflow-color dropdown-toggle" type="button" data-toggle="dropdown">Select</button>
+                                       <button id = "firstlist" class="soflow-color dropdown-toggle" type="button" data-toggle="dropdown" style="margin-top: 20px;">Select</button>
                                        <ul class="dropdown-menu">
                                        		<?php
                                        			foreach ($lists as $listname => $keywords) {
