@@ -100,6 +100,8 @@ input[type="radio"]:checked + label span.radio::after {
     top: 0;
     left: 100%;
     margin-top: -1px;
+	height : 900px;
+	overflow-y : scroll;
 }
 
 a.linkbutton {
