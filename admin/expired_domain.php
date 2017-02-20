@@ -32,7 +32,7 @@ $csv->auto($file);
 <?php foreach ($csv->data as $key => $row): ?>
 	<?php if (strlen($row['domain']) < 16): ?>
 		<?php
-			$expired_domains .= $row['domain'].",\n";
+			$expired_domains .= $row['domain']."\n";
 		?>
 	<?php endif; ?>
 <?php endforeach; ?>
