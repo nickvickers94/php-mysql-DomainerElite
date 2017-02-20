@@ -4,7 +4,8 @@
    	header("Location: http://www.domainerelite.com/us1.php"); 
    	exit;
    }
-   ?>
+?>
+
 <?php 
    require_once("includes/conn.php");
    $row = "";
@@ -12,12 +13,13 @@
    if($result->num_rows>0){
    	$row = $result->fetch_array(MYSQLI_BOTH);		
    }
+
    $domain_keywords = explode(",",$row["domains_keywords"]);
    $start_keywords = explode(",",$row["start_keywords"]);
    $end_keywords = explode(",",$row["end_keywords"]);
    $extentions = explode(",",$row["extentions"]);
-   
-   ?>
+?>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
    <head>
@@ -30,526 +32,649 @@
       <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
       <script type="text/javascript" src="js/jquery.mousewheel.min.js"></script>
       <style>
-         #gbar,
-         #guser {
-         font-size: 13px;
-         padding-top: 1px !important;
+         #gbar, #guser {
+            font-size: 13px;
+            padding-top: 1px !important;
          }
+
          #gbar {
-         height: 22px
+            height: 22px;
          }
+
          #guser {
-         padding-bottom: 7px !important;
-         text-align: right
+            padding-bottom: 7px !important;
+            text-align: right;
          }
+
          .gbh,
-         .gbd {
-         border-top: 1px solid #c9d7f1;
-         font-size: 1px
+                  .gbd {
+            border-top: 1px solid #c9d7f1;
+            font-size: 1px;
          }
+
          .gbh {
-         height: 0;
-         position: absolute;
-         top: 24px;
-         width: 100%
+            height: 0;
+            position: absolute;
+            top: 24px;
+            width: 100%;
          }
+
          @media all {
-         .gb1 {
-         height: 22px;
-         margin-right: .5em;
-         vertical-align: top
+            .gb1 {
+               height: 22px;
+               margin-right: .5em;
+               vertical-align: top;
+            }
+
+            #gbar {
+               float: left;
+            };
          }
-         #gbar {
-         float: left
-         }
-         }
+
          a.gb1,
-         a.gb4 {
-         text-decoration: underline !important
+                  a.gb4 {
+            text-decoration: underline !important;
          }
+
          a.gb1,
-         a.gb4 {
-         color: #fff !important
+                  a.gb4 {
+            color: #fff !important;
          }
       </style>
+
       <style>
          .j {
-         width: 34em
+            width: 34em;
          }
+
          #mn {
-         width: 996px
+            width: 996px;
          }
+
          #fll a {
-         margin: 0 10px
+            margin: 0 10px;
          }
+
          #bfl a {
-         margin: 0 10px
+            margin: 0 10px;
          }
+
          .lsb {
-         background: url(/images/nav_logo_hp2.png) no-repeat;
-         overflow: hidden
+            background: url(/images/nav_logo_hp2.png) no-repeat;
+            overflow: hidden;
          }
+
          .micon {
-         background: url(/images/nav_logo_hp2.png) no-repeat;
-         overflow: hidden
+            background: url(/images/nav_logo_hp2.png) no-repeat;
+            overflow: hidden;
          }
+
          .csb {
-         background: url(/images/nav_logo_hp2.png) no-repeat;
-         overflow: hidden
+            background: url(/images/nav_logo_hp2.png) no-repeat;
+            overflow: hidden;
          }
+
          .star {
-         background: url(/images/nav_logo_hp2.png) no-repeat;
-         overflow: hidden
+            background: url(/images/nav_logo_hp2.png) no-repeat;
+            overflow: hidden;
          }
+
          .star div {
-         background: url(/images/nav_logo_hp2.png) no-repeat;
-         overflow: hidden
+            background: url(/images/nav_logo_hp2.png) no-repeat;
+            overflow: hidden;
          }
+
          .star {
-         background-position: 0 -120px
+            background-position: 0 -120px;
          }
+
          .star div {
-         background-position: 0 -110px
+            background-position: 0 -110px;
          }
+
          .p {
-         font-family: arial, sans-serif
+            font-family: arial, sans-serif;
          }
+
          .gsfi {
-         font-size: 17px
+            font-size: 17px;
          }
+
          .gsfs {
-         font-size: 17px
+            font-size: 17px;
          }
+
          .w {
-         color: #fff
+            color: #fff;
          }
+
          .q:active {
-         color: #fff
+            color: #fff;
          }
+
          .q:visited {
-         color: #fff
+            color: #fff;
          }
+
          .tbotu {
-         color: #fff
+            color: #fff;
          }
+
          .hd {
-         height: 1px;
-         position: absolute;
-         top: -1000em
+            height: 1px;
+            position: absolute;
+            top: -1000em;
          }
+
          .std {
-         font-size: 13px
+            font-size: 13px;
          }
+
          .f {
-         color: #fff
+            color: #fff;
          }
+
          .grn {
-         color: #393
+            color: #393;
          }
+
          .ds {
-         border-right: 1px solid #e7e7e7;
-         position: relative;
-         height: 32px;
-         z-index: 100
+            border-right: 1px solid #e7e7e7;
+            position: relative;
+            height: 32px;
+            z-index: 100;
          }
+
          .e {
-         margin: 2px 0px 0.75em
+            margin: 2px 0px 0.75em;
          }
+
          .lnsec {
-         font-size: 13px;
-         border-top: 1px solid #c9d7f1;
-         margin-top: 5px;
-         padding-top: 8px;
-         padding-left: 8px
+            font-size: 13px;
+            border-top: 1px solid #c9d7f1;
+            margin-top: 5px;
+            padding-top: 8px;
+            padding-left: 8px;
          }
+
          .lst {
-         background: #fff;
-         border: 1px solid #ccc;
-         border-bottom: none;
-         color: #000;
-         font: 18px arial, sans-serif;
-         float: left;
-         height: 26px;
-         margin: 0;
-         padding: 4px 0 0;
-         padding-left: 6px;
-         padding-right: 10px;
-         vertical-align: top;
-         width: 100%;
-         word-break: break-all
+            background: #fff;
+            border: 1px solid #ccc;
+            border-bottom: none;
+            color: #000;
+            font: 18px arial, sans-serif;
+            float: left;
+            height: 26px;
+            margin: 0;
+            padding: 4px 0 0;
+            padding-left: 6px;
+            padding-right: 10px;
+            vertical-align: top;
+            width: 100%;
+            word-break: break-all;
          }
+
          .lst:focus {
-         outline: none
+            outline: none;
          }
+
          .lst-td {
-         border-bottom: 1px solid #999;
-         padding: 0
+            border-bottom: 1px solid #999;
+            padding: 0;
          }
+
          .lst-b {
-         border: 1px solid #CCC;
-         border-bottom: none;
-         padding-right: 0;
-         height: 29px;
-         padding-top: 1px
+            border: 1px solid #CCC;
+            border-bottom: none;
+            padding-right: 0;
+            height: 29px;
+            padding-top: 1px;
          }
+
          .tia {
-         padding-right: 0
+            padding-right: 0;
          }
+
          .lsbb {
-         background: #eee;
-         border: 1px solid #999;
-         border-top-color: #ccc;
-         border-left-color: #ccc;
-         height: 30px
+            background: #eee;
+            border: 1px solid #999;
+            border-top-color: #ccc;
+            border-left-color: #ccc;
+            height: 30px;
          }
+
          .lsb {
-         background-position: bottom;
-         border: none;
-         color: #000;
-         cursor: pointer;
-         font: 15px arial, sans-serif;
-         height: 30px;
-         margin: 0;
-         vertical-align: top
+            background-position: bottom;
+            border: none;
+            color: #000;
+            cursor: pointer;
+            font: 15px arial, sans-serif;
+            height: 30px;
+            margin: 0;
+            vertical-align: top;
          }
+
          .lsb:active {
-         background: #ccc
+            background: #ccc;
          }
+
          .micon {
-         float: left;
-         height: 19px;
-         margin-top: 2px;
-         margin-right: 6px;
-         width: 19px
+            float: left;
+            height: 19px;
+            margin-top: 2px;
+            margin-right: 6px;
+            width: 19px;
          }
+
          .nobr {
-         white-space: nowrap
+            white-space: nowrap;
          }
+
          .ts {
-         border-collapse: collapse
+            border-collapse: collapse;
          }
+
          .mitem {
-         font-size: 15px;
-         line-height: 24px;
-         margin-bottom: 2px;
-         padding-left: 8px
+            font-size: 15px;
+            line-height: 24px;
+            margin-bottom: 2px;
+            padding-left: 8px;
          }
+
          .msel {
-         font-weight: bold;
-         margin: -1px 0 0 0;
-         border: solid #fff;
-         border-width: 1px 0
+            font-weight: bold;
+            margin: -1px 0 0 0;
+            border: solid #fff;
+            border-width: 1px 0;
          }
+
          .r {
-         margin: 0
+            margin: 0;
          }
+
          .spon {
-         font-size: 11px;
-         font-weight: normal;
-         color: #767676
+            font-size: 11px;
+            font-weight: normal;
+            color: #767676;
          }
+
          .csb {
-         display: block;
-         height: 40px
+            display: block;
+            height: 40px;
          }
+
          .taf {
-         padding: 1px 0 0
+            padding: 1px 0 0;
          }
+
          .tam {
-         padding: 14px 0 0
+            padding: 14px 0 0;
          }
+
          .tal {
-         padding: 14px 0 1px
+            padding: 14px 0 1px;
          }
+
          .tbfo {
-         margin-bottom: 8px
+            margin-bottom: 8px;
          }
+
          .tbt {
-         margin-bottom: 8px
+            margin-bottom: 8px;
          }
+
          .tbpd {
-         margin-bottom: 8px
+            margin-bottom: 8px;
          }
+
          .tbos {
-         font-weight: bold
+            font-weight: bold;
          }
+
          .b {
-         font-weight: bold
+            font-weight: bold;
          }
+
          .gac_wd {
-         overflow: hidden;
-         right: -2px !important
+            overflow: hidden;
+            right: -2px !important;
          }
+
          .fmg {
-         display: inline-block;
-         margin-top: 7px;
-         padding-right: 8px;
-         text-align: left;
-         vertical-align: top;
-         width: 90px;
-         zoom: 1
+            display: inline-block;
+            margin-top: 7px;
+            padding-right: 8px;
+            text-align: left;
+            vertical-align: top;
+            width: 90px;
+            zoom: 1;
          }
+
          .star {
-         height: 9px;
-         overflow: hidden;
-         width: 50px
+            height: 9px;
+            overflow: hidden;
+            width: 50px;
          }
+
          .pslires {
-         padding-top: 6px;
-         overflow: hidden;
-         width: 99.5%
+            padding-top: 6px;
+            overflow: hidden;
+            width: 99.5%;
          }
+
          .psliimg {
-         float: left;
-         height: 90px;
-         text-align: top;
-         width: 90px
+            float: left;
+            height: 90px;
+            text-align: top;
+            width: 90px;
          }
+
          .pslimain {
-         margin-left: 100px;
-         margin-right: 9em
+            margin-left: 100px;
+            margin-right: 9em;
          }
+
          .psliprice {
-         float: right;
-         width: 7em
+            float: right;
+            width: 7em;
          }
+
          body {
-         font-family: arial, sans-serif;
-         margin: 0;
-         font-size: 13px
+            font-family: arial, sans-serif;
+            margin: 0;
+            font-size: 13px;
          }
+
          td {
-         font-family: arial, sans-serif
+            font-family: arial, sans-serif;
          }
+
          div {
-         font-family: arial, sans-serif
+            font-family: arial, sans-serif;
          }
+
          a {
-         font-family: arial, sans-serif
+            font-family: arial, sans-serif;
          }
+
          .gssb_c table {
-         font-size: 1em
+            font-size: 1em;
          }
+
          a:link {
-         color: #fff
+            color: #fff;
          }
+
          a.fl {
-         color: #4272db;
-         text-decoration: none
+            color: #4272db;
+            text-decoration: none;
          }
+
          .flc a {
-         color: #4272db;
-         text-decoration: none
+            color: #4272db;
+            text-decoration: none;
          }
+
          a.gl {
-         text-decoration: none
+            text-decoration: none;
          }
+
          .ads a:link {
-         color: #0E1CB3
+            color: #0E1CB3;
          }
+
          cite {
-         color: #0E774A;
-         font-style: normal
+            color: #0E774A;
+            font-style: normal;
          }
+
          h3 {
-         font-size: 16px;
-         font-weight: normal;
-         margin: 0;
-         padding: 0
+            font-size: 16px;
+            font-weight: normal;
+            margin: 0;
+            padding: 0;
          }
+
          li.g {
-         font-size: 13px;
-         margin-bottom: 14px;
-         margin-top: 0;
-         zoom: 1
+            font-size: 13px;
+            margin-bottom: 14px;
+            margin-top: 0;
+            zoom: 1;
          }
+
          html {
-         font-size: 13px
+            font-size: 13px;
          }
+
          table {
-         font-size: 13px
+            font-size: 13px;
          }
+
          h1 {
-         margin: 0;
-         padding: 0
+            margin: 0;
+            padding: 0;
          }
+
          ol {
-         margin: 0;
-         padding: 0
+            margin: 0;
+            padding: 0;
          }
+
          ul {
-         margin: 0;
-         padding: 0
+            margin: 0;
+            padding: 0;
          }
+
          li {
-         margin: 0;
-         padding: 0
+            margin: 0;
+            padding: 0;
          }
+
          .slk a {
-         text-decoration: none
+            text-decoration: none;
          }
+
          .tia input {
-         border-right: none;
-         padding-right: 0
+            border-right: none;
+            padding-right: 0;
          }
+
          .s br {
-         display: none
+            display: none;
          }
+
          .images_table td {
-         line-height: 17px;
-         padding-bottom: 16px
+            line-height: 17px;
+            padding-bottom: 16px;
          }
+
          .images_table img {
-         border: 1px solid #ccc;
-         padding: 1px
+            border: 1px solid #ccc;
+            padding: 1px;
          }
+
          a:hover {
-         text-decoration: underline
+            text-decoration: underline;
          }
+
          em {
-         font-weight: bold;
-         font-style: normal
+            font-weight: bold;
+            font-style: normal;
          }
+
          .psliprice b {
-         font-size: medium;
-         font-weight: bold;
-         white-space: nowrap
+            font-size: medium;
+            font-weight: bold;
+            white-space: nowrap;
          }
+
          .psliimg img {
-         border: none
+            border: none;
          }
+
          cite a:link {
-         color: #0E774A;
-         font-style: normal
+            color: #0E774A;
+            font-style: normal;
          }
+
          ol li {
-         list-style: none
+            list-style: none;
          }
+
          ul li {
-         list-style: none
+            list-style: none;
          }
+
          #gbar {
-         float: left;
-         height: 22px;
-         padding-left: 2px;
-         font-size: 13px
+            float: left;
+            height: 22px;
+            padding-left: 2px;
+            font-size: 13px;
          }
+
          #foot {
-         padding: 0 8px
+            padding: 0 8px;
          }
+
          #center_col {
-         border-left: 1px solid #d3e1f9;
-         padding: 0 8px
+            border-left: 1px solid #d3e1f9;
+            padding: 0 8px;
          }
+
          #logo {
-         display: block;
-         height: 49px;
-         margin-top: 12px;
-         margin-left: 12px;
-         overflow: hidden;
-         position: relative;
-         width: 137px
+            display: block;
+            height: 49px;
+            margin-top: 12px;
+            margin-left: 12px;
+            overflow: hidden;
+            position: relative;
+            width: 137px;
          }
+
          #nav {
-         border-collapse: collapse;
-         margin-top: 17px;
-         text-align: left
+            border-collapse: collapse;
+            margin-top: 17px;
+            text-align: left;
          }
+
          #showmodes .micon {
-         background-position: -150px -114px;
-         height: 17px;
-         margin-left: 9px;
-         width: 17px
+            background-position: -150px -114px;
+            height: 17px;
+            margin-left: 9px;
+            width: 17px;
          }
+
          #subform_ctrl {
-         font-size: 11px;
-         height: 26px;
-         margin: 5px 3px 0;
-         margin-left: 17px
+            font-size: 11px;
+            height: 26px;
+            margin: 5px 3px 0;
+            margin-left: 17px;
          }
+
          #mn {
-         table-layout: fixed
+            table-layout: fixed;
          }
+
          #res {
-         padding: 4px 8px 0
+            padding: 4px 8px 0;
          }
+
          #showmodes {
-         font-size: 15px;
-         line-height: 24px
+            font-size: 15px;
+            line-height: 24px;
          }
+
          #swr {
-         margin-top: 4px
+            margin-top: 4px;
          }
+
          #tbd {
-         display: block;
-         min-height: 1px;
-         padding-top: 3px
+            display: block;
+            min-height: 1px;
+            padding-top: 3px;
          }
+
          #abd {
-         display: block;
-         min-height: 1px;
-         padding-top: 3px
+            display: block;
+            min-height: 1px;
+            padding-top: 3px;
          }
+
          #foot a {
-         white-space: nowrap
+            white-space: nowrap;
          }
+
          #res h3 {
-         display: inline
+            display: inline;
          }
+
          #mbEnd li {
-         margin: 1em 0
+            margin: 1em 0;
          }
+
          #mbEnd h2 {
-         color: #676767;
-         font-family: arial, sans-serif;
-         font-size: 11px;
-         font-weight: normal
+            color: #676767;
+            font-family: arial, sans-serif;
+            font-size: 11px;
+            font-weight: normal;
          }
+
          #leftnav a {
-         text-decoration: none
+            text-decoration: none;
          }
+
          #leftnav h2 {
-         color: #767676;
-         font-weight: normal;
-         margin: 0
+            color: #767676;
+            font-weight: normal;
+            margin: 0;
          }
+
          #logo img {
-         left: 0;
-         position: absolute;
-         top: -41px
+            left: 0;
+            position: absolute;
+            top: -41px;
          }
+
          #nav td {
-         text-align: center
+            text-align: center;
          }
+
          #swr li {
-         line-height: 1.2;
-         margin-bottom: 4px
+            line-height: 1.2;
+            margin-bottom: 4px;
          }
+
          #tbd li {
-         display: inline
+            display: inline;
          }
+
          #tbd .tbt li {
-         display: block;
-         font-size: 13px;
-         line-height: 1.2;
-         padding-bottom: 3px;
-         padding-left: 8px;
-         text-indent: -8px
+            display: block;
+            font-size: 13px;
+            line-height: 1.2;
+            padding-bottom: 3px;
+            padding-left: 8px;
+            text-indent: -8px;
          }
+
          #leftnav a:hover {
-         text-decoration: underline
+            text-decoration: underline;
          }
+
          #lnkdomain1 {
-         cursor: pointer;
+            cursor: pointer;
          }
+
          #search_results_clickbank a {
-         color: #000 !important;
+            color: #000 !important;
          }
+
          #search_results_clickbank a:hover {
-         color: #0974C6 !important;
+            color: #0974C6 !important;
          }
+
          body {
-         background-color: #141414;
+            background-color: #141414;
          }
       </style>
       <style type="text/css">
@@ -990,417 +1115,317 @@
       </noscript>
       <script>
          $(window).load(function() {
-         
-         
-         
              mCustomScrollbars();
-         
-         
-         
          });
-         
-         
-         
          
          function mCustomScrollbars() {
-         
-         
-         
-             /* 
-         
-         
-         
+         /* 
          malihu custom scrollbar function parameters: 
-         
-         
-         
          1) scroll type (values: "vertical" or "horizontal")
-         
-         
-         
          2) scroll easing amount (0 for no easing) 
-         
-         
-         
          3) scroll easing type 
-         
-         
-         
          4) extra bottom scrolling space for vertical scroll type only (minimum value: 1)
-         
-         
-         
          5) scrollbar height/width adjustment (values: "auto" or "fixed")
-         
-         
-         
          6) mouse-wheel support (values: "yes" or "no")
-         
-         
-         
          7) scrolling via buttons support (values: "yes" or "no")
-         
-         
-         
          8) buttons scrolling speed (values: 1-20, 1 being the slowest)
-         
-         
-         
          */
-         
-         
-         
-             $("#mcs_container").mCustomScrollbar("vertical", 100, "easeOutCirc", 1.05, "fixed", "yes", "yes", 15);
-         
-         
-         
+            $("#mcs_container").mCustomScrollbar("vertical", 100, "easeOutCirc", 1.05, "fixed", "yes", "yes", 15);
          }
-         
-         
-         
          
          /* function to fix the -10000 pixel limit of jquery.animate */
-         
-         
-         
+
          $.fx.prototype.cur = function() {
-         
-         
-         
-             if (this.elem[this.prop] != null && (!this.elem.style || this.elem.style[this.prop] == null)) {
-         
-         
-         
-                 return this.elem[this.prop];
-         
-         
-         
-             }
-         
-         
-         
-             var r = parseFloat(jQuery.css(this.elem, this.prop));
-         
-         
-         
-             return typeof r == 'undefined' ? 0 : r;
-         
-         
-         
+            if (this.elem[this.prop] != null && (!this.elem.style || this.elem.style[this.prop] == null)) {
+               return this.elem[this.prop];
+            }
+            var r = parseFloat(jQuery.css(this.elem, this.prop));
+            return typeof r == 'undefined' ? 0 : r;
          }
-         
-         
-         
-         
+
          /* function to load new content dynamically */
-         
-         
-         
          function LoadNewContent(id, file) {
-         
-         
-         
-             $("#" + id + " .customScrollBox .content").load(file, function() {
-         
-         
-         
-                 mCustomScrollbars();
-         
-         
-         
-             });
-         
-         
-         
+            $("#" + id + " .customScrollBox .content").load(file, function() {
+               mCustomScrollbars();
+            });
          }
-         
+
          var exact = 0; // check to check if to find exact domain only.
          jQuery(document).ready(function(e) {
-         
-         
-         
-             jQuery(document).on("click",".search_results_clickbank", function() {
-                 //alert();
-         var filter = jQuery("#filter").val();
-         if(filter==2){ // to insert first words
-         jQuery("#search_term").val(jQuery(this).closest("td").next("td").find("div").html()+" "+jQuery("#search_term").val());	
-         exact = 1;
-         }else if(filter==3){ // to insert last words
-         jQuery("#search_term").val(jQuery("#search_term").val()+" "+jQuery(this).closest("td").next("td").find("div").html());	
-         exact = 1;
-         }else{
-                 	jQuery("#search_term").val(jQuery(this).closest("td").next("td").find("div").html());
-         }
-             });
-         
-         
-         jQuery(document).on("change","#filter",function(){
-         var val = jQuery(this).val();
-         jQuery("#search_term").val("");
-         jQuery(".available_msg").html("");
-         jQuery(".try_msg").html("");
-         if(val==4 || val==5 || val==6){
-         jQuery("#domain_extention").attr("disabled","disabled");	
-         exact = 0;
-         }else if(val==1){
-         exact = 0;	
-         }else{
-         jQuery("#domain_extention").removeAttr("disabled");	
-         }
-         
-         jQuery("#list").html("<span>Please Wait...</span>");
-         jQuery.ajax({
-         type:"POST",
-         url:"get_list.php",
-         data:{"value":val}	
-         }).done(function(msg){
-         
-         jQuery("#list").html(msg);
-         
-         });
-         
-         
-         
-         });
-         
-             jQuery("#btnplus").on("click", function(e) {
-                 e.preventDefault();
-         var all_available = 0;
-         var try_again = 0;
-         var count = 0;
-         jQuery(".available_msg").html("");
-         jQuery(".try_msg").html("");
-                 var domain = jQuery("#search_term").val().replace(/ /g, '');
-                 jQuery("#results_loading").html("<span>Loading...</span>");
-         var val = jQuery("#filter").val();
-         var check=0;
-         if((val==2 || val==3)){		
-         jQuery("#list tr").each(function(index, element) {
-         
-                         if(domain==jQuery(this).find("td").eq(1).attr("data-value").replace(/ /g, '')){
-         check =1;
-         }
-                     });
-         
-         if(check==0){
-         val = 5;	
-         }
-         
-         }		
-         if(val==1){ //if keywords is selected
-         <?php foreach($start_keywords as $sk){ ?>
-         $.ajax({
-         url: "process.php",
-         type: "POST",
-         
-         data: {
-         "domain": '<?=$sk?>'+domain,
-         "extention": jQuery("#domain_extention").val(),
-         "option": val,
-         }
-         }).done(function(msg) {
-         //console.log(msg.indexOf("<span style='color:red;'>All other domains are not available</span>"));	
-         if(msg.indexOf("<span style='color:red;'>All other domains are not available</span>")>-1){
-         jQuery(".available_msg").html(msg);
-         
-         }
-         if(msg.indexOf("Please try again...")>-1){
-         //jQuery(".try_msg").html(msg);
-         }
-         if(msg.indexOf("<span style='color:red;'>All other domains are not available</span>")==-1 && msg.indexOf("Please try again...")==-1){
-         if(count==0){
-         jQuery("#results").html(msg);
-         count = 1;
-         }else{
-         jQuery("#results").append(msg);
-         }
-         }
-         });
-         
-         <?php } ?>
-         
-         
-         <?php $count =0; $size = sizeof($end_keywords); foreach($end_keywords as $ek){ ?>
-         $.ajax({
-         url: "process.php",
-         type: "POST",
-         
-         data: {
-         "domain": domain+'<?=$ek?>',
-         "extention": jQuery("#domain_extention").val(),
-         "option": val,
-         }
-         }).done(function(msg) {	
-         <?php $count++; if($count==$size){ ?>jQuery("#results_loading").html("");<?php } ?>		
-          //console.log(msg.indexOf("<span style='color:red;'>All other domains are not available</span>"));	
-         if(msg.indexOf("<span style='color:red;'>All other domains are not available</span>")>-1){
-         jQuery(".available_msg").html(msg);
-         }
-         if(msg.indexOf("Please try again...")>-1){
-         //jQuery(".try_msg").html(msg);
-         }
-         if(msg.indexOf("<span style='color:red;'>All other domains are not available</span>")==-1 && msg.indexOf("Please try again...")==-1){
-         if(count==0){
-         jQuery("#results").html(msg);
-         count = 1;
-         }else{
-         jQuery("#results").append(msg);
-         }
-         }
-         		
-         });
-         
-         <?php } ?>
-         
-         
-         }else if(val==2){
-         <?php $count =0; $size = sizeof($domain_keywords); foreach($domain_keywords as $dk){ ?>
-         $.ajax({
-         url: "process.php",
-         type: "POST",
-         
-         data: {
-         "domain": domain+'<?=$dk?>',
-         "extention": jQuery("#domain_extention").val(),
-         "option": val,
-         }
-         }).done(function(msg) {
-         <?php $count++; if($count==$size){ ?>jQuery("#results_loading").html("");<?php } ?>	
-         if(msg.indexOf("<span style='color:red;'>All other domains are not available</span>")>-1){
-         jQuery(".available_msg").html(msg);
-         }
-         if(msg.indexOf("Please try again...")>-1){
-         //jQuery(".try_msg").html(msg);
-         }
-         if(msg.indexOf("<span style='color:red;'>All other domains are not available</span>")==-1 && msg.indexOf("Please try again...")==-1){
-         if(count==0){
-         jQuery("#results").html(msg);
-         count = 1;
-         }else{
-         jQuery("#results").append(msg);
-         }
-         }
-         });
-         
-         <?php } ?>
-         }else if(val==3){
-         <?php $count =0; $size = sizeof($domain_keywords); foreach($domain_keywords as $dk){ ?>
-         $.ajax({
-         url: "process.php",
-         type: "POST",
-         
-         data: {
-         "domain": '<?=$dk?>'+domain,
-         "extention": jQuery("#domain_extention").val(),
-         "option": val,
-         }
-         }).done(function(msg) {
-         <?php $count++; if($count==$size){ ?>jQuery("#results_loading").html("");<?php } ?>	
-         if(msg.indexOf("<span style='color:red;'>All other domains are not available</span>")>-1){
-         jQuery(".available_msg").html(msg);
-         }
-         if(msg.indexOf("Please try again...")>-1){
-         //jQuery(".try_msg").html(msg);
-         }
-         if(msg.indexOf("<span style='color:red;'>All other domains are not available</span>")==-1 && msg.indexOf("Please try again...")==-1){
-         if(count==0){
-         jQuery("#results").html(msg);
-         count = 1;
-         }else{
-         jQuery("#results").append(msg);
-         }
-         }
-         });
-         
-         <?php } ?>
-         }else if(val==4 || val==5 || val==6){
-         $.ajax({
-         url: "process.php",
-         type: "POST",
-         
-         data: {
-         "domain": domain,
-         "option": val,
-         }
-         }).done(function(msg) {
-         if(msg.indexOf("<span style='color:red;'>All other domains are not available</span>")>-1){
-         jQuery(".available_msg").html(msg);
-         jQuery("#results_loading").html("");
-         }
-         if(msg.indexOf("Please try again...")>-1){
-         //jQuery(".try_msg").html(msg);
-         }
-         if(msg.indexOf("<span style='color:red;'>All other domains are not available</span>")==-1 && msg.indexOf("Please try again...")==-1){
-         if(count==0){
-         jQuery("#results").html(msg);
-         count = 1;
-         jQuery("#results_loading").html("");
-         }else{
-         jQuery("#results").append(msg);
-         jQuery("#results_loading").html("");
-         }
-         }
-         });
-         
-         }
-         
-             });
-         
-         $(document).on("click",".appraise",function(e){
-         e.preventDefault();
-         var thiss = $(this);
-         thiss.html("Loading...");
-         $.ajax({
-         url:"process.php",
-         type:"POST",
-         data:{"appraise":1,"domain":$(this).attr("href")}	
-         }).done(function(msg){
-         thiss.after("<span>"+msg+"</span>");
-         thiss.remove();
-         });
-         });
-         
-             function populate_sell_domains_sites() {
-                 $.ajax({
-                     url: "selling_domains_sites.php",
+
+            jQuery(document).on("click", ".search_results_clickbank", function() {
+               //alert();
+               var filter = jQuery("#filter").val();
+               if (filter == 2) { // to insert first words
+                  jQuery("#search_term").val(jQuery(this).closest("td").next("td").find("div").html() + " " + jQuery("#search_term").val());
+                  exact = 1;
+               }
+               else if (filter == 3) { // to insert last words
+                  jQuery("#search_term").val(jQuery("#search_term").val() + " " + jQuery(this).closest("td").next("td").find("div").html());
+                  exact = 1;
+               }
+               else {
+                  jQuery("#search_term").val(jQuery(this).closest("td").next("td").find("div").html());
+               }
+            });
+
+            jQuery(document).on("change", "#filter", function() {
+               var val = jQuery(this).val();
+               jQuery("#search_term").val("");
+               jQuery(".available_msg").html("");
+               jQuery(".try_msg").html("");
+               if (val == 4 || val == 5 || val == 6) {
+                  jQuery("#domain_extention").attr("disabled", "disabled");
+                  exact = 0;
+               }
+               else if (val == 1) {
+                  exact = 0;
+               }
+               else {
+                  jQuery("#domain_extention").removeAttr("disabled");
+               }
+               jQuery("#list").html("<span>Please Wait...</span>");
+               jQuery.ajax({
+                  type: "POST",
+                  url: "get_list.php",
+                  data: {
+                     "value": val
+                  }
+               }).done(function(msg) {
+                  jQuery("#list").html(msg);
+               });
+            });
+
+            jQuery("#btnplus").on("click", function(e) {
+               e.preventDefault();
+               var all_available = 0;
+               var try_again = 0;
+               var count = 0;
+               jQuery(".available_msg").html("");
+               jQuery(".try_msg").html("");
+               var domain = jQuery("#search_term").val().replace(/ /g, '');
+               jQuery("#results_loading").html("<span>Loading...</span>");
+               var val = jQuery("#filter").val();
+               var check = 0;
+               if ((val == 2 || val == 3)) {
+                  jQuery("#list tr").each(function(index, element) {
+                     if (domain == jQuery(this).find("td").eq(1).attr("data-value").replace(/ /g, '')) {
+                        check = 1;
+                     }
+                  });
+                  if (check == 0) {
+                     val = 5;
+                  }
+               }
+               if (val == 1) { //if keywords is selected
+                  <?php foreach($start_keywords as $sk){ ?>
+                  $.ajax({
+                     url: "process.php",
                      type: "POST",
-                 }).done(function(msg) {
-                     jQuery("#search_results_clickbank").html(msg);
-                 });
-             }
+                     data: {
+                        "domain": '<?=$sk?>' + domain,
+                        "extention": jQuery("#domain_extention").val(),
+                        "option": val,
+                     }
+                  }).done(function(msg) {
+                     //console.log(msg.indexOf("<span style='color:red;'>All other domains are not available</span>")); 
+                     if (msg.indexOf("<span style='color:red;'>All other domains are not available</span>") > -1) {
+                        jQuery(".available_msg").html(msg);
+                     }
+                     if (msg.indexOf("Please try again...") > -1) {
+                        //jQuery(".try_msg").html(msg);
+                     }
+                     if (msg.indexOf("<span style='color:red;'>All other domains are not available</span>") == -1 && msg.indexOf("Please try again...") == -1) {
+                        if (count == 0) {
+                           jQuery("#results").html(msg);
+                           count = 1;
+                        }
+                        else {
+                           jQuery("#results").append(msg);
+                        }
+                     }
+                  });
+                  <?php } ?>
+                  <?php $count =0; $size = sizeof($end_keywords); foreach($end_keywords as $ek){ ?>
+                  $.ajax({
+                     url: "process.php",
+                     type: "POST",
+                     data: {
+                        "domain": domain + '<?=$ek?>',
+                        "extention": jQuery("#domain_extention").val(),
+                        "option": val,
+                     }
+                  }).done(function(msg) {
+                     <?php $count++; if($count==$size){ ?>
+                     jQuery("#results_loading").html("");
+                     <?php } ?>
+                     //console.log(msg.indexOf("<span style='color:red;'>All other domains are not available</span>")); 
+                     if (msg.indexOf("<span style='color:red;'>All other domains are not available</span>") > -1) {
+                        jQuery(".available_msg").html(msg);
+                     }
+                     if (msg.indexOf("Please try again...") > -1) {
+                        //jQuery(".try_msg").html(msg);
+                     }
+                     if (msg.indexOf("<span style='color:red;'>All other domains are not available</span>") == -1 && msg.indexOf("Please try again...") == -1) {
+                        if (count == 0) {
+                           jQuery("#results").html(msg);
+                           count = 1;
+                        }
+                        else {
+                           jQuery("#results").append(msg);
+                        }
+                     }
+                  });
+                  <?php } ?>
+               }
+               else if (val == 2) {
+                  <?php $count =0; $size = sizeof($domain_keywords); foreach($domain_keywords as $dk){ ?>
+                  $.ajax({
+                     url: "process.php",
+                     type: "POST",
+                     data: {
+                        "domain": domain + '<?=$dk?>',
+                        "extention": jQuery("#domain_extention").val(),
+                        "option": val,
+                     }
+                  }).done(function(msg) {
+                     <?php $count++; if($count==$size){ ?>
+                     jQuery("#results_loading").html("");
+                     <?php } ?>
+                     if (msg.indexOf("<span style='color:red;'>All other domains are not available</span>") > -1) {
+                        jQuery(".available_msg").html(msg);
+                     }
+                     if (msg.indexOf("Please try again...") > -1) {
+                        //jQuery(".try_msg").html(msg);
+                     }
+                     if (msg.indexOf("<span style='color:red;'>All other domains are not available</span>") == -1 && msg.indexOf("Please try again...") == -1) {
+                        if (count == 0) {
+                           jQuery("#results").html(msg);
+                           count = 1;
+                        }
+                        else {
+                           jQuery("#results").append(msg);
+                        }
+                     }
+                  });
+                  <?php } ?>
+               }
+               else if (val == 3) {
+                  <?php $count =0; $size = sizeof($domain_keywords); foreach($domain_keywords as $dk){ ?>
+                  $.ajax({
+                     url: "process.php",
+                     type: "POST",
+                     data: {
+                        "domain": '<?=$dk?>' + domain,
+                        "extention": jQuery("#domain_extention").val(),
+                        "option": val,
+                     }
+                  }).done(function(msg) {
+                     <?php $count++; if($count==$size){ ?>
+                     jQuery("#results_loading").html("");
+                     <?php } ?>
+                     if (msg.indexOf("<span style='color:red;'>All other domains are not available</span>") > -1) {
+                        jQuery(".available_msg").html(msg);
+                     }
+                     if (msg.indexOf("Please try again...") > -1) {
+                        //jQuery(".try_msg").html(msg);
+                     }
+                     if (msg.indexOf("<span style='color:red;'>All other domains are not available</span>") == -1 && msg.indexOf("Please try again...") == -1) {
+                        if (count == 0) {
+                           jQuery("#results").html(msg);
+                           count = 1;
+                        }
+                        else {
+                           jQuery("#results").append(msg);
+                        }
+                     }
+                  });
+                  <?php } ?>
+               }
+               else if (val == 4 || val == 5 || val == 6) {
+                  $.ajax({
+                     url: "process.php",
+                     type: "POST",
+                     data: {
+                        "domain": domain,
+                        "option": val,
+                     }
+                  }).done(function(msg) {
+                     if (msg.indexOf("<span style='color:red;'>All other domains are not available</span>") > -1) {
+                        jQuery(".available_msg").html(msg);
+                        jQuery("#results_loading").html("");
+                     }
+                     if (msg.indexOf("Please try again...") > -1) {
+                        //jQuery(".try_msg").html(msg);
+                     }
+                     if (msg.indexOf("<span style='color:red;'>All other domains are not available</span>") == -1 && msg.indexOf("Please try again...") == -1) {
+                        if (count == 0) {
+                           jQuery("#results").html(msg);
+                           count = 1;
+                           jQuery("#results_loading").html("");
+                        }
+                        else {
+                           jQuery("#results").append(msg);
+                           jQuery("#results_loading").html("");
+                        }
+                     }
+                  });
+               }
+            });
+            
+            $(document).on("click", ".appraise", function(e) {
+               e.preventDefault();
+               var thiss = $(this);
+               thiss.html("Loading...");
+               $.ajax({
+                  url: "process.php",
+                  type: "POST",
+                  data: {
+                     "appraise": 1,
+                     "domain": $(this).attr("href")
+                  }
+               }).done(function(msg) {
+                  thiss.after("<span>" + msg + "</span>");
+                  thiss.remove();
+               });
+            });
          
-             populate_sell_domains_sites();
+            function populate_sell_domains_sites() {
+               $.ajax({
+                  url: "selling_domains_sites.php",
+                  type: "POST",
+               }).done(function(msg) {
+                  jQuery("#search_results_clickbank").html(msg);
+               });
+            }
          
-             jQuery(document).on("click", "#search_results_clickbank a", function(e) {
-                 e.preventDefault();
-         href = jQuery(this).attr("href");
-                 //href = "http://google.com" + jQuery(this).attr("href");
-                 window.open(href, "", "width=700, height=600,top=50, left=300");
-             });
+            populate_sell_domains_sites();
          
-         jQuery(document).on("click", "#estibot_pop", function(e) {
-                 e.preventDefault();
-         
-                 href = jQuery(this).val();
-                 window.open(href, "", "width=700, height=600,top=50, left=300");
-             });
-         
-         
-         
+            jQuery(document).on("click", "#search_results_clickbank a", function(e) {
+               e.preventDefault();
+               href = jQuery(this).attr("href");
+               //href = "http://google.com" + jQuery(this).attr("href");
+               window.open(href, "", "width=700, height=600,top=50, left=300");
+            });
+
+            jQuery(document).on("click", "#estibot_pop", function(e) {
+               e.preventDefault();
+               href = jQuery(this).val();
+               window.open(href, "", "width=700, height=600,top=50, left=300");
+            });
          });
-         
-         
-         function loaded(){
-         //i = document.getElementById("i");
-         //console.log(jQuery('#i').contents().find("#domain_search_input").remove());	
-         $("#i").contents().find("#domain_search_form").hide();
-         
+
+         function loaded() {
+            //i = document.getElementById("i");
+            //console.log(jQuery('#i').contents().find("#domain_search_input").remove()); 
+            $("#i").contents().find("#domain_search_form").hide();
          }
-         
-         
+
          //document.getElementById("i").onload = function () { this.contentWindow.scrollTo(0, 200) };
       </script>
+
       <script src="js/jquery.mCustomScrollbar.js"></script>
+      
       <script>
          function selectDomain(domain) {
          	jQuery("#search_term").val(domain);
