@@ -115,6 +115,10 @@
 
         <title>Admin-Domainer Elite</title>
 
+        <link rel="stylesheet" href="css/style.css">
+        <!-- CSS to style the file input field as button and adjust the Bootstrap progress bars -->
+        <link rel="stylesheet" href="css/jquery.fileupload.css">
+
         <!-- Bootstrap Core CSS -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
 
@@ -164,6 +168,21 @@
                 color: #000;
                 text-decoration: none;
                 cursor: pointer;
+            }
+
+            div.upload {
+                width: 157px;
+                height: 57px;
+                background: url(https://lh6.googleusercontent.com/-dqTIJRTqEAQ/UJaofTQm3hI/AAAAAAAABHo/w7ruR1SOIsA/s157/upload.png);
+                overflow: hidden;
+            }
+
+            div.upload input {
+                display: block !important;
+                width: 157px !important;
+                height: 57px !important;
+                opacity: 0 !important;
+                overflow: hidden !important;
             }
         </style>
 
@@ -357,6 +376,22 @@
                                     <textarea id="expired_domains" class="form-control"  rows="10"> <?php echo($expired_domains); ?> </textarea>
                                 </div>
 
+                                <span class="btn btn-success fileinput-button">
+                                    <i class="glyphicon glyphicon-plus"></i>
+                                    <span>Select files...</span>
+                                    <!-- The file input field used as target for the file upload widget -->
+                                    <input id="fileupload" type="file" name="files[]" multiple>
+                                </span>
+                                <br>
+                                <br>
+                                <!-- The global progress bar -->
+                                <div id="progress" class="progress">
+                                    <div class="progress-bar progress-bar-success"></div>
+                                </div>
+                                <!-- The container for the uploaded files -->
+                                <div id="files" class="files"></div>
+                                <br>
+
                                 <?php
                                     $result = $conn->query("SELECT domain FROM jamies_domains");
                                     $jamies_domains_array = array();
@@ -413,7 +448,8 @@
 
                             </form>
 
-                            <button type="submit" id="submit" class="btn btn-success">Save Changes</button> <span class="text-success" id="sucess_msg"></span>
+                            <button type="submit" id="submit" class="btn btn-success">Save Changes</button>
+                            <span class="text-success" id="sucess_msg"></span>
 
                             <a id="addlist" class="btn btn-success">Add list</a>
 
@@ -477,6 +513,10 @@
                         });
                     });
     			});
+
+                $("#file").change(function(){
+                    $("#upload").submit();
+                });
          	});
         </script>
 
@@ -535,6 +575,39 @@
                     modal.style.display = "none";
                 }
             }
+        </script>
+
+        <script src="js/vendor/jquery.ui.widget.js"></script>
+        <!-- The Iframe Transport is required for browsers without support for XHR file uploads -->
+        <script src="js/jquery.iframe-transport.js"></script>
+        <!-- The basic File Upload plugin -->
+        <script src="js/jquery.fileupload.js"></script>
+
+        <script>
+            /*jslint unparam: true */
+            /*global window, $ */
+            $(function () {
+                'use strict';
+                // Change this to the location of your server-side upload handler:
+                var url = 'upload.php';
+                $('#fileupload').fileupload({
+                    url: url,
+                    dataType: 'json',
+                    done: function (e, data) {
+                        $.each(data.result.files, function (index, file) {
+                            $('<p/>').text(file.name).appendTo('#files');
+                        });
+                    },
+                    progressall: function (e, data) {
+                        var progress = parseInt(data.loaded / data.total * 100, 10);
+                        $('#progress .progress-bar').css(
+                            'width',
+                            progress + '%'
+                        );
+                    }
+                }).prop('disabled', !$.support.fileInput)
+                    .parent().addClass($.support.fileInput ? undefined : 'disabled');
+            });
         </script>
     </body>
 
