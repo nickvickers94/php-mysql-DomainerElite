@@ -376,12 +376,17 @@
                                     <textarea id="expired_domains" class="form-control"  rows="10"> <?php echo($expired_domains); ?> </textarea>
                                 </div>
 
-                                <span class="btn btn-success fileinput-button">
-                                    <i class="glyphicon glyphicon-plus"></i>
-                                    <span>Select files...</span>
-                                    <!-- The file input field used as target for the file upload widget -->
-                                    <input id="fileupload" type="file" name="files[]" multiple>
-                                </span>
+                                <div class="row">
+                                    <span class="btn btn-success fileinput-button">
+                                        <i class="glyphicon glyphicon-plus"></i>
+                                        <span>Select files...</span>
+                                        <!-- The file input field used as target for the file upload widget -->
+                                        <input id="fileupload" type="file" name="files[]" multiple>
+                                    </span>
+
+                                    <span class="text-success" id="upload_msg"></span>
+                                </div>
+                                
                                 <br>
                                 <br>
                                 <!-- The global progress bar -->
@@ -556,7 +561,7 @@
                     data.append('pressed', "2");
                     $.ajax({
                         url:'index.php',
-                        type:'POST',
+                        type:'POST'
                         processData: false,
                         contentType: false,
                         data:data,
@@ -604,6 +609,9 @@
                             'width',
                             progress + '%'
                         );
+                        $('#upload_msg').html('<font  style="color:#FF0000; font-weight:bold;">Please Wait...</font>');
+                    },
+                    success:function(resp){
                     }
                 }).prop('disabled', !$.support.fileInput)
                     .parent().addClass($.support.fileInput ? undefined : 'disabled');
