@@ -2,7 +2,7 @@
 
 
 # include parseCSV class.
-require_once('parsecsv.lib.php');
+require_once('includes/parsecsv.lib.php');
 
 $file = "files/".$_POST['csv'];
 # create new parseCSV object.
@@ -36,5 +36,5 @@ $csv->auto($file);
 		?>
 	<?php endif; ?>
 <?php endforeach; ?>
-<?php $expired_domains = trim($expired_domains, ",\n"); ?>
+<?php $expired_domains = trim($expired_domains, "\n"); ?>
 <?php echo($expired_domains); ?>
