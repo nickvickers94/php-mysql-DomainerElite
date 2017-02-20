@@ -15,7 +15,7 @@ $csv = new parseCSV();
 // $csv->conditions = 'rating < 4 OR author is John Twelve Hawks';
 // $csv->conditions = 'rating > 4 AND author is Dan Brown';
 
-$csv->conditions = 'appraised_value > 299 AND domain does not contain 0 AND domain does not contain 1 AND domain does not contain 2 AND domain does not contain 3 AND domain does not contain 4 AND domain does not contain 5 AND domain does not contain 6 AND domain does not contain 7 AND domain does not contain 8 AND domain does not contain 9';
+$csv->conditions = 'appraised_value >= 900 AND domain does not contain 0 AND domain does not contain 1 AND domain does not contain 2 AND domain does not contain 3 AND domain does not contain 4 AND domain does not contain 5 AND domain does not contain 6 AND domain does not contain 7 AND domain does not contain 8 AND domain does not contain 9 AND domain does not contain - AND domain contains .COM';
 
 
 # Parse '_books.csv' using automatic delimiter detection.
