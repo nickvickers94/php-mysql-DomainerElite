@@ -16,15 +16,15 @@
         foreach ($keys as $key) {
             if ($key != "pressed") {
                 if ($key == "expired_domains") {
-                    $expired_domains = str_replace("\n", ",", str_replace(" ", "", trim($_POST["expired_domains"])));
+                    $expired_domains = str_replace("\r\n", ",", str_replace(" ", "", trim($_POST["expired_domains"])));
                     $expired_domains_array = explode(",", $expired_domains);
                 }
                 elseif ($key == "jamies_domains") {
-                    $jamies_domains = str_replace("\n", ",", str_replace(" ", "", trim($_POST["jamies_domains"])));
+                    $jamies_domains = str_replace("\r\n", ",", str_replace(" ", "", trim($_POST["jamies_domains"])));
                     $jamies_domains_array = explode(",", $jamies_domains);
                 }
                 elseif ($key == "dictionary_domains") {
-                    $dictionary_domains = str_replace("\n", ",", str_replace(" ", "", trim($_POST["dictionary_domains"])));
+                    $dictionary_domains = str_replace("\r\n", ",", str_replace(" ", "", trim($_POST["dictionary_domains"])));
                     $dictionary_domains_array = explode(",", $dictionary_domains);
                 }
                 else {

@@ -5,7 +5,6 @@
 require_once('parsecsv.lib.php');
 
 $file = "files/".$_POST['csv'];
-file_put_contents("csv.txt", $file);
 # create new parseCSV object.
 $csv = new parseCSV();
 
