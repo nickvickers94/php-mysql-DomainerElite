@@ -243,7 +243,18 @@ $(document).ready(function(){
 
 			var checked = $('input[name=group1]:checked').next('label').text();
 			if (checked == "Expired Domains") {
-				alert(checked);
+				var val = 4;
+				$.ajax({
+					url: "process1.php",
+					type: "POST",
+					data: {
+						"option": val
+					}
+				}).done(function(msg) {
+					if (msg != null && msg != "") {
+						$("#result").append(msg);
+					}
+				});
 			}
 			else if (checked == "Jamie's Domains") {
 				alert(checked);

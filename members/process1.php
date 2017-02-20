@@ -96,7 +96,7 @@
 
 	$option = $_POST["option"];
 
-	if($option==1 || $option==2 || $option==3){
+	if ( $option==1 || $option==2 || $option==3 ) {
 
 		$keyword = $_POST["domain"];
 		$extention = $_POST["extention"];
@@ -116,7 +116,22 @@
 			}
 		}
 	}
-	elseif($option==5 || $option==4){
+	elseif ( $option == 4 ) {
+		$sql = "SELECT domain FROM expired_domains";
+
+		$result = $conn->query($sql);
+
+		if ($result->num_rows > 0) {
+			// output data of each row
+			while($row = $result->fetch_assoc()) {
+				echo("<li>".$row["domain"]."</li>");
+			}
+		}
+		else {
+			echo "0 results";
+		}
+	}
+	elseif ( $option == 5 ) {
 		//to get selected extentions ie.Defualt is .com*/
 		$domain = trim($keyword);
 		$domain = str_replace(' ', '', $domain);
@@ -141,13 +156,13 @@
 			}
 		}
 	}
-	elseif ($option == 6) {
+	elseif ( $option == 6 ) {
 
 		$member_id = $_POST['member_id'];
 
-		$query = "SELECT domain FROM member_domains WHERE member_id ='".$member_id."'";
+		$sql = "SELECT domain FROM member_domains WHERE member_id ='".$member_id."'";
 
-		$result = $conn->query($query);
+		$result = $conn->query($sql);
 
 		if ($result->num_rows > 0) {
 			// output data of each row
