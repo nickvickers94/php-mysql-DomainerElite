@@ -4,7 +4,8 @@
 # include parseCSV class.
 require_once('parsecsv.lib.php');
 
-
+$file = "files/".$_POST['csv'];
+file_put_contents("csv.txt", $file);
 # create new parseCSV object.
 $csv = new parseCSV();
 
@@ -19,7 +20,7 @@ $csv->conditions = 'appraised_value > 299 AND domain does not contain 0 AND doma
 
 
 # Parse '_books.csv' using automatic delimiter detection.
-$csv->auto('files/domain.csv');
+$csv->auto($file);
 
 
 # Output result.
@@ -36,4 +37,5 @@ $csv->auto('files/domain.csv');
 		?>
 	<?php endif; ?>
 <?php endforeach; ?>
+<?php $expired_domains = trim($expired_domains, ",\n"); ?>
 <?php echo($expired_domains); ?>

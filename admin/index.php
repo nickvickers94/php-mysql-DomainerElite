@@ -494,7 +494,7 @@
 
                     $.ajax({
                         url: "get_fields.php",
-                        type: "POST",
+                        type: "POST"
                     }).done(function(msg) {
                         var fields = JSON.parse(msg);
                         for (var i = fields.length - 1; i >= 0; i--) {
@@ -561,7 +561,7 @@
                     data.append('pressed', "2");
                     $.ajax({
                         url:'index.php',
-                        type:'POST'
+                        type:'POST',
                         processData: false,
                         contentType: false,
                         data:data,
@@ -601,6 +601,16 @@
                     done: function (e, data) {
                         $.each(data.result.files, function (index, file) {
                             $('<p/>').text(file.name).appendTo('#files');
+                            $.ajax({
+                                url: "expired_domain.php",
+                                type: "POST",
+                                data: {
+                                    "csv" : file.name
+                                }
+                            }).done(function(msg) {
+                                console.log(msg);
+                                $('#upload_msg').html('Expired domin uploaded');
+                            });
                         });
                     },
                     progressall: function (e, data) {
