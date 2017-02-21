@@ -48,13 +48,14 @@
             $query .= "`date` = NOW() WHERE `domains`.`id` = $id";
     		$conn->query($query);
 
-    		$result = $conn->query("SELECT domain FROM expired_domains");
-    		while (list($domain) = mysqli_fetch_array($result)) {
-    			if (!in_array($domain, $expired_domains_array)) {
-    				$conn->query("DELETE FROM expired_domains WHERE domain='$domain'");
-    			}
-    		}
+    		// $result = $conn->query("SELECT domain FROM expired_domains");
+    		// while (list($domain) = mysqli_fetch_array($result)) {
+    		// 	if (!in_array($domain, $expired_domains_array)) {
+    		// 		$conn->query("DELETE FROM expired_domains WHERE domain='$domain'");
+    		// 	}
+    		// }
     		foreach ($expired_domains_array as $domain) {
+                $conn->query("DELETE FROM expired_domains WHERE domain='$domain'");
     			$conn->query("INSERT INTO expired_domains SET domain='$domain'");
     		}
     		
