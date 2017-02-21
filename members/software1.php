@@ -358,7 +358,7 @@ $(document).ready(function(){
 			}
 		}).done(function(msg){
 			thiss.text(msg);
-			thiss.removeClass("vote");
+			thiss.removeClass("vote4");
 		});
 	});
 </script>
