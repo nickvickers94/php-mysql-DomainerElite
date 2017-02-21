@@ -611,6 +611,7 @@
                             }).done(function(msg) {
                                 $('#expired_domains').val(msg);
                                 $('#upload_msg').html('Expired domin uploaded');
+                                $('#sucess_msg').html("");
                             });
                         });
                     },
