@@ -308,6 +308,7 @@ $(document).ready(function(){
 	$(document).on("click",".save",function(e){
 		e.preventDefault();
 		var thiss = $(this);
+		thiss.text("Saving...");
 		$.ajax({
 			url:"save.php",
 			type:"POST",
@@ -318,6 +319,23 @@ $(document).ready(function(){
 		}).done(function(msg){
 			thiss.text(msg);
 			thiss.removeClass("save");
+		});
+	});
+
+	$(document).on("click",".vote4",function(e){
+		e.preventDefault();
+		var thiss = $(this);
+		thiss.text("Voting...");
+		$.ajax({
+			url:"vote.php",
+			type:"POST",
+			data: {
+				"table" : "expired_domains",
+				"domain": $(this).attr("href")
+			}
+		}).done(function(msg){
+			thiss.text(msg);
+			thiss.removeClass("vote");
 		});
 	});
 </script>

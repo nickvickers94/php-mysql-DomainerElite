@@ -128,7 +128,7 @@
 		if($data_decoded !="" && $data_decoded != NULL) {
 			$available = $data_decoded["available"];
 			if ( $available == true ) {
-				echo '<li>'.$domain.'<a class="myButton" href="https://godaddy.com/domains/searchresults.aspx?ci=83269&checkAvail=1&domainToCheck='.$domain.'" target="_blank">Register</a><a href = "'.$domain.'" class="myButton appraise">Appraise</a><a href = "'.$domain.'" class="myButton save">Save</a><a href = "http://domainerelite.com/members/marketplace.php" target="_blank" class="myButton">Sell</button></li>';
+				echo '<li>'.$domain.'<a href="'.$domain.'" class="myButton vote'.$option.'">Vote</a><a class="myButton" href="https://godaddy.com/domains/searchresults.aspx?ci=83269&checkAvail=1&domainToCheck='.$domain.'" target="_blank">Register</a><a href = "'.$domain.'" class="myButton appraise">Appraise</a><a href = "'.$domain.'" class="myButton save">Save</a><a href = "http://domainerelite.com/members/marketplace.php" target="_blank" class="myButton">Sell</button></li>';
 			}
 		}
 	}
