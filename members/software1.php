@@ -115,12 +115,11 @@ $(document).ready(function(){
 	$(document).ready(function(){
 		$('#search2').on("click", function(e){
 			$('#result').html("");
-			$('#loading_msg').html('<font  style="color:#FF0000; font-weight:bold;">Please Wait...</font>');
-			var val = 2;
+			$('#loading_msg').html('<font style="color:#FF0000; font-weight:bold;">Please Wait...</font>');
+			var val = 1;
 			var first_list = $('#firstlist').attr("list");
 			var second_list = $('#secondlist').attr("list");
 			var extention = $('#extention').attr("list");
-			extention = extention.substr(1);
 			var first_keyword = "";
 			var second_keyword = "";
 			var domain = "";
@@ -129,18 +128,23 @@ $(document).ready(function(){
 				first_keyword = $('#firstlist').text();
 				if (second_list == "domains_keywords" || second_list == "end_keywords") {
 					second_keyword = $('#secondlist').text();
-					domain = first_keyword + second_keyword;
+					domain = first_keyword + second_keyword + extention;
 					$.ajax({
 						url: "process1.php",
 						type: "POST",
 						data: {
+							"i": val,
 							"domain": domain,
-							"extention": extention,
 							"option": val
 						}
 					}).done(function(msg) {
-						if (msg != null && msg != "") {
-							$("#result").append(msg);
+						var result = JSON.parse(msg);
+						if (result[1] != null && result[1] != "") {
+							$("#result").append(result[1]);
+							$('#loading_msg').html('Domain is available.');
+						}
+						else {
+							$('#loading_msg').html('<font style="color:#FF0000; font-weight:bold;">Domain is not available.</font>');
 						}
 					});
 				}
@@ -155,18 +159,22 @@ $(document).ready(function(){
 						var second_keywords = JSON.parse(msg);
 						for (var i = second_keywords.length - 1; i >= 0; i--) {
 							second_keyword = second_keywords[i];
-							domain = first_keyword + second_keyword;
+							domain = first_keyword + second_keyword + extention;
 							$.ajax({
 								url: "process1.php",
 								type: "POST",
 								data: {
+									"i": i,
 									"domain": domain,
-									"extention": extention,
 									"option": val
 								}
 							}).done(function(msg) {
-								if (msg != null && msg != "") {
-									$("#result").append(msg);
+								var result = JSON.parse(msg);
+								if (result[1] != null && result[1] != "") {
+									$("#result").append(result[1]);
+								}
+								if (result[0] == 0) {
+									$('#loading_msg').html('All the others are not available.');
 								}
 							});
 						}
@@ -186,18 +194,22 @@ $(document).ready(function(){
 						second_keyword = $('#secondlist').text();
 						for (var i = first_keywords.length - 1; i >= 0; i--) {
 							first_keyword = first_keywords[i];
-							domain = first_keyword + second_keyword;
+							domain = first_keyword + second_keyword + extention;
 							$.ajax({
 								url: "process1.php",
 								type: "POST",
 								data: {
+									"i": i,
 									"domain": domain,
-									"extention": extention,
 									"option": val
 								}
 							}).done(function(msg) {
-								if (msg != null && msg != "") {
-									$("#result").append(msg);
+								var result = JSON.parse(msg);
+								if (result[1] != null && result[1] != "") {
+									$("#result").append(result[1]);
+								}
+								if (result[0] == 0) {
+									$('#loading_msg').html('All the others are not available.');
 								}
 							});
 						}
@@ -215,18 +227,23 @@ $(document).ready(function(){
 								first_keyword = first_keywords[i];
 								for (var j = second_keywords.length - 1; j >= 0; j--) {
 									second_keyword = second_keywords[j];
-									domain = first_keyword + second_keyword;
+									domain = first_keyword + second_keyword + extention;
 									$.ajax({
 										url: "process1.php",
 										type: "POST",
 										data: {
+											"i": i + j,
 											"domain": domain,
-											"extention": extention,
 											"option": val
 										}
 									}).done(function(msg) {
-										if (msg != null && msg != "") {
-											$("#result").append(msg);
+										var result = JSON.parse(msg);
+										if (result[1] != null && result[1] != "") {
+											$("#result").append(result[1]);
+										}
+										console.log(result[0]);
+										if (result[0] == 0) {
+											$('#loading_msg').html('All the others are not available.');
 										}
 									});
 								}
@@ -241,7 +258,7 @@ $(document).ready(function(){
 	$(document).ready(function(){
 		$('#search1').on("click", function(e){
 			$('#result').html("");
-			$('#loading_msg').html('<font  style="color:#FF0000; font-weight:bold;">Please Wait...</font>');
+			$('#loading_msg').html('<font style="color:#FF0000; font-weight:bold;">Please Wait...</font>');
 
 			var checked = $('input[name=group1]:checked').next('label').text();
 			if (checked == "Expired Domains") {
@@ -306,7 +323,7 @@ $(document).ready(function(){
 			data: {
 				"appraise" : 1,
 				"domain":$(this).attr("href")
-			}	
+			}
 		}).done(function(msg){
 			thiss.text(msg);
 		});
