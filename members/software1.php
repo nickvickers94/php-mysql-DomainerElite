@@ -253,7 +253,18 @@ $(document).ready(function(){
 				}).done(function(msg) {
 					var expired_domains = JSON.parse(msg);
 					for (var i = 0; i < expired_domains.length; i++) {
-						console.log(expired_domains[i]);
+						$.ajax({
+							url: "process1.php",
+							type: "POST",
+							data: {
+								"domain" : expired_domains[i],
+								"option": val
+							}
+						}).done(function(msg) {
+							if (msg != null && msg != "") {
+								$("#result").append(msg);
+							}
+						});
 					}
 				});
 			}

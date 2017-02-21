@@ -105,54 +105,30 @@
 		$domain = $keyword.".".$extention;
 		$domain = str_replace(' ', '', $domain);
 
-		$data = getHTML("https://api.ote-godaddy.com/api/v1/domains/available?domain=".$domain,600000);
+		$data = getHTML("https://api.ote-godaddy.com/api/v1/domains/available?domain=" .$domain, 600000);
 
 		$data_decoded = json_decode($data, true);
 		
 		if($data_decoded !="" && $data_decoded != NULL) {
 			$available = $data_decoded["available"];
-			if($available==true){
+			if ( $available == true ) {
 				echo '<li>'.$domain.'<a class="myButton" href="https://godaddy.com/domains/searchresults.aspx?ci=83269&checkAvail=1&domainToCheck='.$domain.'" target="_blank">Register</a><a href = "'.$domain.'" class="myButton appraise">Appraise</a><a href = "'.$domain.'" class="myButton save">Save</a><a href = "http://domainerelite.com/members/marketplace.php" target="_blank" class="myButton">Sell</button></li>';
 			}
 		}
 	}
-	elseif ( $option == 4 ) {
-		$sql = "SELECT domain FROM expired_domains";
-
-		$result = $conn->query($sql);
-
-		if ($result->num_rows > 0) {
-			// output data of each row
-			while($row = $result->fetch_assoc()) {
-				echo("<li>".$row["domain"]."</li>");
-			}
-		}
-		else {
-			echo "0 results";
-		}
-	}
-	elseif ( $option == 5 ) {
+	elseif ( $option == 4 || $option == 5 ) {
 		//to get selected extentions ie.Defualt is .com*/
-		$domain = trim($keyword);
+		$domain = $_POST["domain"];
 		$domain = str_replace(' ', '', $domain);
 		
-		$data = getHTML("https://api.ote-godaddy.com/api/v1/domains/available?query".$domain."&key=dpp_search&pc=&ptl=",600000);
-		
+		$data = getHTML("https://api.ote-godaddy.com/api/v1/domains/available?domain=" .$domain, 600000);
+
 		$data_decoded = json_decode($data, true);
 		
-		if($data_decoded=="" || $data_decoded===NULL){
-			echo "Please try again...";	
-		}else{
-			
-			$domain_found = $data_decoded["ExactMatchDomain"];
-			$available = $domain_found["AvailabilityStatus"];
-			$purchaseable = $domain_found['IsPurchasable'];
-			$value = $domain_found["Appraisals"];
-			
-			if($available==1000 || $purchaseable=='true'){
-				echo $domain." is available. <br />&nbsp;&nbsp;&nbsp;<a href='https://godaddy.com/domains/searchresults.aspx?ci=83269&checkAvail=1&domainToCheck=" .$domain. "' target='_blank' style='color:blue;'>Register</a> <a href='".$domain."' style='color:blue;' class='appraise'>Appraise</a>"."<br>";
-			}else{
-				echo "<span style='color:red;'>" . $domain . " is not available</span>";	
+		if($data_decoded !="" && $data_decoded != NULL) {
+			$available = $data_decoded["available"];
+			if ( $available == true ) {
+				echo '<li>'.$domain.'<a class="myButton" href="https://godaddy.com/domains/searchresults.aspx?ci=83269&checkAvail=1&domainToCheck='.$domain.'" target="_blank">Register</a><a href = "'.$domain.'" class="myButton appraise">Appraise</a><a href = "'.$domain.'" class="myButton save">Save</a><a href = "http://domainerelite.com/members/marketplace.php" target="_blank" class="myButton">Sell</button></li>';
 			}
 		}
 	}
@@ -172,6 +148,16 @@
 		}
 		else {
 			echo "0 results";
+		}
+	}
+
+	function checkavailability($domain) {
+		global $service;
+		$available = $service->isAvailable($domain);
+		if ($available) {
+			return true;
+		} else {
+			return false;
 		}
 	}
 ?>
