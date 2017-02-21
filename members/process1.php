@@ -119,18 +119,27 @@
 	elseif ( $option == 4 || $option == 5 ) {
 		//to get selected extentions ie.Defualt is .com*/
 		$domain = $_POST["domain"];
+		$i = $_POST["i"];
 		$domain = str_replace(' ', '', $domain);
 		
 		$data = getHTML("https://api.ote-godaddy.com/api/v1/domains/available?domain=" .$domain, 600000);
 
 		$data_decoded = json_decode($data, true);
+
+		$result = array();
+		array_push($result, $i);
 		
 		if($data_decoded !="" && $data_decoded != NULL) {
 			$available = $data_decoded["available"];
 			if ( $available == true ) {
-				echo '<li>'.$domain.'<a href="'.$domain.'" class="myButton vote'.$option.'">Vote</a><a class="myButton" href="https://godaddy.com/domains/searchresults.aspx?ci=83269&checkAvail=1&domainToCheck='.$domain.'" target="_blank">Register</a><a href = "'.$domain.'" class="myButton appraise">Appraise</a><a href = "'.$domain.'" class="myButton save">Save</a><a href = "http://domainerelite.com/members/marketplace.php" target="_blank" class="myButton">Sell</button></li>';
+				$str = '<li>'.$domain.'<a href="'.$domain.'" class="myButton vote'.$option.'">Vote</a><a class="myButton" href="https://godaddy.com/domains/searchresults.aspx?ci=83269&checkAvail=1&domainToCheck='.$domain.'" target="_blank">Register</a><a href = "'.$domain.'" class="myButton appraise">Appraise</a><a href = "'.$domain.'" class="myButton save">Save</a><a href = "http://domainerelite.com/members/marketplace.php" target="_blank" class="myButton">Sell</button></li>';
+			}
+			else {
+				$str = "";
 			}
 		}
+		array_push($result, $str);
+		echo(json_encode($result));
 	}
 	elseif ( $option == 6 ) {
 

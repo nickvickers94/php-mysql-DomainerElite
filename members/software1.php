@@ -115,6 +115,7 @@ $(document).ready(function(){
 	$(document).ready(function(){
 		$('#search2').on("click", function(e){
 			$('#result').html("");
+			$('#loading_msg').html('<font  style="color:#FF0000; font-weight:bold;">Please Wait...</font>');
 			var val = 2;
 			var first_list = $('#firstlist').attr("list");
 			var second_list = $('#secondlist').attr("list");
@@ -240,6 +241,7 @@ $(document).ready(function(){
 	$(document).ready(function(){
 		$('#search1').on("click", function(e){
 			$('#result').html("");
+			$('#loading_msg').html('<font  style="color:#FF0000; font-weight:bold;">Please Wait...</font>');
 
 			var checked = $('input[name=group1]:checked').next('label').text();
 			if (checked == "Expired Domains") {
@@ -258,11 +260,16 @@ $(document).ready(function(){
 							type: "POST",
 							data: {
 								"domain" : expired_domains[i],
-								"option": val
+								"option" : val,
+								"i" : i
 							}
 						}).done(function(msg) {
-							if (msg != null && msg != "") {
-								$("#result").append(msg);
+							var result = JSON.parse(msg);
+							if (result[1] != null && result[1] != "") {
+								$("#result").append(result[1]);
+							}
+							if (result[0] == expired_domains.length - 1) {
+								$('#loading_msg').html('All the others are not available.');
 							}
 						});
 					}
@@ -492,6 +499,7 @@ $(document).ready(function(){
 										<div class="menu">
 											<ul id = "result"></ul>
 										</div>
+										<span class="text-success" id="loading_msg"></span>
 									</div>
 								</div>
 								<!-- Panel Widget --> 
