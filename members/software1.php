@@ -245,14 +245,15 @@ $(document).ready(function(){
 			if (checked == "Expired Domains") {
 				var val = 4;
 				$.ajax({
-					url: "process1.php",
+					url: "get_domains.php",
 					type: "POST",
 					data: {
-						"option": val
+						"domain_list_name": "expired_domains"
 					}
 				}).done(function(msg) {
-					if (msg != null && msg != "") {
-						$("#result").append(msg);
+					var expired_domains = JSON.parse(msg);
+					for (var i = 0; i < expired_domains.length; i++) {
+						console.log(expired_domains[i]);
 					}
 				});
 			}
