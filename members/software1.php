@@ -241,7 +241,6 @@ $(document).ready(function(){
 										if (result[1] != null && result[1] != "") {
 											$("#result").append(result[1]);
 										}
-										console.log(result[0]);
 										if (result[0] == 0) {
 											$('#loading_msg').html('All the others are not available.');
 										}
