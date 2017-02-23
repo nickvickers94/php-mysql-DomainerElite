@@ -1,12 +1,11 @@
 <?php
-	include 'includes/conn.php';
 	require('includes/AvailabilityService.php');
 	$service = new AvailabilityService(true);
-	$ed = "loginloans.com";
-	if(checkavailability($ed)) {
-		echo($ed);
+	$domain = "arga.com";
+	if(checkavailability($domain)) {
+		echo($domain." is available.");
 	} else {
-		echo "not available";
+		echo($domain." is not available.");
 	}
 
 	function checkavailability($domain) {
