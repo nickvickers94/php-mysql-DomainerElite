@@ -2,6 +2,8 @@
 
 	require_once("includes/conn.php");
 	require_once("includes/simple_html_dom.php");
+	require('includes/AvailabilityService.php');
+	$service = new AvailabilityService(true);
 
 	$result = $conn->query("SELECT * FROM domains LIMIT 1");
 	if($result->num_rows > 0){
@@ -102,23 +104,15 @@
 		$i = $_POST["i"];
 		$domain = str_replace(' ', '', $domain);
 
-		$data = getHTML("https://api.ote-godaddy.com/api/v1/domains/available?domain=" .$domain, 600000);
-
-		$data_decoded = json_decode($data, true);
-
 		$result = array();
 		array_push($result, $i);
 		
-		if($data_decoded !="" && $data_decoded != NULL) {
-			$available = $data_decoded["available"];
-			if ( $available == true ) {
-				$str = '<li>'.$domain.'<a class="myButton" href="https://godaddy.com/domains/searchresults.aspx?ci=83269&checkAvail=1&domainToCheck='.$domain.'" target="_blank">Register</a><a href = "'.$domain.'" class="myButton appraise">Appraise</a><a href = "'.$domain.'" class="myButton save">Save</a><a href = "http://domainerelite.com/members/marketplace.php" target="_blank" class="myButton">Sell</button></li>';
-			}
-			else {
-				$str = "";
-			}
+		if(checkavailability($domain)) {
+			$str = '<li>'.$domain.'<a class="myButton" href="https://godaddy.com/domains/searchresults.aspx?ci=83269&checkAvail=1&domainToCheck='.$domain.'" target="_blank">Register</a><a href = "'.$domain.'" class="myButton appraise">Appraise</a><a href = "'.$domain.'" class="myButton save">Save</a><a href = "http://domainerelite.com/members/marketplace.php" target="_blank" class="myButton">Sell</button></li>';
+		} else {
+			$str = "";
 		}
-		file_put_contents("result.txt", $str);
+
 		array_push($result, $str);
 		echo(json_encode($result));
 	}
@@ -127,23 +121,16 @@
 		$domain = $_POST["domain"];
 		$i = $_POST["i"];
 		$domain = str_replace(' ', '', $domain);
-		
-		$data = getHTML("https://api.ote-godaddy.com/api/v1/domains/available?domain=" .$domain, 600000);
-
-		$data_decoded = json_decode($data, true);
 
 		$result = array();
 		array_push($result, $i);
 		
-		if($data_decoded !="" && $data_decoded != NULL) {
-			$available = $data_decoded["available"];
-			if ( $available == true ) {
-				$str = '<li>'.$domain.'<a href="'.$domain.'" class="myButton vote'.$option.'">Vote</a><a class="myButton" href="https://godaddy.com/domains/searchresults.aspx?ci=83269&checkAvail=1&domainToCheck='.$domain.'" target="_blank">Register</a><a href = "'.$domain.'" class="myButton appraise">Appraise</a><a href = "'.$domain.'" class="myButton save">Save</a><a href = "http://domainerelite.com/members/marketplace.php" target="_blank" class="myButton">Sell</button></li>';
-			}
-			else {
-				$str = "";
-			}
+		if(checkavailability($domain)) {
+			$str = '<li>'.$domain.'<a href="'.$domain.'" class="myButton vote'.$option.'">Vote</a><a class="myButton" href="https://godaddy.com/domains/searchresults.aspx?ci=83269&checkAvail=1&domainToCheck='.$domain.'" target="_blank">Register</a><a href = "'.$domain.'" class="myButton appraise">Appraise</a><a href = "'.$domain.'" class="myButton save">Save</a><a href = "http://domainerelite.com/members/marketplace.php" target="_blank" class="myButton">Sell</button></li>';
+		} else {
+			$str = "";
 		}
+
 		array_push($result, $str);
 		echo(json_encode($result));
 	}
