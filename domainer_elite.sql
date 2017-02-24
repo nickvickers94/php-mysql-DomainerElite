@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost:3306
--- Generation Time: Feb 24, 2017 at 05:12 PM
+-- Generation Time: Feb 24, 2017 at 05:16 PM
 -- Server version: 5.1.73-cll
 -- PHP Version: 5.6.20
 
@@ -12318,7 +12318,7 @@ INSERT INTO `members` (`id`, `email`, `software`, `software_pro`, `webinars`, `a
 (18, 'andreajarvis22@gmail.com', 'Y', 'N', 'Y', 'N', 'N', 'N', 'Y', '', '', '', '', '', '', ''),
 (19, 'tbaker@sent.com', 'Y', 'N', 'Y', 'N', 'N', 'N', 'Y', '', '', '', '', '', '', ''),
 (21, 'billiejean@bex.net', 'Y', 'N', 'Y', 'N', 'N', 'N', 'Y', '', '', '', '', '', '', ''),
-(22, 'producerjamie@gmail.com', 'Y', 'N', 'Y', 'Y', 'Y', 'Y', 'Y', 'Jamie', 'Lewis', 'Im a domain selling madman. I''ve got good affordable picks for you. I only sell the premium grade.', '', '', '', ''),
+(22, 'producerjamie@gmail.com', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Jamie', 'Lewis', 'Im a domain selling madman. I''ve got good affordable picks for you. I only sell the premium grade.', '', '', '', ''),
 (23, 'sproske@shaw.ca', 'Y', 'N', 'Y', 'Y', 'Y', 'Y', 'Y', 'Sean', 'Proske', 'I''m awesome!', 'sproske@shaw.ca', '', 'http://www.facebook.com/sean.proske.3', 'http://www.twitter.com'),
 (24, 'stevefurman2000@yahoo.com', 'Y', 'N', 'Y', 'Y', 'N', 'N', 'Y', '', '', '', '', '', '', ''),
 (25, 'allanperry@fsmail.net', 'Y', 'N', 'Y', 'N', 'N', 'N', 'Y', '', '', '', '', '', '', ''),
