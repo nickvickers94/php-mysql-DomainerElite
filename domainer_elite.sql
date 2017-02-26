@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost:3306
--- Generation Time: Feb 24, 2017 at 05:16 PM
+-- Generation Time: Feb 26, 2017 at 05:38 PM
 -- Server version: 5.1.73-cll
 -- PHP Version: 5.6.20
 
@@ -77,7 +77,7 @@ INSERT INTO `dictionary_domains` (`domain`, `rank`) VALUES
 ('getmtgreen.com', 0),
 ('getmusica.com', 0),
 ('getmygoods.com', 0),
-('getmyring.com', 3),
+('getmyring.com', 4),
 ('getmysub.com', 0),
 ('getnedo.com', 0),
 ('getnedo.net', 0),
@@ -998,7 +998,7 @@ CREATE TABLE IF NOT EXISTS `jvzoo_transactions` (
   `cverify` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `ctranstime` bigint(20) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=11166 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=11167 ;
 
 --
 -- Dumping data for table `jvzoo_transactions`
@@ -12217,7 +12217,8 @@ INSERT INTO `jvzoo_transactions` (`id`, `ccustname`, `ccuststate`, `ccustcc`, `c
 (11162, 'ROBERT HIDAGO', '', '', 'sprintrobert1@gmail.com', '202319', 'Domainer Elite Software And Course', 'STANDARD', 'SALE', '83065', '87.00', 'PYPL', '87095', '91L4EAUZTGWCXK2GX', '', '22824045', '', '6E3373CD', 1487944833),
 (11163, 'ROBERT HIDAGO', '', '', 'sprintrobert1@gmail.com', '202319', 'Domainer Elite Software And Course', 'STANDARD', 'SALE', '83065', '87.00', 'PYPL', '87095', '91L4EAUZTGWCXK2GX', '', '22824045', '', '6E3373CD', 1487944833),
 (11164, 'ROBERT HIDAGO', '', '', 'sprintrobert1@gmail.com', '195453', 'Unlimited Webinars', 'STANDARD', 'SALE', '83065', '67.00', 'PYPL', '87095', 'EN0XW35MT81N7BX6X', '', '22824149', '', '5A8FACAB', 1487945486),
-(11165, 'ROBERT HIDAGO', '', '', 'sprintrobert1@gmail.com', '195453', 'Unlimited Webinars', 'STANDARD', 'SALE', '83065', '67.00', 'PYPL', '87095', 'EN0XW35MT81N7BX6X', '', '22824149', '', '5A8FACAB', 1487945486);
+(11165, 'ROBERT HIDAGO', '', '', 'sprintrobert1@gmail.com', '195453', 'Unlimited Webinars', 'STANDARD', 'SALE', '83065', '67.00', 'PYPL', '87095', 'EN0XW35MT81N7BX6X', '', '22824149', '', '5A8FACAB', 1487945486),
+(11166, 'Glenn Bartra', '', '', 'glennbartra@yahoo.com', '199559', 'Domainer Elite Software - DISCOUNTED!', 'STANDARD', 'SALE', '8534', '47.00', 'PYPL', '87095', 'CQOF437DO1ERFM7MZ', '', '22838159', '', 'EAE61419', 1488001031);
 
 -- --------------------------------------------------------
 
@@ -12237,7 +12238,7 @@ CREATE TABLE IF NOT EXISTS `marketplace_domains` (
   `listingdate` date NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `domain` (`domain`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=57 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=60 ;
 
 --
 -- Dumping data for table `marketplace_domains`
@@ -12264,7 +12265,10 @@ INSERT INTO `marketplace_domains` (`id`, `user_id`, `domain`, `type`, `price`, `
 (53, 4998, 'cupcakepastry.com', 'domain', '150.00', 'https://au.godaddy.com/domains/searchresults.aspx?checkAvail=1&tmskey=&domainToCheck=cupcakepastry.com', 'keyword domains', '2017-02-23'),
 (54, 4998, 'coffeesoy.com', 'domain', '150.00', 'https://au.godaddy.com/domains/searchresults.aspx?checkAvail=1&tmskey=&domainToCheck=coffeesoy.com', 'keyword domains', '2017-02-23'),
 (55, 4998, '06r6.com', 'domain', '150.00', 'https://au.godaddy.com/domains/searchresults.aspx?checkAvail=1&tmskey=&domainToCheck=06r6.com', 'premium domains', '2017-02-23'),
-(56, 4998, '05e6.com', 'domain', '150.00', 'https://au.godaddy.com/domains/searchresults.aspx?checkAvail=1&tmskey=&domainToCheck=05e6.com', 'premium domains', '2017-02-23');
+(56, 4998, '05e6.com', 'domain', '150.00', 'https://au.godaddy.com/domains/searchresults.aspx?checkAvail=1&tmskey=&domainToCheck=05e6.com', 'premium domains', '2017-02-23'),
+(57, 5017, 'FLORIDAQUICK.COM', 'domain', '150.00', 'http://www.godaddy.com', 'premium domains', '2017-02-25'),
+(58, 5017, 'learncenter.co', 'domain', '50.00', 'http://www.godaddy.com', 'premium domains', '2017-02-25'),
+(59, 5017, 'NEWYORKCITYFAST.COM', 'domain', '200.00', 'http://www.godaddy.com', 'premium domains', '2017-02-25');
 
 -- --------------------------------------------------------
 
@@ -12292,7 +12296,7 @@ CREATE TABLE IF NOT EXISTS `members` (
   `twitter` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=5021 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=5024 ;
 
 --
 -- Dumping data for table `members`
@@ -14216,7 +14220,7 @@ INSERT INTO `members` (`id`, `email`, `software`, `software_pro`, `webinars`, `a
 (1914, 'spiralgifts@gmail.com', 'N', 'N', 'N', 'N', 'N', 'N', 'Y', '', '', '', '', '', '', ''),
 (1915, 'steven.chillingworth@googlemail.com', 'N', 'N', 'N', 'N', 'N', 'N', 'Y', '', '', '', '', '', '', ''),
 (1916, 'abiz4u@nolimit2it.com', 'N', 'N', 'N', 'N', 'N', 'N', 'Y', '', '', '', '', '', '', ''),
-(1917, 'Vereorverum@gmail.com', 'Y', 'N', 'Y', 'Y', 'Y', 'N', 'Y', 'Matthew', 'Marvel', 'Just a dude selling domains trying to stay sane.', 'mattnilson42@gmail.com', 'https://www.dialmatthew.com', 'https://www.facebook.com/matt.nilson', ''),
+(1917, 'Vereorverum@gmail.com', 'Y', 'Y', 'Y', 'Y', 'Y', 'N', 'Y', 'Matthew', 'Marvel', 'Just a dude selling domains trying to stay sane.', 'mattnilson42@gmail.com', 'https://www.dialmatthew.com', 'https://www.facebook.com/matt.nilson', ''),
 (1918, 'davidhinds4@yahoo.co.uk', 'Y', 'N', 'Y', 'Y', 'N', 'N', 'Y', '', '', '', '', '', '', ''),
 (1919, 'reach.mfl@gmail.com', 'N', 'N', 'N', 'N', 'N', 'N', 'Y', '', '', '', '', '', '', ''),
 (1920, 'Gburkinshaw@shaw.ca', 'N', 'N', 'Y', 'N', 'N', 'N', 'Y', '', '', '', '', '', '', ''),
@@ -16499,7 +16503,7 @@ INSERT INTO `members` (`id`, `email`, `software`, `software_pro`, `webinars`, `a
 (4193, 'rcgtraders@yahoo.com', 'Y', 'N', 'N', 'N', 'N', 'N', 'Y', '', '', '', '', '', '', ''),
 (4194, 'jhernandeznc@gmail.com', 'Y', 'N', 'Y', 'N', 'N', 'N', 'Y', '', '', '', '', '', '', ''),
 (4195, 'muncastell@gmail.com', 'N', 'N', 'N', 'N', 'N', 'N', 'Y', '', '', '', '', '', '', ''),
-(4196, 'rfusc@hotmail.com', 'Y', 'N', 'Y', 'N', 'Y', 'Y', 'Y', 'Rob', 'Fusco ', 'Domain seller ', 'Info@flipdomainsonline.com', 'https://flipdomainsonline.com', '', ''),
+(4196, 'rfusc@hotmail.com', 'Y', 'Y', 'Y', 'N', 'Y', 'Y', 'Y', 'Rob', 'Fusco ', 'Domain seller ', 'Info@flipdomainsonline.com', 'https://flipdomainsonline.com', '', ''),
 (4197, 'twintwo@hotmail.com', 'Y', 'N', 'N', 'N', 'N', 'N', 'Y', '', '', '', '', '', '', ''),
 (4198, 'cyruscrosssoc@gmail.com', 'Y', 'N', 'N', 'N', 'N', 'N', 'Y', '', '', '', '', '', '', ''),
 (4199, 'JacobSherrard24@gmail.com', 'Y', 'N', 'N', 'N', 'N', 'N', 'Y', '', '', '', '', '', '', ''),
@@ -17312,7 +17316,7 @@ INSERT INTO `members` (`id`, `email`, `software`, `software_pro`, `webinars`, `a
 (5004, 'kngreen319@gmail.com', 'Y', 'N', 'Y', 'N', 'Y', 'Y', 'Y', '', '', '', '', '', '', ''),
 (5005, 'p.herrconde@gmail.com', 'Y', 'N', 'Y', 'N', 'Y', 'Y', 'Y', '', '', '', '', '', '', ''),
 (5006, 'kinghumanblog@aol.com', 'Y', 'N', 'Y', 'N', 'Y', 'Y', 'Y', '', '', '', '', '', '', ''),
-(5007, 'chanliyue@hotmail.com', 'Y', 'N', 'Y', 'Y', 'N', 'N', 'Y', '', '', '', '', '', '', ''),
+(5007, 'chanliyue@hotmail.com', 'Y', 'N', 'N', 'N', 'N', 'N', 'Y', '', '', '', '', '', '', ''),
 (5008, 'jga159x3t@aol.com', 'Y', 'N', 'N', 'N', 'N', 'N', 'Y', '', '', '', '', '', '', ''),
 (5009, 'hjellis@bigpond.com', 'Y', 'N', 'N', 'N', 'N', 'N', 'Y', '', '', '', '', '', '', ''),
 (5010, 'Gvtx1300@gmail.com', 'Y', 'N', 'Y', 'N', 'Y', 'Y', 'Y', '', '', '', '', '', '', ''),
@@ -17325,7 +17329,10 @@ INSERT INTO `members` (`id`, `email`, `software`, `software_pro`, `webinars`, `a
 (5017, 'vigourpt@googlemail.com', 'Y', 'Y', 'Y', 'N', 'Y', 'Y', 'Y', 'Daniel', 'Cook', 'Digital Marketer, Domainer, and Personal Trainer', 'vigourpt@googlemail.com', '', '', ''),
 (5018, 'juantheillest55@aol.com', 'Y', 'Y', 'Y', 'N', 'Y', 'Y', 'Y', '', '', '', '', '', '', ''),
 (5019, 'davidmadden2013@gmail.com', 'Y', 'Y', 'Y', 'N', 'Y', 'Y', 'Y', '', '', '', '', '', '', ''),
-(5020, 'sprintrobert1@gmail.com', 'Y', 'N', 'Y', 'N', 'N', 'N', 'Y', '', '', '', '', '', '', '');
+(5020, 'sprintrobert1@gmail.com', 'Y', 'N', 'Y', 'N', 'N', 'N', 'Y', '', '', '', '', '', '', ''),
+(5021, 'glennbartra@yahoo.com', 'Y', 'N', 'N', 'N', 'N', 'N', 'Y', '', '', '', '', '', '', ''),
+(5022, 'profitmoffatt@gmail.com', 'Y', 'Y', 'Y', 'Y', 'N', 'N', 'Y', '', '', '', '', '', '', ''),
+(5023, 'Idjchance@gmail.com', 'Y', 'Y', 'Y', 'Y', 'N', 'N', 'Y', '', '', '', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -17436,7 +17443,38 @@ INSERT INTO `member_domains` (`member_id`, `domain`) VALUES
 (5017, 'lahottest.com'),
 (5017, 'nycguaranteed.com'),
 (5017, 'nycfastest.com'),
-(5017, 'nycquick.com');
+(5017, 'nycquick.com'),
+(5017, 'newofficer.com'),
+(5017, 'usedmodel.com'),
+(5017, 'newgourmetfood.com'),
+(5017, 'cracknails.com'),
+(5017, 'addadministrator.com'),
+(5017, 'waxnails.com'),
+(5017, 'waxsales.com'),
+(5017, 'mannails.com'),
+(5017, 'paddelivery.com'),
+(5017, 'badsecretary.com'),
+(5017, 'proonlinebusiness.com'),
+(5017, 'ethicalbankruptcy.com'),
+(5017, 'ethicaldogtraining.com'),
+(5017, 'localrelationship.com'),
+(5017, 'prosforex.com'),
+(5017, 'hugefatloss.com'),
+(5017, 'excellentfatloss.com'),
+(5017, 'easyrelationship.com'),
+(5017, 'fastestdating.com'),
+(5017, 'excessfatloss.com'),
+(5017, 'hottestfishing.com'),
+(5017, 'hottestforex.com'),
+(5017, 'hottestinsurance.com'),
+(5017, 'paidinternetmarketing.com'),
+(5017, 'hottestweightloss.com'),
+(5017, 'musichottest.com'),
+(5017, 'insurancecertified.com'),
+(5017, 'fashionhottest.com'),
+(5017, 'onlinebusinessreality.com'),
+(5017, 'fatlossprofessional.com'),
+(5017, 'internetmarketingcertified.com');
 
 -- --------------------------------------------------------
 
