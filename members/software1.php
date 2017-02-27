@@ -609,6 +609,8 @@ $(document).ready(function(){
 
 				});
 
+				$('#loading_msg').html('');
+
 			}
 
 		});
@@ -635,13 +637,50 @@ $(document).ready(function(){
 
 				"appraise" : 1,
 
-				"domain":$(this).attr("href")
+				"domain": thiss.attr("href")
 
 			}
 
 		}).done(function(msg){
 
 			thiss.text(msg);
+
+		});
+
+	});
+
+
+
+	$(document).on("click",".delete",function(e){
+
+		e.preventDefault();
+
+		var thiss = $(this);
+
+		thiss.text("Loading...");
+
+		$.ajax({
+
+			url:"delete.php",
+
+			type:"POST",
+
+			data: {
+
+				"member_id" : <?php echo($_SESSION['id']); ?>,
+
+				"domain": thiss.attr("href")
+
+			}
+
+		}).done(function(msg){
+
+			if (msg == 'Deleted') {
+				thiss.parents('li').first().remove();
+			}
+			else {
+				thiss.text("Failed");
+			}
 
 		});
 
@@ -667,7 +706,7 @@ $(document).ready(function(){
 
 				"member_id" : <?php echo($_SESSION['id']); ?>,
 
-				"domain": $(this).attr("href")
+				"domain": thiss.attr("href")
 
 			}
 
