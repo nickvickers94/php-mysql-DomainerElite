@@ -111,6 +111,8 @@
 
 $(document).ready(function(){
 
+	var received = 0;
+
 	$('.dropdown-submenu a.test').on("click", function(e){
 
 			$(this).next('ul').toggle();
@@ -533,43 +535,9 @@ $(document).ready(function(){
 
 					var expired_domains = JSON.parse(msg);
 
-					for (var i = 0; i < expired_domains.length; i++) {
-
-						$.ajax({
-
-							url: "process1.php",
-
-							type: "POST",
-
-							data: {
-
-								"domain" : expired_domains[i],
-
-								"option" : val,
-
-								"i" : i
-
-							}
-
-						}).done(function(msg) {
-
-							var result = JSON.parse(msg);
-
-							if (result[1] != null && result[1] != "") {
-
-								$("#result").append(result[1]);
-
-							}
-
-							if (result[0] == expired_domains.length - 1) {
-
-								$('#loading_msg').html('All the others are not available.');
-
-							}
-
-						});
-
-					}
+					getAvailableDomains(expired_domains, function (result){
+						console.log(result);
+					});
 
 				});
 
@@ -753,6 +721,58 @@ $(document).ready(function(){
 		});
 
 	});
+
+	function getAvailableDomains(arr_domains, callback) {
+		received = 0;
+		var available_domains = [];
+		var post = Math.ceil(arr_domains.length / 500);
+		if (arr_domains.length < 501) {
+			ajaxAvailableDomains(arr_domains, available_domains, post, callback);
+		}
+		else {
+			while (arr_domains.length > 500) {
+				var domains = arr_domains.slice(0, 500);
+				arr_domains = arr_domains.slice(500, arr_domains.length);
+
+				ajaxAvailableDomains(domains, available_domains, post, callback);
+				
+				if (arr_domains.length < 501) {
+					ajaxAvailableDomains(arr_domains, available_domains, post, callback);
+				}
+			}
+		}
+	}
+	
+	function ajaxAvailableDomains(domains, available_domains, post, callback) {
+
+		var settings = {
+			"async": true,
+			"crossDomain": true,
+			"url": "https://api.ote-godaddy.com/v1/domains/available?checkType=FAST",
+			"method": "POST",
+			"headers": {
+				"content-type": "application/json",
+				"accept": "application/json",
+				"cache-control": "no-cache",
+				"postman-token": "894dc032-2f44-4291-66f8-8d5c1a0849b7"
+			},
+			"processData": false,
+			"data": JSON.stringify(domains)
+		}
+
+		$.ajax(settings).done(function (response) {
+			
+			for (i = 0; i < response.domains.length; i++) {
+				if (response.domains[i].available){
+					available_domains[available_domains.length] = response.domains[i].domain;
+				}
+			}
+			received++;
+			if (received == post) {
+				callback(available_domains);
+			}
+		});
+	}
 
 </script>
 
