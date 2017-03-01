@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost:3306
--- Generation Time: Feb 26, 2017 at 05:38 PM
+-- Generation Time: Mar 01, 2017 at 05:00 PM
 -- Server version: 5.1.73-cll
 -- PHP Version: 5.6.20
 
@@ -77,7 +77,7 @@ INSERT INTO `dictionary_domains` (`domain`, `rank`) VALUES
 ('getmtgreen.com', 0),
 ('getmusica.com', 0),
 ('getmygoods.com', 0),
-('getmyring.com', 4),
+('getmyring.com', 6),
 ('getmysub.com', 0),
 ('getnedo.com', 0),
 ('getnedo.net', 0),
@@ -153,6 +153,8 @@ CREATE TABLE IF NOT EXISTS `domains` (
   `All_products` text NOT NULL,
   `Kindergarten` text NOT NULL,
   `two_letters` text NOT NULL,
+  `surnames` text NOT NULL,
+  `firstnames` text NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
@@ -160,8 +162,8 @@ CREATE TABLE IF NOT EXISTS `domains` (
 -- Dumping data for table `domains`
 --
 
-INSERT INTO `domains` (`id`, `domains_keywords`, `start_keywords`, `end_keywords`, `extentions`, `date`, `nouns`, `verbs`, `plural_nouns`, `positives`, `negatives`, `Locations`, `Sellers`, `Adjectives`, `Ending_Actions`, `Time_Frames`, `cool_letters`, `plural_positives`, `software`, `digital`, `Past_Tense`, `Gerund_verb`, `Info_Niches`, `people`, `Cash`, `Strategy`, `Interjection`, `Ending_Nouns`, `Community`, `Crazy_nouns`, `Jobs`, `remedy`, `Physical_products`, `All_products`, `Kindergarten`, `two_letters`) VALUES
-(1, 'Movies,cars,money,school,crafts,music,profit,movie,you,me,traffic,seo,value,offer,weightloss,fitness,health,marketing,cb,trading,software,language,musiclessons,business,getyourexback,forex,binary,dogtraining,leveling,publicrecords,survival,studytips,freedom,tattoos,auctions,divorce,party,employee,insurance,homerenovations,internet,games,travel,recipe,reality,smoking,quitsmoking,internetmarketing,golf,soccer,football,baseball,sports,selfdefense,piano,spanish,french,sex,electronics,gear,shoes,prepping,gold,silver,stock,dating,adult,investment,domain,domainer,creditcard,concert,videos,html,disaster,recovery,commission,cash,atm,retirement,hobby,family,parenting,stress,guns,ammunition,carpentry,marijuana,dentist,injury,lawyer,taxes,tax,personaldevelopment,cycling,video,betting,casino,gambling,horses,fatloss,bizopp,addiction,income,action,rich,wealth,wealthy,prep,fish,diet,find,live,bankrupcy,hosting,career,ecommerce,dropshipping,digitalcamera,camera,mp3,mov,ppc,pennystocks,country,investing,shipping,homeschooling,farming,bodyarmor,weapons,banking,fat,headache,sixpackabs,smallbusiness,onlinebusiness,marriage,shopping,people,map,info,system,year,data,food,theory,problem,fact,thing,power,opinion,situation,message,skill,membership,debt,text,gas,lesson,boy,mail,cable,cost,fashion,key,group,size,affiliateprogram,customerservice,wellness,beats,instrumental,remix,batteries,groceries,delivery,pizza,car,rv,mobilehomes,realestate,programmer,producer,pet,vapes,ecigs,capitalist,diabetes,mesothelioma,degree,items,affiliate,guide,chat,forms,nanny,tool,poker,consulting,nutrition,hardware,server,code,relationship,job,jobs,domains,payments,modeling,forums,forum,employment,attorney,accountant,doctor,training,dogs,classifieds,ezines,stocks,investments,homes,apartments,rentals,taxi,hobbies,401k,copywriting,joblistings,guitarlessons,affiliatemarketing,healthinsurance,stocktrading,domaining,life,success,matrix,passups', 'Download,get,buy,watch,rent,fun,howto,i,e,quick,fast,247,free,intense,order,easy,for,about,find,mobile,great,hire,best,global,infinite,my,copy,end,fix,ship,access,gain,win,good,building,guaranteed,visual,audio,acquire,extreme,big,mega,massive,passive,quality,legit,why,historyof,take,cheap,wholesale,howtodo,howtoplay,howtolearn,howtofind,howtowin,catch,mini,micro,maximum,goto,cool,areyou,famous,digital,lethal,oldschool,automated,automatic,one,go,discuss,click,downloadable,refurbished,used,virtual,select,trade,full,instant,insta,howtoget,that,geta,create,make,design,use,wina,whatif,whatis,video,original,view,load,possible,national,cut,try,check,put,local,show,search,lift,kill,different,true,powerful,share,register,fight,fail,wear,making,save,paid,call,dial,ask,white,black,yellow,sports,bigger,economy,ten,online,advertise,goingto,deliver,payfor,refund,place,fire,track,auto,scroll,protect,defend,earn,play,bad,thebest,sexy,offer,send,email,expensive,premium,top,highend,shippable,smooth,direct,finda,commercial,affordable,blind,dedicated,electronic,learn,makemoney,start,build,speed,residual,recurring,comp,spillover', 'rentals,videos,downloads,listings,software,tonight,365,city,universe,strategy,method,book,ebook,master,blueprint,automated,apps,live,broker,mp3s,link,bible,sites,site,guide,expert,authority,academy,school,supply,tips,store,system,program,market,website,blog,deal,discount,coupon,finder,maps,map,design,job,source,shop,purchase,forever,pro,doctor,helper,buddy,commissions,cash,killer,document,scan,taxes,tv,repair,forkids,lawsuit,lawyer,attorney,computer,kit,video,database,membership,cheats,supplements,vault,online,web,onthenet,now,tothemax,mania,host,magic,nurse,science,hub,consultant,words,attack,revolution,info,scams,articles,documentaries,films,pics,pictures,show,games,god,appraisal,value,plans,builder,genius,latestnews,news,factor,surgery,discussion,onsale,selfies,industry,malls,shopping,symptoms,jobs,employment,platform,zone,onthego,lightning,express,profits,miracle,review,trial,protection,copy,search,wear,price,income,goal,development,user,series,community,area,road,politics,event,moment,vehicle,scene,office,cell,phone,box,network,payment,sample,assistant,name,society,age,proof,service,cloud,credit,catcher,numbers,training,grooming,noise,center,fan,loans,ezine,advertisement,ads,delivery,evaluator,chat,views,worker,banking,pain,funnel,marketing,caller,message,help,support,holdings,scanner,promotions,manager,mba,college,clips,plan', 'com,net,info,org,biz,io', '2017-02-21 10:47:00', 'dog,cat,car,truck,suv,bike,jewelry,musicalinstrument,furniture,dvd,cd,tool,game,book,phone,computer,boat,home,ticket,trailer,equipment,photo,video,antique,automobile,contract,coffee,food,health,bible,lawsuit,time,people,state,family,child,man,student,school,money,eye,area,hub,brand,domain,name', 'grab,acquire,get,buy,block,bought,enter,hold,build,make,grow,find,run,order,download,guarantee,guard,heal,act,adopt,argue,ask,become,avoid,comment,crack,crush,drag,direct,deliver,debate,draw,encode,edit,eat,earn,fix,force,feed,follow,forgive,invest,invent,join,jam,learn,listen,last,like,lose,mention,offer,own,practice,plan,promise,put,place,post,request,repair,replace,read,risk,rock,show,save,sell,see,send,support,supply,start,trust,trap,zoom,promote,market,push', 'undefined,cars,trucks,dvds,cds,tools,games,books,phones,computers,boats,homes,tickets,trailers,equipments,photos,videos,antiques,automobiles,bikes,domains,reviews,strong,built,moms,listings,websites,pages,logins', 'great,awesome,fabulous,good,best,paid,hot,top,hottest,fast,fastest,quick,reality,glory,god,pretty,attractive,excellent,happy,easy,big,huge,gigantic,honest,real,excess,giant,beautiful,certified,legit,guaranteed,local,amazing,extravagant,moral,ethical,pros,pro,professional,expert', 'bad,horrible,sad,boring,rotten,awful,attack,stop,end,sick,disease,terrible,negative,forgotten,dirty', 'nyc,la,newyorkcity,miami,florida,california,italy,milan,rome,paris,tokyo,dubai,russia,seattle,chicago,houston,philadelphia,denver,beijing', 'dealer,seller,salesman,store,shop,mall,marketplace,service,wholesale,retail,auction,trade,buy,buyer,retailer,wholesaler', 'blue,yellow,red,green,purple,brown,gold,silver,clear,fast,slow,hard,soft,heavy,light,big,small,quick,used,new,beautiful,dynamic', 'downloads,calls,buys,auctions,sales,login', 'weekly,hourly,daily,yearly,nightly,tomorrow,today,yesterday,year,millenium,century,week,hour,minute,day,night', 'a,i,z,e,q,m', 'results,rewards,gems,winners,dreams,likes,views', 'software,maker,builder,developer,user,downloader,use,dialer,finder,search,backup,drive,disk,automated,automation,development,suite,launch', 'digital,digi,web,intra,inter,para,synth,mono,linear,phase,proto,robo,virtual', 'bought,paid,made,destroyed,caught,captured,found,obtained,fix,fixed,brought,heard,seen', 'buying,building,making,biking,kicking,filming,downloading,seeing,finding,eating,processing,killing,smoking,sleeping,searching', 'health,fitness,internetmarketing,weightloss,guitar,relationship,fatloss,business,onlinebusiness,entrepreneurship,insurance,investment,marijuana,pot,leveling,forex,dieting,personaldevelopment,selfhelp,dating,carpentry,wealth,seo,marketing,fashion,divorce,nutrition,selfdefense,fishing,music,hosting,bankruptcy,dogtraining,baseball,realestate,marriage,survival,prepping,gold', 'guru,helper,buddy,boy,girl,man,woman,god,officer,hitman,liason,ally,warrior,king,prince,overlord,maker,builder,brother,killer,maniac,badass,rockstar,player,boss,genius,hero,spy,soldier,friend,amigo,buyer,seller,saint,model,robot,guide,source,sidekick,professor,nutcase,dude', 'return,reward,award,premium,cash,riches,money,funds,investment,financial,profit,profits,loans', 'strategy,blueprint,idea,plan,ebook,method,guide,design,program,tactics,system,project', 'wow,lol,omg,lmfao,bam,bang,ohmygod', 'code,group,problem,case,story,fact,program,school,world,place,city,center,area,room,history,verdict,brands,domains,names,pros,pro,expert,jackers', 'hub,league,community,center,city,house,social,authority,nation,society,general,group,channel', 'Obsidian,plasma,comet,chaos,nova,millenium,warfare,asteroid,incognito,parallel,juggernaut,gladiator,deity,empower,delta,esoteric,rapture,apex,schism,interceptor,phenomenon', 'secretary,administrator,mechanic,delivery,petsitter,dogwalker,sales,agent,lawyer,paralegal,office,hairdresser,massage,nails,resort,banker,fireman,engineer,baker,analyst,accountant,doctor,nurse,aid', 'remedy,proof,stopper,locked,protection,security,tight,fix,antidote,relief,crusher,smasher,lock', 'appliance,electronics,bath,bedding,homedecor,powertools,petsupplies,babysupplies,wallart,storage,automotiveparts,furniture,artwork,vacuum,heating,cooling,fineart,collectibles,collectible,patio,wine,laptop,hdtv,monitor,dishwasher,toy,farm,ranch,industrial,gourmetfood,dehydratedfood,survival,exercizeequipment,lab,makeup,haircare,gift,hometheatre,game,proaudio', 'movies,cars,money,school,crafts,music,profit,movie,you,me,traffic,seo,value,offer,weightless,fitness,health,marketing,cb,trading,software,language,musiclessons,business,getyourexback,forex,binary,dogtraining,leveling,publicrecords,survival,studytips,freedom,tattoos,auctions,divorce,party,employee,insurance,homerenovations,internet,games,travel,recipe,reality,smoking,quitsmoking,internetmarketing,golf,soccer,football,baseball,sports,selfdefense,piano,spanish,french,sex,electronics,gear,shoes,prepping,gold,silver,stocks,dating,adult,investment,domain,domineer,creditcard,concert,videos,html,disaster,recovery,commission,cash,retirement,hobby,family,parenting,stress,guns,ammunition,carpentry,marijuana,dentistry,injury,lawyer,taxes,tax,personaldevelopment,cycling,video,betting,casino,gambling,horses,fatloss,bizopp,addiction,income,action,rich,wealth,wealthy,prep,fish,diet,find,live,bankruptcy,hosting,career,ecommerce,dropshipping,digitalcamera,camera,mp3,mov,ppc,pennystocks,country,investing,shipping,homeschooling,farming,bodyarmor,weapons,banking,fat,headache,sixpackabs,smallbusiness,onlinebusiness,marriage,shopping,people,map,info,system,year,data,food,theory,problem,fact,thing,power,opinion,situation,message,skill,membership,debt,text,gas,lesson,boy,mall,cable,cost,fashion,key,group,size,affiliateprogram,customerservice,wellness,beats,instrumental,remix,batteries,groceries,delivery,pizza,car,rv,mobilehomes,realestate,programmer,producer,pet,vales,ecigs,capitalist,diabetes,mesothelioma,degree,items,affiliate,guide,chat,forms,nanny,tool,poker,consulting,nutrition,hardware,server,code,relationship,job,jobs,domains,payments,modeling,forums,forum,employment,attorney,accountant,doctor,training,dogs,classifieds,ezines,investments,homes,apartments,rentals,taxi,hobbies,401k,copywriting,joblistings,guitarlessons,affiliatemarketing,healthinsurance,stocktrading,domaining,life,success,matrix,passups', 'bad,mad,sad,dad,pad,fad,lad,rad,glad,had,cab,fab,nab,jab,zap,tap,lap,cap,map,rap,ram,jam,man,can,fan,van,bat,cat,mat,sat,hat,pat,Â has,gas,sag,rag,lag,bag,wag,tag,zag,wax,sax,tack,pack,track,crack,add,ask,act', 'ar,si,fu,bi,mo,ka,do,hi,wa,ki,lo,po,ge,vu,re,sa,tu,ti,ta,fo,be,ba,bo,gu,go,ga,di,de,da,we,wo');
+INSERT INTO `domains` (`id`, `domains_keywords`, `start_keywords`, `end_keywords`, `extentions`, `date`, `nouns`, `verbs`, `plural_nouns`, `positives`, `negatives`, `Locations`, `Sellers`, `Adjectives`, `Ending_Actions`, `Time_Frames`, `cool_letters`, `plural_positives`, `software`, `digital`, `Past_Tense`, `Gerund_verb`, `Info_Niches`, `people`, `Cash`, `Strategy`, `Interjection`, `Ending_Nouns`, `Community`, `Crazy_nouns`, `Jobs`, `remedy`, `Physical_products`, `All_products`, `Kindergarten`, `two_letters`, `surnames`, `firstnames`) VALUES
+(1, 'Movies,cars,money,school,crafts,music,profit,movie,you,me,traffic,seo,value,offer,weightloss,fitness,health,marketing,cb,trading,software,language,musiclessons,business,getyourexback,forex,binary,dogtraining,leveling,publicrecords,survival,studytips,freedom,tattoos,auctions,divorce,party,employee,insurance,homerenovations,internet,games,travel,recipe,reality,smoking,quitsmoking,internetmarketing,golf,soccer,football,baseball,sports,selfdefense,piano,spanish,french,sex,electronics,gear,shoes,prepping,gold,silver,stock,dating,adult,investment,domain,domainer,creditcard,concert,videos,html,disaster,recovery,commission,cash,atm,retirement,hobby,family,parenting,stress,guns,ammunition,carpentry,marijuana,dentist,injury,lawyer,taxes,tax,personaldevelopment,cycling,video,betting,casino,gambling,horses,fatloss,bizopp,addiction,income,action,rich,wealth,wealthy,prep,fish,diet,find,live,bankrupcy,hosting,career,ecommerce,dropshipping,digitalcamera,camera,mp3,mov,ppc,pennystocks,country,investing,shipping,homeschooling,farming,bodyarmor,weapons,banking,fat,headache,sixpackabs,smallbusiness,onlinebusiness,marriage,shopping,people,map,info,system,year,data,food,theory,problem,fact,thing,power,opinion,situation,message,skill,membership,debt,text,gas,lesson,boy,mail,cable,cost,fashion,key,group,size,affiliateprogram,customerservice,wellness,beats,instrumental,remix,batteries,groceries,delivery,pizza,car,rv,mobilehomes,realestate,programmer,producer,pet,vapes,ecigs,capitalist,diabetes,mesothelioma,degree,items,affiliate,guide,chat,forms,nanny,tool,poker,consulting,nutrition,hardware,server,code,relationship,job,jobs,domains,payments,modeling,forums,forum,employment,attorney,accountant,doctor,training,dogs,classifieds,ezines,stocks,investments,homes,apartments,rentals,taxi,hobbies,401k,copywriting,joblistings,guitarlessons,affiliatemarketing,healthinsurance,stocktrading,domaining,life,success,matrix,passups', 'Download,get,buy,watch,rent,fun,howto,i,e,quick,fast,247,free,intense,order,easy,for,about,find,mobile,great,hire,best,global,infinite,my,copy,end,fix,ship,access,gain,win,good,building,guaranteed,visual,audio,acquire,extreme,big,mega,massive,passive,quality,legit,why,historyof,take,cheap,wholesale,howtodo,howtoplay,howtolearn,howtofind,howtowin,catch,mini,micro,maximum,goto,cool,areyou,famous,digital,lethal,oldschool,automated,automatic,one,go,discuss,click,downloadable,refurbished,used,virtual,select,trade,full,instant,insta,howtoget,that,geta,create,make,design,use,wina,whatif,whatis,video,original,view,load,possible,national,cut,try,check,put,local,show,search,lift,kill,different,true,powerful,share,register,fight,fail,wear,making,save,paid,call,dial,ask,white,black,yellow,sports,bigger,economy,ten,online,advertise,goingto,deliver,payfor,refund,place,fire,track,auto,scroll,protect,defend,earn,play,bad,thebest,sexy,offer,send,email,expensive,premium,top,highend,shippable,smooth,direct,finda,commercial,affordable,blind,dedicated,electronic,learn,makemoney,start,build,speed,residual,recurring,comp,spillover', 'rentals,videos,downloads,listings,software,tonight,365,city,universe,strategy,method,book,ebook,master,blueprint,automated,apps,live,broker,mp3s,link,bible,sites,site,guide,expert,authority,academy,school,supply,tips,store,system,program,market,website,blog,deal,discount,coupon,finder,maps,map,design,job,source,shop,purchase,forever,pro,doctor,helper,buddy,commissions,cash,killer,document,scan,taxes,tv,repair,forkids,lawsuit,lawyer,attorney,computer,kit,video,database,membership,cheats,supplements,vault,online,web,onthenet,now,tothemax,mania,host,magic,nurse,science,hub,consultant,words,attack,revolution,info,scams,articles,documentaries,films,pics,pictures,show,games,god,appraisal,value,plans,builder,genius,latestnews,news,factor,surgery,discussion,onsale,selfies,industry,malls,shopping,symptoms,jobs,employment,platform,zone,onthego,lightning,express,profits,miracle,review,trial,protection,copy,search,wear,price,income,goal,development,user,series,community,area,road,politics,event,moment,vehicle,scene,office,cell,phone,box,network,payment,sample,assistant,name,society,age,proof,service,cloud,credit,catcher,numbers,training,grooming,noise,center,fan,loans,ezine,advertisement,ads,delivery,evaluator,chat,views,worker,banking,pain,funnel,marketing,caller,message,help,support,holdings,scanner,promotions,manager,mba,college,clips,plan', 'com,net,info,org,biz,io', '2017-03-01 14:16:43', 'dog,cat,car,truck,suv,bike,jewelry,musicalinstrument,furniture,dvd,cd,tool,game,book,phone,computer,boat,home,ticket,trailer,equipment,photo,video,antique,automobile,contract,coffee,food,health,bible,lawsuit,time,people,state,family,child,man,student,school,money,eye,area,hub,brand,domain,name', 'grab,acquire,get,buy,block,bought,enter,hold,build,make,grow,find,run,order,download,guarantee,guard,heal,act,adopt,argue,ask,become,avoid,comment,crack,crush,drag,direct,deliver,debate,draw,encode,edit,eat,earn,fix,force,feed,follow,forgive,invest,invent,join,jam,learn,listen,last,like,lose,mention,offer,own,practice,plan,promise,put,place,post,request,repair,replace,read,risk,rock,show,save,sell,see,send,support,supply,start,trust,trap,zoom,promote,market,push', 'undefined,cars,trucks,dvds,cds,tools,games,books,phones,computers,boats,homes,tickets,trailers,equipments,photos,videos,antiques,automobiles,bikes,domains,reviews,strong,built,moms,listings,websites,pages,logins', 'great,awesome,fabulous,good,best,paid,hot,top,hottest,fast,fastest,quick,reality,glory,god,pretty,attractive,excellent,happy,easy,big,huge,gigantic,honest,real,excess,giant,beautiful,certified,legit,guaranteed,local,amazing,extravagant,moral,ethical,pros,pro,professional,expert', 'bad,horrible,sad,boring,rotten,awful,attack,stop,end,sick,disease,terrible,negative,forgotten,dirty', 'nyc,la,newyorkcity,miami,florida,california,italy,milan,rome,paris,tokyo,dubai,russia,seattle,chicago,houston,philadelphia,denver,beijing', 'dealer,seller,salesman,store,shop,mall,marketplace,service,wholesale,retail,auction,trade,buy,buyer,retailer,wholesaler', 'blue,yellow,red,green,purple,brown,gold,silver,clear,fast,slow,hard,soft,heavy,light,big,small,quick,used,new,beautiful,dynamic', 'downloads,calls,buys,auctions,sales,login', 'weekly,hourly,daily,yearly,nightly,tomorrow,today,yesterday,year,millenium,century,week,hour,minute,day,night', 'a,i,z,e,q,m', 'results,rewards,gems,winners,dreams,likes,views', 'software,maker,builder,developer,user,downloader,use,dialer,finder,search,backup,drive,disk,automated,automation,development,suite,launch', 'digital,digi,web,intra,inter,para,synth,mono,linear,phase,proto,robo,virtual', 'bought,paid,made,destroyed,caught,captured,found,obtained,fix,fixed,brought,heard,seen', 'buying,building,making,biking,kicking,filming,downloading,seeing,finding,eating,processing,killing,smoking,sleeping,searching', 'health,fitness,internetmarketing,weightloss,guitar,relationship,fatloss,business,onlinebusiness,entrepreneurship,insurance,investment,marijuana,pot,leveling,forex,dieting,personaldevelopment,selfhelp,dating,carpentry,wealth,seo,marketing,fashion,divorce,nutrition,selfdefense,fishing,music,hosting,bankruptcy,dogtraining,baseball,realestate,marriage,survival,prepping,gold', 'guru,helper,buddy,boy,girl,man,woman,god,officer,hitman,liason,ally,warrior,king,prince,overlord,maker,builder,brother,killer,maniac,badass,rockstar,player,boss,genius,hero,spy,soldier,friend,amigo,buyer,seller,saint,model,robot,guide,source,sidekick,professor,nutcase,dude', 'return,reward,award,premium,cash,riches,money,funds,investment,financial,profit,profits,loans', 'strategy,blueprint,idea,plan,ebook,method,guide,design,program,tactics,system,project', 'wow,lol,omg,lmfao,bam,bang,ohmygod', 'code,group,problem,case,story,fact,program,school,world,place,city,center,area,room,history,verdict,brands,domains,names,pros,pro,expert,jackers', 'hub,league,community,center,city,house,social,authority,nation,society,general,group,channel', 'Obsidian,plasma,comet,chaos,nova,millenium,warfare,asteroid,incognito,parallel,juggernaut,gladiator,deity,empower,delta,esoteric,rapture,apex,schism,interceptor,phenomenon', 'secretary,administrator,mechanic,delivery,petsitter,dogwalker,sales,agent,lawyer,paralegal,office,hairdresser,massage,nails,resort,banker,fireman,engineer,baker,analyst,accountant,doctor,nurse,aid', 'remedy,proof,stopper,locked,protection,security,tight,fix,antidote,relief,crusher,smasher,lock', 'appliance,electronics,bath,bedding,homedecor,powertools,petsupplies,babysupplies,wallart,storage,automotiveparts,furniture,artwork,vacuum,heating,cooling,fineart,collectibles,collectible,patio,wine,laptop,hdtv,monitor,dishwasher,toy,farm,ranch,industrial,gourmetfood,dehydratedfood,survival,exercizeequipment,lab,makeup,haircare,gift,hometheatre,game,proaudio', 'movies,cars,money,school,crafts,music,profit,movie,you,me,traffic,seo,value,offer,weightless,fitness,health,marketing,cb,trading,software,language,musiclessons,business,getyourexback,forex,binary,dogtraining,leveling,publicrecords,survival,studytips,freedom,tattoos,auctions,divorce,party,employee,insurance,homerenovations,internet,games,travel,recipe,reality,smoking,quitsmoking,internetmarketing,golf,soccer,football,baseball,sports,selfdefense,piano,spanish,french,sex,electronics,gear,shoes,prepping,gold,silver,stocks,dating,adult,investment,domain,domineer,creditcard,concert,videos,html,disaster,recovery,commission,cash,retirement,hobby,family,parenting,stress,guns,ammunition,carpentry,marijuana,dentistry,injury,lawyer,taxes,tax,personaldevelopment,cycling,video,betting,casino,gambling,horses,fatloss,bizopp,addiction,income,action,rich,wealth,wealthy,prep,fish,diet,find,live,bankruptcy,hosting,career,ecommerce,dropshipping,digitalcamera,camera,mp3,mov,ppc,pennystocks,country,investing,shipping,homeschooling,farming,bodyarmor,weapons,banking,fat,headache,sixpackabs,smallbusiness,onlinebusiness,marriage,shopping,people,map,info,system,year,data,food,theory,problem,fact,thing,power,opinion,situation,message,skill,membership,debt,text,gas,lesson,boy,mall,cable,cost,fashion,key,group,size,affiliateprogram,customerservice,wellness,beats,instrumental,remix,batteries,groceries,delivery,pizza,car,rv,mobilehomes,realestate,programmer,producer,pet,vales,ecigs,capitalist,diabetes,mesothelioma,degree,items,affiliate,guide,chat,forms,nanny,tool,poker,consulting,nutrition,hardware,server,code,relationship,job,jobs,domains,payments,modeling,forums,forum,employment,attorney,accountant,doctor,training,dogs,classifieds,ezines,investments,homes,apartments,rentals,taxi,hobbies,401k,copywriting,joblistings,guitarlessons,affiliatemarketing,healthinsurance,stocktrading,domaining,life,success,matrix,passups', 'bad,mad,sad,dad,pad,fad,lad,rad,glad,had,cab,fab,nab,jab,zap,tap,lap,cap,map,rap,ram,jam,man,can,fan,van,bat,cat,mat,sat,hat,pat,Â has,gas,sag,rag,lag,bag,wag,tag,zag,wax,sax,tack,pack,track,crack,add,ask,act', 'ar,si,fu,bi,mo,ka,do,hi,wa,ki,lo,po,ge,vu,re,sa,tu,ti,ta,fo,be,ba,bo,gu,go,ga,di,de,da,we,wo', 'SMITH,JOHNSON,WILLIAMS,JONES,BROWN,DAVIS,MILLER,WILSON,MOORE,TAYLOR,ANDERSON,THOMAS,JACKSON,WHITE,HARRIS,MARTIN,THOMPSON,GARCIA,MARTINEZ,ROBINSON,CLARK,RODRIGUEZ,LEWIS,LEE,WALKER,HALL,ALLEN,YOUNG,HERNANDEZ,KING,WRIGHT,LOPEZ,HILL,SCOTT,GREEN,ADAMS,BAKER,GONZALEZ,NELSON,CARTER,MITCHELL,PEREZ', '');
 
 -- --------------------------------------------------------
 
@@ -270,7 +272,7 @@ INSERT INTO `expired_domains` (`domain`, `rank`) VALUES
 ('PENDOWNLOAD.COM', 0),
 ('PNRINQUIRY.COM', 0),
 ('PRINSESAS.COM', 0),
-('PUMPCOCK.COM', 1),
+('PUMPCOCK.COM', 0),
 ('REDMOLES.COM', 0),
 ('REMISIONES.COM', 0),
 ('REPLACEMEN.COM', 0),
@@ -435,7 +437,7 @@ INSERT INTO `expired_domains` (`domain`, `rank`) VALUES
 ('ALKAOSAR.COM', 0),
 ('ALMAESAMI.COM', 0),
 ('ARISTOLASIA.COM', 0),
-('BATTERYDEAD.COM', 6),
+('BATTERYDEAD.COM', 0),
 ('BOMBASTEREO.COM', 0),
 ('CEFETES.COM', 0),
 ('CHERRYGAME.COM', 0),
@@ -526,7 +528,7 @@ INSERT INTO `expired_domains` (`domain`, `rank`) VALUES
 ('SPOTLIVE.COM', 0),
 ('SUBSCRIPS.COM', 0),
 ('UQLELE.COM', 0),
-('USERSFILE.COM', 1),
+('USERSFILE.COM', 0),
 ('VERCHICAS.COM', 0),
 ('AUTOSTRADY.COM', 0),
 ('BAILORLANDO.COM', 0),
@@ -542,7 +544,7 @@ INSERT INTO `expired_domains` (`domain`, `rank`) VALUES
 ('DJTHERA.COM', 0),
 ('EMOQUIZ.COM', 0),
 ('ESCRUBBER.COM', 0),
-('FACTORLIST.COM', 1),
+('FACTORLIST.COM', 0),
 ('FADISTAS.COM', 0),
 ('HARRLEQUIN.COM', 0),
 ('HATRAIN.COM', 0),
@@ -591,7 +593,7 @@ INSERT INTO `expired_domains` (`domain`, `rank`) VALUES
 ('CPCICHASSIS.COM', 0),
 ('CRICKSCORE.COM', 0),
 ('CRYANDBUY.COM', 0),
-('DICTONARIES.COM', 1),
+('DICTONARIES.COM', 0),
 ('DLAZBA.COM', 0),
 ('DOTAKE.COM', 0),
 ('ELEARNINGJO.COM', 0),
@@ -685,7 +687,7 @@ INSERT INTO `expired_domains` (`domain`, `rank`) VALUES
 ('TOYJEWEL.COM', 0),
 ('WIFIYE.COM', 0),
 ('BCAAPOWER.COM', 0),
-('BEMYNEXT.COM', 1),
+('BEMYNEXT.COM', 0),
 ('CHFAUD.COM', 0),
 ('CHILLERBEE.COM', 0),
 ('COPPERDISC.COM', 0),
@@ -695,7 +697,7 @@ INSERT INTO `expired_domains` (`domain`, `rank`) VALUES
 ('DRAGONWWW.COM', 0),
 ('EASYEVEN.COM', 0),
 ('EDUGRA.COM', 0),
-('FOODESCORT.COM', 3),
+('FOODESCORT.COM', 0),
 ('FORDBOX.COM', 0),
 ('GIRLTHREE.COM', 0),
 ('GMIMARKET.COM', 0),
@@ -781,7 +783,7 @@ INSERT INTO `expired_domains` (`domain`, `rank`) VALUES
 ('OSETIRYOURI.COM', 0),
 ('POPCORNOIL.COM', 0),
 ('PORNALL.COM', 0),
-('RAULH.COM', 1),
+('RAULH.COM', 0),
 ('SABINEISD.COM', 0),
 ('SHOWDAYIM.COM', 0),
 ('SITHMASTER.COM', 0),
@@ -800,7 +802,7 @@ INSERT INTO `expired_domains` (`domain`, `rank`) VALUES
 ('BLOGREPLY.COM', 0),
 ('BODYFRONT.COM', 0),
 ('CAFAIT.COM', 0),
-('DEATHLABEL.COM', 2),
+('DEATHLABEL.COM', 0),
 ('DISAPPROVES.COM', 0),
 ('DIZES.COM', 0),
 ('DOUBLESENSE.COM', 0),
@@ -842,7 +844,7 @@ INSERT INTO `expired_domains` (`domain`, `rank`) VALUES
 ('THEIGH.COM', 0),
 ('THESCREWS.COM', 0),
 ('THEWORKSHOE.COM', 0),
-('TICKETLAST.COM', 1),
+('TICKETLAST.COM', 0),
 ('TODAYSMOST.COM', 0),
 ('TUNDRASOIL.COM', 0),
 ('TVOJKRAJ.COM', 0),
@@ -920,7 +922,7 @@ INSERT INTO `expired_domains` (`domain`, `rank`) VALUES
 ('LIGHTPL.COM', 0),
 ('MARKERFLAGS.COM', 0),
 ('MEDIICATION.COM', 0),
-('MEGANAMRAM.COM', 1),
+('MEGANAMRAM.COM', 0),
 ('MINNIEE.COM', 0),
 ('MINTOP.COM', 0),
 ('MRHOI.COM', 0),
@@ -998,7 +1000,7 @@ CREATE TABLE IF NOT EXISTS `jvzoo_transactions` (
   `cverify` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `ctranstime` bigint(20) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=11167 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=11174 ;
 
 --
 -- Dumping data for table `jvzoo_transactions`
@@ -12218,7 +12220,14 @@ INSERT INTO `jvzoo_transactions` (`id`, `ccustname`, `ccuststate`, `ccustcc`, `c
 (11163, 'ROBERT HIDAGO', '', '', 'sprintrobert1@gmail.com', '202319', 'Domainer Elite Software And Course', 'STANDARD', 'SALE', '83065', '87.00', 'PYPL', '87095', '91L4EAUZTGWCXK2GX', '', '22824045', '', '6E3373CD', 1487944833),
 (11164, 'ROBERT HIDAGO', '', '', 'sprintrobert1@gmail.com', '195453', 'Unlimited Webinars', 'STANDARD', 'SALE', '83065', '67.00', 'PYPL', '87095', 'EN0XW35MT81N7BX6X', '', '22824149', '', '5A8FACAB', 1487945486),
 (11165, 'ROBERT HIDAGO', '', '', 'sprintrobert1@gmail.com', '195453', 'Unlimited Webinars', 'STANDARD', 'SALE', '83065', '67.00', 'PYPL', '87095', 'EN0XW35MT81N7BX6X', '', '22824149', '', '5A8FACAB', 1487945486),
-(11166, 'Glenn Bartra', '', '', 'glennbartra@yahoo.com', '199559', 'Domainer Elite Software - DISCOUNTED!', 'STANDARD', 'SALE', '8534', '47.00', 'PYPL', '87095', 'CQOF437DO1ERFM7MZ', '', '22838159', '', 'EAE61419', 1488001031);
+(11166, 'Glenn Bartra', '', '', 'glennbartra@yahoo.com', '199559', 'Domainer Elite Software - DISCOUNTED!', 'STANDARD', 'SALE', '8534', '47.00', 'PYPL', '87095', 'CQOF437DO1ERFM7MZ', '', '22838159', '', 'EAE61419', 1488001031),
+(11167, 'Juan Tascon', '', '', 'bluequinox@gmail.com', '197221', 'Domainer Elite Course', 'STANDARD', 'SALE', '0', '24.95', 'PYPL', '87095', 'LU6GP4RDP51X79L0C', '', '22870075', '', '19B8F049', 1488217055),
+(11168, 'Juan Tascon', '', '', 'bluequinox@gmail.com', '197221', 'Domainer Elite Course', 'STANDARD', 'SALE', '0', '24.95', 'PYPL', '87095', 'LU6GP4RDP51X79L0C', '', '22870075', '', '19B8F049', 1488217055),
+(11169, 'Juan Tascon', '', '', 'bluequinox@gmail.com', '199567', 'Unlimited Webinars - DISCOUNTED!', 'STANDARD', 'SALE', '494797', '37.00', 'PYPL', '87095', 'XSTU0FBU7YNJP11FI', '', '22870171', '', '9FFDB8D8', 1488217667),
+(11170, 'Clifford Smith', '', '', 'cliffbandit@msn.com', '197221', 'Domainer Elite Course', 'STANDARD', 'SALE', '458169', '24.95', 'PYPL', '87095', '51KIP9GI3BQSL22C2', '', '22878183', '', 'A77B8D17', 1488265654),
+(11171, 'Clifford Smith', '', '', 'cliffbandit@msn.com', '197221', 'Domainer Elite Course', 'STANDARD', 'SALE', '458169', '24.95', 'PYPL', '87095', '51KIP9GI3BQSL22C2', '', '22878183', '', 'A77B8D17', 1488265654),
+(11172, 'glenn wilson', '', '', 'jawajives@aim.com', '195453', 'Unlimited Webinars', 'STANDARD', 'SALE', '1', '67.00', 'PYPL', '87095', 'PJBWBXCDOTX2165AQ', '', '22879517', '', 'D633F5EE', 1488272830),
+(11173, 'ROBERT HIDAGO', '', '', 'sprintrobert1@gmail.com', '195453', 'Unlimited Webinars', 'STANDARD', 'SALE', '83065', '67.00', 'PYPL', '87095', 'EN0XW35MT81N7BX6X', '', '22824149', '', '5A8FACAB', 1487945486);
 
 -- --------------------------------------------------------
 
@@ -12238,7 +12247,7 @@ CREATE TABLE IF NOT EXISTS `marketplace_domains` (
   `listingdate` date NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `domain` (`domain`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=60 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=64 ;
 
 --
 -- Dumping data for table `marketplace_domains`
@@ -12246,18 +12255,16 @@ CREATE TABLE IF NOT EXISTS `marketplace_domains` (
 
 INSERT INTO `marketplace_domains` (`id`, `user_id`, `domain`, `type`, `price`, `link`, `category`, `listingdate`) VALUES
 (37, 22, 'Downloaderguide.com', 'domain', '100.00', 'http://www.godaddy.com', 'premium domains', '2017-02-18'),
-(36, 22, 'expertsalesman.com', 'domain', '50.00', 'http://www.godaddy.com', 'premium domains', '2017-02-18'),
-(38, 4196, 'SeoSalesman.com', 'domain', '260.00', 'https://www.godaddy.com/domains/searchresults.aspx?checkAvail=1&tmskey=&domainToCheck=seosalesman.com', 'premium domains', '2017-02-19'),
-(39, 4196, 'MixerDeal.com', 'domain', '250.00', 'https://www.godaddy.com/domains/searchresults.aspx?checkAvail=1&tmskey=&domainToCheck=MixerDeal.com', 'premium domains', '2017-02-22'),
-(40, 4196, 'RemixExpert.com', 'domain', '200.00', 'https://au.godaddy.com/domains/searchresults.aspx?checkAvail=1&tmskey=&domainToCheck=Remixexpert.com', 'premium domains', '2017-02-18'),
+(60, 22, 'pushquick.com', 'domain', '300.00', 'http://www.godaddy.com', 'premium domains', '2017-02-28'),
+(38, 4196, 'SeoSalesman.com', 'domain', '260.00', 'http://www.robfusco.com/go/seosalesman', 'premium domains', '2017-02-26'),
+(39, 4196, 'MixerDeal.com', 'domain', '250.00', 'http://www.robfusco.com/go/MixerDeal', 'premium domains', '2017-02-26'),
+(40, 4196, 'RemixExpert.com', 'domain', '200.00', 'http://www.robfusco.com/go/RemixExpert', 'premium domains', '2017-02-26'),
 (41, 1917, 'cocainevaccine.com', 'domain', '100.00', 'https://www.godaddy.com/domains/searchresults.aspx?checkAvail=1&tmskey=&domainToCheck=cocainevaccine.com', 'health', '2017-02-18'),
-(42, 22, 'dictionaires.com', 'domain', '200.00', 'http://www.godaddy.com', 'premium domains', '2017-02-21'),
-(43, 22, 'usersfile.com', 'domain', '200.00', 'http://www.godaddy.com', 'premium domains', '2017-02-21'),
-(44, 4196, 'PreppingExpert.com', 'domain', '200.00', 'https://au.godaddy.com/domains/searchresults.aspx?checkAvail=1&tmskey=&domainToCheck=preppingexpert.com', 'premium domains', '2017-02-22'),
-(45, 4196, 'InternetMarketingDeal.com', 'domain', '100.00', 'https://www.godaddy.com/domains/searchresults.aspx?checkAvail=1&tmskey=&domainToCheck=INTERNETMARKETINGDEAL.COM', 'premium domains', '2017-02-22'),
-(46, 4196, 'NYCWaterway.Com', 'domain', '100.00', 'https://www.godaddy.com/domains/searchresults.aspx?checkAvail=1&tmskey=&domainToCheck=NYCWATERWAY.COM', 'business', '2017-02-22'),
-(47, 4196, 'AndroidMarket.org', 'domain', '50.00', 'https://www.godaddy.com/domains/searchresults.aspx?checkAvail=1&tmskey=&domainToCheck=ANDROIDMARKET.ORG', 'adult domains', '2017-02-22'),
-(48, 4196, 'BeatsExpert.com', 'domain', '100.00', 'https://www.godaddy.com/domains/searchresults.aspx?checkAvail=1&tmskey=&domainToCheck=BEATSEXPERT.COM', 'premium domains', '2017-02-22'),
+(63, 22, 'violentfights.com', 'domain', '300.00', 'http://www.godaddy.com', 'premium domains', '2017-03-01'),
+(44, 4196, 'PreppingExpert.com', 'domain', '200.00', 'http://www.robfusco.com/go/prepexpert', 'premium domains', '2017-02-26'),
+(45, 4196, 'InternetMarketingDeal.com', 'domain', '100.00', 'http://www.robfusco.com/go/IMmarketingdeal', 'premium domains', '2017-02-26'),
+(46, 4196, 'NYCWaterway.Com', 'domain', '100.00', 'http://www.robfusco.com/go/NYCWATERWAY', 'business', '2017-02-26'),
+(48, 4196, 'BeatsExpert.com', 'domain', '100.00', 'http://www.robfusco.com/go/BeatsExpert', 'premium domains', '2017-02-26'),
 (49, 4998, 'sauzage.com', 'domain', '150.00', 'https://au.godaddy.com/domains/searchresults.aspx?checkAvail=1&tmskey=&domainToCheck=sauzage.com', 'premium domains', '2017-02-23'),
 (50, 4998, 'horsepet.net', 'domain', '150.00', 'https://au.godaddy.com/domains/searchresults.aspx?checkAvail=1&tmskey=&domainToCheck=horsepet.net', 'keyword domains', '2017-02-23'),
 (51, 4998, 'haemoid.com', 'domain', '150.00', 'https://au.godaddy.com/domains/searchresults.aspx?checkAvail=1&tmskey=&domainToCheck=haemoid.com', 'health', '2017-02-23'),
@@ -12296,7 +12303,7 @@ CREATE TABLE IF NOT EXISTS `members` (
   `twitter` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=5024 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=5033 ;
 
 --
 -- Dumping data for table `members`
@@ -12457,7 +12464,7 @@ INSERT INTO `members` (`id`, `email`, `software`, `software_pro`, `webinars`, `a
 (154, 'bsmbutho@gmail.com', 'N', 'N', 'Y', 'N', 'N', 'N', 'Y', '', '', '', '', '', '', ''),
 (155, 'cdalgarno@gmail.com', 'N', 'N', 'N', 'N', 'N', 'N', 'Y', '', '', '', '', '', '', ''),
 (156, 'jkelsey113@email.itt-tech.edu', 'N', 'N', 'N', 'N', 'N', 'N', 'Y', '', '', '', '', '', '', ''),
-(157, 'tomyevsikov@gmail.com', 'Y', 'N', 'Y', 'Y', 'N', 'N', 'Y', '', '', '', '', '', '', ''),
+(157, 'tomyevsikov@gmail.com', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', '', '', '', '', '', '', ''),
 (158, 'jgarsen2000@yahoo.com', 'Y', 'N', 'N', 'N', 'N', 'N', 'Y', '', '', '', '', '', '', ''),
 (159, 'berndog2009@att.net', 'N', 'N', 'N', 'N', 'N', 'N', 'Y', '', '', '', '', '', '', ''),
 (160, 'jslflooring@aol.com', 'N', 'N', 'N', 'N', 'N', 'N', 'Y', '', '', '', '', '', '', ''),
@@ -14220,7 +14227,7 @@ INSERT INTO `members` (`id`, `email`, `software`, `software_pro`, `webinars`, `a
 (1914, 'spiralgifts@gmail.com', 'N', 'N', 'N', 'N', 'N', 'N', 'Y', '', '', '', '', '', '', ''),
 (1915, 'steven.chillingworth@googlemail.com', 'N', 'N', 'N', 'N', 'N', 'N', 'Y', '', '', '', '', '', '', ''),
 (1916, 'abiz4u@nolimit2it.com', 'N', 'N', 'N', 'N', 'N', 'N', 'Y', '', '', '', '', '', '', ''),
-(1917, 'Vereorverum@gmail.com', 'Y', 'Y', 'Y', 'Y', 'Y', 'N', 'Y', 'Matthew', 'Marvel', 'Just a dude selling domains trying to stay sane.', 'mattnilson42@gmail.com', 'https://www.dialmatthew.com', 'https://www.facebook.com/matt.nilson', ''),
+(1917, 'Vereorverum@gmail.com', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Matthew', 'Marvel', 'Just a dude selling domains trying to stay sane.', 'mattnilson42@gmail.com', 'https://www.dialmatthew.com', 'https://www.facebook.com/matt.nilson', ''),
 (1918, 'davidhinds4@yahoo.co.uk', 'Y', 'N', 'Y', 'Y', 'N', 'N', 'Y', '', '', '', '', '', '', ''),
 (1919, 'reach.mfl@gmail.com', 'N', 'N', 'N', 'N', 'N', 'N', 'Y', '', '', '', '', '', '', ''),
 (1920, 'Gburkinshaw@shaw.ca', 'N', 'N', 'Y', 'N', 'N', 'N', 'Y', '', '', '', '', '', '', ''),
@@ -15088,7 +15095,7 @@ INSERT INTO `members` (`id`, `email`, `software`, `software_pro`, `webinars`, `a
 (2780, 'nate.garrett1992@gmail.com', 'N', 'N', 'N', 'N', 'N', 'N', 'Y', '', '', '', '', '', '', ''),
 (2781, 'starkz710@gmail.com', 'Y', 'N', 'Y', 'N', 'N', 'N', 'Y', '', '', '', '', '', '', ''),
 (2782, 'manserfunding@gmail.com', 'Y', 'N', 'N', 'N', 'N', 'N', 'Y', '', '', '', '', '', '', ''),
-(2783, 'jamie@cashdup.com', 'N', 'N', 'N', 'N', 'N', 'N', 'Y', '', '', '', '', '', '', ''),
+(2783, 'jamie@cashdup.com', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', '', '', '', '', '', '', ''),
 (2784, 'fnfsanti@gmail.com', 'Y', 'N', 'N', 'N', 'N', 'N', 'Y', '', '', '', '', '', '', ''),
 (2785, 'psjovan@sbcglobal.net', 'Y', 'N', 'Y', 'N', 'N', 'N', 'Y', '', '', '', '', '', '', ''),
 (2786, 'tmc123111@gmail.com', 'N', 'N', 'N', 'N', 'N', 'N', 'Y', '', '', '', '', '', '', ''),
@@ -16503,7 +16510,7 @@ INSERT INTO `members` (`id`, `email`, `software`, `software_pro`, `webinars`, `a
 (4193, 'rcgtraders@yahoo.com', 'Y', 'N', 'N', 'N', 'N', 'N', 'Y', '', '', '', '', '', '', ''),
 (4194, 'jhernandeznc@gmail.com', 'Y', 'N', 'Y', 'N', 'N', 'N', 'Y', '', '', '', '', '', '', ''),
 (4195, 'muncastell@gmail.com', 'N', 'N', 'N', 'N', 'N', 'N', 'Y', '', '', '', '', '', '', ''),
-(4196, 'rfusc@hotmail.com', 'Y', 'Y', 'Y', 'N', 'Y', 'Y', 'Y', 'Rob', 'Fusco ', 'Domain seller ', 'Info@flipdomainsonline.com', 'https://flipdomainsonline.com', '', ''),
+(4196, 'rfusc@hotmail.com', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Rob', 'Fusco ', 'Domain seller ', 'Info@flipdomainsonline.com', 'https://flipdomainsonline.com', '', ''),
 (4197, 'twintwo@hotmail.com', 'Y', 'N', 'N', 'N', 'N', 'N', 'Y', '', '', '', '', '', '', ''),
 (4198, 'cyruscrosssoc@gmail.com', 'Y', 'N', 'N', 'N', 'N', 'N', 'Y', '', '', '', '', '', '', ''),
 (4199, 'JacobSherrard24@gmail.com', 'Y', 'N', 'N', 'N', 'N', 'N', 'Y', '', '', '', '', '', '', ''),
@@ -17331,8 +17338,17 @@ INSERT INTO `members` (`id`, `email`, `software`, `software_pro`, `webinars`, `a
 (5019, 'davidmadden2013@gmail.com', 'Y', 'Y', 'Y', 'N', 'Y', 'Y', 'Y', '', '', '', '', '', '', ''),
 (5020, 'sprintrobert1@gmail.com', 'Y', 'N', 'Y', 'N', 'N', 'N', 'Y', '', '', '', '', '', '', ''),
 (5021, 'glennbartra@yahoo.com', 'Y', 'N', 'N', 'N', 'N', 'N', 'Y', '', '', '', '', '', '', ''),
-(5022, 'profitmoffatt@gmail.com', 'Y', 'Y', 'Y', 'Y', 'N', 'N', 'Y', '', '', '', '', '', '', ''),
-(5023, 'Idjchance@gmail.com', 'Y', 'Y', 'Y', 'Y', 'N', 'N', 'Y', '', '', '', '', '', '', '');
+(5022, 'profitmoffatt@gmail.com', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', '', '', '', '', '', '', ''),
+(5023, 'Idjchance@gmail.com', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', '', '', '', '', '', '', ''),
+(5024, 'brroeder@hotmail.com', 'Y', 'Y', 'Y', 'Y', 'N', 'N', 'Y', '', '', '', '', '', '', ''),
+(5025, 'susankiely446@yahoo.co.uk', 'Y', 'Y', 'Y', 'Y', 'N', 'N', 'Y', '', '', '', '', '', '', ''),
+(5026, 'danny@thedannywelsh.com', 'Y', 'Y', 'Y', 'Y', 'N', 'N', 'Y', '', '', '', '', '', '', ''),
+(5027, 'bluequinox@gmail.com', 'N', 'N', 'Y', 'N', 'N', 'N', 'Y', '', '', '', '', '', '', ''),
+(5028, 'jeff.wallis@gmail.com', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', '', '', '', '', '', '', ''),
+(5029, 'andy@netodex.com', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', '', '', '', '', '', '', ''),
+(5030, '1tmsjay@gmail.com', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', '', '', '', '', '', '', ''),
+(5031, 'cliffbandit@msn.com', 'N', 'N', 'N', 'N', 'N', 'N', 'Y', '', '', '', '', '', '', ''),
+(5032, 'stramposch@gmail.com', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', '', '', '', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -17351,7 +17367,7 @@ CREATE TABLE IF NOT EXISTS `member_domains` (
 --
 
 INSERT INTO `member_domains` (`member_id`, `domain`) VALUES
-(22, 'loginsdenver.com'),
+(5017, 'developmentsocial.com'),
 (22, 'pagesflorida.com'),
 (22, 'trucksdenver.com'),
 (22, 'carsmilan.com'),
@@ -17474,7 +17490,54 @@ INSERT INTO `member_domains` (`member_id`, `domain`) VALUES
 (5017, 'fashionhottest.com'),
 (5017, 'onlinebusinessreality.com'),
 (5017, 'fatlossprofessional.com'),
-(5017, 'internetmarketingcertified.com');
+(5017, 'internetmarketingcertified.com'),
+(5017, 'buydeveloper.com'),
+(5017, 'buykiller.com'),
+(5017, 'buywarrior.com'),
+(5017, 'forprofessor.com'),
+(5017, 'forprince.com'),
+(5017, 'forprogram.com'),
+(5017, 'forarea.com'),
+(5017, 'forhour.com'),
+(5017, 'forseattle.com'),
+(5017, 'forprogram.com'),
+(4196, 'fastwholesaler.com'),
+(4196, 'thebestwholesaler.com'),
+(5017, 'hottestadult.com'),
+(5017, 'professionalcommission.com'),
+(5017, 'toolcash.com'),
+(5017, 'sexyaccountant.com'),
+(5017, 'sexyfireman.com'),
+(5017, 'sexyfabulous.com'),
+(5017, 'sexyhottest.com'),
+(5017, 'sexyamazing.com'),
+(5017, 'sexygeneral.com'),
+(5017, 'sexyaccountant.com'),
+(5017, 'sexybaseball.com'),
+(4196, 'thebestcontract.com'),
+(4196, 'thebestdvds.com'),
+(4196, 'thebestretailer.com'),
+(4196, 'thebestcalls.com'),
+(5017, 'fundssocial.com'),
+(5017, 'loansgeneral.com'),
+(5017, 'areanation.com'),
+(5017, 'fixbackup.com'),
+(5017, 'fixuser.com'),
+(5017, 'fixhdtv.com'),
+(5017, 'fixdishwasher.com'),
+(5017, 'fixsize.com'),
+(5017, 'copyforms.com'),
+(5017, 'copyretail.com'),
+(5017, '247riches.com'),
+(5017, 'checkreturn.com'),
+(5017, 'speedriches.com'),
+(5017, 'recurringriches.com'),
+(5017, 'findaprofit.com'),
+(5017, 'findacrack.com'),
+(5017, 'centurymaker.com'),
+(5017, 'hourlybackup.com'),
+(5017, 'weeklysoftware.com'),
+(4196, 'greatentrepreneurship.com');
 
 -- --------------------------------------------------------
 
