@@ -541,7 +541,7 @@ $(document).ready(function(){
 
 						var domain = expired_domains[i];
 						isAvailable(domain, function (msg) {
-							console.log(msg);
+							$("#result").append('<li>' + msg + '<a href="' + msg + '" class="myButton vote4">Vote</a><a class="myButton" href="https://godaddy.com/domains/searchresults.aspx?ci=83269&checkAvail=1&domainToCheck=' + msg + '" target="_blank">Register</a><a href = "' + msg + '" class="myButton appraise">Appraise</a><a href = "' + msg + '" class="myButton save">Save</a><a href = "http://domainerelite.com/members/marketplace.php" target="_blank" class="myButton">Sell</a></li>');
 						});
 
 					}
@@ -739,9 +739,9 @@ $(document).ready(function(){
 			"error": function() {
 				received++;
 				if (received == posted) {
-					var end = performance.now();
-					alert(end-start);
 					$('#loading_msg').html('All the others are not available.');
+					var end = performance.now();
+					alert(Math.ceil((end-start)/1000));
 				}
 			},
 			"headers": {
@@ -759,9 +759,9 @@ $(document).ready(function(){
 				callback(domain);
 			}
 			if (received == posted) {
-				var end = performance.now();
-				alert(end-start);
 				$('#loading_msg').html('All the others are not available.');
+				var end = performance.now();
+				alert(Math.ceil((end-start)/1000));
 			}
 		});
 	}
