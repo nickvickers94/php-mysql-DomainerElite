@@ -290,7 +290,7 @@
                                     foreach ($expired_domains_array as $expired_domain) {
                                         $expired_domains .= $expired_domain."\n";
                                     }
-                                    $expired_domains = trim($expired_domains);
+                                    $expired_domains = trim(strtolower($expired_domains));
                                 ?>
                                 <div class="form-group">
                                     <label>Expired Domains</label>
@@ -333,7 +333,7 @@
                                     foreach ($jamies_domains_array as $jamies_domain) {
                                         $jamies_domains .= $jamies_domain."\n";
                                     }
-                                    $jamies_domains = trim($jamies_domains);
+                                    $jamies_domains = trim(strtolower($jamies_domains));
                                 ?>
                                 <div class="form-group">
                                     <label>Jamie's Domains</label>
@@ -355,7 +355,7 @@
                                     foreach ($dictionary_domains_array as $dictionary_domain) {
                                         $dictionary_domains .= $dictionary_domain."\n";
                                     }
-                                    $dictionary_domains = trim($dictionary_domains);
+                                    $dictionary_domains = trim(strtolower($dictionary_domains));
                                 ?>
                                 <div class="form-group">
                                     <label>Dictionary Domains</label>
@@ -406,32 +406,19 @@
         <script type="text/javascript" src="bootstrap-tagsinput/bootstrap-tagsinput.min.js"></script>
     	<script type="text/javascript" src="bootstrap-tagsinput/bootstrap-tagsinput-angular.min.js"></script>
         
-        <script>
-    		$(document).ready(function() {
-            	$('#save_changes').on("click", function(e) {
-    				e.preventDefault();
-    				$('#success_msg').html('<font  style="color:#FF0000; font-weight:bold;">Please Wait...</font>');
+		<script>
+			$(document).ready(function() {
+				$('#save_changes').on("click", function(e) {
+					var saved = 0;
+					e.preventDefault();
+					$('#success_msg').html('<font  style="color:#FF0000; font-weight:bold;">Please Wait...</font>');
 
-                    $.ajax({
-						url: "get_fields.php",
+					$.ajax({
+						url: "get_lists.php",
 						type: "GET"
 					}).done(function(msg) {
-						var fields = JSON.parse(msg);
+						var lists = JSON.parse(msg);
 
-						for (var i = fields.length - 1; i >= 0; i--) {
-							var field = fields[i];
-
-							$.ajax({
-								url:'add_list.php',
-								type:'POST',
-								data: {
-									"list_name": field,
-								},
-								success: function(resp){
-								}
-							});
-						}
-						
 						var data = new FormData();
 						data.append("expired_domains", $("#expired_domains").val().replace(/ /g,''));
 						data.append("jamies_domains", $("#jamies_domains").val().replace(/ /g,''));
@@ -443,12 +430,34 @@
 							processData: false,
 							contentType: false,
 							success: function(resp) {
-								$('#success_msg').html('Your data has been saved Succesfully.');
+								saved++;
+								if (saved == 2) {
+									$('#success_msg').html('Your data has been saved Succesfully.');
+								}
 							}
 						});
-                    });
-    			});
-         	});
+
+						var data = new FormData();
+						for (var i = 0; i < lists.length; i++) {
+							var list = lists[i];
+							data.append(list, $("#" + list).val().replace(/ /g,''));
+						}
+						$.ajax({
+							url:'save_keywords.php',
+							type:'POST',
+							data: data,
+							processData: false,
+							contentType: false,
+							success: function(resp) {
+								saved++;
+								if (saved == 2) {
+									$('#success_msg').html('Your data has been saved Succesfully.');
+								}
+							}
+						});
+					});
+				});
+			});
         </script>
 
         <script>
