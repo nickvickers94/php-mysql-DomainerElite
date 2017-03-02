@@ -36,5 +36,5 @@ $csv->auto($file);
 		?>
 	<?php endif; ?>
 <?php endforeach; ?>
-<?php $expired_domains = trim($expired_domains, "\n"); ?>
+<?php $expired_domains = trim(strtolower($expired_domains), "\n"); ?>
 <?php echo($expired_domains); ?>
