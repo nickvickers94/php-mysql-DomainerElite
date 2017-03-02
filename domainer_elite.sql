@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost:3306
--- Generation Time: Mar 02, 2017 at 03:06 PM
+-- Generation Time: Mar 02, 2017 at 05:14 PM
 -- Server version: 5.1.73-cll
 -- PHP Version: 5.6.20
 
@@ -1003,7 +1003,7 @@ CREATE TABLE IF NOT EXISTS `jvzoo_transactions` (
   `cverify` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `ctranstime` bigint(20) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=11181 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=11182 ;
 
 --
 -- Dumping data for table `jvzoo_transactions`
@@ -12237,7 +12237,8 @@ INSERT INTO `jvzoo_transactions` (`id`, `ccustname`, `ccuststate`, `ccustcc`, `c
 (11177, 'Grant Gill', '', '', 'grantgill30g@gmail.com', '202319', 'Domainer Elite Software And Course', 'STANDARD', 'SALE', '66327', '37.00', 'PYPL', '87095', 'MF9CDTJ3867HB910E', '', '22908535', '', '60CD10FC', 1488421397),
 (11178, 'Chad Larson', '', '', 'greenbusinesspros@gmail.com', '197221', 'Domainer Elite Course', 'STANDARD', 'SALE', '198245', '24.95', 'PYPL', '87095', '9W1QQZYMHIK7VEFNE', '', '22912041', '', 'EA1A4541', 1488441332),
 (11179, 'Chad Larson', '', '', 'greenbusinesspros@gmail.com', '197221', 'Domainer Elite Course', 'STANDARD', 'SALE', '198245', '24.95', 'PYPL', '87095', '9W1QQZYMHIK7VEFNE', '', '22912041', '', 'EA1A4541', 1488441332),
-(11180, 'Chad Larson', '', '', 'greenbusinesspros@gmail.com', '199559', 'Domainer Elite Software - DISCOUNTED!', 'STANDARD', 'SALE', '198245', '47.00', 'PYPL', '87095', 'U5NO05BE6QI4N3GYA', '', '22912173', '', '03B083BB', 1488442168);
+(11180, 'Chad Larson', '', '', 'greenbusinesspros@gmail.com', '199559', 'Domainer Elite Software - DISCOUNTED!', 'STANDARD', 'SALE', '198245', '47.00', 'PYPL', '87095', 'U5NO05BE6QI4N3GYA', '', '22912173', '', '03B083BB', 1488442168),
+(11181, 'Parker Gryder', '', '', 'Beatle37398@gmail.com', '202319', 'Domainer Elite Software And Course', 'STANDARD', 'SALE', '0', '87.00', 'PYPL', '87095', 'SOGB2TRPIWSU15H75', '', '22920901', '', 'BAEC97D1', 1488495874);
 
 -- --------------------------------------------------------
 
@@ -12249,6 +12250,7 @@ DROP TABLE IF EXISTS `lists`;
 CREATE TABLE IF NOT EXISTS `lists` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `list_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `keywords` longtext COLLATE utf8_unicode_ci,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=37 ;
 
@@ -12256,43 +12258,43 @@ CREATE TABLE IF NOT EXISTS `lists` (
 -- Dumping data for table `lists`
 --
 
-INSERT INTO `lists` (`id`, `list_name`) VALUES
-(1, 'domains_keywords'),
-(2, 'start_keywords'),
-(3, 'extentions'),
-(4, 'nouns'),
-(5, 'verbs'),
-(6, 'end_keywords'),
-(7, 'plural_nouns'),
-(8, 'positives'),
-(9, 'negatives'),
-(10, 'Locations'),
-(11, 'Sellers'),
-(12, 'Adjectives'),
-(13, 'Ending_Actions'),
-(14, 'Time_Frames'),
-(15, 'cool_letters'),
-(16, 'plural_positives'),
-(17, 'digital'),
-(18, 'software'),
-(19, 'Past_Tense'),
-(20, 'Gerund_verb'),
-(21, 'Info_Niches'),
-(22, 'Cash'),
-(23, 'people'),
-(24, 'Strategy'),
-(25, 'Interjection'),
-(26, 'Community'),
-(27, 'Ending_Nouns'),
-(28, 'Crazy_nouns'),
-(29, 'Jobs'),
-(30, 'remedy'),
-(31, 'Physical_products'),
-(32, 'two_letters'),
-(33, 'All_products'),
-(34, 'Kindergarten'),
-(35, 'surnames'),
-(36, 'firstnames');
+INSERT INTO `lists` (`id`, `list_name`, `keywords`) VALUES
+(1, 'domains_keywords', NULL),
+(2, 'extentions', NULL),
+(3, 'end_keywords', NULL),
+(4, 'start_keywords', NULL),
+(5, 'verbs', NULL),
+(6, 'nouns', NULL),
+(7, 'plural_nouns', NULL),
+(8, 'positives', NULL),
+(9, 'negatives', NULL),
+(10, 'Sellers', NULL),
+(11, 'Adjectives', NULL),
+(12, 'Locations', NULL),
+(13, 'Ending_Actions', NULL),
+(14, 'cool_letters', NULL),
+(15, 'Time_Frames', NULL),
+(16, 'plural_positives', NULL),
+(17, 'software', NULL),
+(18, 'digital', NULL),
+(19, 'Past_Tense', NULL),
+(20, 'Gerund_verb', NULL),
+(21, 'people', NULL),
+(22, 'Cash', NULL),
+(23, 'Info_Niches', NULL),
+(24, 'Strategy', NULL),
+(25, 'Interjection', NULL),
+(26, 'Ending_Nouns', NULL),
+(27, 'Community', NULL),
+(28, 'Crazy_nouns', NULL),
+(29, 'Jobs', NULL),
+(30, 'remedy', NULL),
+(31, 'Physical_products', NULL),
+(32, 'All_products', NULL),
+(33, 'Kindergarten', NULL),
+(34, 'two_letters', NULL),
+(35, 'surnames', NULL),
+(36, 'firstnames', NULL);
 
 -- --------------------------------------------------------
 
@@ -12370,7 +12372,7 @@ CREATE TABLE IF NOT EXISTS `members` (
   `twitter` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=5037 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=5038 ;
 
 --
 -- Dumping data for table `members`
@@ -17420,7 +17422,8 @@ INSERT INTO `members` (`id`, `email`, `software`, `software_pro`, `webinars`, `a
 (5033, 'Richard.Harrison1990sz@hotmail.com', 'Y', 'N', 'N', 'N', 'Y', 'N', 'N', 'N', 'Y', '', '', '', '', '', '', ''),
 (5034, 'grantgill30g@gmail.com', 'Y', 'N', 'N', 'N', 'Y', 'N', 'N', 'N', 'Y', '', '', '', '', '', '', ''),
 (5035, 'greenbusinesspros@gmail.com', 'Y', 'N', 'N', 'N', 'Y', 'N', 'N', 'N', 'Y', '', '', '', '', '', '', ''),
-(5036, 'organicwebsitemarketing@gmail.com', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'N', 'N', 'Y', '', '', '', '', '', '', '');
+(5036, 'organicwebsitemarketing@gmail.com', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'N', 'N', 'Y', '', '', '', '', '', '', ''),
+(5037, 'Beatle37398@gmail.com', 'Y', 'Y', 'N', 'N', 'Y', 'N', 'N', 'N', 'Y', '', '', '', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -17609,7 +17612,9 @@ INSERT INTO `member_domains` (`member_id`, `domain`) VALUES
 (5017, 'centurymaker.com'),
 (5017, 'hourlybackup.com'),
 (5017, 'weeklysoftware.com'),
-(4196, 'greatentrepreneurship.com');
+(4196, 'greatentrepreneurship.com'),
+(5017, 'cleartool.net'),
+(5017, 'silversilver.net');
 
 -- --------------------------------------------------------
 
