@@ -123,7 +123,7 @@ $(document).ready(function(){
 
 	});
 
-
+	var start;
 
 	$(document).ready(function(){
 
@@ -499,12 +499,13 @@ $(document).ready(function(){
 
 	});
 
-
+	var received = 0;
+	var posted = 0;
 
 	$(document).ready(function(){
 
 		$('#search1').on("click", function(e){
-
+			start = performance.now();
 			$('#result').html("");
 
 			$('#loading_msg').html('<font style="color:#FF0000; font-weight:bold;">Please Wait...</font>');
@@ -533,40 +534,14 @@ $(document).ready(function(){
 
 					var expired_domains = JSON.parse(msg);
 
+					received = 0;
+					posted = expired_domains.length;
+
 					for (var i = 0; i < expired_domains.length; i++) {
 
-						$.ajax({
-
-							url: "process1.php",
-
-							type: "POST",
-
-							data: {
-
-								"domain" : expired_domains[i],
-
-								"option" : val,
-
-								"i" : i
-
-							}
-
-						}).done(function(msg) {
-
-							var result = JSON.parse(msg);
-
-							if (result[1] != null && result[1] != "") {
-
-								$("#result").append(result[1]);
-
-							}
-
-							if (result[0] == expired_domains.length - 1) {
-
-								$('#loading_msg').html('All the others are not available.');
-
-							}
-
+						var domain = expired_domains[i];
+						isAvailable(domain, function (msg) {
+							console.log(msg);
 						});
 
 					}
@@ -753,6 +728,43 @@ $(document).ready(function(){
 		});
 
 	});
+
+	function isAvailable(domain, callback) {
+					
+		var settings = {
+			"async": true,
+			"crossDomain": true,
+			"url": "https://whois-v0.p.mashape.com/check?domain=" + domain,
+			"method": "GET",
+			"error": function() {
+				received++;
+				if (received == posted) {
+					var end = performance.now();
+					alert(end-start);
+					$('#loading_msg').html('All the others are not available.');
+				}
+			},
+			"headers": {
+				"x-mashape-key": "FP0SwkUGKqmsh2dN4CJ8fekaI1mXp1AdNzvjsnjwl8Esoq9Dor",
+				"accept": "application/json",
+				"cache-control": "no-cache",
+				"postman-token": "b62f8b24-ef91-96c6-8a5f-566e6efd5e86"
+			}
+		}
+
+		$.ajax(settings).done(function (response) {
+
+			received ++;
+			if (response.available){
+				callback(domain);
+			}
+			if (received == posted) {
+				var end = performance.now();
+				alert(end-start);
+				$('#loading_msg').html('All the others are not available.');
+			}
+		});
+	}
 
 </script>
 
