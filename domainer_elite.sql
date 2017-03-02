@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost:3306
--- Generation Time: Mar 02, 2017 at 05:14 PM
+-- Generation Time: Mar 02, 2017 at 05:49 PM
 -- Server version: 5.1.73-cll
 -- PHP Version: 5.6.20
 
@@ -12259,42 +12259,42 @@ CREATE TABLE IF NOT EXISTS `lists` (
 --
 
 INSERT INTO `lists` (`id`, `list_name`, `keywords`) VALUES
-(1, 'domains_keywords', NULL),
-(2, 'extentions', NULL),
-(3, 'end_keywords', NULL),
-(4, 'start_keywords', NULL),
-(5, 'verbs', NULL),
-(6, 'nouns', NULL),
-(7, 'plural_nouns', NULL),
-(8, 'positives', NULL),
-(9, 'negatives', NULL),
-(10, 'Sellers', NULL),
-(11, 'Adjectives', NULL),
-(12, 'Locations', NULL),
-(13, 'Ending_Actions', NULL),
-(14, 'cool_letters', NULL),
-(15, 'Time_Frames', NULL),
-(16, 'plural_positives', NULL),
-(17, 'software', NULL),
-(18, 'digital', NULL),
-(19, 'Past_Tense', NULL),
-(20, 'Gerund_verb', NULL),
-(21, 'people', NULL),
-(22, 'Cash', NULL),
-(23, 'Info_Niches', NULL),
-(24, 'Strategy', NULL),
-(25, 'Interjection', NULL),
-(26, 'Ending_Nouns', NULL),
-(27, 'Community', NULL),
-(28, 'Crazy_nouns', NULL),
-(29, 'Jobs', NULL),
-(30, 'remedy', NULL),
-(31, 'Physical_products', NULL),
-(32, 'All_products', NULL),
-(33, 'Kindergarten', NULL),
-(34, 'two_letters', NULL),
-(35, 'surnames', NULL),
-(36, 'firstnames', NULL);
+(1, 'domains_keywords', 'Movies,cars,money,school,crafts,music,profit,movie,you,me,traffic,seo,value,offer,weightloss,fitness,health,marketing,cb,trading,software,language,musiclessons,business,getyourexback,forex,binary,dogtraining,leveling,publicrecords,survival,studytips,freedom,tattoos,auctions,divorce,party,employee,insurance,homerenovations,internet,games,travel,recipe,reality,smoking,quitsmoking,internetmarketing,golf,soccer,football,baseball,sports,selfdefense,piano,spanish,french,sex,electronics,gear,shoes,prepping,gold,silver,stock,dating,adult,investment,domain,domainer,creditcard,concert,videos,html,disaster,recovery,commission,cash,atm,retirement,hobby,family,parenting,stress,guns,ammunition,carpentry,marijuana,dentist,injury,lawyer,taxes,tax,personaldevelopment,cycling,video,betting,casino,gambling,horses,fatloss,bizopp,addiction,income,action,rich,wealth,wealthy,prep,fish,diet,find,live,bankrupcy,hosting,career,ecommerce,dropshipping,digitalcamera,camera,mp3,mov,ppc,pennystocks,country,investing,shipping,homeschooling,farming,bodyarmor,weapons,banking,fat,headache,sixpackabs,smallbusiness,onlinebusiness,marriage,shopping,people,map,info,system,year,data,food,theory,problem,fact,thing,power,opinion,situation,message,skill,membership,debt,text,gas,lesson,boy,mail,cable,cost,fashion,key,group,size,affiliateprogram,customerservice,wellness,beats,instrumental,remix,batteries,groceries,delivery,pizza,car,rv,mobilehomes,realestate,programmer,producer,pet,vapes,ecigs,capitalist,diabetes,mesothelioma,degree,items,affiliate,guide,chat,forms,nanny,tool,poker,consulting,nutrition,hardware,server,code,relationship,job,jobs,domains,payments,modeling,forums,forum,employment,attorney,accountant,doctor,training,dogs,classifieds,ezines,stocks,investments,homes,apartments,rentals,taxi,hobbies,401k,copywriting,joblistings,guitarlessons,affiliatemarketing,healthinsurance,stocktrading,domaining,life,success,matrix,passups'),
+(2, 'extentions', 'com,net,info,org,biz,io'),
+(3, 'end_keywords', 'rentals,videos,downloads,listings,software,tonight,365,city,universe,strategy,method,book,ebook,master,blueprint,automated,apps,live,broker,mp3s,link,bible,sites,site,guide,expert,authority,academy,school,supply,tips,store,system,program,market,website,blog,deal,discount,coupon,finder,maps,map,design,job,source,shop,purchase,forever,pro,doctor,helper,buddy,commissions,cash,killer,document,scan,taxes,tv,repair,forkids,lawsuit,lawyer,attorney,computer,kit,video,database,membership,cheats,supplements,vault,online,web,onthenet,now,tothemax,mania,host,magic,nurse,science,hub,consultant,words,attack,revolution,info,scams,articles,documentaries,films,pics,pictures,show,games,god,appraisal,value,plans,builder,genius,latestnews,news,factor,surgery,discussion,onsale,selfies,industry,malls,shopping,symptoms,jobs,employment,platform,zone,onthego,lightning,express,profits,miracle,review,trial,protection,copy,search,wear,price,income,goal,development,user,series,community,area,road,politics,event,moment,vehicle,scene,office,cell,phone,box,network,payment,sample,assistant,name,society,age,proof,service,cloud,credit,catcher,numbers,training,grooming,noise,center,fan,loans,ezine,advertisement,ads,delivery,evaluator,chat,views,worker,banking,pain,funnel,marketing,caller,message,help,support,holdings,scanner,promotions,manager,mba,college,clips,plan'),
+(4, 'start_keywords', 'Download,get,buy,watch,rent,fun,howto,i,e,quick,fast,247,free,intense,order,easy,for,about,find,mobile,great,hire,best,global,infinite,my,copy,end,fix,ship,access,gain,win,good,building,guaranteed,visual,audio,acquire,extreme,big,mega,massive,passive,quality,legit,why,historyof,take,cheap,wholesale,howtodo,howtoplay,howtolearn,howtofind,howtowin,catch,mini,micro,maximum,goto,cool,areyou,famous,digital,lethal,oldschool,automated,automatic,one,go,discuss,click,downloadable,refurbished,used,virtual,select,trade,full,instant,insta,howtoget,that,geta,create,make,design,use,wina,whatif,whatis,video,original,view,load,possible,national,cut,try,check,put,local,show,search,lift,kill,different,true,powerful,share,register,fight,fail,wear,making,save,paid,call,dial,ask,white,black,yellow,sports,bigger,economy,ten,online,advertise,goingto,deliver,payfor,refund,place,fire,track,auto,scroll,protect,defend,earn,play,bad,thebest,sexy,offer,send,email,expensive,premium,top,highend,shippable,smooth,direct,finda,commercial,affordable,blind,dedicated,electronic,learn,makemoney,start,build,speed,residual,recurring,comp,spillover'),
+(5, 'verbs', 'grab,acquire,get,buy,block,bought,enter,hold,build,make,grow,find,run,order,download,guarantee,guard,heal,act,adopt,argue,ask,become,avoid,comment,crack,crush,drag,direct,deliver,debate,draw,encode,edit,eat,earn,fix,force,feed,follow,forgive,invest,invent,join,jam,learn,listen,last,like,lose,mention,offer,own,practice,plan,promise,put,place,post,request,repair,replace,read,risk,rock,show,save,sell,see,send,support,supply,start,trust,trap,zoom,promote,market,push'),
+(6, 'nouns', 'dog,cat,car,truck,suv,bike,jewelry,musicalinstrument,furniture,dvd,cd,tool,game,book,phone,computer,boat,home,ticket,trailer,equipment,photo,video,antique,automobile,contract,coffee,food,health,bible,lawsuit,time,people,state,family,child,man,student,school,money,eye,area,hub,brand,domain,name'),
+(7, 'plural_nouns', 'undefined,cars,trucks,dvds,cds,tools,games,books,phones,computers,boats,homes,tickets,trailers,equipments,photos,videos,antiques,automobiles,bikes,domains,reviews,strong,built,moms,listings,websites,pages,logins'),
+(8, 'positives', 'great,awesome,fabulous,good,best,paid,hot,top,hottest,fast,fastest,quick,reality,glory,god,pretty,attractive,excellent,happy,easy,big,huge,gigantic,honest,real,excess,giant,beautiful,certified,legit,guaranteed,local,amazing,extravagant,moral,ethical,pros,pro,professional,expert'),
+(9, 'negatives', 'bad,horrible,sad,boring,rotten,awful,attack,stop,end,sick,disease,terrible,negative,forgotten,dirty'),
+(10, 'Sellers', 'dealer,seller,salesman,store,shop,mall,marketplace,service,wholesale,retail,auction,trade,buy,buyer,retailer,wholesaler'),
+(11, 'Adjectives', 'blue,yellow,red,green,purple,brown,gold,silver,clear,fast,slow,hard,soft,heavy,light,big,small,quick,used,new,beautiful,dynamic'),
+(12, 'Locations', 'nyc,la,newyorkcity,miami,florida,california,italy,milan,rome,paris,tokyo,dubai,russia,seattle,chicago,houston,philadelphia,denver,beijing'),
+(13, 'Ending_Actions', 'downloads,calls,buys,auctions,sales,login'),
+(14, 'cool_letters', 'a,i,z,e,q,m'),
+(15, 'Time_Frames', 'weekly,hourly,daily,yearly,nightly,tomorrow,today,yesterday,year,millenium,century,week,hour,minute,day,night'),
+(16, 'plural_positives', 'results,rewards,gems,winners,dreams,likes,views'),
+(17, 'software', 'software,maker,builder,developer,user,downloader,use,dialer,finder,search,backup,drive,disk,automated,automation,development,suite,launch'),
+(18, 'digital', 'digital,digi,web,intra,inter,para,synth,mono,linear,phase,proto,robo,virtual'),
+(19, 'Past_Tense', 'bought,paid,made,destroyed,caught,captured,found,obtained,fix,fixed,brought,heard,seen'),
+(20, 'Gerund_verb', 'buying,building,making,biking,kicking,filming,downloading,seeing,finding,eating,processing,killing,smoking,sleeping,searching'),
+(21, 'people', 'guru,helper,buddy,boy,girl,man,woman,god,officer,hitman,liason,ally,warrior,king,prince,overlord,maker,builder,brother,killer,maniac,badass,rockstar,player,boss,genius,hero,spy,soldier,friend,amigo,buyer,seller,saint,model,robot,guide,source,sidekick,professor,nutcase,dude'),
+(22, 'Cash', 'return,reward,award,premium,cash,riches,money,funds,investment,financial,profit,profits,loans'),
+(23, 'Info_Niches', 'health,fitness,internetmarketing,weightloss,guitar,relationship,fatloss,business,onlinebusiness,entrepreneurship,insurance,investment,marijuana,pot,leveling,forex,dieting,personaldevelopment,selfhelp,dating,carpentry,wealth,seo,marketing,fashion,divorce,nutrition,selfdefense,fishing,music,hosting,bankruptcy,dogtraining,baseball,realestate,marriage,survival,prepping,gold'),
+(24, 'Strategy', 'strategy,blueprint,idea,plan,ebook,method,guide,design,program,tactics,system,project'),
+(25, 'Interjection', 'wow,lol,omg,lmfao,bam,bang,ohmygod'),
+(26, 'Ending_Nouns', 'code,group,problem,case,story,fact,program,school,world,place,city,center,area,room,history,verdict,brands,domains,names,pros,pro,expert,jackers'),
+(27, 'Community', 'hub,league,community,center,city,house,social,authority,nation,society,general,group,channel'),
+(28, 'Crazy_nouns', 'Obsidian,plasma,comet,chaos,nova,millenium,warfare,asteroid,incognito,parallel,juggernaut,gladiator,deity,empower,delta,esoteric,rapture,apex,schism,interceptor,phenomenon'),
+(29, 'Jobs', 'secretary,administrator,mechanic,delivery,petsitter,dogwalker,sales,agent,lawyer,paralegal,office,hairdresser,massage,nails,resort,banker,fireman,engineer,baker,analyst,accountant,doctor,nurse,aid'),
+(30, 'remedy', 'remedy,proof,stopper,locked,protection,security,tight,fix,antidote,relief,crusher,smasher,lock'),
+(31, 'Physical_products', 'appliance,electronics,bath,bedding,homedecor,powertools,petsupplies,babysupplies,wallart,storage,automotiveparts,furniture,artwork,vacuum,heating,cooling,fineart,collectibles,collectible,patio,wine,laptop,hdtv,monitor,dishwasher,toy,farm,ranch,industrial,gourmetfood,dehydratedfood,survival,exercizeequipment,lab,makeup,haircare,gift,hometheatre,game,proaudio'),
+(32, 'All_products', 'movies,cars,money,school,crafts,music,profit,movie,you,me,traffic,seo,value,offer,weightless,fitness,health,marketing,cb,trading,software,language,musiclessons,business,getyourexback,forex,binary,dogtraining,leveling,publicrecords,survival,studytips,freedom,tattoos,auctions,divorce,party,employee,insurance,homerenovations,internet,games,travel,recipe,reality,smoking,quitsmoking,internetmarketing,golf,soccer,football,baseball,sports,selfdefense,piano,spanish,french,sex,electronics,gear,shoes,prepping,gold,silver,stocks,dating,adult,investment,domain,domineer,creditcard,concert,videos,html,disaster,recovery,commission,cash,retirement,hobby,family,parenting,stress,guns,ammunition,carpentry,marijuana,dentistry,injury,lawyer,taxes,tax,personaldevelopment,cycling,video,betting,casino,gambling,horses,fatloss,bizopp,addiction,income,action,rich,wealth,wealthy,prep,fish,diet,find,live,bankruptcy,hosting,career,ecommerce,dropshipping,digitalcamera,camera,mp3,mov,ppc,pennystocks,country,investing,shipping,homeschooling,farming,bodyarmor,weapons,banking,fat,headache,sixpackabs,smallbusiness,onlinebusiness,marriage,shopping,people,map,info,system,year,data,food,theory,problem,fact,thing,power,opinion,situation,message,skill,membership,debt,text,gas,lesson,boy,mall,cable,cost,fashion,key,group,size,affiliateprogram,customerservice,wellness,beats,instrumental,remix,batteries,groceries,delivery,pizza,car,rv,mobilehomes,realestate,programmer,producer,pet,vales,ecigs,capitalist,diabetes,mesothelioma,degree,items,affiliate,guide,chat,forms,nanny,tool,poker,consulting,nutrition,hardware,server,code,relationship,job,jobs,domains,payments,modeling,forums,forum,employment,attorney,accountant,doctor,training,dogs,classifieds,ezines,investments,homes,apartments,rentals,taxi,hobbies,401k,copywriting,joblistings,guitarlessons,affiliatemarketing,healthinsurance,stocktrading,domaining,life,success,matrix,passups'),
+(33, 'Kindergarten', 'bad,mad,sad,dad,pad,fad,lad,rad,glad,had,cab,fab,nab,jab,zap,tap,lap,cap,map,rap,ram,jam,man,can,fan,van,bat,cat,mat,sat,hat,pat,Â has,gas,sag,rag,lag,bag,wag,tag,zag,wax,sax,tack,pack,track,crack,add,ask,act'),
+(34, 'two_letters', 'ar,si,fu,bi,mo,ka,do,hi,wa,ki,lo,po,ge,vu,re,sa,tu,ti,ta,fo,be,ba,bo,gu,go,ga,di,de,da,we,wo'),
+(35, 'surnames', 'SMITH,JOHNSON,WILLIAMS,JONES,BROWN,DAVIS,MILLER,WILSON,MOORE,TAYLOR,ANDERSON,THOMAS,JACKSON,WHITE,HARRIS,MARTIN,THOMPSON,GARCIA,MARTINEZ,ROBINSON,CLARK,RODRIGUEZ,LEWIS,LEE,WALKER,HALL,ALLEN,YOUNG,HERNANDEZ,KING,WRIGHT,LOPEZ,HILL,SCOTT,GREEN,ADAMS,BAKER,GONZALEZ,NELSON,CARTER,MITCHELL,PEREZ'),
+(36, 'firstnames', '');
 
 -- --------------------------------------------------------
 
