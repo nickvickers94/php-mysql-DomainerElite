@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost:3306
--- Generation Time: Mar 02, 2017 at 05:10 AM
+-- Generation Time: Mar 02, 2017 at 02:48 PM
 -- Server version: 5.1.73-cll
 -- PHP Version: 5.6.20
 
@@ -12235,6 +12235,61 @@ INSERT INTO `jvzoo_transactions` (`id`, `ccustname`, `ccuststate`, `ccustcc`, `c
 (11178, 'Chad Larson', '', '', 'greenbusinesspros@gmail.com', '197221', 'Domainer Elite Course', 'STANDARD', 'SALE', '198245', '24.95', 'PYPL', '87095', '9W1QQZYMHIK7VEFNE', '', '22912041', '', 'EA1A4541', 1488441332),
 (11179, 'Chad Larson', '', '', 'greenbusinesspros@gmail.com', '197221', 'Domainer Elite Course', 'STANDARD', 'SALE', '198245', '24.95', 'PYPL', '87095', '9W1QQZYMHIK7VEFNE', '', '22912041', '', 'EA1A4541', 1488441332),
 (11180, 'Chad Larson', '', '', 'greenbusinesspros@gmail.com', '199559', 'Domainer Elite Software - DISCOUNTED!', 'STANDARD', 'SALE', '198245', '47.00', 'PYPL', '87095', 'U5NO05BE6QI4N3GYA', '', '22912173', '', '03B083BB', 1488442168);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `lists`
+--
+
+DROP TABLE IF EXISTS `lists`;
+CREATE TABLE IF NOT EXISTS `lists` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `list_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=37 ;
+
+--
+-- Dumping data for table `lists`
+--
+
+INSERT INTO `lists` (`id`, `list_name`) VALUES
+(1, 'domains_keywords'),
+(2, 'start_keywords'),
+(3, 'extentions'),
+(4, 'nouns'),
+(5, 'verbs'),
+(6, 'end_keywords'),
+(7, 'plural_nouns'),
+(8, 'positives'),
+(9, 'negatives'),
+(10, 'Locations'),
+(11, 'Sellers'),
+(12, 'Adjectives'),
+(13, 'Ending_Actions'),
+(14, 'Time_Frames'),
+(15, 'cool_letters'),
+(16, 'plural_positives'),
+(17, 'digital'),
+(18, 'software'),
+(19, 'Past_Tense'),
+(20, 'Gerund_verb'),
+(21, 'Info_Niches'),
+(22, 'Cash'),
+(23, 'people'),
+(24, 'Strategy'),
+(25, 'Interjection'),
+(26, 'Community'),
+(27, 'Ending_Nouns'),
+(28, 'Crazy_nouns'),
+(29, 'Jobs'),
+(30, 'remedy'),
+(31, 'Physical_products'),
+(32, 'two_letters'),
+(33, 'All_products'),
+(34, 'Kindergarten'),
+(35, 'surnames'),
+(36, 'firstnames');
 
 -- --------------------------------------------------------
 
