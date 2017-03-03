@@ -2,23 +2,11 @@
 
 	require_once("includes/conn.php");
 
-	$sql = "DESCRIBE domains";
+	$sql = "SELECT list_name, keywords FROM lists WHERE 1";
 	$result = $conn->query($sql);
 
-	$fields = array();
-
-	if ($result->num_rows > 0) {
-		// output data of each row
-		while($row = $result->fetch_assoc()) {
-			if ($row["Field"] != "id" && $row["Field"] != "date") {
-				array_push($fields, $row["Field"]);
-			}
-		}
-	}
-
-	$result = $conn->query("SELECT * FROM domains LIMIT 1");
-	if($result->num_rows > 0){
-		$row = $result->fetch_array(MYSQLI_BOTH);
+	while (list($list_name, $keywords) = mysqli_fetch_array($result)) {
+		$lists[$list_name] = $keywords;
 	}
 
 ?>
@@ -277,17 +265,13 @@
 
                                 <?php
                                     $result = $conn->query("SELECT domain FROM expired_domains");
-                                    $expired_domains_array = array();
 
-                                    if ($result->num_rows > 0) {
-                                        // output data of each row
-                                        while($row1 = $result->fetch_assoc()) {
-                                            array_push($expired_domains_array, $row1["domain"]);
-                                        }
-                                    }
+									while (list($expired_domain) = mysqli_fetch_array($result)) {
+										$arr_expired_domains[] = $expired_domain;
+									}
 
                                     $expired_domains = "";
-                                    foreach ($expired_domains_array as $expired_domain) {
+                                    foreach ($arr_expired_domains as $expired_domain) {
                                         $expired_domains .= $expired_domain."\n";
                                     }
                                     $expired_domains = trim(strtolower($expired_domains));
@@ -320,17 +304,13 @@
 
                                 <?php
                                     $result = $conn->query("SELECT domain FROM jamies_domains");
-                                    $jamies_domains_array = array();
 
-                                    if ($result->num_rows > 0) {
-                                        // output data of each row
-                                        while($row2 = $result->fetch_assoc()) {
-                                            array_push($jamies_domains_array, $row2["domain"]);
-                                        }
-                                    }
+									while (list($jamies_domain) = mysqli_fetch_array($result)) {
+										$arr_jamies_domains[] = $jamies_domain;
+									}
 
                                     $jamies_domains = "";
-                                    foreach ($jamies_domains_array as $jamies_domain) {
+                                    foreach ($arr_jamies_domains as $jamies_domain) {
                                         $jamies_domains .= $jamies_domain."\n";
                                     }
                                     $jamies_domains = trim(strtolower($jamies_domains));
@@ -342,17 +322,13 @@
 
                                 <?php
                                     $result = $conn->query("SELECT domain FROM dictionary_domains");
-                                    $dictionary_domains_array = array();
-
-                                    if ($result->num_rows > 0) {
-                                        // output data of each row
-                                        while($row3 = $result->fetch_assoc()) {
-                                            array_push($dictionary_domains_array, $row3["domain"]);
-                                        }
-                                    }
+                                    
+                                    while (list($dictionary_domain) = mysqli_fetch_array($result)) {
+										$arr_dictionary_domains[] = $dictionary_domain;
+									}
 
                                     $dictionary_domains = "";
-                                    foreach ($dictionary_domains_array as $dictionary_domain) {
+                                    foreach ($arr_dictionary_domains as $dictionary_domain) {
                                         $dictionary_domains .= $dictionary_domain."\n";
                                     }
                                     $dictionary_domains = trim(strtolower($dictionary_domains));
@@ -362,13 +338,10 @@
                                     <textarea id="dictionary_domains" class="form-control"  rows="10"> <?php echo($dictionary_domains); ?> </textarea>
                                 </div>
                                 
-                                <?php foreach ($fields as $field): ?>
+                                <?php foreach ($lists as $list_name => $keywords): ?>
                                     <div class="form-group">
-                                        <label> <?php echo(str_replace("_", " ", $field)); ?> </label>
-                                        <input class="form-control" data-role="tagsinput" id="<? echo($field); ?>"
-                                        <?php if(is_array($row)): ?>
-                                            value="<?php echo($row[$field]); ?>"
-                                        <?php endif; ?> />
+                                        <label> <?php echo(str_replace("_", " ", $list_name)); ?> </label>
+                                        <input class="form-control" data-role="tagsinput" id="<? echo($list_name); ?>" value="<?php echo($keywords); ?>" />
                                     </div>
                                 <?php endforeach; ?>
 
