@@ -108,7 +108,7 @@ $(document).ready(function(){
 
 						var str_keywords = "";
 
-						for (var i = keywords.length - 1; i >= 0; i--) {
+						for (var i = 0; i < keywords.length; i++) {
 
 							str_keywords += keywords[i] + "\n";
 
@@ -248,7 +248,7 @@ $(document).ready(function(){
 
 						var second_keywords = JSON.parse(msg);
 
-						for (var i = second_keywords.length - 1; i >= 0; i--) {
+						for (var i =  0; i < second_keywords.length; i++) {
 
 							second_keyword = second_keywords[i];
 
@@ -318,7 +318,7 @@ $(document).ready(function(){
 
 						second_keyword = $('#secondlist').text();
 
-						for (var i = first_keywords.length - 1; i >= 0; i--) {
+						for (var i = 0; i < first_keywords.length; i++) {
 
 							first_keyword = first_keywords[i];
 
@@ -380,11 +380,11 @@ $(document).ready(function(){
 
 							var second_keywords = JSON.parse(msg);
 
-							for (var i = first_keywords.length - 1; i >= 0; i--) {
+							for (var i = 0; i < first_keywords.length; i++) {
 
 								first_keyword = first_keywords[i];
 
-								for (var j = second_keywords.length - 1; j >= 0; j--) {
+								for (var j = 0; j < second_keywords.length; j++) {
 
 									second_keyword = second_keywords[j];
 
