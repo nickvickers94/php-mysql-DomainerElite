@@ -9,71 +9,12 @@
 
 	require_once("includes/conn.php");
 
-	$sql = "DESCRIBE domains";
-
+	$sql = "SELECT list_name, keywords FROM lists WHERE 1";
 	$result = $conn->query($sql);
 
-
-
-	$listnames = array();
-
-
-
-	if ($result->num_rows > 0) {
-
-		// output data of each row
-
-		while($row = $result->fetch_assoc()) {
-
-			if ($row["Field"] != "id" && $row["Field"] != "date" && $row["Field"] != "extentions") {
-
-				array_push($listnames, $row["Field"]);
-
-			}
-
-		}
-
+	while (list($list_name, $keywords) = mysqli_fetch_array($result)) {
+		$lists[$list_name] = $keywords;
 	}
-
-	else {
-
-		echo "0 results";
-
-	}
-
-
-
-	$result = $conn->query("SELECT * FROM domains LIMIT 1");
-
-	if($result->num_rows>0){
-
-		$row = $result->fetch_array(MYSQLI_BOTH);		
-
-	}
-
-
-
-	$lists = array();
-
-
-
-	foreach ($listnames as $listname) {
-
-		$lists[$listname] = $row[$listname];
-
-	}
-
-
-
-	$domain_keywords = explode(",", str_replace(" ", "", $row["domains_keywords"]));
-
-	$start_keywords = explode(",", str_replace(" ", "", $row["start_keywords"]));
-
-	$end_keywords = explode(",", str_replace(" ", "", $row["end_keywords"]));
-
-	$extentions = explode(",", str_replace(" ", "", $row["extentions"]));
-
-
 
 ?>
 
@@ -905,7 +846,7 @@ $(document).ready(function(){
 													<ul class="dropdown-menu">
 
 														<?php foreach ($lists as $listname => $keywords): ?>
-
+															<?php $arr_keywords = explode(",", str_replace(" ", "", $keywords)); ?>
 															<?php if ($listname == "domains_keywords"): ?>
 
 																<li class="dropdown-submenu">
@@ -914,7 +855,7 @@ $(document).ready(function(){
 
 																	<ul class="dropdown-menu">
 
-																		<?php foreach ($domain_keywords as $keyword): ?>
+																		<?php foreach ($arr_keywords as $keyword): ?>
 
 																			<li class="dropdown-item"><a tabindex="2"><?php echo($keyword); ?></a></li>
 
@@ -932,7 +873,7 @@ $(document).ready(function(){
 
 																	<ul class="dropdown-menu">
 
-																		<?php foreach ($start_keywords as $keyword): ?>
+																		<?php foreach ($arr_keywords as $keyword): ?>
 
 																			<li class="dropdown-item"><a tabindex="2"><?php echo($keyword); ?></a></li>
 
@@ -942,7 +883,7 @@ $(document).ready(function(){
 
 																</li>
 
-															<?php elseif ($listname != "end_keywords"): ?>
+															<?php elseif ($listname != "end_keywords" && $listname != "extentions"): ?>
 
 																<li class="dropdown-item"><a tabindex="1"><?php echo(str_replace("_", " ", $listname));?></a></li>
 
@@ -963,7 +904,7 @@ $(document).ready(function(){
 													<ul class="dropdown-menu">
 
 														<?php foreach ($lists as $listname => $keywords): ?>
-
+															<?php $arr_keywords = explode(",", str_replace(" ", "", $keywords)); ?>
 															<?php if ($listname == "domains_keywords"): ?>
 
 																<li class="dropdown-submenu">
@@ -972,7 +913,7 @@ $(document).ready(function(){
 
 																	<ul class="dropdown-menu">
 
-																		<?php foreach ($domain_keywords as $keyword): ?>
+																		<?php foreach ($arr_keywords as $keyword): ?>
 
 																			<li class="dropdown-item"><a tabindex="2"><?php echo($keyword); ?></a></li>
 
@@ -990,7 +931,7 @@ $(document).ready(function(){
 
 																	<ul class="dropdown-menu">
 
-																		<?php foreach ($end_keywords as $keyword): ?>
+																		<?php foreach ($arr_keywords as $keyword): ?>
 
 																			<li class="dropdown-item"><a tabindex="2"><?php echo($keyword); ?></a></li>
 
@@ -1000,7 +941,7 @@ $(document).ready(function(){
 
 																</li>
 
-															<?php elseif ($listname != "start_keywords"): ?>
+															<?php elseif ($listname != "start_keywords" && $listname != "extentions"): ?>
 
 																<li class="dropdown-item"><a tabindex="1"><?php echo(str_replace("_", " ", $listname));?></a></li>
 
@@ -1019,8 +960,8 @@ $(document).ready(function(){
 													<button id="extention" class="soflow-color dropdown-toggle" type="button" data-toggle="dropdown" list = ".com">.com</button>
 
 													<ul class="dropdown-menu">
-
-														<?php foreach ($extentions as $extention): ?>
+														<?php $arr_extentions = explode(",", str_replace(" ", "", $lists["extentions"])); ?>
+														<?php foreach ($arr_extentions as $extention): ?>
 
 															<li class="dropdown-item"><a tabindex="1">.<?php echo($extention); ?></a></li>
 
