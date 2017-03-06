@@ -68,7 +68,6 @@
 
 		//Execute the action to login
 		$data2 = curl_exec($ch);
-		file_put_contents('estibotlogin.txt', $data2);
 
 		//$data_string = "&data=".$domain."&a=appraise&format=html&type=normal";
 		$url1 = "http://www.estibot.com/appraise.php?a=appraise&data=".$domain."";
@@ -78,7 +77,6 @@
 		curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
 
 		$data3 = curl_exec($ch);
-		file_put_contents('estibotlog.txt', $data3);
 
 		//echo $data3;
 		$html1 = str_get_html($data3);
