@@ -18,7 +18,54 @@
 
 ?>
 
+<?php
 
+	$str_first_lists = "";
+	$str_first_words = "";
+	$str_second_lists = "";
+	$str_second_words = "";
+
+	foreach ($lists as $listname => $keywords) {
+
+		$arr_keywords = explode(",", str_replace(" ", "", $keywords));
+
+		$list_show_name = str_replace("_", " ", $listname);
+
+		if ($listname != "start_keywords" && $listname != "extentions") {
+
+			$str_second_words .= '<li class="dropdown-submenu"><a class="test" tabindex="1">'.$list_show_name.'<span class="caret"></span></a><ul class="dropdown-menu">';
+
+			foreach ($arr_keywords as $keyword) {
+
+				$str_second_words .= '<li class="dropdown-item"><a tabindex="2">'.$keyword.'</a></li>';
+
+			}
+
+			$str_second_words .= '</ul></li>';
+
+			$str_second_lists .= '<li class="dropdown-item"><a tabindex="1">'.$list_show_name.'</a></li>';
+
+		}
+
+		if ($listname != "end_keywords" && $listname != "extentions") {
+
+			$str_first_words .= '<li class="dropdown-submenu"><a class="test" tabindex="1">'.$list_show_name.'<span class="caret"></span></a><ul class="dropdown-menu">';
+
+			foreach ($arr_keywords as $keyword) {
+
+				$str_first_words .= '<li class="dropdown-item"><a tabindex="2">'.$keyword.'</a></li>';
+
+			}
+
+			$str_first_words .= '</ul></li>';
+
+			$str_first_lists .= '<li class="dropdown-item"><a tabindex="1">'.$list_show_name.'</a></li>';
+
+		}
+
+	}
+
+?>
 
 <?php require_once('templates/headers/opening.tpl.php'); ?>
 
@@ -50,95 +97,84 @@
 
 <script>
 
-$(document).ready(function(){
+	$(document).on("click",".dropdown-submenu a.test",function(e){
 
-	$('.dropdown-submenu a.test').on("click", function(e){
+		$(this).next('ul').toggle();
 
-			$(this).next('ul').toggle();
+		e.stopImmediatePropagation();
 
-			e.stopPropagation();
-
-			e.preventDefault();
-
-		});
+		e.preventDefault();
 
 	});
 
 
+	$(document).on("click",".dropdown-menu li.dropdown-item",function(e){
 
-	$(document).ready(function(){
+		var keyword = "";
 
-		$('.dropdown-menu li.dropdown-item').on("click", function(e){
+		var list = "";
 
-			var keyword = "";
+		var html = $(this).has('a').html();
 
-			var list = "";
+		var tabindex = html.substr(html.search("tabindex") + 10, 1);
 
-			var html = $(this).has('a').html();
+		if (tabindex == "1") {
 
-			var tabindex = html.substr(html.search("tabindex") + 10, 1);
+			list = $(this).has('a').text();
 
-			if (tabindex == "1") {
+			$(this).parents('div').first().children('button').first().text(list);
 
-				list = $(this).has('a').text();
+			list = list.replace(/ /g,'_');
 
-				$(this).parents('div').first().children('button').first().text(list);
+			var id = $(this).parents('div').first().children('button').first().attr("id");
 
-				list = list.replace(/ /g,'_');
+			if (id != "extention") {
 
-				var id = $(this).parents('div').first().children('button').first().attr("id");
+				$.ajax({
 
-				if (id != "extention") {
+					url: "get_keywords.php",
 
-					$.ajax({
+					type: "POST",
 
-						url: "get_keywords.php",
+					data: {
 
-						type: "POST",
+						"list_name": list
 
-						data: {
+					}
 
-							"list_name": list
+				}).done(function(msg) {
 
-						}
+					var keywords = JSON.parse(msg);
 
-					}).done(function(msg) {
+					var str_keywords = "";
 
-						var keywords = JSON.parse(msg);
+					for (var i = 0; i < keywords.length; i++) {
 
-						var str_keywords = "";
+						str_keywords += keywords[i] + "\n";
 
-						for (var i = 0; i < keywords.length; i++) {
+					}
 
-							str_keywords += keywords[i] + "\n";
+					alert(str_keywords);
 
-						}
-
-						alert(str_keywords);
-
-					});
-
-				}
+				});
 
 			}
 
-			else if (tabindex == "2") {
+		}
 
-				keyword = $(this).has('a').text();
+		else if (tabindex == "2") {
 
-				listname = $(this).parent('ul').prev('a').text().replace(/ /g, '_');
+			keyword = $(this).has('a').text();
 
-				$(this).parents('div').first().children('button').first().text(keyword);
+			listname = $(this).parent('ul').prev('a').text().replace(/ /g, '_');
 
-			}
+			$(this).parents('div').first().children('button').first().text(keyword);
 
-			$(this).parents('div').first().children('button').attr("list", list);
+		}
 
-		});
+		$(this).parents('div').first().children('button').attr("list", list);
 
 	});
-
-
 
 	$(document).ready(function(){
 
@@ -204,7 +240,7 @@ $(document).ready(function(){
 
 						else {
 
-							$('#loading_msg').html('<font style="color:#FF0000; font-weight:bold;">Domain is not available.</font>');
+							$('#loading_msg').html('<font style="color:#FF0000; font-weight:bold;">' + domain + ' is not available.</font>');
 
 						}
 
@@ -366,7 +402,7 @@ $(document).ready(function(){
 
 								first_keyword = first_keywords[i];
 
-								for (var i = second_keywords.length - 1; i >= 0; i--) {
+								for (var j = second_keywords.length - 1; j >= 0; j--) {
 
 									second_keyword = second_keywords[j];
 
@@ -541,10 +577,20 @@ $(document).ready(function(){
 		$('#first_check').on("click", function(){
 
 			if($(this).is(':checked')){
-				alert("checked");
+				$('#first_list').html('<?php echo($str_first_words); ?>');
 			}
 			else {
-				alert("unchecked");
+				$('#first_list').html('<?php echo($str_first_lists); ?>');
+			}
+		});
+
+		$('#second_check').on("click", function(){
+
+			if($(this).is(':checked')){
+				$('#second_list').html('<?php echo($str_second_words); ?>');
+			}
+			else {
+				$('#second_list').html('<?php echo($str_second_lists); ?>');
 			}
 		});
 
@@ -842,7 +888,7 @@ $(document).ready(function(){
 
 														<button id = "firstlist" class="soflow-color dropdown-toggle" type="button" data-toggle="dropdown" style="margin-top: 20px;">Select</button>
 
-														<ul class="dropdown-menu">
+														<ul id="first_list" class="dropdown-menu">
 
 															<?php foreach ($lists as $listname => $keywords): ?>
 
@@ -885,7 +931,7 @@ $(document).ready(function(){
 
 														<button id="secondlist" class="soflow-color dropdown-toggle" type="button" data-toggle="dropdown">Select</button>
 
-														<ul class="dropdown-menu">
+														<ul id="second_list" class="dropdown-menu">
 
 															<?php foreach ($lists as $listname => $keywords): ?>
 
