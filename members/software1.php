@@ -797,7 +797,7 @@ $(document).ready(function(){
 
 										<div class="row">
 
-											<div class="group radiogroup" style="width: 50%;">
+											<div class="group" style="width: 50%;">
 
 												<h1 class="group-name">Search Term 1</h1>
 
@@ -839,120 +839,129 @@ $(document).ready(function(){
 
 												<h1 class="group-name">Search Term 2</h1>
 
-												<div class="dropdown">
+												<div class="row">
+													<div style="float: left; width: 4%; margin-top: 25px;">
+														<input id="first_check" type="checkbox"/>
+													</div>
 
-													<button id = "firstlist" class="soflow-color dropdown-toggle" type="button" data-toggle="dropdown" style="margin-top: 20px;">Select</button>
+													<div class="dropdown" style="float: left; width: 96%;">
 
-													<ul class="dropdown-menu">
+														<button id = "firstlist" class="soflow-color dropdown-toggle" type="button" data-toggle="dropdown" style="margin-top: 20px;">Select</button>
 
-														<?php foreach ($lists as $listname => $keywords): ?>
-															<?php $arr_keywords = explode(",", str_replace(" ", "", $keywords)); ?>
-															<?php if ($listname == "domains_keywords"): ?>
+														<ul class="dropdown-menu">
 
-																<li class="dropdown-submenu">
+															<?php foreach ($lists as $listname => $keywords): ?>
+																<?php $arr_keywords = explode(",", str_replace(" ", "", $keywords)); ?>
+																<?php if ($listname == "domains_keywords"): ?>
 
-																	<a class="test" tabindex="1">Keywords<span class="caret"></span></a>
+																	<li class="dropdown-submenu">
 
-																	<ul class="dropdown-menu">
+																		<a class="test" tabindex="1">Keywords<span class="caret"></span></a>
 
-																		<?php foreach ($arr_keywords as $keyword): ?>
+																		<ul class="dropdown-menu">
 
-																			<li class="dropdown-item"><a tabindex="2"><?php echo($keyword); ?></a></li>
+																			<?php foreach ($arr_keywords as $keyword): ?>
 
-																		<?php endforeach; ?>
+																				<li class="dropdown-item"><a tabindex="2"><?php echo($keyword); ?></a></li>
 
-																	</ul>
+																			<?php endforeach; ?>
 
-																</li>
+																		</ul>
 
-															<?php elseif ($listname == "start_keywords"): ?>
+																	</li>
 
-																<li class="dropdown-submenu">
+																<?php elseif ($listname == "start_keywords"): ?>
 
-																	<a class="test" tabindex="1">Start with<span class="caret"></span></a>
+																	<li class="dropdown-submenu">
 
-																	<ul class="dropdown-menu">
+																		<a class="test" tabindex="1">Start with<span class="caret"></span></a>
 
-																		<?php foreach ($arr_keywords as $keyword): ?>
+																		<ul class="dropdown-menu">
 
-																			<li class="dropdown-item"><a tabindex="2"><?php echo($keyword); ?></a></li>
+																			<?php foreach ($arr_keywords as $keyword): ?>
 
-																		<?php endforeach; ?>
+																				<li class="dropdown-item"><a tabindex="2"><?php echo($keyword); ?></a></li>
 
-																	</ul>
+																			<?php endforeach; ?>
 
-																</li>
+																		</ul>
 
-															<?php elseif ($listname != "end_keywords" && $listname != "extentions"): ?>
+																	</li>
 
-																<li class="dropdown-item"><a tabindex="1"><?php echo(str_replace("_", " ", $listname));?></a></li>
+																<?php elseif ($listname != "end_keywords" && $listname != "extentions"): ?>
 
-															<?php endif; ?>
+																	<li class="dropdown-item"><a tabindex="1"><?php echo(str_replace("_", " ", $listname));?></a></li>
 
-														<?php endforeach; ?>
+																<?php endif; ?>
 
-													</ul>
+															<?php endforeach; ?>
 
+														</ul>
+
+													</div>
 												</div>
 
+												<div class="row">
+													<div style="float: left; width: 4%; margin-top: 5px;">
+														<input id="first_check" type="checkbox"/>
+													</div>
 
+													<div class="dropdown" style="float: left; width: 96%;">
 
-												<div class="dropdown">
+														<button id="secondlist" class="soflow-color dropdown-toggle" type="button" data-toggle="dropdown">Select</button>
 
-													<button id="secondlist" class="soflow-color dropdown-toggle" type="button" data-toggle="dropdown">Select</button>
+														<ul class="dropdown-menu">
 
-													<ul class="dropdown-menu">
+															<?php foreach ($lists as $listname => $keywords): ?>
+																<?php $arr_keywords = explode(",", str_replace(" ", "", $keywords)); ?>
+																<?php if ($listname == "domains_keywords"): ?>
 
-														<?php foreach ($lists as $listname => $keywords): ?>
-															<?php $arr_keywords = explode(",", str_replace(" ", "", $keywords)); ?>
-															<?php if ($listname == "domains_keywords"): ?>
+																	<li class="dropdown-submenu">
 
-																<li class="dropdown-submenu">
+																		<a class="test" tabindex="1">Keywords<span class="caret"></span></a>
 
-																	<a class="test" tabindex="1">Keywords<span class="caret"></span></a>
+																		<ul class="dropdown-menu">
 
-																	<ul class="dropdown-menu">
+																			<?php foreach ($arr_keywords as $keyword): ?>
 
-																		<?php foreach ($arr_keywords as $keyword): ?>
+																				<li class="dropdown-item"><a tabindex="2"><?php echo($keyword); ?></a></li>
 
-																			<li class="dropdown-item"><a tabindex="2"><?php echo($keyword); ?></a></li>
+																			<?php endforeach; ?>
 
-																		<?php endforeach; ?>
+																		</ul>
 
-																	</ul>
+																	</li>
 
-																</li>
+																<?php elseif ($listname == "end_keywords"): ?>
 
-															<?php elseif ($listname == "end_keywords"): ?>
+																	<li class="dropdown-submenu">
 
-																<li class="dropdown-submenu">
+																		<a class="test" tabindex="1">End with<span class="caret"></span></a>
 
-																	<a class="test" tabindex="1">End with<span class="caret"></span></a>
+																		<ul class="dropdown-menu">
 
-																	<ul class="dropdown-menu">
+																			<?php foreach ($arr_keywords as $keyword): ?>
 
-																		<?php foreach ($arr_keywords as $keyword): ?>
+																				<li class="dropdown-item"><a tabindex="2"><?php echo($keyword); ?></a></li>
 
-																			<li class="dropdown-item"><a tabindex="2"><?php echo($keyword); ?></a></li>
+																			<?php endforeach; ?>
 
-																		<?php endforeach; ?>
+																		</ul>
 
-																	</ul>
+																	</li>
 
-																</li>
+																<?php elseif ($listname != "start_keywords" && $listname != "extentions"): ?>
 
-															<?php elseif ($listname != "start_keywords" && $listname != "extentions"): ?>
+																	<li class="dropdown-item"><a tabindex="1"><?php echo(str_replace("_", " ", $listname));?></a></li>
 
-																<li class="dropdown-item"><a tabindex="1"><?php echo(str_replace("_", " ", $listname));?></a></li>
+																<?php endif; ?>
 
-															<?php endif; ?>
+															<?php endforeach; ?>
 
-														<?php endforeach; ?>
+														</ul>
 
-													</ul>
-
+													</div>
 												</div>
-
 
 
 												<div class="dropdown">
@@ -971,10 +980,13 @@ $(document).ready(function(){
 
 												</div>
 
+												<div class="row">
+													<button id="search2" class="button" style="float: left; width: 30%; margin-left: 20px;">Submit</button>
 
+													<a href="javascript:history.go(0)" class="button" style="float: left; width: 30%; margin-left: 20px;">Reload</a>
 
-												<button id="search2" class="button">Submit</button>
-
+												</div>
+												
 											</div>
 
 										</div>
