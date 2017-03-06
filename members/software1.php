@@ -126,25 +126,7 @@ $(document).ready(function(){
 
 				keyword = $(this).has('a').text();
 
-				listname = $(this).parent('ul').prev('a').text();
-
-				if (listname == "Keywords") {
-
-					list = "domains_keywords";
-
-				}
-
-				else if (listname == "Start with") {
-
-					list = "start_keywords";
-
-				}
-
-				else if (listname == "End with") {
-
-					list = "end_keywords";
-
-				}
+				listname = $(this).parent('ul').prev('a').text().replace(/ /g, '_');
 
 				$(this).parents('div').first().children('button').first().text(keyword);
 
@@ -182,11 +164,11 @@ $(document).ready(function(){
 
 
 
-			if (first_list == "domains_keywords" || first_list == "start_keywords") {
+			if (first_list == "") {
 
 				first_keyword = $('#firstlist').text();
 
-				if (second_list == "domains_keywords" || second_list == "end_keywords") {
+				if (second_list == "") {
 
 					second_keyword = $('#secondlist').text();
 
@@ -248,7 +230,7 @@ $(document).ready(function(){
 
 						var second_keywords = JSON.parse(msg);
 
-						for (var i =  0; i < second_keywords.length; i++) {
+						for (var i = second_keywords.length - 1; i >= 0; i--) {
 
 							second_keyword = second_keywords[i];
 
@@ -314,11 +296,11 @@ $(document).ready(function(){
 
 					var first_keywords = JSON.parse(msg);
 
-					if (second_list == "domains_keywords" || second_list == "end_keywords") {
+					if (second_list == "") {
 
 						second_keyword = $('#secondlist').text();
 
-						for (var i = 0; i < first_keywords.length; i++) {
+						for (var i = first_keywords.length - 1; i >= 0; i--) {
 
 							first_keyword = first_keywords[i];
 
@@ -380,11 +362,11 @@ $(document).ready(function(){
 
 							var second_keywords = JSON.parse(msg);
 
-							for (var i = 0; i < first_keywords.length; i++) {
+							for (var i = first_keywords.length - 1; i >= 0; i--) {
 
 								first_keyword = first_keywords[i];
 
-								for (var j = 0; j < second_keywords.length; j++) {
+								for (var i = second_keywords.length - 1; i >= 0; i--) {
 
 									second_keyword = second_keywords[j];
 
@@ -556,7 +538,18 @@ $(document).ready(function(){
 
 		});
 
+		$('#first_check').on("click", function(){
+
+			if($(this).is(':checked')){
+				alert("checked");
+			}
+			else {
+				alert("unchecked");
+			}
+		});
+
 	});
+
 
 
 
@@ -840,8 +833,9 @@ $(document).ready(function(){
 												<h1 class="group-name">Search Term 2</h1>
 
 												<div class="row">
+
 													<div style="float: left; width: 4%; margin-top: 25px;">
-														<input id="first_check" type="checkbox"/>
+														<input id="first_check" type="checkbox" checked="checked" />
 													</div>
 
 													<div class="dropdown" style="float: left; width: 96%;">
@@ -851,12 +845,14 @@ $(document).ready(function(){
 														<ul class="dropdown-menu">
 
 															<?php foreach ($lists as $listname => $keywords): ?>
-																<?php $arr_keywords = explode(",", str_replace(" ", "", $keywords)); ?>
-																<?php if ($listname == "domains_keywords"): ?>
+
+																<?php if ($listname != "end_keywords" && $listname != "extentions"): ?>
+
+																	<?php $arr_keywords = explode(",", str_replace(" ", "", $keywords)); ?>
 
 																	<li class="dropdown-submenu">
 
-																		<a class="test" tabindex="1">Keywords<span class="caret"></span></a>
+																		<a class="test" tabindex="1"><?php echo (str_replace("_", " ", $listname)); ?><span class="caret"></span></a>
 
 																		<ul class="dropdown-menu">
 
@@ -869,28 +865,6 @@ $(document).ready(function(){
 																		</ul>
 
 																	</li>
-
-																<?php elseif ($listname == "start_keywords"): ?>
-
-																	<li class="dropdown-submenu">
-
-																		<a class="test" tabindex="1">Start with<span class="caret"></span></a>
-
-																		<ul class="dropdown-menu">
-
-																			<?php foreach ($arr_keywords as $keyword): ?>
-
-																				<li class="dropdown-item"><a tabindex="2"><?php echo($keyword); ?></a></li>
-
-																			<?php endforeach; ?>
-
-																		</ul>
-
-																	</li>
-
-																<?php elseif ($listname != "end_keywords" && $listname != "extentions"): ?>
-
-																	<li class="dropdown-item"><a tabindex="1"><?php echo(str_replace("_", " ", $listname));?></a></li>
 
 																<?php endif; ?>
 
@@ -902,8 +876,9 @@ $(document).ready(function(){
 												</div>
 
 												<div class="row">
+
 													<div style="float: left; width: 4%; margin-top: 5px;">
-														<input id="first_check" type="checkbox"/>
+														<input id="second_check" type="checkbox" checked="checked" />
 													</div>
 
 													<div class="dropdown" style="float: left; width: 96%;">
@@ -913,12 +888,14 @@ $(document).ready(function(){
 														<ul class="dropdown-menu">
 
 															<?php foreach ($lists as $listname => $keywords): ?>
-																<?php $arr_keywords = explode(",", str_replace(" ", "", $keywords)); ?>
-																<?php if ($listname == "domains_keywords"): ?>
+
+																<?php if ($listname != "start_keywords" && $listname != "extentions"): ?>
+
+																	<?php $arr_keywords = explode(",", str_replace(" ", "", $keywords)); ?>
 
 																	<li class="dropdown-submenu">
 
-																		<a class="test" tabindex="1">Keywords<span class="caret"></span></a>
+																		<a class="test" tabindex="1"><?php echo (str_replace("_", " ", $listname)); ?><span class="caret"></span></a>
 
 																		<ul class="dropdown-menu">
 
@@ -932,27 +909,7 @@ $(document).ready(function(){
 
 																	</li>
 
-																<?php elseif ($listname == "end_keywords"): ?>
-
-																	<li class="dropdown-submenu">
-
-																		<a class="test" tabindex="1">End with<span class="caret"></span></a>
-
-																		<ul class="dropdown-menu">
-
-																			<?php foreach ($arr_keywords as $keyword): ?>
-
-																				<li class="dropdown-item"><a tabindex="2"><?php echo($keyword); ?></a></li>
-
-																			<?php endforeach; ?>
-
-																		</ul>
-
-																	</li>
-
-																<?php elseif ($listname != "start_keywords" && $listname != "extentions"): ?>
-
-																	<li class="dropdown-item"><a tabindex="1"><?php echo(str_replace("_", " ", $listname));?></a></li>
+																	<!-- <li class="dropdown-item"><a tabindex="1"><?php echo(str_replace("_", " ", $listname));?></a></li> -->
 
 																<?php endif; ?>
 
@@ -961,6 +918,7 @@ $(document).ready(function(){
 														</ul>
 
 													</div>
+
 												</div>
 
 
@@ -969,7 +927,9 @@ $(document).ready(function(){
 													<button id="extention" class="soflow-color dropdown-toggle" type="button" data-toggle="dropdown" list = ".com">.com</button>
 
 													<ul class="dropdown-menu">
+
 														<?php $arr_extentions = explode(",", str_replace(" ", "", $lists["extentions"])); ?>
+
 														<?php foreach ($arr_extentions as $extention): ?>
 
 															<li class="dropdown-item"><a tabindex="1">.<?php echo($extention); ?></a></li>
