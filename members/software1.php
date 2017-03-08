@@ -881,7 +881,7 @@
 												<div class="row">
 
 													<div style="float: left; width: 4%; margin-top: 25px;">
-														<input id="first_check" type="checkbox" checked="checked" />
+														<input id="first_check" type="checkbox" />
 													</div>
 
 													<div class="dropdown" style="float: left; width: 96%;">
@@ -894,7 +894,7 @@
 
 																<?php if ($listname != "end_keywords" && $listname != "extentions"): ?>
 
-																	<?php $arr_keywords = explode(",", str_replace(" ", "", $keywords)); ?>
+																	<!-- <?php $arr_keywords = explode(",", str_replace(" ", "", $keywords)); ?>
 
 																	<li class="dropdown-submenu">
 
@@ -910,7 +910,9 @@
 
 																		</ul>
 
-																	</li>
+																	</li> -->
+
+																	<li class="dropdown-item"><a tabindex="1"><?php echo(str_replace("_", " ", $listname));?></a></li>
 
 																<?php endif; ?>
 
@@ -924,7 +926,7 @@
 												<div class="row">
 
 													<div style="float: left; width: 4%; margin-top: 5px;">
-														<input id="second_check" type="checkbox" checked="checked" />
+														<input id="second_check" type="checkbox" />
 													</div>
 
 													<div class="dropdown" style="float: left; width: 96%;">
@@ -937,7 +939,7 @@
 
 																<?php if ($listname != "start_keywords" && $listname != "extentions"): ?>
 
-																	<?php $arr_keywords = explode(",", str_replace(" ", "", $keywords)); ?>
+																	<!-- <?php $arr_keywords = explode(",", str_replace(" ", "", $keywords)); ?>
 
 																	<li class="dropdown-submenu">
 
@@ -953,9 +955,9 @@
 
 																		</ul>
 
-																	</li>
+																	</li> -->
 
-																	<!-- <li class="dropdown-item"><a tabindex="1"><?php echo(str_replace("_", " ", $listname));?></a></li> -->
+																	<li class="dropdown-item"><a tabindex="1"><?php echo(str_replace("_", " ", $listname));?></a></li>
 
 																<?php endif; ?>
 
