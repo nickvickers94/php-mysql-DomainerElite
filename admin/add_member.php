@@ -40,7 +40,7 @@
 		<?php if ($message): ?>
 			<strong><?php echo $message; ?></strong>
 		<? endif ?>
-		<form action="addmember.php" method="post">
+		<form action="add_member.php" method="post">
 			<table>
 				<tr>
 					<td>Email: </td>
