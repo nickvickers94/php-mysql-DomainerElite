@@ -45,7 +45,7 @@
             
           </div>    
           <div class="vd_container">
-			<a href="http://customoffers.net" /><img src="/members/img/cobanner2.gif" style="margin-top: 12px;" /></a>
+<!-- 			<a href="http://customoffers.net" /><img src="/members/img/cobanner2.gif" style="margin-top: 12px;" /></a> -->
           </div>
         </div>
         <!-- container --> 
