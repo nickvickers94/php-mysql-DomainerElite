@@ -39,6 +39,9 @@
 		<!-- Tags Input -->
 		<link href="bootstrap-tagsinput/bootstrap-tagsinput.css" rel="stylesheet" type="text/css">
 
+		<link rel="stylesheet" type="text/css" href="jquery-tagsinput/jquery.tagsinput.css" />
+		<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/themes/start/jquery-ui.css" />
+
 		<style>
 			/* The Modal (background) */
 			.modal {
@@ -338,12 +341,16 @@
                                     <textarea id="dictionary_domains" class="form-control"  rows="10"> <?php echo($dictionary_domains); ?> </textarea>
                                 </div>
                                 
-                                <?php foreach ($lists as $list_name => $keywords): ?>
-                                    <div class="form-group">
-                                        <label> <?php echo(str_replace("_", " ", $list_name)); ?> </label>
-                                        <input class="form-control" data-role="tagsinput" id="<? echo($list_name); ?>" value="<?php echo($keywords); ?>" />
-                                    </div>
-                                <?php endforeach; ?>
+								<?php foreach ($lists as $list_name => $keywords): ?>
+									<div class="form-group">
+
+										<p>
+											<label> <?php echo(str_replace("_", " ", $list_name)); ?> </label>
+											<input id="<? echo($list_name); ?>" type="text" class="tags" value="<?php echo($keywords); ?>" />
+										</p>
+
+									</div>
+								<?php endforeach; ?>
 
                             </form>
 
@@ -371,16 +378,23 @@
             </div>
         </div>
                     
-        <!-- jQuery -->
-        <script src="js/jquery.js"></script>
+		<!-- jQuery -->
+		<script src="js/jquery.js"></script>
 
-        <!-- Bootstrap Core JavaScript -->
-        <script src="js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="bootstrap-tagsinput/bootstrap-tagsinput.min.js"></script>
-    	<script type="text/javascript" src="bootstrap-tagsinput/bootstrap-tagsinput-angular.min.js"></script>
-        
+		<!-- Bootstrap Core JavaScript -->
+		<script src="js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="bootstrap-tagsinput/bootstrap-tagsinput.min.js"></script>
+
+		<script type="text/javascript" src="jquery-tagsinput/jquery.tagsinput.js"></script>
+		<script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/jquery-ui.min.js'></script>
+
 		<script>
 			$(document).ready(function() {
+
+				<?php foreach ($lists as $list_name => $keywords): ?>
+					$('#<? echo($list_name); ?>').tagsInput({width:'auto', height:'auto'});
+				<?php endforeach; ?>
+				
 				$('#save_changes').on("click", function(e) {
 					var saved = 0;
 					e.preventDefault();
@@ -469,11 +483,9 @@
 						success: function(resp){
 							add_list_modal.style.display = "none";
 
-							$("#lists").append('<div class="form-group"><label>' + list_name.replace(/_/g, ' ') + '</label><input class="form-control" data-role="tagsinput" id="' + list_name + '"></div>');
+							$("#lists").append('<div class="form-group"><label>' + list_name.replace(/_/g, ' ') + '</label><input class="tags" type="text" id="' + list_name + '"></div>');
 
-							$(function() {
-								$("input[data-role=tagsinput], select[multiple][data-role=tagsinput]").tagsinput();
-							});
+							$('#' + list_name).tagsInput({width:'auto', height:'auto'});
 
 							$('#success_msg').html('Your list has been added Succesfully.');
 						}
