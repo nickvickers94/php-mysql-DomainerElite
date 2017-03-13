@@ -393,6 +393,8 @@
 			<div class="modal-content">
 				<span id="edit_list_close" class="close">&times;</span>
 				List name: <input type="text" id="edit_list_name" placeholder="for example : Nouns"><br>
+				Keywords:<br>
+				<textarea id="edit_list_keywords" class="form-control"  rows="10"></textarea>
 				<button id="edit_list_submit" class="btn btn-success">Save</button>
 			</div>
 		</div>
@@ -488,6 +490,7 @@
 			$('.edit_list').on("click", function(e) {
 				var thiss = $(this);
 				$('#edit_list_name').val(thiss.attr('list').replace(/_/g, ' '));
+				$('#edit_list_keywords').val(thiss.next('label').next('input').val());
 				$('#edit_list_submit').attr('list_name', thiss.attr('list'));
 				edit_list_modal.style.display = "block";
 			});
@@ -565,8 +568,10 @@
 				if (new_list_name != "")
 				{
 					var list_name = this.getAttribute('list_name');
+					var new_keywords = $('#edit_list_keywords').val().replace(/ /g,'');
 					var data = new FormData();
 					data.append('new_list_name', new_list_name);
+					data.append('new_keywords', new_keywords);
 					data.append('list_name', list_name);
 
 					$.ajax({
@@ -583,6 +588,8 @@
 							$('#' + list_name).prev('label').prev('label').attr('list', new_list_name);
 
 							$('#' + list_name).prev('label').prev('label').prev('label').text(new_list_name);
+
+							$('#' + list_name).val(new_keywords);
 
 							$('#' + list_name).removeAttr('style');
 
