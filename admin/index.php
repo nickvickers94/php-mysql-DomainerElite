@@ -40,7 +40,8 @@
 		<link href="bootstrap-tagsinput/bootstrap-tagsinput.css" rel="stylesheet" type="text/css">
 
 		<link rel="stylesheet" type="text/css" href="jquery-tagsinput/jquery.tagsinput.css" />
-		<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/themes/start/jquery-ui.css" />
+		<!-- <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/themes/start/jquery-ui.css" /> -->
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
 		<style>
 			/* The Modal (background) */
@@ -346,6 +347,15 @@
 
 										<p>
 											<label> <?php echo(str_replace("_", " ", $list_name)); ?> </label>
+
+											<label list = "<? echo($list_name); ?>" class="edit_list ui-button ui-widget ui-corner-all ui-button-icon-only" title="Edit name of this list">
+												<span class="ui-icon ui-icon-pencil"></span>Edit
+											</label>
+
+											<label list = "<? echo($list_name); ?>" class="delete_list ui-button ui-widget ui-corner-all ui-button-icon-only" title="Delete this list">
+												<span class="ui-icon ui-icon-trash"></span>Delete
+											</label>
+
 											<input id="<? echo($list_name); ?>" type="text" class="tags" value="<?php echo($keywords); ?>" />
 										</p>
 
@@ -369,15 +379,34 @@
         </div>
         <!-- /#wrapper -->
 
-        <div id="add_list_modal" class="modal">
-            <!-- Modal content -->
-            <div class="modal-content">
-                <span class="close">&times;</span>
-                List name: <input type="text" id="list_name" placeholder="for example : Nouns"><br>
-                <button id="add_list_submit" class="btn btn-success">Add</button>
-            </div>
-        </div>
-                    
+		<div id="add_list_modal" class="modal">
+			<!-- Modal content -->
+			<div class="modal-content">
+				<span id="add_list_close" class="close">&times;</span>
+				List name: <input type="text" id="add_list_name" placeholder="for example : Nouns"><br>
+				<button id="add_list_submit" class="btn btn-success">Add</button>
+			</div>
+		</div>
+
+		<div id="edit_list_modal" class="modal">
+			<!-- Modal content -->
+			<div class="modal-content">
+				<span id="edit_list_close" class="close">&times;</span>
+				List name: <input type="text" id="edit_list_name" placeholder="for example : Nouns"><br>
+				<button id="edit_list_submit" class="btn btn-success">Save</button>
+			</div>
+		</div>
+
+		<div id="delete_list_modal" class="modal">
+			<!-- Modal content -->
+			<div class="modal-content">
+				<span id="delete_list_close" class="close">&times;</span>
+				<p id="delete_list_msg"></p>
+				<button id="delete_list_submit" class="btn btn-success">Delete</button>
+				<button id="delete_list_cancel" class="btn btn-success">Cancel</button>
+			</div>
+		</div>
+
 		<!-- jQuery -->
 		<script src="js/jquery.js"></script>
 
@@ -448,31 +477,66 @@
         </script>
 
         <script>
-            // Get the modal
-            var add_list_modal = document.getElementById('add_list_modal');
-            // Get the button that opens the modal
-            var add_list = document.getElementById("add_list");
-            // Get the <span> element that closes the modal
-            var span_close = document.getElementsByClassName("close")[0];
-            var add_list_submit = document.getElementById("add_list_submit");
+			// Get the modal
+			var add_list_modal = document.getElementById('add_list_modal');
+			var edit_list_modal = document.getElementById('edit_list_modal');
+			var delete_list_modal = document.getElementById('delete_list_modal');
 
-            // When the user clicks the button, open the modal 
-            add_list.onclick = function() {
-                add_list_modal.style.display = "block";
-            }
-            // When the user clicks on <span> (x), close the modal
+			// Get the button that opens the modal
+			var add_list = document.getElementById('add_list');
 
-            // When the user clicks on <span> (x), close the modal
-            span_close.onclick = function() {
-                add_list_modal.style.display = "none";
-            }
+			$('.edit_list').on("click", function(e) {
+				var thiss = $(this);
+				$('#edit_list_name').val(thiss.attr('list').replace(/_/g, ' '));
+				$('#edit_list_submit').attr('list_name', thiss.attr('list'));
+				edit_list_modal.style.display = "block";
+			});
 
-            add_list_submit.onclick = function() {
-                var list_name = $("#list_name").val().replace(/ /g,'_');
-                if (list_name != "")
-                {
-                    var data = new FormData();
-                    data.append('list_name', list_name.replace(/ /g, '_'));
+			$('.delete_list').on("click", function(e) {
+				var thiss = $(this);
+				$('#delete_list_msg').text('Are you sure to delete ' + thiss.attr('list').replace(/_/g, ' ') + ' list?');
+				$('#delete_list_submit').attr('list_name', thiss.attr('list'));
+				delete_list_modal.style.display = "block";
+			});
+
+			// Get the <span> element that closes the modal
+			var add_list_close = document.getElementById('add_list_close');
+			var edit_list_close = document.getElementById('edit_list_close');
+			var delete_list_close = document.getElementById('delete_list_close');
+			var delete_list_cancel = document.getElementById('delete_list_cancel');
+
+			var add_list_submit = document.getElementById('add_list_submit');
+			var edit_list_submit = document.getElementById('edit_list_submit');
+			var delete_list_submit = document.getElementById('delete_list_submit');
+
+			// When the user clicks the button, open the modal 
+			add_list.onclick = function() {
+				add_list_modal.style.display = "block";
+			}
+
+			// When the user clicks on <span> (x), close the modal
+			add_list_close.onclick = function() {
+				add_list_modal.style.display = "none";
+			}
+
+			edit_list_close.onclick = function() {
+				edit_list_modal.style.display = "none";
+			}
+
+			delete_list_close.onclick = function() {
+				delete_list_modal.style.display = "none";
+			}
+
+			delete_list_cancel.onclick = function() {
+				delete_list_modal.style.display = "none";
+			}
+
+			add_list_submit.onclick = function() {
+				var list_name = $("#add_list_name").val().replace(/ /g,'_');
+				if (list_name != "")
+				{
+					var data = new FormData();
+					data.append('list_name', list_name);
 
 					$.ajax({
 						url:'add_list.php',
@@ -490,17 +554,87 @@
 							$('#success_msg').html('Your list has been added Succesfully.');
 						}
 					});
-                }
-                else {
-                    window.alert("List name must not be empty. Try again.");
-                }
-            }
+				}
+				else {
+					window.alert("List name must not be empty. Try again.");
+				}
+			}
+
+			edit_list_submit.onclick = function() {
+				var new_list_name = $("#edit_list_name").val().replace(/ /g,'_');
+				if (new_list_name != "")
+				{
+					var list_name = this.getAttribute('list_name');
+					var data = new FormData();
+					data.append('new_list_name', new_list_name);
+					data.append('list_name', list_name);
+
+					$.ajax({
+						url:'edit_list.php',
+						type:'POST',
+						processData: false,
+						contentType: false,
+						data: data,
+						success: function(resp){
+							edit_list_modal.style.display = "none";
+
+							$('#' + list_name).prev('label').attr('list', new_list_name);
+
+							$('#' + list_name).prev('label').prev('label').attr('list', new_list_name);
+
+							$('#' + list_name).prev('label').prev('label').prev('label').text(new_list_name);
+
+							$('#' + list_name).removeAttr('style');
+
+							$('#' + list_name).removeAttr('data-tagsinput-init');
+
+							$('#'  + list_name).next('div').remove();
+
+							$('#' + list_name).attr('id', new_list_name);
+
+							$('#' + new_list_name).tagsInput({width:'auto', height:'auto'});
+
+							$('#success_msg').html(list_name + ' list has been changed Succesfully.');
+						}
+					});
+				}
+				else {
+					window.alert("List name must not be empty. Try again.");
+				}
+			}
+
+			delete_list_submit.onclick = function() {
+				var list_name = this.getAttribute('list_name');
+				var data = new FormData();
+				data.append('list_name', list_name);
+
+				$.ajax({
+					url:'delete_list.php',
+					type:'POST',
+					processData: false,
+					contentType: false,
+					data: data,
+					success: function(resp){
+						delete_list_modal.style.display = "none";
+
+						$('#' + list_name).parents('div.form-group').first().remove();
+
+						$('#success_msg').html(list_name + ' list has been deleted Succesfully.');
+					}
+				});
+			}
 
             // When the user clicks anywhere outside of the modal, close it
             window.onclick = function(event) {
                 if (event.target == add_list_modal) {
                     add_list_modal.style.display = "none";
                 }
+				else if (event.target == edit_list_modal) {
+					edit_list_modal.style.display = "none";
+				}
+				else if (event.target == delete_list_modal) {
+					delete_list_modal.style.display = "none";
+				}
             }
         </script>
 
