@@ -72,17 +72,20 @@ iframe { display: block; margin: 0 auto; }
                          <img src='img/animatedbanner.gif'>
                              </a> -->
                         <h4 style='padding-top: 20px;' class="blog-title font-bold letter-xs">Watch this quick orientation video:</h4>
-                          <iframe width="720" height="405" src="https://www.youtube.com/embed/carFoF4JZoM?rel=0&amp;controls=1&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+                          <!-- <iframe width="720" height="405" src="https://www.youtube.com/embed/carFoF4JZoM?rel=0&amp;controls=1&amp;showinfo=0" frameborder="0" allowfullscreen></iframe> -->
+                          <iframe width="720" height="405" src="https://www.youtube.com/embed/4xjbRgO27kY?rel=0&amp;controls=1&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
                         </li>
                         <li>
                         <center><h1><a href="webinars.php">CLICK HERE TO REGISTER<br />FOR THE NEXT LIVE WEBINAR</a></h1></center>
                         </li>
 						<li>
                         <h4 class="blog-title font-bold letter-xs">Watch these instructional introduction videos now:</h4>
-                          <iframe width="720" height="405" src="https://www.youtube.com/embed/GNHRtjbVT4c?rel=0&amp;controls=1&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+                          <!-- <iframe width="720" height="405" src="https://www.youtube.com/embed/GNHRtjbVT4c?rel=0&amp;controls=1&amp;showinfo=0" frameborder="0" allowfullscreen></iframe> -->
+                          <iframe width="720" height="405" src="https://www.youtube.com/embed/carFoF4JZoM?rel=0&amp;controls=1&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
                         </li>
                          <li>
-                        <iframe width="720" height="405" src="https://www.youtube.com/embed/Hb4Bpcqglp0?rel=0&amp;controls=1&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+                        <!-- <iframe width="720" height="405" src="https://www.youtube.com/embed/Hb4Bpcqglp0?rel=0&amp;controls=1&amp;showinfo=0" frameborder="0" allowfullscreen></iframe> -->
+                          <iframe width="720" height="405" src="https://www.youtube.com/embed/pBZ3-xH9nL0?rel=0&amp;controls=1&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
                         </li>
                         <?php endif ?>
                         
@@ -90,9 +93,13 @@ iframe { display: block; margin: 0 auto; }
                         <iframe width="720" height="405" src="https://www.youtube.com/embed/vJP9yDICtKo" frameborder="0" allowfullscreen></iframe>
                         </li>
                         
+                        <li>
+                          <iframe width="720" height="405" src="https://www.youtube.com/embed/Hb4Bpcqglp0" frameborder="0" allowfullscreen></iframe>
+                        </li>
                         
                           <li>
-                        <iframe width="720" height="405" src="https://www.youtube.com/embed/pBZ3-xH9nL0" frameborder="0" allowfullscreen></iframe>
+                        <!-- <iframe width="720" height="405" src="https://www.youtube.com/embed/pBZ3-xH9nL0" frameborder="0" allowfullscreen></iframe> -->
+                          <iframe width="720" height="405" src="https://www.youtube.com/embed/GNHRtjbVT4c" frameborder="0" allowfullscreen></iframe>
                         </li>
                         
                           <li>
