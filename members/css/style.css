@@ -217,9 +217,16 @@ button.soflow-color {
 	background:linear-gradient(to bottom, #77a809 5%, #89c403 100%);
 	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#77a809', endColorstr='#89c403',GradientType=0);
 	background-color:#77a809;
+	color:#ffff00;
 }
 
 .myButton:active {
 	position:relative;
 	top:1px;
+}
+
+a.disabled {
+   pointer-events: none;
+   cursor: default;
+   background:#aaaaaa;
 }

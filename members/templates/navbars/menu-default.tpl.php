@@ -5,13 +5,63 @@
             <span class="menu-text">Home</span>  
        	</a>
     </li>  
+      <li>
+    	<a href="software1.php">
+        	<span class="menu-icon"><i class="glyphicon glyphicon-floppy-disk"></i></span> 
+            <span class="menu-text">PRO Software</span><br />  
+            <span class="badge vd_bg-red"><i class="fa fa-star"></i></span>
+       	</a> 
+    </li> 
+    
+    <li>
+    	<a href="instructionspro.php">
+        	<span class="menu-icon"><i class="fa fa-info-circle"></i></span> 
+            <span class="menu-text">PRO Instructions</span><br />  
+            <span class="badge vd_bg-red"><i class="fa fa-star"></i></span>
+       	</a> 
+    </li>
+    
+     
  	<li>
     	<a href="software.php">
         	<span class="menu-icon"><i class="fa fa-floppy-o"></i></span> 
-            <span class="menu-text">Software</span>  
+            <span class="menu-text">LITE Software</span>  
        	</a> 
     </li>   
     
+    <?php if (strtotime($_SESSION['free_webinar_start_time']) > time()): ?>
+    <li>
+    	<a href="<?php echo $_SESSION['free_webinar_url']; ?>">
+        	<span class="menu-icon"><i class="fa fa-gift"></i></span> 
+            <span class="menu-text"><strong>FREE Webinar</strong><br /> <small><?php echo date('D M jS, Y h:i a', strtotime($_SESSION['free_webinar_start_time'])); ?> EST</small> </span>  
+       	</a> 
+    </li>   
+    <?php endif ?>
+    
+        <?php if ($_SESSION['ultimate_download'] == 'Y'): ?>
+    <li>
+    	<a href="ultimatedownload">
+        	<span class="menu-icon"><i class="fa fa-cloud-download"></i></span> 
+            <span class="menu-text">Ultimate Download</span>  
+       	</a> 
+    </li>   
+    <?php endif ?>
+   
+    <li>
+    	<a href="marketplace.php">
+        	<span class="menu-icon"><i class="fa fa-shopping-cart"></i></span> 
+            <span class="menu-text">Marketplace</span>  
+       	</a> 
+    </li>   
+
+    <li>
+    	<a href="webinars.php">
+        	<span class="menu-icon entypo-icon"><i class="fa fa-graduation-cap"> </i></span> 
+            <span class="menu-text">Webinars</span>  
+       	</a>
+    </li>   
+    
+
     <li>
     	<a href="recipe.pdf">
         	<span class="menu-icon"><i class="fa fa-book"></i></span> 
@@ -44,13 +94,7 @@
             <span class="menu-text">Resources</span>  
        	</a>
     </li> 
-    <li>
-    	<a href="webinars.php">
-        	<span class="menu-icon entypo-icon"><i class="fa fa-graduation-cap"> </i></span> 
-            <span class="menu-text">Webinars</span>  
-       	</a>
-    </li>   
-    
+
     
     <li>
     	<a href="http://www.anrdoezrs.net/click-6072877-10378406-1438892975000" target="_blank">

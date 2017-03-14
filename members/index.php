@@ -9,7 +9,12 @@
 <!-- End of Data -->
 
 <?php require_once('templates/headers/'.$header.'.tpl.php'); ?>
-
+<style>
+.blog-title {
+text-align: center;
+}
+iframe { display: block; margin: 0 auto; }
+</style>
 <div class="content">
   <div class="container">
     <?php if ($navbar_left_config != 0) { $current_navbar="vd_navbar-left"; require('templates/navbars/'.$navbar_left.'.tpl.php'); }?>
@@ -58,15 +63,16 @@
                         <li>
                      
                         <h4 class="blog-title font-bold letter-xs">Watch this quick orientation video:</h4>
-                          <iframe width="720" height="405" src="https://www.youtube.com/embed/4jesdkEOIec?rel=0&amp;controls=1&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+                          <iframe width="720" height="405" src="https://www.youtube.com/embed/carFoF4JZoM?rel=0&amp;controls=1&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
                         </li>
                         <?php else: ?>
+                     
                          <li style='padding-top: 0; padding-bottom: 20px;'>
-                             <a href='http://www.jamielewisacademy.com/'>
+                               <!-- <a href='http://www.jamielewisacademy.com/'>
                          <img src='img/animatedbanner.gif'>
-                             </a>
+                             </a> -->
                         <h4 style='padding-top: 20px;' class="blog-title font-bold letter-xs">Watch this quick orientation video:</h4>
-                          <iframe width="720" height="405" src="https://www.youtube.com/embed/4jesdkEOIec?rel=0&amp;controls=1&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+                          <iframe width="720" height="405" src="https://www.youtube.com/embed/carFoF4JZoM?rel=0&amp;controls=1&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
                         </li>
                         <li>
                         <center><h1><a href="webinars.php">CLICK HERE TO REGISTER<br />FOR THE NEXT LIVE WEBINAR</a></h1></center>
@@ -79,6 +85,19 @@
                         <iframe width="720" height="405" src="https://www.youtube.com/embed/Hb4Bpcqglp0?rel=0&amp;controls=1&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
                         </li>
                         <?php endif ?>
+                        
+                        <li>
+                        <iframe width="720" height="405" src="https://www.youtube.com/embed/vJP9yDICtKo" frameborder="0" allowfullscreen></iframe>
+                        </li>
+                        
+                        
+                          <li>
+                        <iframe width="720" height="405" src="https://www.youtube.com/embed/pBZ3-xH9nL0" frameborder="0" allowfullscreen></iframe>
+                        </li>
+                        
+                          <li>
+                        <iframe width="720" height="405" src="https://www.youtube.com/embed/jt9I16Y6uxs" frameborder="0" allowfullscreen></iframe>
+                        </li>
                         
                         <li>
                         <iframe width="720" height="405" src="https://www.youtube.com/embed/qjlUaMc6-YA" frameborder="0" allowfullscreen></iframe>
@@ -270,3 +289,60 @@
 <!-- Specific Page Scripts END -->
 
 <?php require_once('templates/footers/closing.tpl.php'); ?>
+
+
+
+
+
+
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                    <form class="form-horizontal" id="phoneform" method="post" action="savephone.php">
+                      <div class="modal-content">
+                        <div class="modal-header vd_bg-blue vd_white">
+                          <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
+                          <h4 class="modal-title" id="myModalLabel">Sell your domains quicker, have a broker call you!</h4>
+                        </div>
+                        <div class="modal-body"> 
+                        	
+                            <div class="form-group">
+                              <label class="col-sm-4 control-label">Phone Number</label>
+                              <div class="col-sm-7 controls">
+                                <input class="input-border-btm" type="text" name="phone">
+                              </div>
+
+                            </div>
+         
+                            
+                            
+                          </form>
+                        
+                        </div>
+                        <div class="modal-footer background-login">
+                          <button type="submit" class="btn vd_btn vd_bg-green">Call me</button>
+                        </div>
+                      </div>
+                      </form>
+                      <!-- /.modal-content --> 
+                    </div>
+                    <!-- /.modal-dialog --> 
+                  </div>
+
+<script>
+$(document).ready(function() {
+	$("#myModal").modal('show');
+});
+
+$("#phoneform").submit(function(e) {
+		$.ajax({
+        type: "POST",
+        url: "savephone.php",
+        dataType: "json",
+        data: $("#phoneform").serialize(),
+        success: function(data) {
+        	$("#myModal").modal('hide');
+        }
+  });
+  e.preventDefault();
+	});
+</script>
