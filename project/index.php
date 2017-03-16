@@ -214,7 +214,8 @@
     <h3 class="text-center">Let Jamie Build YOUR Custom Site for Only <strike>$1,997.00</strike> $997.00<br>
 							<br>
 							<a href="mailto:specialprojectwithjamie@gmail.com"><img src="images/soldoutbutton.png" alt="" width="930" height="122" border="0"></a></h3>
-						<p class="orderb text-center"><a href="http://videotornado.com/bonus2.html" class="btn btn-warning btn-lg btn-block" name="submit"><i class="fa fa-globe"></i></a><br>
+						<p class="orderb text-center">
+            <br>
 							<img src="images/blackfriday.png" /></p>
 						<div class="order">
 
@@ -222,7 +223,7 @@
 								</p></center>
 
 <p class="orderb text-center"><a href="mailto:specialprojectwithjamie@gmail.com"><img src="images/soldoutbutton.png" alt="" width="930" height="122" border="0"></a><br>
-								<a href="http://videotornado.com/bonus2.html" class="btn btn-warning btn-lg btn-block" name="submit"><i class="fa fa-globe"></i></a></p>
+								</p>
 
 </div>
 						<p class="text-center"><img src="images/1.jpg" /></p>
@@ -494,7 +495,7 @@ http://www.beats365.com</p>
 
 
 
-<p class="orderb text-center"><a href="http://videotornado.com/bonus2.html" class="btn btn-warning btn-lg btn-block" name="submit"><i class="fa fa-globe"></i></a></p>
+<p class="orderb text-center"></p>
 
 </div>
 
@@ -514,7 +515,9 @@ http://www.beats365.com</p>
 
 </div>
 		<div class="clearfix">
-			<a href="mailto:specialprojectwithjamie@gmail.com"><img src="images/soldoutbutton.png" alt="" width="930" height="122" border="0"></a></div>
+			<p class="orderb text-center"><a href="mailto:specialprojectwithjamie@gmail.com"><img src="images/soldoutbutton.png" alt="" width="930" height="122" border="0"></a><br>
+                </p>
+    </div>
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
