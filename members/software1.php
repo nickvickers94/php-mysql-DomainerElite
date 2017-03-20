@@ -194,7 +194,7 @@
 
 	$(document).on("click",".dropdown-submenu a.test",function(e){
 
-
+		$('.vd_content-wrapper').css("min-height", "3504px");
 
 		$(this).next('ul').toggle();
 
@@ -211,11 +211,21 @@
 	});
 
 
+	$(document).on("click","#firstlist",function(e){
 
+		$('.vd_content-wrapper').css("min-height", "3504px");
+
+	});
+
+
+	$(document).on("click","#secondlist",function(e){
+
+		$('.vd_content-wrapper').css("min-height", "3504px");
+
+	});
 
 
 	$(document).on("click",".dropdown-menu li.dropdown-item",function(e){
-
 
 
 		var keyword = "";
