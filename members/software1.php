@@ -392,6 +392,10 @@
 
 
 
+			var keyword = $('#keyword').val();
+
+
+
 			var first_keyword = "";
 
 
@@ -401,10 +405,6 @@
 
 
 			var domain = "";
-
-
-
-
 
 
 
@@ -423,8 +423,8 @@
 					second_keyword = $('#secondlist').text();
 
 
-
-					domain = first_keyword + second_keyword + extention;
+					
+					domain = keyword + first_keyword + second_keyword + extention;
 
 
 
@@ -548,7 +548,7 @@
 
 
 
-							domain = first_keyword + second_keyword + extention;
+							domain = keyword + first_keyword + second_keyword + extention;
 
 
 
@@ -688,7 +688,7 @@
 
 
 
-							domain = first_keyword + second_keyword + extention;
+							domain = keyword + first_keyword + second_keyword + extention;
 
 
 
@@ -820,7 +820,7 @@
 
 
 
-									domain = first_keyword + second_keyword + extention;
+									domain = keyword + first_keyword + second_keyword + extention;
 
 
 
@@ -1762,6 +1762,8 @@
 
 												<h1 class="group-name">Search Term 2</h1>
 
+
+												<input id="keyword" type="text" style="width: 70%;" />
 
 
 												<div class="row">
