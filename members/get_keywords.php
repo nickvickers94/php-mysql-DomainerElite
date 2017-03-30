@@ -13,6 +13,8 @@
 
 	$arr_keywords = explode(",", str_replace(" ", "", $keywords));
 
+	sort($arr_keywords);
+
 	echo(json_encode($arr_keywords));
 
 ?>

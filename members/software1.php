@@ -16,7 +16,7 @@
 
 
 
-	$sql = "SELECT list_name, keywords FROM lists WHERE 1";
+	$sql = "SELECT list_name, keywords FROM lists WHERE 1 ORDER BY list_name";
 
 	$result = $conn->query($sql);
 
@@ -53,6 +53,10 @@
 
 
 		$arr_keywords = explode(",", str_replace(" ", "", $keywords));
+
+
+
+		sort($arr_keywords);
 
 
 
