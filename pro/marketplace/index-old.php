@@ -135,41 +135,23 @@ if(typeof(_vis_opt_settings_loaded) == "boolean" && typeof(_vis_opt_top_initiali
 <div id="wrapper">
 <center><img src="images/domainer-elite2-small.png" /></center>
 <div id="headline">
-<span style="color: green">Step 1:</span> <font color="#33ff33">Want <span style="color: red; text-decoration: underline;">Unlimited</span> Marketplace Listings? <br>
-					Sell Dozens, even Hundreds of Domains a day..</font></div>
+<span style="color: green">Step 1:</span> Want <span style="color: red; text-decoration: underline;">Unlimited</span> Marketplace Listings? <br>Sell Dozens, even Hundreds of Domains a day..</div>
 <div id="video">
 <div id="player"></div>
 </div>
 <div id="timed" style="visibility: visible">
-				<p></p>
-			</div>
-			<div id="timed" style="visibility: visible" align="center">
-				<table width="985" border="0" cellspacing="2" cellpadding="0">
-					<tr>
-						<td>
-							<div align="center">
-								<img src="images/unlimited2.png" alt="" width="800" height="560" border="0"></div>
-						</td>
-					</tr>
-				</table>
-			</div>
-			<div id="timed" style="visibility: visible">
-				<p></p>
-				<div id="order">
-					<center>
-						<span style="font-size: 24px; font-weight: bold"><span style="color: green"></span></span></center>
-					<br />
-					<br />
-					<h2 style="color: #fff; text-align: center; font-weight: bold;">FOR ONLY <strike><span style="font-weight: normal">$97/month</span></strike> $47 One Time Payment</h2>
-					<a href="https://www.jvzoo.com/b/0/254081/4" class="btn btn-warning btn-lg btn-block" name="submit" style="line-height: 12px; border: 5px solid #fff;"><i class="fa fa-list"></i> Get Unlimited Marketplace Listings!<span style="font-size: 18px; line-height: 18px;"><br />
-							For Launch Week: Now only $47 ONE TIME FEE (Limited Time)</span>
+<div id="order">
+<center><span style="font-size: 24px; font-weight: bold"><span style="color: green"></span></span></center><br /><br />
+<h2 style="color: #fff; text-align: center; font-weight: bold;">FOR ONLY <strike><span style="font-weight: normal">$97/month</span></strike> $47 One Time Payment</h2>
+<a href="https://www.jvzoo.com/b/0/254081/4" class="btn btn-warning btn-lg btn-block" name="submit" style="line-height: 12px; border: 5px solid #fff;"><i class="fa fa-list"></i> Get Unlimited Marketplace Listings!<span style="font-size: 18px; line-height: 18px;"><br />For Launch Week: Now only $47 ONE TIME FEE (Limited Time)</span>
 <img src="https://i.jvzoo.com/0/254081/4" alt="Unlimited Marketplace" border="0" height=1 width=1 /></a>
-					<h3 style="color: #fff; font-weight: bold; text-align: center;">30 Day Money Back Guarantee</h3>
-				</div>
-				<div id="nothanks">
-					<a href="https://www.jvzoo.com/nothanks/254081">No thank you. I don't want unlimited marketplace listings.</a></div>
-			</div>
-		</div>
+<h3 style="color: #fff; font-weight: bold; text-align: center;">30 Day Money Back Guarantee</h3>
+</div>
+<div id="nothanks">
+<a href="https://www.jvzoo.com/nothanks/254081">No thank you. I don't want unlimited marketplace listings.</a>
+</div>
+</div>
+</div>
 <p class="text-center">Copyright <?php echo date('Y'); ?> - All Right Reserved | <a href="http://www.domainerelite.com/iterms.php">Terms &amp; Conditions</a> | <a href="http://www.domainerelite.com/iprivacy.php">Privacy Policy</a> | <a href="http://www.domainerelite.com/members/">Paid Members</a> | <a href="mailto:specialprojectwithjamie@gmail.com">Contact</a> | <a href="http://champsites.com">Support</a> | <a href="http://www.domainerelite.com/jv/">Affiliates</a></p>
 
 
@@ -201,17 +183,11 @@ if(typeof(_vis_opt_settings_loaded) == "boolean" && typeof(_vis_opt_top_initiali
       }
 
 </script>
-
-
-
-<script language="javascript">
-
-  var exitsplashmessage =  "WAIT! Don't Leave Yet!";
-
-  var exitsplashpage = 'https://www.jvzoo.com/nothanks/254081';
-
+<script>
+    var exit_disabled = false;
+	var exit_redirect_message = 'Do you want to leave?';
+	var exit_redirect_url = 'https://www.jvzoo.com/nothanks/254081';	
 </script>
-
-<script language="javascript" src="/pro/exitsplash.js"></script>	
+<script src="http://www.domainerelite.com/pro/exit.js"></script>
 </body>
 </html>

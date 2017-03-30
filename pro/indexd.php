@@ -618,63 +618,7 @@ if(typeof(_vis_opt_settings_loaded) == "boolean" && typeof(_vis_opt_top_initiali
 
 
 
-<div id="section2a">
 
-
-
-  <div class="container">
-
-
-
-    <div class="row">
-
-
-
-<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 text-center">
-
-    <img src="images/testimonial_anthony.jpg" alt="">
-
-    </div>
-
-
-
-    <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
-
-
-
-    
-
-
-
-  <p>Jamie Lewis' Domainer Elite Pro software is AMAZING bc of it I found PlainGoldRing.com,</p>
-
-
-
-  <p>CooperLawyer.com, Avonlawyer.com, and countless others this thing is a GOLD FINDING</p>
-
-
-
-  <p>machine Get off the fence and buy this dang thing.</p>
-
-
-
-          <h3 class="red-txt">Anthony Aires</h3>
-
-
-
-    </div>
-
-
-
-  </div>
-
-
-
-  </div>
-
-
-
-</div>
 
 
 
@@ -817,8 +761,11 @@ if(typeof(_vis_opt_settings_loaded) == "boolean" && typeof(_vis_opt_top_initiali
 
 
 
-        <h3 class="red-txt">Emily<br>
-						</h3>
+        <h3 class="red-txt">Emily Smallwood<br>
+
+
+
+          <em>Melbourne, AUSTRALIA</em></h3>
 
 
 
@@ -2843,7 +2790,6 @@ Learn the skills to ramp your domain business
 
 
 </div>
-
 
 
 

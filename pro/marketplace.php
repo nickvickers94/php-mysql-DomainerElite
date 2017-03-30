@@ -134,13 +134,10 @@ if(typeof(_vis_opt_settings_loaded) == "boolean" && typeof(_vis_opt_top_initiali
 
 <div id="wrapper">
 <center><img src="images/domainer-elite2-small.png" /></center>
-<div id="headline">
+			<div id="headline">
 <span style="color: green">Step 1:</span> <font color="#33ff33">Want <span style="color: red; text-decoration: underline;">Unlimited</span> Marketplace Listings? <br>
-					Sell Dozens, even Hundreds of Domains a day..</font></div>
-<div id="video">
-<div id="player"></div>
-</div>
-<div id="timed" style="visibility: visible">
+				</font></div>
+			<div id="timed" style="visibility: visible">
 				<p></p>
 			</div>
 			<div id="timed" style="visibility: visible" align="center">
@@ -167,7 +164,7 @@ if(typeof(_vis_opt_settings_loaded) == "boolean" && typeof(_vis_opt_top_initiali
 					<h3 style="color: #fff; font-weight: bold; text-align: center;">30 Day Money Back Guarantee</h3>
 				</div>
 				<div id="nothanks">
-					<a href="https://www.jvzoo.com/nothanks/254081">No thank you. I don't want unlimited marketplace listings.</a></div>
+					<a href="http://www.domainerelite.com/members">No thank you. I don't want unlimited marketplace listings.</a></div>
 			</div>
 		</div>
 <p class="text-center">Copyright <?php echo date('Y'); ?> - All Right Reserved | <a href="http://www.domainerelite.com/iterms.php">Terms &amp; Conditions</a> | <a href="http://www.domainerelite.com/iprivacy.php">Privacy Policy</a> | <a href="http://www.domainerelite.com/members/">Paid Members</a> | <a href="mailto:specialprojectwithjamie@gmail.com">Contact</a> | <a href="http://champsites.com">Support</a> | <a href="http://www.domainerelite.com/jv/">Affiliates</a></p>
@@ -201,17 +198,11 @@ if(typeof(_vis_opt_settings_loaded) == "boolean" && typeof(_vis_opt_top_initiali
       }
 
 </script>
-
-
-
-<script language="javascript">
-
-  var exitsplashmessage =  "WAIT! Don't Leave Yet!";
-
-  var exitsplashpage = 'https://www.jvzoo.com/nothanks/254081';
-
+<script>
+    var exit_disabled = false;
+	var exit_redirect_message = 'Do you want to leave?';
+	var exit_redirect_url = 'https://www.jvzoo.com/nothanks/254081';	
 </script>
-
-<script language="javascript" src="/pro/exitsplash.js"></script>	
+<script src="http://www.domainerelite.com/pro/exit.js"></script>
 </body>
 </html>

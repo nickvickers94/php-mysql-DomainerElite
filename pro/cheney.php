@@ -63,6 +63,15 @@ if ($_GET['v']) {
 <link rel="shortcut icon" href="images/favicon.png" >
 
 
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+
+
+
+
+
+
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
 
 
 
@@ -97,7 +106,7 @@ if ($_GET['v']) {
 
 
 
-
+<script src="js/jquery.countdown.min.js"></script>
 
 
 <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
@@ -143,7 +152,15 @@ if(typeof(_vis_opt_settings_loaded) == "boolean" && typeof(_vis_opt_top_initiali
 </script>
 
 <!-- End Visual Website Optimizer Synchronous Code -->
-
+<style>
+#cheney {
+	background: #000;
+	color: red;
+	font-size: 32px;
+	font-weight: bold;
+	text-align: center;
+}
+</style>
 
 
 </head>
@@ -174,7 +191,12 @@ if(typeof(_vis_opt_settings_loaded) == "boolean" && typeof(_vis_opt_top_initiali
 
 
 
+<div id="cheney">
 
+<span style="font-size: 48px">Special Discount For Friends of Michael Cheney</span><br />ONLY Until April 2 @ 11:59PM EDT! 
+<div class="clock"></div>
+
+</div>
 
 
 
@@ -361,15 +383,15 @@ if(typeof(_vis_opt_settings_loaded) == "boolean" && typeof(_vis_opt_top_initiali
 <center>
 <h3 style="color: #fff;">EARLY BIRD OFFER <strike>$970</strike> $97 One Time Payment!</h3>
 <p class="btn-btm text-center"  style="border: 5px solid #fff; border-radius: 3px;">
-        <a href="https://www.jvzoo.com/b/42647/202319/4">
+        <a href="https://www.jvzoo.com/b/42647/202319/4?coupon=CHENEY">
           <span class="elButtonMain">JOIN DOMAINER ELITE PRO NOW!</span><br>
-<span class="elButtonSub">(90% OFF REGULAR PRICE TODAY)</span>
+<span class="elButtonSub">SPECIAL PRICE FOR FRIENDS OF MICHAEL CHENEY<br /><strike>$97</strike> $48.50 ONLY UNTIL APRIL 2, 2017<br /><span class="clock"></span></span>
 <img src="https://i.jvzoo.com/42647/202319/4" alt="Domainer Elite PRO Software And Marketplace" border="0" height=1 width =1 /></a>
         </a>
         <h3 style="color: #fff;">30 Day Money Back Guarantee</h3>
         </p>
 </center>
-<h2 class="text-center"><span class="orange-txt">(90% OFF REGULAR PRICE TODAY)</span></h2>
+<h2 class="text-center"><span class="yellow-txt">SPECIAL PRICE FOR FRIENDS OF MICHAEL CHENEY<br /><strike>$97</strike> $48.50 ONLY UNTIL APRIL 2, 2017</span><br /><div class="clock" style="color: white"></div></h2>
 
 
 
@@ -618,63 +640,7 @@ if(typeof(_vis_opt_settings_loaded) == "boolean" && typeof(_vis_opt_top_initiali
 
 
 
-<div id="section2a">
 
-
-
-  <div class="container">
-
-
-
-    <div class="row">
-
-
-
-<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 text-center">
-
-    <img src="images/testimonial_anthony.jpg" alt="">
-
-    </div>
-
-
-
-    <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
-
-
-
-    
-
-
-
-  <p>Jamie Lewis' Domainer Elite Pro software is AMAZING bc of it I found PlainGoldRing.com,</p>
-
-
-
-  <p>CooperLawyer.com, Avonlawyer.com, and countless others this thing is a GOLD FINDING</p>
-
-
-
-  <p>machine Get off the fence and buy this dang thing.</p>
-
-
-
-          <h3 class="red-txt">Anthony Aires</h3>
-
-
-
-    </div>
-
-
-
-  </div>
-
-
-
-  </div>
-
-
-
-</div>
 
 
 
@@ -2663,15 +2629,15 @@ Learn the skills to ramp your domain business
 <center>
 <h3 style="color: #fff;">EARLY BIRD OFFER <strike>$970</strike> $97 One Time Payment!</h3>
 <p class="btn-btm text-center"  style="border: 5px solid #fff; border-radius: 3px;">
-        <a href="https://www.jvzoo.com/b/42647/202319/4">
+        <a href="https://www.jvzoo.com/b/42647/202319/4?coupon=CHENEY">
           <span class="elButtonMain">JOIN DOMAINER ELITE PRO NOW!</span><br>
-<span class="elButtonSub">(90% OFF REGULAR PRICE TODAY)</span>
+<span class="elButtonSub">SPECIAL PRICE FOR FRIENDS OF MICHAEL CHENEY<br /> <strike>$97</strike> $48.50 ONLY UNTIL APRIL 2, 2017<br /><span class="clock"></span></span>
 <img src="https://i.jvzoo.com/42647/202319/4" alt="Domainer Elite PRO Software And Marketplace" border="0" height=1 width =1 /></a>
         </a>
         <h3 style="color: #fff;">30 Day Money Back Guarantee</h3>
         </p>
 </center>
-<h2 class="text-center"><span class="orange-txt">(90% OFF REGULAR PRICE TODAY)</span></h2>
+<h2 class="text-center"><span class="yellow-txt">SPECIAL PRICE FOR FRIENDS OF MICHAEL CHENEY<br /><strike>$97</strike> $48.50 ONLY UNTIL APRIL 2, 2017</span><br /><div class="clock" style="color: white"></div></h2>
 
 
 
@@ -3124,15 +3090,6 @@ Learn the skills to ramp your domain business
 
 
 
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-
-
-
-
-
-
-
-<script type="text/javascript" src="js/bootstrap.min.js"></script>
 
 
 
@@ -3145,7 +3102,11 @@ Learn the skills to ramp your domain business
 </script>
 
 <script language="javascript" src="exitsplash.js"></script>	
-
+<script>
+$('.clock').countdown('2017/04/02 23:59:59 EDT', function(event) {
+  $(this).html(event.strftime('%D days %H:%M:%S') + ' remaining.');
+});
+</script>
 
 
 </body>

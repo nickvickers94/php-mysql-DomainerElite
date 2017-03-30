@@ -358,17 +358,31 @@ if(typeof(_vis_opt_settings_loaded) == "boolean" && typeof(_vis_opt_top_initiali
 
 
 
-<center>
-<h3 style="color: #fff;">EARLY BIRD OFFER <strike>$970</strike> $97 One Time Payment!</h3>
-<p class="btn-btm text-center"  style="border: 5px solid #fff; border-radius: 3px;">
-        <a href="https://www.jvzoo.com/b/42647/202319/4">
-          <span class="elButtonMain">JOIN DOMAINER ELITE PRO NOW!</span><br>
-<span class="elButtonSub">(90% OFF REGULAR PRICE TODAY)</span>
-<img src="https://i.jvzoo.com/42647/202319/4" alt="Domainer Elite PRO Software And Marketplace" border="0" height=1 width =1 /></a>
-        </a>
-        <h3 style="color: #fff;">30 Day Money Back Guarantee</h3>
-        </p>
-</center>
+<center><a href="https://www.jvzoo.com/b/42647/202319/4"><img src="https://i.jvzoo.com/42647/202319/4" alt="Domainer Elite PRO Software And Marketplace" border="0" /></a></center>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <h2 class="text-center"><span class="orange-txt">(90% OFF REGULAR PRICE TODAY)</span></h2>
 
 
@@ -618,63 +632,7 @@ if(typeof(_vis_opt_settings_loaded) == "boolean" && typeof(_vis_opt_top_initiali
 
 
 
-<div id="section2a">
 
-
-
-  <div class="container">
-
-
-
-    <div class="row">
-
-
-
-<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 text-center">
-
-    <img src="images/testimonial_anthony.jpg" alt="">
-
-    </div>
-
-
-
-    <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
-
-
-
-    
-
-
-
-  <p>Jamie Lewis' Domainer Elite Pro software is AMAZING bc of it I found PlainGoldRing.com,</p>
-
-
-
-  <p>CooperLawyer.com, Avonlawyer.com, and countless others this thing is a GOLD FINDING</p>
-
-
-
-  <p>machine Get off the fence and buy this dang thing.</p>
-
-
-
-          <h3 class="red-txt">Anthony Aires</h3>
-
-
-
-    </div>
-
-
-
-  </div>
-
-
-
-  </div>
-
-
-
-</div>
 
 
 
@@ -817,8 +775,11 @@ if(typeof(_vis_opt_settings_loaded) == "boolean" && typeof(_vis_opt_top_initiali
 
 
 
-        <h3 class="red-txt">Emily<br>
-						</h3>
+        <h3 class="red-txt">Emily Smallwood<br>
+
+
+
+          <em>Melbourne, AUSTRALIA</em></h3>
 
 
 
@@ -2660,18 +2621,8 @@ Learn the skills to ramp your domain business
 							<h2></h2>
 
 
-<center>
-<h3 style="color: #fff;">EARLY BIRD OFFER <strike>$970</strike> $97 One Time Payment!</h3>
-<p class="btn-btm text-center"  style="border: 5px solid #fff; border-radius: 3px;">
-        <a href="https://www.jvzoo.com/b/42647/202319/4">
-          <span class="elButtonMain">JOIN DOMAINER ELITE PRO NOW!</span><br>
-<span class="elButtonSub">(90% OFF REGULAR PRICE TODAY)</span>
-<img src="https://i.jvzoo.com/42647/202319/4" alt="Domainer Elite PRO Software And Marketplace" border="0" height=1 width =1 /></a>
-        </a>
-        <h3 style="color: #fff;">30 Day Money Back Guarantee</h3>
-        </p>
-</center>
-<h2 class="text-center"><span class="orange-txt">(90% OFF REGULAR PRICE TODAY)</span></h2>
+<center><a href="https://www.jvzoo.com/b/42647/202319/4"><img src="https://i.jvzoo.com/42647/202319/4" alt="Domainer Elite PRO Software And Marketplace" border="0" /></a></center>
+
 
 
 
@@ -2843,8 +2794,6 @@ Learn the skills to ramp your domain business
 
 
 </div>
-
-
 
 
 
@@ -3076,7 +3025,7 @@ Learn the skills to ramp your domain business
 
 
 
-<p class="text-center">Copyright <?php echo date('Y'); ?> - All Right Reserved | <a href="http://www.domainerelite.com/iterms.php">Terms &amp; Conditions</a> | <a href="http://www.domainerelite.com/iprivacy.php">Privacy Policy</a> | <a href="http://www.domainerelite.com/members/">Paid Members</a> | <a href="http://www.champsites.com">Contact</a> | <a href="http://champsites.com">Support</a> | <a href="http://www.domainerelite.com/jv/">Affiliates</a></p>
+<p class="text-center">Copyright 2016 - All Right Reserved | <a href="http://www.domainerelite.com/iterms.php">Terms &amp; Conditions</a> | <a href="http://www.domainerelite.com/iprivacy.php">Privacy Policy</a> | <a href="http://www.domainerelite.com/members/">Paid Members</a> | <a href="mailto:specialprojectwithjamie@gmail.com">Contact</a> | <a href="http://champsites.com">Support</a></p>
 
 
 

@@ -1,8 +1,14 @@
+<?php 
+	$video = '_KAehuUncqw';
+	$height = 540;
+	$width = 960;
+	$showButtonAtPercent = 50;
+?>
 <!DOCTYPE html>
 <html>
 <head>
 <title>Domainer Elite PRO</title>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
@@ -94,8 +100,7 @@ a {
 <span style="color: green">Step 4:</span> Want Jamie to work <span style="color: red; text-decoration: underline;">exclusively</span><br />on a project with you?
 </div>
 <div id="video">
-<div style="position: absolute; z-index:100; height: 540px; width: 960px;"></div>
-<iframe width="960" height="540" src="https://www.youtube.com/embed/_KAehuUncqw?rel=0&amp;controls=0&amp;showinfo=0&amp;autoplay=1;&amp;modestbranding=1" frameborder="0"></iframe>
+<div id="player"></div>
 </div>
 
 <div class="order">
@@ -249,14 +254,53 @@ http://www.beats365.com</p><br />
 <img src="images/13.png" /><br /><br />
 <img src="images/productsbig.png" /><br />
 </div>
+<div id="timed" style="visibility: visible">
 <div class="order">
 <center><p style="font-size: 24px; font-weight: bold">Let Jamie Build YOUR Custom Site for Only <strike>$1,997.00</strike> $997.00</p></center>
+
 <a href="https://www.jvzoo.com/b/0/254087/99" class="btn btn-warning btn-lg btn-block" name="submit" style="line-height: 12px;"><i class="fa fa-globe"></i> Build My Site Now!<span style="font-size: 18px; line-height: 18px;"><br />Immediate $1000 Discount Applied!</span></a>
 </div>
 <div class="nothanks">
 <a href="http://www.domainerelite.com/members/">No thank you.</a>
 </div>
 </div>
-<p class="text-center">Copyright <?php echo date('Y'); ?> - All Right Reserved | <a href="http://www.domainerelite.com/iterms.php">Terms &amp; Conditions</a> | <a href="http://www.domainerelite.com/iprivacy.php">Privacy Policy</a> | <a href="mailto:specialprojectwithjamie@gmail.com">Contact</a></p>
+</div>
+<p class="text-center">Copyright <?php echo date('Y'); ?> - All Right Reserved | <a href="http://www.domainerelite.com/iterms.php">Terms &amp; Conditions</a> | <a href="http://www.domainerelite.com/iprivacy.php">Privacy Policy</a> | <a href="http://www.domainerelite.com/members/">Paid Members</a> | <a href="mailto:specialprojectwithjamie@gmail.com">Contact</a> | <a href="http://champsites.com">Support</a> | <a href="http://www.domainerelite.com/jv/">Affiliates</a></p>
+<script>
+      var tag = document.createElement('script');
+      tag.src = "https://www.youtube.com/iframe_api";
+      var firstScriptTag = document.getElementsByTagName('script')[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+      var player;
+      function onYouTubeIframeAPIReady() {
+        player = new YT.Player('player', {
+          height: '<?php echo $height; ?>',
+          width: '<?php echo $width; ?>',
+          playerVars: { 'autoplay': 1, 'controls': 0, 'showinfo': 0, 'rel': 0 },
+          videoId: '<?php echo $video; ?>',
+          events: {
+            'onStateChange': onPlayerStateChange
+          }
+        });
+      }
+      function onPlayerStateChange(event) {
+        if (event.data == YT.PlayerState.PLAYING) {
+         	var duration = player.getDuration();
+         	var percent = <?php echo $showButtonAtPercent / 100; ?>;
+         	var timer = (duration * percent) * 1000;
+         	setTimeout(function(){  document.getElementById("timed").style.visibility = "visible"; }, timer);
+        }
+      }
 
+</script>
+<script>
+    var exit_disabled = false;
+	var exit_redirect_message = 'Do you want to leave?';
+	var exit_redirect_url = 'https://www.domainerelite.com/members/';	
+</script>
+<script src="http://www.domainerelite.com/pro/exit.js?t=<?php echo time(); ?>"></script>
 </body>
+</html>
+<img src="https://i.jvzoo.com/0/254087/99" alt="Special Project With Jamie" border="0" width='1' height='1' />
+</body>
+</html>
