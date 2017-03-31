@@ -646,15 +646,15 @@ if(typeof(_vis_opt_settings_loaded) == "boolean" && typeof(_vis_opt_top_initiali
 
 
 
-  <p>Jamie Lewis' Domainer Elite Pro software is AMAZING bc of it I found PlainGoldRing.com,</p>
+  <p>Jamie Lewis' Domainer Elite Pro software is AMAZING!</p>
 
 
 
-  <p>CooperLawyer.com, Avonlawyer.com, and countless others this thing is a GOLD FINDING</p>
+  <p>I found PlainGoldRing.com, CooperLawyer.com, Avonlawyer.com, and countless others.</p>
 
 
 
-  <p>machine Get off the fence and buy this dang thing.</p>
+  <p>This thing is a GOLD FINDING machine. Get off the fence and buy this dang thing.</p>
 
 
 
