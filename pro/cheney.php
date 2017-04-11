@@ -383,15 +383,15 @@ if(typeof(_vis_opt_settings_loaded) == "boolean" && typeof(_vis_opt_top_initiali
 <center>
 <h3 style="color: #fff;">EARLY BIRD OFFER <strike>$970</strike> $97 One Time Payment!</h3>
 <p class="btn-btm text-center"  style="border: 5px solid #fff; border-radius: 3px;">
-        <a href="https://www.jvzoo.com/b/42647/202319/4?coupon=CHENEY">
+        <a href="https://www.jvzoo.com/b/42647/202319/4">
           <span class="elButtonMain">JOIN DOMAINER ELITE PRO NOW!</span><br>
-<span class="elButtonSub">SPECIAL PRICE FOR FRIENDS OF MICHAEL CHENEY<br /><strike>$97</strike> $48.50 ONLY UNTIL APRIL 2, 2017<br /><span class="clock"></span></span>
+<span class="elButtonSub">(90% OFF REGULAR PRICE TODAY)</span>
 <img src="https://i.jvzoo.com/42647/202319/4" alt="Domainer Elite PRO Software And Marketplace" border="0" height=1 width =1 /></a>
         </a>
         <h3 style="color: #fff;">30 Day Money Back Guarantee</h3>
         </p>
 </center>
-<h2 class="text-center"><span class="yellow-txt">SPECIAL PRICE FOR FRIENDS OF MICHAEL CHENEY<br /><strike>$97</strike> $48.50 ONLY UNTIL APRIL 2, 2017</span><br /><div class="clock" style="color: white"></div></h2>
+<h2 class="text-center"><span class="orange-txt">(90% OFF REGULAR PRICE TODAY)</span></h2>
 
 
 
@@ -2623,21 +2623,18 @@ Learn the skills to ramp your domain business
 
 
 
-							<h2></h2>
-
-
 <center>
 <h3 style="color: #fff;">EARLY BIRD OFFER <strike>$970</strike> $97 One Time Payment!</h3>
 <p class="btn-btm text-center"  style="border: 5px solid #fff; border-radius: 3px;">
-        <a href="https://www.jvzoo.com/b/42647/202319/4?coupon=CHENEY">
+        <a href="https://www.jvzoo.com/b/42647/202319/4">
           <span class="elButtonMain">JOIN DOMAINER ELITE PRO NOW!</span><br>
-<span class="elButtonSub">SPECIAL PRICE FOR FRIENDS OF MICHAEL CHENEY<br /> <strike>$97</strike> $48.50 ONLY UNTIL APRIL 2, 2017<br /><span class="clock"></span></span>
+<span class="elButtonSub">(90% OFF REGULAR PRICE TODAY)</span>
 <img src="https://i.jvzoo.com/42647/202319/4" alt="Domainer Elite PRO Software And Marketplace" border="0" height=1 width =1 /></a>
         </a>
         <h3 style="color: #fff;">30 Day Money Back Guarantee</h3>
         </p>
 </center>
-<h2 class="text-center"><span class="yellow-txt">SPECIAL PRICE FOR FRIENDS OF MICHAEL CHENEY<br /><strike>$97</strike> $48.50 ONLY UNTIL APRIL 2, 2017</span><br /><div class="clock" style="color: white"></div></h2>
+<h2 class="text-center"><span class="orange-txt">(90% OFF REGULAR PRICE TODAY)</span></h2>
 
 
 
@@ -2809,6 +2806,7 @@ Learn the skills to ramp your domain business
 
 
 </div>
+
 
 
 

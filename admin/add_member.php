@@ -39,7 +39,7 @@
 		<h1>Add Member</h1>
 		<?php if ($message): ?>
 			<strong><?php echo $message; ?></strong>
-		<? endif ?>
+		<? endif; ?>
 		<form action="add_member.php" method="post">
 			<table>
 				<tr>
