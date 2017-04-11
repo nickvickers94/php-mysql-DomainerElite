@@ -2,43 +2,65 @@
 <script type="text/javascript" src='plugins/jquery-ui/jquery-ui.custom.min.js'></script>
 
 
-<script type="text/javascript" src="plugins/jquery-file-upload/js/vendor/jquery.ui.widget.js"></script>
-<script type="text/javascript" src="plugins/jquery-file-upload/js/jquery.iframe-transport.js"></script>
-<script type="text/javascript" src="plugins/jquery-file-upload/js/jquery.fileupload.js"></script>
-<!-- The Load Image plugin is included for the preview images and image resizing functionality -->
-<script type="text/javascript" src="plugins/jquery-file-upload/js/load-image.min.js"></script>
-<!-- The Canvas to Blob plugin is included for image resizing functionality -->
-<script type="text/javascript" src="plugins/jquery-file-upload/js/canvas-to-blob.min.js"></script>
-<!-- The Iframe Transport is required for browsers without support for XHR file uploads -->
-<script type="text/javascript" src="plugins/jquery-file-upload/js/jquery.iframe-transport.js"></script>
-<!-- The File Upload processing plugin -->
-<script type="text/javascript" src="plugins/jquery-file-upload/js/jquery.fileupload-process.js"></script>
-<!-- The File Upload image preview & resize plugin -->
-<script type="text/javascript" src="plugins/jquery-file-upload/js/jquery.fileupload-image.js"></script>
-<!-- The File Upload audio preview plugin -->
-<script type="text/javascript" src="plugins/jquery-file-upload/js/jquery.fileupload-audio.js"></script>
-<!-- The File Upload video preview plugin -->
-<script type="text/javascript" src="plugins/jquery-file-upload/js/jquery.fileupload-video.js"></script>
-<!-- The File Upload validation plugin -->
-<script type="text/javascript" src="plugins/jquery-file-upload/js/jquery.fileupload-validate.js"></script>
-<!-- The File Upload UI plugin -->
-<script type="text/javascript" src="plugins/jquery-file-upload/js/jquery.fileupload-ui.js"></script>
-
-
-<script type="text/javascript">
-$(window).load(function() 
-{
-	"use strict";
-	
-	$( "#datepicker-normal" ).datepicker({ 
-		dateFormat: 'dd M yy',
-		changeMonth: true,
-		changeYear: true
-	
-	});
+<script src="plugins/jquery-file-upload/js/jquery.iframe-transport.js"></script>
+<!-- The basic File Upload plugin -->
+<script src="plugins/jquery-file-upload/js/jquery.fileupload.js"></script>
 
 
 
-	
-})
+
+
+<script>
+/*jslint unparam: true */
+/*global window, $ */
+$(function () {
+    'use strict';
+    // Change this to the location of your server-side upload handler:
+    var url = window.location.hostname === 'blueimp.github.io' ?
+                '//jquery-file-upload.appspot.com/' : 'plugins/jquery-file-upload/server/php/';
+   
+    $('#fileupload').fileupload({
+        url: url,
+        dataType: 'json',
+        done: function (e, data) {
+            $.each(data.result.files, function (index, file) {
+                $("#profileimage").attr('src', 'http://www.domainerelite.com/members/images/members/' + file.name);
+            });
+            $("#progress").css('visibility','hidden');
+            $('#progress .progress-bar').css(
+                'width',
+                0 + '%'
+            );
+        },
+        progressall: function (e, data) {
+            var progress = parseInt(data.loaded / data.total * 100, 10);
+            $("#progress").css('visibility','visible');
+            $('#progress .progress-bar').css(
+                'width',
+                progress + '%'
+            );
+        }
+    }).prop('disabled', !$.support.fileInput)
+        .parent().addClass($.support.fileInput ? undefined : 'disabled');
+});
+
+$("#profileform").submit(function(e) {
+	$.ajax({
+           type: "POST",
+           url: $("#profileform").attr('action'),
+           data: $("#profileform").serialize(), // serializes the form's elements.
+           dataType: "json",
+           success: function(data)
+           {
+               if (data.status == 'success') {
+    				$('.alert-success').css('display', 'block').fadeOut(5000);
+               } else {
+					$('.alert-danger').css('display', 'block').fadeOut(5000);
+               }
+           }
+      });
+
+    e.preventDefault(); // avoid to execute the actual submit of the form.
+});
 </script>
+

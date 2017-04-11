@@ -6,6 +6,9 @@
 		$(document).ready(function() {
 				"use strict";
 				
-				$('#data-tables').dataTable();
+				$('#data-tables').dataTable({
+				columnDefs: [{ targets: 'no-sort', orderable: false }],
+				"order": [[ 2, "desc" ], [ 3, "desc" ]]
+				});
 		} );
 </script>
