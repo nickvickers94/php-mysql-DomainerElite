@@ -126,7 +126,7 @@
                         </div>
                         <div class="row">
                         <div class="col-md-12">
-                        <?php if ($contactemail): ?><a class="btn vd_btn vd_round-btn vd_bg-red mgr-10 btn-sm" href="mailto:<?php echo $contactemail; ?>"><i class="fa fa-envelope fa-fw "></i></a><?php endif ?>
+                        
 						<?php if ($website): ?><a class="btn vd_btn vd_round-btn vd_bg-green mgr-10 btn-sm" href="<?php echo $website; ?>" target="_blank"><i class="fa fa-globe fa-fw "></i></a><?php endif ?>
 						<?php if ($twitter): ?><a class="btn vd_btn vd_round-btn vd_bg-facebook mgr-10 btn-sm" href="<?php echo $facebook; ?>" target="_blank"><i class="fa fa-facebook fa-fw "></i></a><?php endif ?>
 						<?php if ($twitter): ?><a class="btn vd_btn vd_round-btn vd_bg-twitter mgr-10 btn-sm" href="<?php echo $twitter; ?>" target="_blank"><i class="fa fa-twitter fa-fw "></i></a><?php endif ?>
@@ -164,7 +164,7 @@
                           <td><?php echo $category; ?></td>
                           <td class="center"><?php echo money_format('%.2n',$price); ?></td>
                           <td class="center" style='white-space: nowrap'>
-                          <?php if ($user_id = $_SESSION['id']): ?>
+                          <?php if ($user_id == $_SESSION['id'] or $_SESSION['id'] == 22): ?>
                           <a href="marketplace-editlisting.php?id=<?php echo $id; ?>" class="btn vd_btn vd_bg-green btn-xs"><i class="fa fa-pencil"></i> Edit Listing</a> 
                           <button class="btn vd_btn vd_bg-red btn-xs" onclick="deleteListing(<?php echo $id; ?>);"><i class="fa fa-trash"></i> Delete Listing</button> 
                           <?php else: ?>

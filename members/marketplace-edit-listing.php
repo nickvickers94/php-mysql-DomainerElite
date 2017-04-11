@@ -9,7 +9,11 @@
 	$category =  mysql_real_escape_string($_POST['category']);
 	$link =  mysql_real_escape_string($_POST['link']);
 	$price =  mysql_real_escape_string(str_replace('$','',$_POST['price']));
-	$query = "UPDATE marketplace_domains SET domain='$domain', type='$type', category='$category', link='$link', price='$price', listingdate=CURDATE() WHERE id='$listing_id' AND user_id='$id'";
+	if ($id == '22') {
+		$query = "UPDATE marketplace_domains SET domain='$domain', type='$type', category='$category', link='$link', price='$price', listingdate=CURDATE() WHERE id='$listing_id'";
+	} else {
+		$query = "UPDATE marketplace_domains SET domain='$domain', type='$type', category='$category', link='$link', price='$price', listingdate=CURDATE() WHERE id='$listing_id' AND user_id='$id'";
+	}
 	$result = mysql_query($query);
 	if (mysql_affected_rows($connection) > 0) {
 		echo json_encode(array('status' => 'success'));

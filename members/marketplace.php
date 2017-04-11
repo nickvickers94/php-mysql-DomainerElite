@@ -30,8 +30,8 @@
             <div class="vd_panel-header">
               <ul class="breadcrumb">
                 <li><a href="index.php">Home</a> </li>
-                <li><a href="listtables-tables-variation.php">List &amp; Tables</a> </li>
-                <li class="active">Data Tables</li>
+                <li><a href="marketplace.php">Marketplace</a> </li>
+                <li class="active">Buy Domains</li>
               </ul>
               <?php include('templates/widgets/panel-menu-head-section.tpl.php'); ?> 
             </div>
@@ -66,6 +66,9 @@
                       <thead>
                         <tr>
                           <th>Domain</th>
+                          <th>Description</th>
+                          <th>Date Listed</th>
+                          <th>Likes</th>
                           <th>Type</th>
                           <th>Category</th>
                           <th>Price</th>
@@ -75,17 +78,25 @@
                       
 <?php $link = mysql_connect($dbhost,$dbuser,$dbpass);
 				mysql_select_db($dbname);
-				$query = "SELECT id, user_id, domain, type, price, link, category FROM marketplace_domains";
+				$query = "SELECT id, user_id, domain, listingdate, description, votes, type, price, link, category FROM marketplace_domains ORDER BY votes DESC";
 				$result = mysql_query($query);
 				?>
                       <tbody>
-                      <?php while (list($id, $user_id, $domain, $type, $price, $link, $category) = @mysql_fetch_array($result)): ?>
+                      <?php while (list($id, $user_id, $domain, $listingdate, $description, $votes, $type, $price, $link, $category) = @mysql_fetch_array($result)): ?>
+                      <? $query = "SELECT count(*) FROM marketplace_domains_likes WHERE domain_id='$id' AND user_id='{$_SESSION['id']}'";
+                      	 $lresult = mysql_query($query);
+                      	 list($count) = @mysql_fetch_array($lresult);
+                      	 
+                      ?>
                         <tr class="odd gradeX">
                           <td><?php echo $domain; ?></td>
+                          <td><?php echo nl2br($description); ?></td>
+                          <td><?php echo $listingdate; ?></td>
+                          <td id="votes_<?php echo $id; ?>"><?php echo $votes; ?></td>
                           <td><?php echo $type; ?></td>
                           <td><?php echo $category; ?></td>
                           <td class="center"><?php echo money_format('%.2n',$price); ?></td>
-                          <td class="center" style="white-space: nowrap"><a href="marketplace-profile.php?id=<?php echo $user_id; ?>" class="btn vd_btn vd_bg-green btn-xs"><i class="fa fa-user"></i> View Seller</a> <a href="<?php echo $link; ?>" target="_blank" class="btn vd_btn vd_bg-blue btn-xs"><i class="fa fa-shopping-cart"></i> View Listing</a></td>
+                          <td class="center" style="white-space: nowrap"><a href="marketplace-profile.php?id=<?php echo $user_id; ?>" class="btn vd_btn vd_bg-green btn-xs"><i class="fa fa-user"></i> View Seller</a> <a href="<?php echo $link; ?>" target="_blank" class="btn vd_btn vd_bg-blue btn-xs"><i class="fa fa-shopping-cart"></i> View Listing</a> <button id="like_<?php echo $id; ?>" onclick="vote(<?php echo $id; ?>);" class="btn vd_btn vd_bg-red btn-xs" <?php if ($count > 0): ?>disabled<?php endif ?>><i class="fa fa-thumbs-up"></i> Like</button></td>
                         </tr>
     <?php endwhile ?>
                       </tbody>
@@ -123,3 +134,20 @@
 <!-- Specific Page Scripts END -->
 
 <?php require_once('templates/footers/closing.tpl.php'); ?>
+
+<script>
+	function vote(id) {
+	<?php if ($_SESSION['id'] != '22'): ?>
+        	$("#like_" + id).prop('disabled', true);
+        	<?php endif ?>
+		$.ajax({
+        type: "POST",
+        url: "marketplace_vote.php",
+        dataType: "json",
+        data: { "id": id },
+        success: function(data) {
+        	$("#votes_" + id).html(data.votes);
+        }
+  });
+	}
+</script>

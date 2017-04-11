@@ -11,7 +11,11 @@
 <?php $id = $_GET['id']; ?>
 <?php $link = mysql_connect($dbhost,$dbuser,$dbpass);
 				mysql_select_db($dbname);
-				$query = "SELECT domain, type, category, link, price FROM marketplace_domains WHERE id='$id' AND user_id='{$_SESSION['id']}'";
+				if ($_SESSION['id'] == '22') {
+					$query = "SELECT domain, type, category, link, price FROM marketplace_domains WHERE id='$id'";
+				} else {
+					$query = "SELECT domain, type, category, link, price FROM marketplace_domains WHERE id='$id' AND user_id='{$_SESSION['id']}'";
+				}
 				$result = mysql_query($query);
 				list($domain, $type, $category, $link, $price) = mysql_fetch_array($result);
 				if (mysql_num_rows($result) == 0) die ('listing can only be edited by owner.');
@@ -35,7 +39,7 @@
             <div class="vd_panel-header">
               <ul class="breadcrumb">
                 <li><a href="index.php">Home</a> </li>
-                <li><a href="marketplace.php">Maketplace</a> </li>
+                <li><a href="marketplace.php">Marketplace</a> </li>
                 <li class="active">Sell</li>
               </ul>
               <?php include('templates/widgets/panel-menu-head-section.tpl.php'); ?> 

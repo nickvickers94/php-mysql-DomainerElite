@@ -35,7 +35,7 @@
             <div class="vd_panel-header">
               <ul class="breadcrumb">
                 <li><a href="index.php">Home</a> </li>
-                <li><a href="marketplace.php">Maketplace</a> </li>
+                <li><a href="marketplace.php">Marketplace</a> </li>
                 <li class="active">Edit Profile</li>
               </ul>
               <?php include('templates/widgets/panel-menu-head-section.tpl.php'); ?> 

@@ -97,12 +97,27 @@
                           </div>
                           <!-- form-group -->
                           
+                            <div class="form-group">
+                            <label class="col-sm-3 control-label">Description</label>
+                            <div class="col-sm-9 controls">
+                              <div class="row mgbt-xs-0">
+                                <div class="col-xs-9">
+                                  <textarea class="form-control" name="description" data-rule-required="true"></textarea>
+                                </div>
+                                <!-- col-xs-9 -->
+               
+                              </div>
+                              <!-- row --> 
+                            </div>
+                            <!-- col-sm-10 --> 
+                          </div>
+                          
                           <div class="form-group">
                             <label class="col-sm-3 control-label">Category</label>
                             <div class="col-sm-9 controls">
                               <div class="row mgbt-xs-0">
                                 <div class="col-xs-9">
-                                 <select name="category" class="selectpicker form-control">
+                                 <select id="category" name="category" class="selectpicker form-control">
                                  <option>business</option>
                                  <option>politics</option>
                                  <option>science</option>
@@ -200,3 +215,13 @@
 <!-- Specific Page Scripts END -->
 
 <?php require_once('templates/footers/closing.tpl.php'); ?>
+
+<script>
+	$("#category").change(function() {
+		if ($("#category").val() == 'premium domains') {
+			$("#link").val('https://godaddy.com/domains/searchresults.aspx?checkAvail=1&tmskey=&domainToCheck=' + $("#domain").val());
+		} else {
+			$("#link").val('');
+		}
+	});
+</script>
