@@ -1,5 +1,10 @@
 <?php include 'membercontrol/auth.php'; ?>
 <?php require_once('templates/headers/opening.tpl.php'); ?>
+<?
+$layout = 'full-layout'; // 'full-layout', 'middle-layout', 'boxed-layout'  
+  $navbar_top_fixed = 0;
+  ?>
+
 <?php setlocale(LC_MONETARY, 'en_US.UTF-8'); ?>
 
 <!-- Specific Page Data -->

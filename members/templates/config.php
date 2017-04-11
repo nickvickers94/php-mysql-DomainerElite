@@ -14,8 +14,8 @@
 
 	$responsive = 0; // 1= Responsive, 0 = Non Responsive 
 	$width_non_responsive = 960; // Width for middle or boxed layout with non responsive ( if $responsive set to 0)
-	$layout = 'full-layout'; // 'full-layout', 'middle-layout', 'boxed-layout'	
-	$navbar_top_fixed = 0; // 1 = Top Navigation bar follow when scroll down, 0 = normal
+	$layout = 'boxed-layout'; // 'full-layout', 'middle-layout', 'boxed-layout'	
+	$navbar_top_fixed = 1; // 1 = Top Navigation bar follow when scroll down, 0 = normal
 
 
 
