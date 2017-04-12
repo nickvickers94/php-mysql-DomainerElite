@@ -84,7 +84,7 @@
                           <td><?php echo $domain; ?></td>
                           <td><?php echo $type; ?></td>
                           <td><?php echo $category; ?></td>
-                          <td class="center"><?php echo money_format('%.2n',$price); ?></td>
+                          <td class="center"><?php echo($price); ?></td>
                           <td class="center" style='white-space: nowrap'>
                           <?php if ($user_id = $_SESSION['id']): ?>
                           <a href="marketplace-editlisting.php?id=<?php echo $id; ?>" class="btn vd_btn vd_bg-green btn-xs"><i class="fa fa-pencil"></i> Edit Listing</a> 

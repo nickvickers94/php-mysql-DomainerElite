@@ -154,7 +154,7 @@
                             <div class="col-sm-9 controls">
                               <div class="row mgbt-xs-0">
                                 <div class="col-xs-9">
-                                  <input type="text" name="price" id="price"  placeholder="Price" data-rule-required="true" data-rule-currency="true" value="<?php echo money_format('%.2n',$price); ?>">
+                                  <input type="text" name="price" id="price"  placeholder="Price" data-rule-required="true" data-rule-currency="true" value="<?php echo($price); ?>">
                                 </div>
                                 <!-- col-xs-9 -->
                
