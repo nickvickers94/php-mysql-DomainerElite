@@ -170,7 +170,7 @@ Domainer Elite Marketplace</div>
                           <td><?php echo $type; ?></td>
                           <td><?php echo $category; ?></td>
                           <td class="center"><?php echo money_format('%.2n',$price); ?></td>
-                          <td class="center" style="white-space: nowrap"><a href="http://www.domainerelite.com/pro/" class="btn btn-info btn-xs"><i class="fa fa-user"></i> View Seller</a> <a href="http://www.domainerelite.com/pro/" target="_blank" class="btn btn-success btn-xs"><i class="fa fa-shopping-cart"></i> View Listing</a> <a href="http://www.domainerelite.com/pro/" id="like_<?php echo $id; ?>" class="btn btn-primary btn-xs" <?php if ($count > 0): ?>disabled<?php endif ?>><i class="fa fa-thumbs-up"></i> Like</a></td>
+                          <td class="center" style="white-space: nowrap"><a href="" class="btn btn-info btn-xs"><i class="fa fa-user"></i> View Seller</a> <a href="<?=$link?>" target="_blank" class="btn btn-success btn-xs"><i class="fa fa-shopping-cart"></i> View Listing</a> <a href="" id="like_<?php echo $id; ?>" class="btn btn-primary btn-xs" <?php if ($count > 0): ?>disabled<?php endif ?>><i class="fa fa-thumbs-up"></i> Like</a></td>
                         </tr>
     <?php endwhile ?>
                       </tbody>

@@ -35,7 +35,7 @@
     }, 200);
     function unload_event(e){
         if (exit_disabled === false) {
-           if (e) {
+            if (e) {
                 e.returnValue = exit_redirect_message;
             }
             setTimeout(function () {
