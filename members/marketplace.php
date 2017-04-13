@@ -24,6 +24,12 @@
 
 <?php require_once('templates/headers/'.$header.'.tpl.php'); ?>
 
+<style type="text/css">
+  .button_column {
+    width: 300px;
+  }
+</style>
+
 <div class="content">
   <div class="container">
     <?php
@@ -121,9 +127,10 @@
     "use strict";
     
     $('#data-tables').dataTable({
-      columnDefs: [{ targets: 'no-sort', orderable: false }],
-      "order": [[ 2, "desc" ], [ 3, "desc" ]],
-      "ajax": 'marketplace-data.php'
+      "ajax": 'marketplace-data.php',
+      "columnDefs": [
+        { className: "button_column", "targets": [ 7 ] }
+      ]
     });
   });
 </script>
